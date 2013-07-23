@@ -24,3 +24,14 @@ Run the server
 	rails s 
 
 et voilá
+
+=== Little Git workflow
+
+Make changes, then 
+	git add -A
+
+Tell the others waht you did
+	git commit -m “description of changes”
+
+Off to Github
+	git push
