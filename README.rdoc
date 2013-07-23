@@ -12,26 +12,26 @@ Rails version 4.0
 === Deployment
 
 Get the code from this repo
-	git clone
+    git clone
 
 Install all the gems
-	bundle install
+    bundle install
 
 Spice up the database
-	rake db:migrate
+    rake db:migrate
 
 Run the server
-	rails s 
+    rails s 
 
 et voilá
 
 === Little Git workflow
 
 Make changes, then 
-	git add -A
+    git add -A
 
 Tell the others waht you did
-	git commit -m “description of changes”
+    git commit -m “description of changes”
 
 Off to Github
-	git push
+    git push
