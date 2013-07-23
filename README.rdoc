@@ -6,14 +6,15 @@ This little app is just the one for you!
 An overview of who meets when, where, with whom to work on what.
 
 === Just some general information:
-Ruby version 1.9.3
+Ruby version 1.9.3  
 Rails version 4.0
 
-=== Deployment
-
+=== Get the code
 Get the code from this repo
     git clone
 
+
+=== Deploy
 Install all the gems
     bundle install
 
@@ -25,8 +26,7 @@ Run the server
 
 et voilá
 
-=== Little Git workflow
-
+=== Git
 Make changes, then 
     git add -A
 
