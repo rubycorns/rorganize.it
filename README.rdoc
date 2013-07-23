@@ -1,28 +1,26 @@
-== README
+== RailsGrilsApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
+This little app is just the one for you!
 
-Things you may want to cover:
+An overview of who meets when, where, with whom to work on what.
 
-* Ruby version
+=== Just some general information:
+Ruby version 1.9.3
+Rails version 4.0
 
-* System dependencies
+=== Deployment
 
-* Configuration
+Get the code from this repo
+	git clone
 
-* Database creation
+Install all the gems
+	bundle install
 
-* Database initialization
+Spice up the database
+	rake db:migrate
 
-* How to run the test suite
+Run the server
+	rails s 
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+et voilá
