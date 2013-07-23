@@ -1,8 +1,8 @@
 == Push App to GitHub
 
-==> git add –A
-==> git commit -m "description of changes"
-==> git push
+- git add –A
+- git commit -m "description of changes"
+- git push
 
 
 
