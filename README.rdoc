@@ -1,12 +1,38 @@
-== Push App to GitHub
+== README
+== RailsGirlsApp
 
-- git add –A
-- git commit -m "description of changes"
-- git push
+You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
+This little app is just the one for you!
+
+An overview of who meets when, where, with whom to work on what.
+
+=== Just some general information:
+Ruby version 1.9.3  
+Rails version 4.0
+
+=== Get the code
+Get the code from this repo
+    git clone
 
 
+=== Deploy
+Install all the gems
+    bundle install
 
+Spice up the database
+    rake db:migrate
 
+Run the server
+    rails s 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+et voilá
+
+=== Git
+Make changes, then 
+    git add -A
+
+Tell the others what you did
+    git commit -m “description of changes”
+
+Off to Github
+    git push
