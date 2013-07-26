@@ -1,4 +1,5 @@
-== RailsGrilsApp
+== README
+== RailsGirlsApp
 
 You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
 This little app is just the one for you!
