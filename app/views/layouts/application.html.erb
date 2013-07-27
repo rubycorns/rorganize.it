@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RailsGirlsApp</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="header-container">
+    <nav class="navbar navbar-fixed-top">
+      <div class="container">
+        <a class="brand" href="#">RailsGirlsApp</a>
+        <ul class="nav pull-right">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/">Groups</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-<%= yield %>
+  <div class="main-container">
 
+      <%= yield %>
+
+  </div>
+
+  <footer class="footer-container">
+    <div class="container">
+      <p class="pull-left">made with <span class="icon-heart"></span> by the RailsGirlsBerlin <strong>TuesdaysProjectGroup</strong></p>
+      <ul class="inline pull-right">
+        <li><a href="https://github.com/KaMaria/RailsGirlsApp">Code on Github</a></li>
+        <li><a href="http://huboard.com/KaMaria/RailsGirlsApp/board">Collab on Huboard</a></li>
+      </ul>
+    </div>
+  </footer>
 </body>
 </html>
