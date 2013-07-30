@@ -4,6 +4,9 @@ RailsGirlsApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'groups#index'
+   
+  #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)  
+   resources :groups 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

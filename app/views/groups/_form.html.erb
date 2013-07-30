@@ -1,0 +1,22 @@
+<%= form_for(@group) do |f|  %>
+
+	<legend>Register new group</legend><br />
+	<div class="form-group">
+		<div class="field">
+	    <%= f.text_field :name, :placeholder => 'Name of the group' %>
+		</div><br />
+		<div class="field">
+	    <%= f.text_field :address, :placeholder => 'Where we meet' %>
+		</div><br />
+		<div class="field">
+	    <%= f.text_field :time, :placeholder => 'When we meet' %>
+		</div><br />
+		<div class="field">
+	    <%= f.number_field :number_of_members, :placeholder => 'Max number of participants' %>
+		</div><br />
+		<div class="actions">
+	    <%= f.submit :class => "btn btn-primary" %>
+		</div>
+	</div>
+  
+<% end %>
