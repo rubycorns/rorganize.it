@@ -21,8 +21,10 @@
   </header>
 
   <div class="main-container">
-
-      <%= yield %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <%= yield %>
 
   </div>
 
