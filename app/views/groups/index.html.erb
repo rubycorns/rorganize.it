@@ -1,5 +1,29 @@
 <div class="container">
-	<h1>Welcome to the rails girls app!</h1>
-	<%= link_to "register new group", new_group_path, :class => 'btn btn-primary' %>
+	<h1>Welcome to the rails girls app!</h1><br /><br />
+	<div class="row-fluid">
+		 <div class="span8">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Time</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @groups.each do |group| %>
+						<tr>
+							<td><%= group.name %></td>
+							<td><%= group.address %></td>
+							<td><%= group.time %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="sidebar span4">
+			<p>If you don't see your project group - feel free to add it! </p>
+			<%= link_to "register new group", new_group_path, :class => 'btn btn-primary' %>
+		</div>
+	</div>
 </div>
-
