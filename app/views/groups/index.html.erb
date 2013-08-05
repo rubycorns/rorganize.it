@@ -8,6 +8,7 @@
 						<th>Name</th>
 						<th>Address</th>
 						<th>Time</th>
+						<th>Edit</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -16,6 +17,7 @@
 							<td><%= group.name %></td>
 							<td><%= group.address %></td>
 							<td><%= group.time %></td>
+							<td><%= link_to "edit", edit_group_path(group) %></td>
 						</tr>
 					<% end %>
 				</tbody>
