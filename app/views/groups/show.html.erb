@@ -1,14 +1,19 @@
 <div class="container">
-	<article>
-		<h3><%= @group.name %></h3>
-		<p>is meeting at <strong><%= @group.address %></strong><br>
-		on <strong><%= @group.time %>.</strong>
-		</p>
-		<p>There are <strong><%= @group.number_of_members %></strong> members.</p>
-	</article>
-	<div>
-		<%= link_to groups_path do %>
-			<i class="icon-arrow-left"></i> back to groups
-		<% end %>
+	<div class="row-fluid">
+		<article class="span12">
+			<h3><%= @group.name %></h3>
+			<p>is meeting at <strong><%= @group.address %></strong><br>
+			on <strong><%= @group.time %>.</strong>
+			</p>
+			<p>There are <strong><%= @group.number_of_members %></strong> members.</p>
+		</article>
 	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<%= link_to groups_path do %>
+				<i class="icon-arrow-left"></i> back to groups
+			<% end %>
+		</div>
+	</div>
+
 </div>
