@@ -13,7 +13,9 @@
 				<tbody>
 					<% @groups.each do |group| %>
 						<tr>
-							<td><%= group.name %></td>
+							<td>
+							<%= link_to group.name, group_path(group.id) %>
+							</td>
 							<td><%= group.address %></td>
 							<td><%= group.time %></td>
 						</tr>
