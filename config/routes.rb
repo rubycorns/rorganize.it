@@ -6,7 +6,8 @@ RailsGirlsApp::Application.routes.draw do
    root 'groups#index'
    
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)  
-   resources :groups 
+   resources :groups
+   resources :students
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
