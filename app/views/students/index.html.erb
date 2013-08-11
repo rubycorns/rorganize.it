@@ -7,7 +7,7 @@
           <li>
             <div>
               <p><%= student.first_name %> <%= student.last_name %></p>
-              <p><%= student.group.name %></p>
+              <p><%= link_to student.group.name, group_path(student.group.id) %></p>
             </div>
           </li>
         <% end %>
