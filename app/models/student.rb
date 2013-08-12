@@ -1,6 +1,4 @@
-class Student < ActiveRecord::Base
-
-	belongs_to :group
+class Student < Person
 	
 end
 

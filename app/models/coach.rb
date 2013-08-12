@@ -1,0 +1,3 @@
+class Coach < Person
+
+end
