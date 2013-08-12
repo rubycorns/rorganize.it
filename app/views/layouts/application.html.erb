@@ -13,8 +13,12 @@
       <div class="container">
         <%= link_to("RailsGirlsApp", root_path, {class: "brand"}) %>
         <ul class="nav pull-right">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="/">Groups</a></li>
+          <li class="<%= 'active' if params[:controller] == '' %>">
+            <%= link_to "Home", root_path %>
+          </li>
+          <li class="<%= 'active' if params[:controller] == 'groups' %>">
+            <%= link_to "Groups", groups_path %>
+          </li>
         </ul>
       </div>
     </nav>

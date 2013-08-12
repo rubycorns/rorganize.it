@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
-  
+  respond_to :html
+
   def index
     @groups = Group.all
   end
@@ -17,7 +18,16 @@ class GroupsController < ApplicationController
      end
   end
 
-  
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    @group.update_attributes group_params
+    respond_with @group, location: groups_path
+  end
+
   def show
     
   end
