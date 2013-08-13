@@ -14,6 +14,9 @@
 		<div class="field">
 	    <%= f.number_field :number_of_members, :placeholder => 'Max number of participants' %>
 		</div><br />
+		<div class="field">
+	    <%= f.file_field :picture => 'How we look like' %>
+		</div><br />
 		<div class="actions">
 	    <%= f.submit :class => "btn btn-primary" %>
 		</div>
