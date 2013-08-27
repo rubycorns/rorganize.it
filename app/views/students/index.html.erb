@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Students overview</h1><br /><br />
+  <div class="row-fluid">
+    <div class="span8">
+      <ul>
+        <% @students.each do |student| %>
+          <li>
+            <div>
+              <p><%= student.first_name %> <%= student.last_name %></p>
+              <p><%= link_to student.group.name, group_path(student.group.id) %></p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="sidebar span4">
+      <p>Not on this list? Register now!</p>
+      <%= link_to "register", new_student_path, :class => 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
