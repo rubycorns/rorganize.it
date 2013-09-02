@@ -1,15 +1,25 @@
 <div class="container">
-	<div class="row-fluid">
-		<article class="span12">
-			<h3><%= @group.name %></h3>
+	<div class="row">
+		<article class="col-md-8">
+			<h2><%= @group.name %></h2>
 			<p>is meeting at <strong><%= @group.address %></strong><br>
 			on <strong><%= @group.time %>.</strong>
 			</p>
+			<%= image_tag(@group.picture) %>
 			<p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
 		</article>
+		<aside class="col-md-4">
+			<h3>more info</h3>
+			<p>This group currently has <%= @group.students.length %> members.</p>
+			<ul>
+				<% @group.students.each do |student| %>
+				<li><%= link_to student.first_name, student_path(student) %></li>
+				<% end %>
+			</ul>
+		</aside>
 	</div>
-	<div class="row-fluid">
-		<div class="span12">
+	<div class="row">
+		<div class="col-md-12">
 			<%= link_to groups_path do %>
 				<i class="glyphicon glyphicon-arrow-left"></i> back to groups
 			<% end %>
