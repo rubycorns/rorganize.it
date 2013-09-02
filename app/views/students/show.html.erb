@@ -7,9 +7,18 @@
 	</div>
 	<div class="row-fluid">
 		<div class="col-md-12">
-			<%= link_to groups_path do %>
-				<i class="glyphicon glyphicon-arrow-left"></i> back to groups
-			<% end %>
+			<ul>
+				<li>
+					<%= link_to edit_student_path(@student.id) do %>
+						<i class="glyphicon glyphicon-edit"></i> edit information
+					<% end %>
+				</li>
+				<li>
+					<%= link_to groups_path do %>
+						<i class="glyphicon glyphicon-arrow-left"></i> back to groups
+					<% end %>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
