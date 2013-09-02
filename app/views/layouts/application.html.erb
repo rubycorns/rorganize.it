@@ -9,20 +9,30 @@
 </head>
 <body>
   <header class="header-container">
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
-        <%= link_to("RailsGirlsApp", root_path, {class: "brand"}) %>
-        <ul class="nav pull-right">
-          <li class="<%= 'active' if params[:controller] == '' %>">
-            <%= link_to "Home", root_path %>
-          </li>
-          <li class="<%= 'active' if params[:controller] == 'groups' %>">
-            <%= link_to "Groups", groups_path %>
-          </li>
-          <li class="<%= 'active' if params[:controller] == 'students' %>">
-            <%= link_to "Students", students_path %>
-          </li>
-        </ul>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to("RailsGirlsApp", root_path, {class: "navbar-brand"}) %>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class="<%= 'active' if params[:controller] == '' %>">
+              <%= link_to "Home", root_path %>
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'groups' %>">
+              <%= link_to "Groups", groups_path %>
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'students' %>">
+              <%= link_to "Students", students_path %>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
@@ -37,7 +47,7 @@
 
   <footer class="footer-container">
     <div class="container">
-      <p class="pull-left">made with <span class="icon-heart"></span> by the <strong><%= link_to("rubycorns", "https://twitter.com/rubycorns") %></strong></p>
+      <p class="pull-left">made with <span class="glyphicon glyphicon-heart"></span> by the <strong><%= link_to("rubycorns", "https://twitter.com/rubycorns") %></strong></p>
       <ul class="inline pull-right">
         <li><a href="https://github.com/KaMaria/RailsGirlsApp">Code on Github</a></li>
         <li><a href="http://huboard.com/KaMaria/RailsGirlsApp/board">Collab on Huboard</a></li>
