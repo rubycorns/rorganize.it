@@ -1,5 +1,4 @@
 class StudentsController < ApplicationController
-  respond_to :html
 
   def index
     @students = Student.all
@@ -25,7 +24,6 @@ class StudentsController < ApplicationController
   def update
     @student = Student.find(params[:id])
     @student.update_attributes student_params
-    #respond_with @student, location: student_path, alert: 'Student information updated.'
     redirect_to student_path, alert: 'Student information updated!'
   end
 
