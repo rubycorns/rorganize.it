@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<article class="col-md-12">
-			<h3><%= @student.first_name %> <%= @student.last_name %></h3>
+			<h3><%= @student.full_name %></h3>
 			<p>Part of the <%= link_to @student.group.name, group_path(@student.group) %>.</p>
 		</article>
 	</div>
@@ -14,8 +14,8 @@
 					<% end %>
 				</li>
 				<li>
-					<%= link_to groups_path do %>
-						<i class="glyphicon glyphicon-arrow-left"></i> back to groups
+					<%= link_to students_path do %>
+						<i class="glyphicon glyphicon-arrow-left"></i> back to students
 					<% end %>
 				</li>
 			</ul>

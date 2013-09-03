@@ -10,11 +10,11 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-     if @student.save
-        redirect_to students_path, alert: 'New student successfully registered!'
-     else
-        render action: "new"
-     end
+    if @student.save
+      redirect_to students_path, alert: 'New student successfully registered!'
+    else
+      render action: "new"
+    end
   end
 
   def edit
