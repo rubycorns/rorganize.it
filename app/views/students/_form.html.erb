@@ -11,6 +11,9 @@
       <%= f.text_field :email, :placeholder => 'e-mail' %>
     </div>
     <div class="field">
+      <%= f.file_field :picture, :placeholder => 'picture' %>
+    </div>
+    <div class="field">
       <%= f.collection_select(:group_id, Group.all, :id, :name) %>
     </div>
     <div class="actions">
