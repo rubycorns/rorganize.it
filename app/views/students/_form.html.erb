@@ -11,7 +11,7 @@
       <%= f.text_field :email, :placeholder => 'e-mail' %>
     </div>
     <div class="field">
-      <%= collection_select(:student, :group_id, Group.all, :id, :name) %>
+      <%= f.collection_select(:group_id, Group.all, :id, :name) %>
     </div>
     <div class="actions">
       <%= f.submit :class => "btn btn-primary" %>
