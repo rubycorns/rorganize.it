@@ -6,7 +6,7 @@
         <% @students.each do |student| %>
           <li>
             <div>
-              <p><%= student.first_name %> <%= student.last_name %></p>
+              <p><%= link_to student.first_name + student.last_name, student_path(student) %></p>
               <p><%= link_to student.group.name, group_path(student.group.id) %></p>
             </div>
           </li>
