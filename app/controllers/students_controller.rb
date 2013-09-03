@@ -17,6 +17,20 @@ class StudentsController < ApplicationController
      end
   end
 
+  def edit
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:id])
+    @student.update_attributes student_params
+    redirect_to student_path, alert: 'Student information updated!'
+  end
+
+  def show
+    @student = Student.find(params[:id])
+  end
+
   def student_params
      params.require(:student).permit(:first_name, :last_name, :email, :group_id)
   end
