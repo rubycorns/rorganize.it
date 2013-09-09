@@ -3,19 +3,19 @@
 	<legend>Register new group</legend><br />
 	<div class="form-group">
 		<div class="field">
-	    <%= f.text_field :name, :placeholder => 'Name of the group' %>
+	    <%= f.text_field :name, :placeholder => 'Name of the group', :class => 'form-control' %>
 		</div><br />
 		<div class="field">
-	    <%= f.text_field :address, :placeholder => 'Where we meet' %>
+	    <%= f.text_field :address, :placeholder => 'Where we meet', :class => 'form-control' %>
 		</div><br />
 		<div class="field">
-	    <%= f.text_field :time, :placeholder => 'When we meet' %>
+	    <%= f.text_field :time, :placeholder => 'When we meet', :class => 'form-control' %>
 		</div><br />
 		<div class="field">
-	    <%= f.number_field :number_of_members, :placeholder => 'Max number of participants' %>
+	    <%= f.number_field :number_of_members, :placeholder => 'Max number of participants', :class => 'form-control' %>
 		</div><br />
 		<div class="field">
-	    <%= f.file_field :picture, :placeholder => 'How we look like' %>
+	    <%= f.file_field :picture, :placeholder => 'How we look like'  %>
 		</div><br />
 		<div class="actions">
 	    <%= f.submit :class => "btn btn-primary" %>
