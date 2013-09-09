@@ -15,6 +15,7 @@
       <%= f.file_field :picture, :placeholder => 'picture' %>
     </div><br />
     <div class="field">
+      <label for="selectGroup">Please select your Rails Girls Group</label>
       <!-- why it works only when there is empty {}? -->
       <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {:class => 'form-control'}) %>
     </div><br />
