@@ -10,7 +10,7 @@
 		</article>
 		<aside class="col-md-4">
 			<h3>more info</h3>
-			<p>This group currently has <%= @group.students.length %> members.</p>
+			<p>This group currently has <%= pluralize @group.students.length, "member" %> members.</p>
 			<ul>
 				<% @group.students.each do |student| %>
 				<li><%= link_to student.first_name, student_path(student) %></li>
