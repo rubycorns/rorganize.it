@@ -1,23 +1,23 @@
 <%= form_for(@student) do |f|  %>
 
-  <legend>Register new student</legend><br />
+  <legend>Register new student</legend>
   <div class="form-group">
     <%= f.text_field :first_name, :placeholder => 'first name', :class => 'form-control' %>
-  </div><br />
+  </div>
   <div class="form-group">
     <%= f.text_field :last_name, :placeholder => 'last name', :class => 'form-control' %>
-  </div><br />
+  </div>
   <div class="form-group">
     <%= f.text_field :email, :placeholder => 'e-mail', :class => 'form-control' %>
-  </div><br />
+  </div>
   <div class="form-group">
     <%= f.file_field :picture, :placeholder => 'picture' %>
-  </div><br />
+  </div>
   <div class="form-group">
     <label for="selectGroup">Please select your Rails Girls Group</label>
     <!-- why it works only when there is empty {}? -->
     <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {:class => 'form-control'}) %>
-  </div><br />
+  </div>
   <div class="actions">
     <%= f.submit :class => "btn btn-primary" %>
   </div>
