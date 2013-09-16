@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<article class="col-md-8">
+		<article class="col-md-4">
 			<h2><%= @group.name %></h2>
 			<p>is meeting at <strong><%= @group.address %></strong><br>
 			on <strong><%= @group.time %>.</strong>
@@ -9,11 +9,20 @@
 			<p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
 		</article>
 		<aside class="col-md-4">
-			<h3>more info</h3>
-			<p>This group currently has <%= pluralize @group.students.length, "member" %> members.</p>
+			<h3>Students</h3>
+			<p>This group currently has <%= pluralize @group.students.length, "member" %>.</p>
 			<ul>
 				<% @group.students.each do |student| %>
 				<li><%= link_to student.first_name, student_path(student) %></li>
+				<% end %>
+			</ul>
+		</aside>
+		<aside class="col-md-4">
+			<h3>Coaches</h3>
+			<p>This group currently has <%= pluralize @group.coaches.length, "coach" %>.</p>
+			<ul>
+				<% @group.coaches.each do |coach| %>
+				<li><%= link_to coach.first_name, coach_path(coach) %></li>
 				<% end %>
 			</ul>
 		</aside>

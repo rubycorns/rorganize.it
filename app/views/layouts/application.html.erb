@@ -31,6 +31,9 @@
             <li class="<%= 'active' if params[:controller] == 'students' %>">
               <%= link_to "Students", students_path %>
             </li>
+            <li class="<%= 'active' if params[:controller] == 'coaches' %>">
+              <%= link_to "Coaches", coaches_path %>
+            </li>
           </ul>
         </div>
       </div>
