@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Coaches overview</h1><br /><br />
+  <div class="row-fluid">
+    <div class="span8">
+      <ul>
+        <% @coaches.each do |coach| %>
+          <li>
+            <div>
+              <p><%= link_to coach.full_name, coach_path(coach) %></p>
+              <p><%= link_to coach.group.name, group_path(coach.group.id) %></p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="sidebar span4">
+      <p>Not on this list? Register now!</p>
+      <%= link_to "register", new_coach_path, :class => 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

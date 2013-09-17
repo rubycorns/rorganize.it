@@ -8,6 +8,7 @@ RailsGirlsApp::Application.routes.draw do
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)  
    resources :groups
    resources :students
+   resources :coaches
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
