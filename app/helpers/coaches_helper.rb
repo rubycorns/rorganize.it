@@ -1,0 +1,2 @@
+module CoachesHelper
+end
