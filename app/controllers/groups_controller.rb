@@ -30,7 +30,15 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+
+    respond_to do |format|
+      format.html { redirect_to groups_path }
+    end
   end
   
   # had some problems here, seems like Rails 4 requires 

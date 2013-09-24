@@ -8,7 +8,7 @@
 						<th>Name</th>
 						<th>Address</th>
 						<th>Time</th>
-						<th>Edit</th>
+						<th>Actions</th>
 						<th>Picture</th>
 					</tr>
 				</thead>
@@ -20,7 +20,8 @@
 							</td>
 							<td><%= group.address %></td>
 							<td><%= group.time %></td>
-							<td><%= link_to "edit", edit_group_path(group) %></td>
+							<td><%= link_to "edit", edit_group_path(group) %>
+								<%= link_to "delete", group_path(group), :method => :delete %></td>
 							<td><%= image_tag(group.picture_url, :width => 60) if group.picture.present? %></td>
 	
 						</tr>
