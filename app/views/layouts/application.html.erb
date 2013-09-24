@@ -22,9 +22,6 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
-            <li class="<%= 'active' if params[:controller] == '' %>">
-              <%= link_to "Home", root_path %>
-            </li>
             <li class="<%= 'active' if params[:controller] == 'groups' %>">
               <%= link_to "Groups", groups_path %>
             </li>
