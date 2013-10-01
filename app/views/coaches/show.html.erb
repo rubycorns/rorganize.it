@@ -2,7 +2,7 @@
 	<div class="row">
 		<article class="col-md-12">
 			<h3><%= @coach.full_name %></h3>
-			<p>Coach for <%= link_to @coach.group.name, group_path(@coach.group) %>.</p>
+			<p>Coach for <%= link_to @coach.group.name, group_path(@coach.group) if @coach.group %>.</p>
 			<%= image_tag(@coach.picture_url) if @coach.picture.present? %>
 		</article>
 	</div>

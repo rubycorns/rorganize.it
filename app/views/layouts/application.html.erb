@@ -33,6 +33,13 @@
             </li>
           </ul>
         </div>
+        <div>
+          <% if person_signed_in? %>
+            <p>Hello <%= current_person.full_name %>
+            <%= link_to "logout", destroy_person_session_path, method: :delete %>
+            </p>
+          <% end %>
+        </div>
       </div>
     </nav>
   </header>
