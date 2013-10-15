@@ -7,7 +7,7 @@
           <li>
             <div>
               <p><%= link_to student.full_name, student_path(student) %></p>
-              <p><%= link_to student.group.name, group_path(student.group.id) %></p>
+              <p><%= link_to student.group.name, group_path(student.group.id) if student.group %></p>
             </div>
           </li>
         <% end %>
