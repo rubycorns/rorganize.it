@@ -40,19 +40,11 @@ ActiveRecord::Schema.define(version: 20130917182417) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "picture"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
   add_index "people", ["group_id"], name: "index_people_on_group_id"
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
-
-  create_table "students", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.integer  "group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
