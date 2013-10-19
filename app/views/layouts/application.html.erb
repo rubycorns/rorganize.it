@@ -40,7 +40,7 @@
                 <%= image_tag(current_person.picture_url, size: "32x32" ) if current_person.picture.present? %>
               </a>
               <div class="media-body">
-                  <p class="media-heading"><%= current_person.full_name %><br>
+                  <p class="media-heading"><%= link_to current_person.full_name, current_person %><br>
                   <%= link_to "logout", destroy_person_session_path, method: :delete %></p>
                 </div>
             </div>
