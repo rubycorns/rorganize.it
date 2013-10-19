@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917182417) do
+ActiveRecord::Schema.define(version: 20131019111053) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20130917182417) do
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -40,7 +41,7 @@ ActiveRecord::Schema.define(version: 20130917182417) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "picture"
+    t.string   "twitter"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true

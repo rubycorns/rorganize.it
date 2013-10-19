@@ -11,5 +11,11 @@
   padding: 35px 0 30px;
 }
 .profile-header {
+  min-width: 6em;
   padding-top: .5em;
+}
+.footer-links {
+  li {
+    list-style-type: none;
+  }
 }

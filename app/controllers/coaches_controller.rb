@@ -32,7 +32,7 @@ class CoachesController < ApplicationController
   end
 
   def coaches
-    params.require(:coach).permit(:first_name, :last_name, :email, :group_id, :picture)
+    params.require(:coach).permit(:first_name, :last_name, :email, :group_id, :picture, :twitter)
   end
 
 end

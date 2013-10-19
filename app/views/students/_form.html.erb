@@ -14,6 +14,10 @@
     <%= f.text_field :email, :placeholder => 'e-mail', :class => 'form-control' %>
   </div>
   <div class="form-group">
+    <%= label_tag(:twitter, "Your twitter handle") %>
+    <%= f.text_field :twitter, :placeholder => '@twitterhandle', :class => 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= label_tag(:picture, "Choose a profile picture") %>
     <%= f.file_field :picture, :placeholder => 'picture' %>
     <p class="help-block">Choose a profile picture</p>
