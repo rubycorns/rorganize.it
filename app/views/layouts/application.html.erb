@@ -20,7 +20,7 @@
           </button>
           <%= link_to("RailsGirlsApp", root_path, {class: "navbar-brand"}) %>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse navbar-ex1-collapse pull-left">
           <ul class="nav navbar-nav">
             <li class="<%= 'active' if params[:controller] == 'groups' %>">
               <%= link_to "Groups", groups_path %>
@@ -35,9 +35,15 @@
         </div>
         <div>
           <% if person_signed_in? %>
-            <p>Hello <%= current_person.full_name %>
-            <%= link_to "logout", destroy_person_session_path, method: :delete %>
-            </p>
+            <div class="media pull-right profile-header">
+              <a class="pull-left" href="#">
+                <%= image_tag(current_person.picture_url, size: "32x32" ) if current_person.picture.present? %>
+              </a>
+              <div class="media-body">
+                  <p class="media-heading"><%= current_person.full_name %><br>
+                  <%= link_to "logout", destroy_person_session_path, method: :delete %></p>
+                </div>
+            </div>
           <% end %>
         </div>
       </div>
