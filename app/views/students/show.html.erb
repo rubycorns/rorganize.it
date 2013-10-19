@@ -4,7 +4,7 @@
 			<h3><%= @student.full_name %></h3>
 			<p>Part of the <%= link_to @student.group.name, group_path(@student.group) %>.</p>
 			<%= image_tag(@student.picture_url) if @student.picture.present? %>
-			<p><%= @student.twitter %></p>
+			<p><%= link_to '@'+ @student.twitter, 'http://twitter.com/'+ @student.twitter, html_options = {:target => '_blank'} %></p>
 		</article>
 	</div>
 	<div class="row-fluid">
