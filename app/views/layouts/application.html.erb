@@ -46,7 +46,7 @@
 
   <div class="main-container">
     <% if alert %>
-      <p class="container alert alert-dismissable"><%= alert %></p>
+      <p class="container alert alert-info alert-dismissable"><%= alert %><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
     <% end %>
     <%= yield %>
 

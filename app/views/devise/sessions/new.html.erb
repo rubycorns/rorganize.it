@@ -4,7 +4,7 @@
 			<h2>Sign in</h2>
 
 			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-			<form role="form">
+			<form role="form" class="form">
 				<div class="form-group">
 					<%= f.label :email %>
 					<%= f.email_field :email, :autofocus => true, :class => 'form-control' %>

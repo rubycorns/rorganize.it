@@ -1,24 +1,27 @@
 <%= form_for(@coach) do |f|  %>
 
-  <div class="form-group">
-    <div class="field">
-      <%= f.text_field :first_name, :placeholder => 'first name' %>
+<form role="form" class="form">
+
+    <div class="form-group">
+      <%= f.text_field :first_name, :placeholder => 'first name', :class => 'form-control' %>
     </div>
-    <div class="field">
-      <%= f.text_field :last_name, :placeholder => 'last name' %>
+   <div class="form-group">
+      <%= f.text_field :last_name, :placeholder => 'last name', :class => 'form-control' %>
     </div>
-    <div class="field">
-      <%= f.text_field :email, :placeholder => 'e-mail' %>
+    <div class="form-group">
+      <%= f.text_field :email, :placeholder => 'e-mail', :class => 'form-control' %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.file_field :picture, :placeholder => 'picture' %>
+      <p class="help-block">Choose a profile picture</p>
     </div>
-    <div class="field">
-      <%= f.collection_select(:group_id, Group.all, :id, :name) %>
+    <div class="form-group">
+      <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {:class => 'form-control'}) %>
     </div>
-    <div class="actions">
+    <div class="form-group">
       <%= f.submit :class => "btn btn-primary" %>
     </div>
   </div>
-  
+</form>
+
 <% end %>
