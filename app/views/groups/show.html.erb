@@ -1,7 +1,46 @@
-<div class="container">
+<div class="container groupprofile">
   <div class="row">
-    <div class="map" id="group-map">
-      <%= map(
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1><%= @group.name %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 group-header-image">
+      <%= image_tag(@group.picture) if @group.picture.present? %>
+    </div>
+  </div>
+  <div class="row group-info">
+    <div class="col-md-4">
+      <p>Meeting at <strong><%= @group.address %></strong><br>
+      every <strong><%= @group.time %>.</strong>
+      </p>
+      <p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
+      <p>Follow us on twitter <%= link_to '@'+ @group.twitter, 'http://twitter.com/'+ @group.twitter, html_options = {:target => '_blank'} %></p>
+      <p><%= link_to groups_path do %>
+        <i class="glyphicon glyphicon-arrow-left"></i> back to groups<% end %>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <h4>Students</h4>
+      <p>This group currently has <%= pluralize @group.students.length, "member" %>.</p>
+      <ul>
+        <% @group.students.each do |student| %>
+        <li><%= link_to student.first_name, student_path(student) %></li>
+        <% end %>
+      </ul>
+      <h4>Coaches</h4>
+      <p>This group currently has <%= pluralize @group.coaches.length, "coach" %>.</p>
+      <ul>
+        <% @group.coaches.each do |coach| %>
+        <li><%= link_to coach.first_name, coach_path(coach) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-4" id="group-map">
+      <div class="map">
+              <%= map(
             :container_id => "group-map",
             :center => {
             :latlng => [51.52238797921441, -0.08366235665359283],
@@ -12,42 +51,9 @@
               :latlng => [51.52238797921441, -0.08366235665359283],
             }
           ])%>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <article class="col-md-4">
-      <h2><%= @group.name %></h2>
-      <p>is meeting at <strong><%= @group.address %></strong><br>
-      on <strong><%= @group.time %>.</strong>
-      </p>
-      <%= image_tag(@group.picture) %>
-      <p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
-      <p>Follow us on twitter <%= link_to '@'+ @group.twitter, 'http://twitter.com/'+ @group.twitter, html_options = {:target => '_blank'} %></p>
-    </article>
-    <aside class="col-md-4">
-      <h3>Students</h3>
-      <p>This group currently has <%= pluralize @group.students.length, "member" %>.</p>
-      <ul>
-        <% @group.students.each do |student| %>
-        <li><%= link_to student.first_name, student_path(student) %></li>
-        <% end %>
-      </ul>
-    </aside>
-    <aside class="col-md-4">
-      <h3>Coaches</h3>
-      <p>This group currently has <%= pluralize @group.coaches.length, "coach" %>.</p>
-      <ul>
-        <% @group.coaches.each do |coach| %>
-        <li><%= link_to coach.first_name, coach_path(coach) %></li>
-        <% end %>
-      </ul>
-    </aside>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <%= link_to groups_path do %>
-        <i class="glyphicon glyphicon-arrow-left"></i> back to groups
-      <% end %>
-    </div>
-  </div>
+
+
 </div>

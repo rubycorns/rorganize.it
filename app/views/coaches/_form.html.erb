@@ -3,12 +3,15 @@
 <form role="form" class="form">
 
     <div class="form-group">
+      <%= label_tag(:first_name, "Your first name") %>
       <%= f.text_field :first_name, :placeholder => 'first name', :class => 'form-control' %>
     </div>
    <div class="form-group">
+      <%= label_tag(:last_name, "Your last name") %>
       <%= f.text_field :last_name, :placeholder => 'last name', :class => 'form-control' %>
     </div>
     <div class="form-group">
+      <%= label_tag(:email, "Your email address") %>
       <%= f.text_field :email, :placeholder => 'e-mail', :class => 'form-control' %>
     </div>
     <div class="form-group">
@@ -16,6 +19,7 @@
       <%= f.text_field :twitter, :placeholder => '@twitterhandle', :class => 'form-control' %>
     </div>
     <div class="form-group">
+      <%= label_tag(:picture, "Choose a profile picture") %>
       <%= f.file_field :picture, :placeholder => 'picture' %>
       <p class="help-block">Choose a profile picture</p>
     </div>
