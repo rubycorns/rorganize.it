@@ -7,6 +7,7 @@
 			</p>
 			<%= image_tag(@group.picture) %>
 			<p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
+			<p>Follow us on twitter <%= link_to '@'+ @group.twitter, 'http://twitter.com/'+ @group.twitter, html_options = {:target => '_blank'} %></p>
 		</article>
 		<aside class="col-md-4">
 			<h3>Students</h3>

@@ -18,6 +18,10 @@
     <%= f.number_field :number_of_members, :placeholder => 'Max number of participants', :class => 'form-control' %>
   </div>
   <div class="form-group">
+    <%= label_tag(:twitter, "Group Twitter") %>
+    <%= f.number_field :twitter, :placeholder => '@goupname', :class => 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= label_tag(:picture, "Group picture") %>
     <%= f.file_field :picture, :placeholder => 'How we look like'  %>
     <p class="help-block">Choose a picture representing your group</p>
