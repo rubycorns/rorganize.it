@@ -20,7 +20,7 @@
           </button>
           <%= link_to("RailsGirlsApp", root_path, {class: "navbar-brand"}) %>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse navbar-ex1-collapse pull-left">
           <ul class="nav navbar-nav">
             <li class="<%= 'active' if params[:controller] == 'groups' %>">
               <%= link_to "Groups", groups_path %>
@@ -35,9 +35,15 @@
         </div>
         <div>
           <% if person_signed_in? %>
-            <p>Hello <%= current_person.full_name %>
-            <%= link_to "logout", destroy_person_session_path, method: :delete %>
-            </p>
+            <div class="media pull-right profile-header">
+              <a class="pull-left" href="#">
+                <%= image_tag(current_person.picture_url, size: "32x32" ) if current_person.picture.present? %>
+              </a>
+              <div class="media-body">
+                  <p class="media-heading"><%= link_to current_person.full_name, current_person %><br>
+                  <%= link_to "logout", destroy_person_session_path, method: :delete %></p>
+                </div>
+            </div>
           <% end %>
         </div>
       </div>
@@ -46,7 +52,7 @@
 
   <div class="main-container">
     <% if alert %>
-      <p class="container alert alert-dismissable"><%= alert %></p>
+      <p class="container alert alert-info alert-dismissable"><%= alert %><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
     <% end %>
     <%= yield %>
 
@@ -55,9 +61,9 @@
   <footer class="footer-container">
     <div class="container">
       <p class="pull-left">made with <span class="glyphicon glyphicon-heart"></span> by the <strong><%= link_to("rubycorns", "https://twitter.com/rubycorns") %></strong></p>
-      <ul class="inline pull-right">
-        <li><a href="https://github.com/KaMaria/RailsGirlsApp">Code on Github</a></li>
-        <li><a href="http://huboard.com/KaMaria/RailsGirlsApp/board">Collab on Huboard</a></li>
+      <ul class="inline pull-right footer-links">
+        <li><a href="https://github.com/KaMaria/RailsGirlsApp"><span class="glyphicon glyphicon-pushpin"></span> Code on Github</a></li>
+        <li><a href="http://huboard.com/KaMaria/RailsGirlsApp/board"><span class="glyphicon glyphicon-pushpin"></span> Collab on Huboard</a></li>
       </ul>
     </div>
   </footer>

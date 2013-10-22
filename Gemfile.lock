@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/axyjo/leaflet-rails.git
+  revision: 0f50faaa35d41e8ba24c73c97d265e061b159d81
+  branch: master
+  specs:
+    leaflet-rails (0.6.2)
+
+GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
   revision: 82f1b343ffc0069bf99d2a3d4f0190bc87ba89ed
   branch: 3
@@ -147,6 +154,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 1.2)
   jquery-rails
+  leaflet-rails!
   modernizr-rails (~> 2.6.2.3)
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)

@@ -1,6 +1,14 @@
+body {
+  padding: 20px 0;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+
 .header-container .navbar,
 .footer-container {
-  background: #eee;
+  background: lightgray;
 }
 .main-container {
   padding-top: 60px;
@@ -9,4 +17,37 @@
 
 .footer-container {
   padding: 35px 0 30px;
+}
+.profile-header {
+  min-width: 6em;
+  padding-top: .5em;
+}
+.footer-links {
+  li {
+    list-style-type: none;
+  }
+}
+.map {
+  width: 100%;
+  height: 100%;
+  min-height: 20em;
+  overflow: hidden;
+}
+
+.userprofile {
+}
+.profile-header {
+  img {
+    width: 32px;
+    height: 32px;
+  }
+}
+.groupprofile {
+  .group-header-image {
+    height: 300px;
+    overflow: hidden;
+  }
+}
+.group-info {
+  margin-top: 3em;
 }
