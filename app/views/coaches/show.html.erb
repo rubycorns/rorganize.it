@@ -1,7 +1,21 @@
 s<div class="container userprofile">
   <div class="row">
     <div class="col-md-12">
-      <h1><%= @coach.full_name %></h1>
+      <div class="page-header clearfix">
+        <h1 class="pull-left"><%= @coach.full_name %></h1>
+        <ul class="nav nav-pills pull-right">
+          <li>
+            <%= link_to edit_coach_path(@coach.id), html_options = {:class => 'btn btn-default'} do %>
+              <i class="glyphicon glyphicon-edit"></i> Edit
+            <% end %>
+          </li>
+          <li>
+            <%= link_to coachs_path, html_options = {:class => 'btn btn-default'} do %>
+              <i class="glyphicon glyphicon-arrow-left"></i> Back
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -11,15 +25,6 @@ s<div class="container userprofile">
      <% if @coach.has_twitter %>
         <p><%= link_to @coach.twitter_handle, @coach.twitter_profile_url, html_options = {:target => '_blank'} %></p>
       <% end %>
-      <p>
-        <%= link_to edit_coach_path(@coach.id) do %>
-          <i class="glyphicon glyphicon-edit"></i> edit information
-        <% end %>
-        <br>
-        <%= link_to coaches_path do %>
-          <i class="glyphicon glyphicon-arrow-left"></i> back to coaches
-        <% end %>
-      </p>
     </div>
     <div class="col-md-4">
       <h4>Coach at</h4>

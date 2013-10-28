@@ -1,8 +1,20 @@
 <div class="container userprofile">
   <div class="row">
     <div class="col-md-12">
-      <div class="page-header">
-        <h1><%= @student.full_name %></h1>
+      <div class="page-header clearfix">
+        <h1 class="pull-left"><%= @student.full_name %></h1>
+        <ul class="nav nav-pills pull-right">
+          <li>
+            <%= link_to edit_student_path(@student.id), html_options = {:class => 'btn btn-default'} do %>
+              <i class="glyphicon glyphicon-edit"></i> Edit
+            <% end %>
+          </li>
+          <li>
+            <%= link_to students_path, html_options = {:class => 'btn btn-default'} do %>
+              <i class="glyphicon glyphicon-arrow-left"></i> Back
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -13,15 +25,6 @@
       <% if @student.has_twitter %>
         <p><%= link_to @student.twitter_handle, @student.twitter_profile_url, html_options = {:target => '_blank'} %></p>
       <% end %>
-      <p>
-        <%= link_to edit_student_path(@student.id) do %>
-          <i class="glyphicon glyphicon-edit"></i> edit information
-        <% end %>
-        <br>
-        <%= link_to students_path do %>
-          <i class="glyphicon glyphicon-arrow-left"></i> back to students
-        <% end %>
-      </p>
     </div>
     <div class="col-md-4">
       <h4>Student at</h4>
