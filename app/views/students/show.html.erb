@@ -10,7 +10,9 @@
     <div class="col-md-4">
       <h4>About</h4>
       <%= image_tag(@student.picture_url) if @student.picture.present? %>
-      <p><%= link_to @student.twitter_handle, @student.twitter_profile_url, html_options = {:target => '_blank'} %></p>
+      <% if @student.has_twitter %>
+        <p><%= link_to @student.twitter_handle, @student.twitter_profile_url, html_options = {:target => '_blank'} %></p>
+      <% end %>
       <p>
         <%= link_to edit_student_path(@student.id) do %>
           <i class="glyphicon glyphicon-edit"></i> edit information
