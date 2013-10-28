@@ -6,7 +6,7 @@
         <% @students.each do |student| %>
           <li class="list-group-item clearfix">
             <div class="media pull-left">
-              <a class="pull-left" href="#">
+              <a class="pull-left" href="<%= student_path(student) %>">
                 <%= image_tag(student.picture_url) if student.picture.present? %>
               </a>
               <div class="media-body">
