@@ -8,7 +8,9 @@ s<div class="container userprofile">
     <div class="col-md-4">
       <h4>About</h4>
       <%= image_tag(@coach.picture_url) if @coach.picture.present? %>
-      <p><%= link_to '@'+ @coach.twitter, 'http://twitter.com/'+ @coach.twitter, html_options = {:target => '_blank'} %></p>
+     <% if @coach.has_twitter %>
+        <p><%= link_to @coach.twitter_handle, @coach.twitter_profile_url, html_options = {:target => '_blank'} %></p>
+      <% end %>
       <p>
         <%= link_to edit_coach_path(@coach.id) do %>
           <i class="glyphicon glyphicon-edit"></i> edit information
