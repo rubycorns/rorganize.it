@@ -23,9 +23,13 @@ s<div class="container userprofile">
     </div>
     <div class="col-md-4">
       <h4>Coach at</h4>
-      <%= image_tag(@coach.group.picture) if @coach.group.picture? %>
-      <h2><%= link_to @coach.group.name, group_path(@coach.group) %></h2>
-      <p>Meeting every <%= @coach.group.time %> <br> at <%= @coach.group.address %></p>
+      <% if @coach.has_group %>
+        <%= image_tag(@coach.group.picture) if @coach.group.picture? %>
+        <h2><%= link_to @coach.group.name, group_path(@coach.group) %></h2>
+        <p>Meeting every <%= @coach.group.time %> <br> at <%= @coach.group.address %></p>
+      <% else %>
+        <p><%= @coach.first_name %> is currently not coaching a group.</p>
+      <% end %>
     </div>
     <div class="col-md-4">
       <h4>Working on</h4>

@@ -30,6 +30,10 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def has_group
+    group && group != ''
+  end
+
   def full_name
     [first_name, last_name].join(' ')
   end
