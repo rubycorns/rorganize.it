@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
   def twitter=(handle)
-    self[:twitter] = handle.gsub('@', '');
+    self[:twitter] = handle.gsub('@', '')
   end
 
   def has_twitter
@@ -15,19 +15,11 @@ class Person < ActiveRecord::Base
   end
 
   def twitter_handle
-    if has_twitter
-      twitter_handle = '@' + twitter
-    else
-      ''
-    end
+    '@' + twitter
   end
 
   def twitter_profile_url
-    if has_twitter
-      twitter_profile_url = 'https://twitter.com/' + twitter
-    else
-      ''
-    end
+    'https://twitter.com/' + twitter
   end
 
   def has_group
