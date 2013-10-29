@@ -1,24 +1,34 @@
 <%= form_for(@student) do |f|  %>
 
+  <legend>Register new student</legend>
   <div class="form-group">
-    <div class="field">
-      <%= f.text_field :first_name, :placeholder => 'first name' %>
-    </div>
-    <div class="field">
-      <%= f.text_field :last_name, :placeholder => 'last name' %>
-    </div>
-    <div class="field">
-      <%= f.text_field :email, :placeholder => 'e-mail' %>
-    </div>
-    <div class="field">
-      <%= f.file_field :picture, :placeholder => 'picture' %>
-    </div>
-    <div class="field">
-      <%= f.collection_select(:group_id, Group.all, :id, :name) %>
-    </div>
-    <div class="actions">
-      <%= f.submit :class => "btn btn-primary" %>
-    </div>
+    <%= label_tag(:first_name, "Your first name") %>
+    <%= f.text_field :first_name, :placeholder => 'first name', :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:last_name, "Your last name") %>
+    <%= f.text_field :last_name, :placeholder => 'last name', :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:email, "Your email address") %>
+    <%= f.text_field :email, :placeholder => 'e-mail', :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:twitter, "Your twitter handle") %>
+    <%= f.text_field :twitter, :placeholder => '@twitterhandle', :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:picture, "Choose a profile picture") %>
+    <%= f.file_field :picture, :placeholder => 'picture' %>
+    <p class="help-block">Choose a profile picture</p>
+  </div>
+  <div class="form-group">
+    <label for="selectGroup">Please select your Rails Girls Group</label>
+    <!-- why it works only when there is empty {}? -->
+    <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {:class => 'form-control'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
   
 <% end %>

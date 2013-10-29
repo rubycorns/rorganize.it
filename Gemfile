@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -35,6 +37,9 @@ gem 'jbuilder', '~> 1.2'
 
 # Some Modernizr goodness
 gem "modernizr-rails", "~> 2.6.2.3"
+
+#use osm maps
+gem 'leaflet-rails', github: 'axyjo/leaflet-rails', branch: 'master'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

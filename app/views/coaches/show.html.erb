@@ -1,25 +1,40 @@
-<div class="container">
-	<div class="row">
-		<article class="col-md-12">
-			<h3><%= @coach.full_name %></h3>
-			<p>Coach for <%= link_to @coach.group.name, group_path(@coach.group) %>.</p>
-			<%= image_tag(@coach.picture_url) if @coach.picture.present? %>
-		</article>
-	</div>
-	<div class="row-fluid">
-		<div class="col-md-12">
-			<ul>
-				<li>
-					<%= link_to edit_coach_path(@coach.id) do %>
-						<i class="glyphicon glyphicon-edit"></i> edit information
-					<% end %>
-				</li>
-				<li>
-					<%= link_to coaches_path do %>
-						<i class="glyphicon glyphicon-arrow-left"></i> back to coaches
-					<% end %>
-				</li>
-			</ul>
-		</div>
-	</div>
+s<div class="container userprofile">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header clearfix">
+        <h1 class="pull-left"><%= @coach.full_name %></h1>
+        <div class="btn-group pull-right">
+          <%= link_to edit_coach_path(@coach.id), html_options = {:class => 'btn btn-default'} do %>
+            <i class="glyphicon glyphicon-edit"></i> Edit
+          <% end %>
+          <%= link_to coachs_path, html_options = {:class => 'btn btn-default'} do %>
+            <i class="glyphicon glyphicon-arrow-left"></i> Back
+          <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>About</h4>
+      <%= image_tag(@coach.picture_url) if @coach.picture.present? %>
+     <% if @coach.has_twitter %>
+        <p><%= link_to @coach.twitter_handle, @coach.twitter_profile_url, html_options = {:target => '_blank'} %></p>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <h4>Coach at</h4>
+      <% if @coach.has_group %>
+        <%= image_tag(@coach.group.picture) if @coach.group.picture? %>
+        <h2><%= link_to @coach.group.name, group_path(@coach.group) %></h2>
+        <p>Meeting every <%= @coach.group.time %> <br> at <%= @coach.group.address %></p>
+      <% else %>
+        <p><%= @coach.first_name %> is currently not coaching a group.</p>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <h4>Working on</h4>
+      <p>to be implemented</p>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/axyjo/leaflet-rails.git
+  revision: 0f50faaa35d41e8ba24c73c97d265e061b159d81
+  branch: master
+  specs:
+    leaflet-rails (0.6.2)
+
+GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
   revision: 82f1b343ffc0069bf99d2a3d4f0190bc87ba89ed
   branch: 3
@@ -35,6 +42,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.13)
+    bcrypt-ruby (3.1.2)
+    bcrypt-ruby (3.1.2-x86-mingw32)
     builder (3.1.4)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
@@ -52,6 +61,12 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
+    devise (3.1.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.1)
     fssm (0.2.10)
@@ -71,6 +86,7 @@ GEM
     minitest (4.7.5)
     modernizr-rails (2.6.2.3)
     multi_json (1.7.9)
+    orm_adapter (0.4.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -123,6 +139,8 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -133,8 +151,10 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   compass (~> 0.12.2)
+  devise
   jbuilder (~> 1.2)
   jquery-rails
+  leaflet-rails!
   modernizr-rails (~> 2.6.2.3)
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
