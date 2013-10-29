@@ -30,7 +30,12 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    
+  end
+
+  def destroy
+    group = Group.find(params[:id])
+    group.destroy
+    redirect_to groups_path, alert: 'Group was successfully deleted.'
   end
   
   # had some problems here, seems like Rails 4 requires 
