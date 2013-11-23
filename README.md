@@ -1,21 +1,20 @@
-== README
-== RailsGirlsApp
+## RailsGirlsApp
 
 You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
 This little app is just the one for you!
 
 An overview of who meets when, where, with whom to work on what.
 
-=== Just some general information:
+### Just some general information:
 Ruby version 1.9.3  
 Rails version 4.0
 
-=== Get the code
+### Get the code
 Get the code from this repo
     git clone
 
 
-=== Deploy
+### Deploy
 Install all the gems
     bundle install
 
@@ -28,7 +27,7 @@ Run the server
 et voilá
 
 
-=== Git: branches 
+### Git: branches 
 Create new branch (you should be in the directory of the project) 
     git branch "Name_of_your_branch"
     
@@ -42,7 +41,7 @@ Push the new branch to the repository (with some commits or just "bare" branch)
     git push --set-upstream origin Name_of_your_branch
     
 
-=== Git: commit your changes
+### Git: commit your changes
 Make changes, then 
     git add -A
 
