@@ -19,8 +19,10 @@
                   <%= link_to student_path(student), :class => 'btn btn-default' do %>
                     <i class="glyphicon glyphicon-user"></i> Profile
                   <% end %>
-                  <%= link_to group_path(student.group.id), :class => 'btn btn-default' do %>
-                    <i class="glyphicon glyphicon-glass"></i> Group
+                  <% if student.has_group %>
+                    <%= link_to group_path(student.group.id), :class => 'btn btn-default' do %>
+                        <i class="glyphicon glyphicon-glass"></i> Group
+                    <% end %>
                   <% end %>
                 </div>
               </div>
