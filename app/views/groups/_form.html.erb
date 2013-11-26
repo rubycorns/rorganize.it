@@ -26,6 +26,14 @@
     <%= f.file_field :picture, :placeholder => 'How we look like'  %>
     <p class="help-block">Choose a picture representing your group</p>
   </div>
+  <div class="form-group">
+    <%= label_tag(:contact, "Contact") %>
+    <%= f.text_area :contact, :placeholder => 'How to contact the group', :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:activities, "Activities") %>
+    <%= f.text_area :activities, :placeholder => 'Our activties, topics, projects', :class => 'form-control' %>
+  </div>
   <div class="actions">
       <%= f.submit :class => "btn btn-primary" %>
   </div>
