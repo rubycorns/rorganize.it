@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-4">
       <h4>Coach at</h4>
-      <% if @coach.has_group %>
+      <% if @coach.has_group? %>
         <%= image_tag(@coach.group.picture) if @coach.group.picture? %>
         <h2><%= link_to @coach.group.name, group_path(@coach.group) %></h2>
         <p>Meeting every <%= @coach.group.time %> <br> at <%= @coach.group.address %></p>
