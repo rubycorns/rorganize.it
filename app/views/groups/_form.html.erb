@@ -2,37 +2,37 @@
 
   <legend>Register new group</legend>
   <div class="form-group">
-    <%= label_tag(:name, "Project Group name") %>
+    <%= label_tag(:name, "Your project group name") %>
     <%= f.text_field :name, :placeholder => 'Name of the group', :class => 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:address, "Meeting place") %>
-    <%= f.text_field :address, :placeholder => 'Where we meet', :class => 'form-control' %>
+    <%= label_tag(:address, "Your meeting place") %>
+    <%= f.text_field :address, :placeholder => 'Where you meet', :class => 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:time, "Meeting time") %>
-    <%= f.text_field :time, :placeholder => 'When we meet', :class => 'form-control' %>
+    <%= label_tag(:time, "Your meeting time") %>
+    <%= f.text_field :time, :placeholder => 'When you meet', :class => 'form-control' %>
   </div>
   <div class="form-group">
     <%= label_tag(:number_of_members, "Maximum participants") %>
     <%= f.number_field :number_of_members, :placeholder => 'Max number of participants', :class => 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:twitter, "Group Twitter") %>
-    <%= f.text_field :twitter, :placeholder => '@goupname', :class => 'form-control' %>
+    <%= label_tag(:twitter, "Your group twitter handle") %>
+    <%= f.text_field :twitter, :placeholder => '@twitterhandle', :class => 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:picture, "Group picture") %>
-    <%= f.file_field :picture, :placeholder => 'How we look like'  %>
+    <%= label_tag(:picture, "Your group picture") %>
+    <%= f.file_field :picture, :placeholder => 'What you look like'  %>
     <p class="help-block">Choose a picture representing your group</p>
   </div>
   <div class="form-group">
-    <%= label_tag(:contact, "Contact") %>
-    <%= f.text_area :contact, :placeholder => 'How to contact the group', :class => 'form-control' %>
+    <%= label_tag(:contact, "Your groups contact") %>
+    <%= f.text_area :contact, :placeholder => 'How to contact your group', :class => 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:activities, "Activities") %>
-    <%= f.text_area :activities, :placeholder => 'Our activties, topics, projects', :class => 'form-control' %>
+    <%= label_tag(:activities, "Your groups activities") %>
+    <%= f.text_area :activities, :placeholder => 'Your activties, topics, projects', :class => 'form-control' %>
   </div>
   <div class="actions">
       <%= f.submit :class => "btn btn-primary" %>
