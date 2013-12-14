@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  belongs_to :groups
+  belongs_to :group
 
 
 end
