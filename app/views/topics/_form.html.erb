@@ -19,10 +19,7 @@
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
-  <div class="field">
-    <%= f.label :group_id %><br>
-    <%= f.number_field :group_id %>
-  </div>
+  <%= f.hidden_field :group_id %>
   <div class="actions">
     <%= f.submit %>
   </div>
