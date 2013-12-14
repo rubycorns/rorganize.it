@@ -1,7 +1,9 @@
 class Group < ActiveRecord::Base
-  
+
   has_many :students
   has_many :coaches
+  has_many :topics
+
   mount_uploader :picture, PictureUploader
 
   def twitter=(handle)
@@ -27,5 +29,5 @@ class Group < ActiveRecord::Base
       ''
     end
   end
-  
+
 end
