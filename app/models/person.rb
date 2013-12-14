@@ -4,6 +4,7 @@ class Person < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :group
+  has_many :topics
   mount_uploader :picture, PictureUploader
 
   def twitter=(handle)
