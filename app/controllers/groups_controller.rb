@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
   end
-  
+
   def create
     @group = Group.new(group_params)
      if @group.save
@@ -30,6 +30,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @topics = @group.topics
   end
 
   def destroy
@@ -37,10 +38,11 @@ class GroupsController < ApplicationController
     group.destroy
     redirect_to groups_path, alert: 'Group was successfully deleted.'
   end
-  
-  # had some problems here, seems like Rails 4 requires 
+
+  # had some problems here, seems like Rails 4 requires
   # defining parameters in separate method and then passing that in CREATE (?) - should be private
   def group_params
      params.require(:group).permit(:name, :address, :time, :number_of_members, :picture, :twitter, :contact, :activities)
   end
+
 end

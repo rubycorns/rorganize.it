@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126194912) do
+ActiveRecord::Schema.define(version: 20131214102958) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -50,5 +50,13 @@ ActiveRecord::Schema.define(version: 20131126194912) do
   add_index "people", ["email"], name: "index_people_on_email", unique: true
   add_index "people", ["group_id"], name: "index_people_on_group_id"
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
+
+  create_table "topics", force: true do |t|
+    t.string   "user_name"
+    t.text     "body"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
