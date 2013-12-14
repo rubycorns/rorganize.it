@@ -1,4 +1,6 @@
-<%= form_for(@topic) do |f| %>
+<h4>Suggest a topic:</h4>
+
+<%= form_for(@topic, :html => {:multipart => true}) do |f| %>
   <% if @topic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
@@ -11,16 +13,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_name %><br>
-    <%= f.text_field :user_name %>
+  <div class="form-group">
+    <%= f.text_field :user_name, :placeholder => 'Name', :class => 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.text_area :body, :placeholder => 'Suggest a topic', :class => 'form-control' %>
   </div>
   <%= f.hidden_field :group_id %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary"  %>
   </div>
 <% end %>

@@ -1,11 +1,10 @@
-<h1>Listing topics</h1>
+<h3>Topics we'd like to cover:</h3>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User name</th>
-      <th>Body</th>
-      <th>Group</th>
+      <th>Suggested Topic</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= topic.user_name %></td>
         <td><%= topic.body %></td>
-        <td><%= topic.group_id %></td>
         <td><%= link_to 'Show', topic %></td>
         <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
         <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,6 +24,4 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Topic', new_topic_path %>
