@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20131126194912) do
     t.datetime "updated_at"
     t.string   "picture"
     t.string   "twitter"
+    t.float    "latitude"
+    t.float    "longitude"
     t.text     "contact"
     t.text     "activities"
   end

@@ -49,9 +49,11 @@ gem "modernizr-rails", "~> 2.6.2.3"
 #use osm maps
 gem 'leaflet-rails', github: 'axyjo/leaflet-rails', branch: 'master'
 
+# get coordinates from adress
+gem 'geocoder'
+
 #use rails autolink for fields to automatically display URLs as hyperlinks
 gem 'rails_autolink'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

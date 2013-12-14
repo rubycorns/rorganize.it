@@ -11,7 +11,7 @@ class CoachesController < ApplicationController
   def create
     @coach = Coach.new(coaches)
     if @coach.save
-      redirect_to coaches_path, alert: 'New coach successfully registered!'
+      redirect_to coaches_path, notice: 'New coach successfully registered!'
     else
       render action: "new"
     end
@@ -24,7 +24,7 @@ class CoachesController < ApplicationController
   def update
     @coach = Coach.find(params[:id])
     @coach.update_attributes coaches
-    redirect_to coach_path, alert: 'coach information updated!'
+    redirect_to coach_path, notice: 'coach information updated!'
   end
 
   def show

@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
      if @group.save
-        redirect_to root_path, alert: 'Group was successfully created.'
+        redirect_to root_path, notice: 'Group was successfully created.'
      else
         render action: "new"
      end
@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     @group.update_attributes group_params
-    respond_with @group, location: groups_path
+    redirect_to groups_path, notice: 'Group was successfully updated'
   end
 
   def show
@@ -35,7 +35,7 @@ class GroupsController < ApplicationController
   def destroy
     group = Group.find(params[:id])
     group.destroy
-    redirect_to groups_path, alert: 'Group was successfully deleted.'
+    redirect_to groups_path, notice: 'Group was successfully deleted.'
   end
   
   # had some problems here, seems like Rails 4 requires 
