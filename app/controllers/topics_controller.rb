@@ -42,9 +42,10 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    group = @topic.group
     @topic.destroy
     respond_to do |format|
-      format.html { redirect_to topics_url }
+      format.html { redirect_to group_path(group) }
       format.json { head :no_content }
     end
   end
