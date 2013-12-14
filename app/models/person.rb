@@ -22,7 +22,7 @@ class Person < ActiveRecord::Base
     'https://twitter.com/' + twitter
   end
 
-  def has_group
+  def has_group?
     group && group != ''
   end
 
