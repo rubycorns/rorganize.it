@@ -1,8 +1,15 @@
 <div class="container groupprofile">
   <div class="row">
     <div class="col-md-12">
-      <div class="page-header">
-        <h1><%= @group.name %></h1>
+      <div class="page-header clearfix">
+        <h1 class="pull-left"><%= @group.name %></h1>
+        <div class="btn-group pull-right">
+          <%= link_to edit_group_path(@group.id), html_options = {:class => 'btn btn-default'} do %>
+            <i class="glyphicon glyphicon-edit"></i> Edit
+          <% end %>
+          <%= link_to groups_path, html_options = {:class => 'btn btn-default'} do %>
+            <i class="glyphicon glyphicon-arrow-left"></i> Back
+          <% end %>
       </div>
     </div>
   </div>
@@ -22,9 +29,6 @@
       <% end %>
       <p> Contact us <%= auto_link @group.contact %></p>
       <p> What we do: <%= auto_link @group.activities %></p>
-      <p><%= link_to groups_path do %>
-        <i class="glyphicon glyphicon-arrow-left"></i> back to groups<% end %>
-      </p>
     </div>
     <div class="col-md-4">
       <h4>Students</h4>
@@ -47,12 +51,12 @@
               <%= map(
             :container_id => "group-map",
             :center => {
-            :latlng => [51.52238797921441, -0.08366235665359283],
-            :zoom => 18
+            :latlng => [@group.latitude, @group.longitude],
+            :zoom => 16
           },
           :markers => [
             {
-              :latlng => [51.52238797921441, -0.08366235665359283],
+              :latlng => [@group.latitude, @group.longitude],
             }
           ])%>
       </div>

@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to students_path, alert: 'New student successfully registered!'
+      redirect_to students_path, notice: 'New student successfully registered!'
     else
       render action: "new"
     end
@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
   def update
     @student = Student.find(params[:id])
     @student.update_attributes student_params
-    redirect_to student_path, alert: 'Student information updated!'
+    redirect_to student_path, notice: 'Student information updated!'
   end
 
   def show

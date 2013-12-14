@@ -24,7 +24,9 @@
     <div class="col-md-4">
       <h4>Student at</h4>
       <% if @student.has_group? %>
-        <%= image_tag(@student.group.picture) if @student.group.picture? %>
+        <%= link_to group_path(@student.group) do %>
+          <%= image_tag(@student.group.picture) if @student.group.picture? %>
+        <% end%>
         <h2><%= link_to @student.group.name, group_path(@student.group) %></h2>
         <p>Meeting every <%= @student.group.time %> <br> at <%= @student.group.address %></p>
       <% else %>
