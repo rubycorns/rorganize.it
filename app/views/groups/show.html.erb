@@ -45,12 +45,12 @@
               <%= map(
             :container_id => "group-map",
             :center => {
-            :latlng => [51.52238797921441, -0.08366235665359283],
-            :zoom => 18
+            :latlng => [@group.latitude, @group.longitude],
+            :zoom => 16
           },
           :markers => [
             {
-              :latlng => [51.52238797921441, -0.08366235665359283],
+              :latlng => [@group.latitude, @group.longitude],
             }
           ])%>
       </div>
