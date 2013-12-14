@@ -14,7 +14,8 @@
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= topic.user_name %></td>
+        <%= topic %>
+        <td><%= topic.person.full_name if topic.person %></td>
         <td><%= topic.body %></td>
         <td><%= link_to 'Show', topic %></td>
         <td><%= link_to 'Edit', edit_topic_path(topic) %></td>

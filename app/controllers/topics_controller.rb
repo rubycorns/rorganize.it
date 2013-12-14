@@ -17,6 +17,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.person = current_person
 
     respond_to do |format|
       if @topic.save
@@ -57,6 +58,6 @@ class TopicsController < ApplicationController
     end
 
     def topic_params
-      params.require(:topic).permit(:user_name, :body, :group_id)
+      params.require(:topic).permit(:user_name, :body, :group_id, :full_name)
     end
 end

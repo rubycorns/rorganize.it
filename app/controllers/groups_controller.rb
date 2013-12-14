@@ -31,7 +31,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @topics = @group.topics
-    @topic = @topics.build
+    @topic = Topic.new
+    @topic.group = @group
   end
 
   def destroy
