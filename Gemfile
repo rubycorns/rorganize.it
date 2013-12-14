@@ -8,6 +8,7 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 group :development do
 	gem 'sqlite3'
+	gem 'guard-rspec', require: false
 end
 
 group :production do
