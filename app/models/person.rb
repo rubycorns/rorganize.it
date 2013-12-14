@@ -10,7 +10,7 @@ class Person < ActiveRecord::Base
     self[:twitter] = handle.gsub('@', '')
   end
 
-  def has_twitter
+  def has_twitter?
     twitter && twitter != ''
   end
 
