@@ -17,7 +17,7 @@
     <div class="col-md-4">
       <h4>About</h4>
       <%= image_tag(@student.picture_url) if @student.picture.present? %>
-      <% if @student.has_twitter %>
+      <% if @student.has_twitter? %>
         <p><%= link_to @student.twitter_handle, @student.twitter_profile_url, html_options = {:target => '_blank'} %></p>
       <% end %>
     </div>
