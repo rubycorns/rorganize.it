@@ -7,7 +7,6 @@
       <th>Suggested Topic</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -16,7 +15,6 @@
       <tr>
         <td><%= topic.person.full_name if topic.person %></td>
         <td><%= topic.body %></td>
-        <td><%= link_to 'Show', topic %></td>
         <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
         <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
