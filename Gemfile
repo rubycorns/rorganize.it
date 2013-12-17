@@ -24,7 +24,7 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Compass to supercharge SCSS
 gem "compass", "~> 0.12.2"
 # Use Twitter's finest Bootstap, for SCSS of course
-gem "bootstrap-sass", github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
+gem "bootstrap-sass", '~> 3.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
