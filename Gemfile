@@ -48,7 +48,7 @@ gem 'jbuilder', '~> 1.2'
 gem "modernizr-rails", "~> 2.6.2.3"
 
 #use osm maps
-gem 'leaflet-rails', github: 'axyjo/leaflet-rails', branch: 'master'
+gem 'leaflet-rails', '~> 0.7'
 
 # get coordinates from adress
 gem 'geocoder'
