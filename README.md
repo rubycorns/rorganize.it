@@ -1,4 +1,4 @@
-## RailsGirlsApp
+## RailsGirlsApp [![Build Status](https://travis-ci.org/rubycorns/RailsGirlsApp.png?branch=master)](https://travis-ci.org/rubycorns/RailsGirlsApp)
 
 You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
 This little app is just the one for you!
