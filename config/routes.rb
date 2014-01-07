@@ -6,7 +6,7 @@ RailsGirlsApp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'groups#index'
+   root 'pages#index'
    
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)  
    resources :groups
