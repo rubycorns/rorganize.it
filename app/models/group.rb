@@ -24,6 +24,8 @@ class Group < ActiveRecord::Base
   has_many :coaches
   has_many :topics
 
+  validates :name, presence: true
+
   mount_uploader :picture, PictureUploader
   geocoded_by :address
   after_validation :geocode
