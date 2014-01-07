@@ -27,10 +27,10 @@ require 'spec_helper'
 
 describe Person do
 
-  subject {Person.new({first_name: 'testie', last_name: 'testerson'})} #what to test? no twitter handle 
+  subject {Person.new({first_name: 'testaron', last_name: 'testerson'})} #what to test? no twitter handle 
 
   it 'has the correct full name' do
-    expect(subject.full_name).to eq 'testie testerson'
+    expect(subject.full_name).to eq 'testaron testerson'
   end
 
 
