@@ -15,7 +15,7 @@
   </div>
   <div class="row">
     <div class="col-md-12 group-header-image">
-      <%= image_tag(@group.picture) if @group.picture.present? %>
+      <%= image_tag(@group.picture_url(:group_profile)) if @group.picture.present? %>
     </div>
   </div>
   <div class="row group-info">

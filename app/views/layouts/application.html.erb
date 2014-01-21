@@ -37,7 +37,7 @@
           <% if person_signed_in? %>
             <div class="media pull-right profile-header">
               <a class="pull-left" href="#">
-                <%= image_tag(current_person.picture_url, size: "32x32" ) if current_person.picture.present? %>
+                <%= image_tag(current_person.picture_url(:thumb), size: "40x40" ) if current_person.picture.present? %>
               </a>
               <div class="media-body">
                   <p class="media-heading"><%= link_to current_person.full_name, current_person %><br>
