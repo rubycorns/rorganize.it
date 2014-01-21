@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-md-4">
       <h4>About</h4>
-      <%= image_tag(@coach.picture_url) if @coach.picture.present? %>
+      <%= image_tag(@coach.picture_url(:person_profile)) if @coach.picture.present? %>
      <% if @coach.has_twitter? %>
         <p><%= link_to @coach.twitter_handle, @coach.twitter_profile_url, html_options = {:target => '_blank'} %></p>
       <% end %>
@@ -25,7 +25,7 @@
     <div class="col-md-4">
       <h4>Coach at</h4>
       <% if @coach.has_group? %>
-        <%= image_tag(@coach.group.picture) if @coach.group.picture? %>
+        <%= image_tag(@coach.group.picture_url(:person_profile)) if @coach.group.picture? %>
         <h2><%= link_to @coach.group.name, group_path(@coach.group) %></h2>
         <p>Meeting every <%= @coach.group.time %> <br> at <%= @coach.group.address %></p>
       <% else %>
