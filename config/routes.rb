@@ -1,17 +1,21 @@
 RailsGirlsApp::Application.routes.draw do
-  resources :topics
 
   devise_for :people
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'pages#index'
+  root 'pages#index'
    
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)  
-   resources :groups
-   resources :students
-   resources :coaches
+  # resources :groups do
+  #   resources :topics
+  # end
+  resources :groups
+  resources :topics
+  resources :students
+  resources :coaches
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,6 +1,9 @@
 body {
   padding: 20px 0;
 }
+p {
+  line-height: 1.65;
+}
 img {
   width: 100%;
   height: auto;
@@ -42,6 +45,7 @@ img {
   padding-bottom: 10em;
   .group-header-image {
     height: 300px;
+    padding: 0;
     overflow: hidden;
   }
 }
