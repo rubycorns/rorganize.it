@@ -9,7 +9,7 @@
           <%= devise_error_messages! %>
 
           <div class="form-group">
-            <%= f.label :email %><br />
+            <%= f.label :email %> <small>(don't worry, your email won't be displayed publicly)</small><br />
             <%= f.email_field :email, :autofocus => true, :class => 'form-control' %>
           </div>
 
