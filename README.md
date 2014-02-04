@@ -8,6 +8,9 @@ An overview of who meets when, where, with whom to work on what.
 ### Just some general information:
 Ruby version 1.9.3  
 Rails version 4.0
+Make sure you have ImageMagick installed.
+In Terminal run 
+    brew install imagemagick
 
 ### Get the code
 Get the code from this repo
@@ -61,3 +64,5 @@ Tell the others what you did
 Off to Github
     
     git push
+
+
