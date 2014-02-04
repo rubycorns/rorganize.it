@@ -6,10 +6,14 @@ This little app is just the one for you!
 An overview of who meets when, where, with whom to work on what.
 
 ### Just some general information:
+
 Ruby version 1.9.3  
+
 Rails version 4.0
+
 Make sure you have ImageMagick installed.
-In Terminal run 
+
+In Terminal run
 
     brew install imagemagick
 
