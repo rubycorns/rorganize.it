@@ -10,6 +10,7 @@ Ruby version 1.9.3
 Rails version 4.0
 Make sure you have ImageMagick installed.
 In Terminal run 
+
     brew install imagemagick
 
 ### Get the code
