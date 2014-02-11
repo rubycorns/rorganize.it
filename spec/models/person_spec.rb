@@ -49,9 +49,9 @@ describe Person do
   		expect(subject.has_group?).to be_true
   	end
 
-  	 it 'returns a group name' do
-	  	expect(subject.group).to eq group
-	  end	
+    it 'returns a group name' do
+      expect(subject.group).to eq group
+    end	
 
   end
 
