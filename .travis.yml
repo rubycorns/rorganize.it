@@ -3,3 +3,9 @@ rvm: 2.0.0
 before_script:
   - "bundle exec rake db:migrate"
 script: "bundle exec rspec"
+notifications:
+  email:
+    recipients:
+      - tobias.pfeiffer@student.hpi.uni-potsdam.de
+      - locokaja@gmail.com
+      - graphicdiaryberlin@gmail.com
