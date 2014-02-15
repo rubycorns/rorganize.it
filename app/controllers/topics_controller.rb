@@ -1,6 +1,8 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_person!
+
   def index
     @topics = Topic.all
   end

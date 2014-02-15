@@ -4,8 +4,10 @@
       <div class="page-header clearfix">
         <h1 class="pull-left"><%= @coach.full_name %></h1>
         <div class="btn-group pull-right">
-          <%= link_to edit_coach_path(@coach.id), html_options = {:class => 'btn btn-default'} do %>
-            <i class="glyphicon glyphicon-edit"></i> Edit
+          <% if current_person.id === @coach.id %>
+            <%= link_to edit_coach_path(@coach.id), html_options = {:class => 'btn btn-default'} do %>
+              <i class="glyphicon glyphicon-edit"></i> Edit
+            <% end %>
           <% end %>
           <%= link_to coaches_path, html_options = {:class => 'btn btn-default'} do %>
             <i class="glyphicon glyphicon-arrow-left"></i> Back

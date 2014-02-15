@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
   respond_to :html
 
+  before_filter :authenticate_person!
+
   def index
     @groups = Group.all
   end
@@ -19,6 +21,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+
     @group = Group.find(params[:id])
   end
 
