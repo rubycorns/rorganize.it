@@ -1,6 +1,6 @@
 <h4>Suggest a topic:</h4>
 
-<%= form_for(@topic, :html => {:multipart => true}) do |f| %>
+<%= form_for([@topic.group, @topic], :html => {:multipart => true}) do |f| %>
   <% if @topic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
