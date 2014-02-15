@@ -10,57 +10,58 @@
           <%= link_to groups_path, html_options = {:class => 'btn btn-default'} do %>
             <i class="glyphicon glyphicon-arrow-left"></i> Back
           <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 group-header-image">
-      <%= image_tag(@group.picture_url(:group_profile)) if @group.picture.present? %>
+    <div class="row">
+      <div class="col-md-12 group-header-image">
+        <%= image_tag(@group.picture_url(:group_profile)) if @group.picture.present? %>
+      </div>
     </div>
-  </div>
-  <div class="row group-info">
-    <div class="col-md-4">
-      <p>Meeting at <strong><%= @group.address %></strong><br>
-      every <strong><%= @group.time %>.</strong>
-      </p>
-      <p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
-      <% if @group.has_twitter? %>
-        <p>Follow us on twitter <%= link_to @group.twitter_handle, @group.twitter_profile_url, html_options = {:target => '_blank'} %></p>
-      <% end %>
-      <p> Contact us <%= auto_link @group.contact %></p>
-      <p> What we do: <%= auto_link @group.activities %></p>
-    </div>
-    <div class="col-md-4">
-      <h4>Students</h4>
-      <p>This group currently has <%= pluralize @group.students.length, "member" %>.</p>
-      <ul>
-        <% @group.students.each do |student| %>
-        <li><%= link_to student.first_name, student_path(student) %></li>
+    <div class="row group-info">
+      <div class="col-md-4">
+        <p>Meeting at <strong><%= @group.address %></strong><br>
+        every <strong><%= @group.time %>.</strong>
+        </p>
+        <p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
+        <% if @group.has_twitter? %>
+          <p>Follow us on twitter <%= link_to @group.twitter_handle, @group.twitter_profile_url, html_options = {:target => '_blank'} %></p>
         <% end %>
-      </ul>
-      <h4>Coaches</h4>
-      <p>This group currently has <%= pluralize @group.coaches.length, "coach" %>.</p>
-      <ul>
-        <% @group.coaches.each do |coach| %>
-        <li><%= link_to coach.first_name, coach_path(coach) %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="col-md-4" id="group-map">
-      <div class="map">
-        <%= map(
-            :container_id => "group-map",
-            :center => {
-            :latlng => [@group.latitude, @group.longitude],
-            :zoom => 16
-          },
-          :markers => [
-            {
+        <p> Contact us <%= auto_link @group.contact %></p>
+        <p> What we do: <%= auto_link @group.activities %></p>
+      </div>
+      <div class="col-md-4">
+        <h4>Students</h4>
+        <p>This group currently has <%= pluralize @group.students.length, "member" %>.</p>
+        <ul>
+          <% @group.students.each do |student| %>
+          <li><%= link_to student.first_name, student_path(student) %></li>
+          <% end %>
+        </ul>
+        <h4>Coaches</h4>
+        <p>This group currently has <%= pluralize @group.coaches.length, "coach" %>.</p>
+        <ul>
+          <% @group.coaches.each do |coach| %>
+          <li><%= link_to coach.first_name, coach_path(coach) %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-md-4" id="group-map">
+        <div class="map">
+          <%= map(
+              :container_id => "group-map",
+              :center => {
               :latlng => [@group.latitude, @group.longitude],
-            }
-          ],
-          :attribution => "Map data &copy; <a href=\"http://openstrteetmap.org\" target=\"_blank\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\" target=\"_blank\"  >CC-BY-SA</a>, Imagery &copy; <a href=\"http://cloudmade.com\" target=\"_blank\">CloudMade</a>",
-        )%>
+              :zoom => 16
+            },
+            :markers => [
+              {
+                :latlng => [@group.latitude, @group.longitude],
+              }
+            ],
+            :attribution => "Map data &copy; <a href=\"http://openstrteetmap.org\" target=\"_blank\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\" target=\"_blank\"  >CC-BY-SA</a>, Imagery &copy; <a href=\"http://cloudmade.com\" target=\"_blank\">CloudMade</a>",
+          )%>
+        </div>
       </div>
     </div>
   </div>
