@@ -1,23 +1,25 @@
-<h4>Suggest a topic:</h4>
+<div class="container">
+  <h4>Suggest a topic:</h4>
 
-<%= form_for([@topic.group, @topic], :html => {:multipart => true}) do |f| %>
-  <% if @topic.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+  <%= form_for([@topic.group, @topic], :html => {:multipart => true}) do |f| %>
+    <% if @topic.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
 
-      <ul>
-      <% @topic.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @topic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.text_area :body, :placeholder => 'Suggest a topic', :class => 'form-control' %>
+    </div>
+    <%= f.hidden_field :group_id %>
+    <div class="actions">
+      <%= f.submit :class => "btn btn-primary"  %>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.text_area :body, :placeholder => 'Suggest a topic', :class => 'form-control' %>
-  </div>
-  <%= f.hidden_field :group_id %>
-  <div class="actions">
-    <%= f.submit :class => "btn btn-primary"  %>
-  </div>
-<% end %>
+</div>
