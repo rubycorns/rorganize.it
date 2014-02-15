@@ -1,5 +1,7 @@
 class CoachesController < ApplicationController
 
+  before_filter :authenticate_person!
+
   def index
     @coaches = Coach.all
   end

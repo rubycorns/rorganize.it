@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
   respond_to :html
 
+  before_filter :authenticate_person!
+
   def index
     @groups = Group.all
   end

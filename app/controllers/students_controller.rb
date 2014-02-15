@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
 
+  before_filter :authenticate_person!
+
   def index
     @students = Student.all
   end
