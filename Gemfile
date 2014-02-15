@@ -55,6 +55,9 @@ gem 'leaflet-rails', '~> 0.7'
 # get coordinates from adress
 gem 'geocoder'
 
+# required for shelly and fenerally a bit better
+gem 'thin'
+
 #use rails autolink for fields to automatically display URLs as hyperlinks
 gem 'rails_autolink'
 group :doc do
