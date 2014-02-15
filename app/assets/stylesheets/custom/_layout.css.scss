@@ -1,6 +1,59 @@
-body {
-  padding: 20px 0;
+
+html, body {
+  height: 100%;
 }
+
+html, p, ol, ul, td {
+  font-family: Helvetica Neue, Arial;
+}
+
+.main-container {
+  min-height: 100%;
+}
+
+.main-container .container {
+  overflow:auto;
+  padding-bottom: 100px;
+}  /* must be same height as the footer */
+
+.footer-container {
+  position: relative;
+  margin-top: -100px; /* negative value of footer height */
+  height: 100px;
+  clear:both;
+}
+
+.btn, .btn-primary {
+  color: white;
+}
+
+.btn-primary, .btn-primary:hover{
+  padding: 20px;
+  background-color: rgb(224, 51, 12);
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: normal;
+  box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.25) inset;
+  border-radius: 5px;
+  border: none;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: rgb(224, 51, 12);
+  background-color: white;
+}
+
+.navbar-default {
+  border: none;
+}
+
+
+body {
+  color: rgb(224, 51, 12);
+}
+
 img {
   width: 100%;
   height: auto;
@@ -8,11 +61,21 @@ img {
 
 .header-container .navbar,
 .footer-container {
-  background: lightgray;
+  background: rgb(222, 57, 12);
 }
+
 .main-container {
   padding-top: 60px;
   padding-bottom: 100px;
+}
+
+.main-container td a, .main-container td a:hover {
+  color: rgb(224, 51, 12);
+}
+
+.main-container td a:hover {
+  /*border-bottom: 1px solid rgb(224, 57, 12);*/
+  background: none;
 }
 
 .footer-container {
@@ -61,7 +124,14 @@ img {
   }
 }
 
-a, a:hover {
-  color: rgb(224, 51, 12);
-  border-bottom: 1px dotted rgb(224, 51, 12);
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: white;
 }
