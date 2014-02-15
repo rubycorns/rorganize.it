@@ -7,7 +7,7 @@ An overview of who meets when, where, with whom to work on what.
 
 ### Just some general information:
 
-Ruby version 1.9.3  
+Ruby version 2.0+ 
 
 Rails version 4.0
 
