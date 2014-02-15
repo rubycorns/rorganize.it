@@ -1,0 +1,2 @@
+mkdir -p disk/uploads
+ln -s ../disk/uploads public/uploads
