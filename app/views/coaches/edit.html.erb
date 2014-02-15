@@ -5,5 +5,8 @@
       <%= render 'form' %>
       <%= link_to 'Back', coach_path %>
     </div>
+    <%= link_to coach_path, html_options = {:class => 'btn btn-default'} do %>
+      <i class="glyphicon glyphicon-arrow-left"></i> Back
+    <% end %>
   </div>
 </div>

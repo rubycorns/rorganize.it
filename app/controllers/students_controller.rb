@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
 
   before_filter :authenticate_person!
+  before_action :check_same_person, except: [:index, :new, :create, :show ]
 
   def index
     @students = Student.all
@@ -35,6 +36,11 @@ class StudentsController < ApplicationController
 
   def student_params
      params.require(:student).permit(:first_name, :last_name, :email, :group_id, :picture, :twitter)
+  end
+
+  private
+  def check_same_person
+    redirect_to root_path, notice: 'You are not allowed to view this page' unless current_person.id == params[:id].to_i
   end
 
 end
