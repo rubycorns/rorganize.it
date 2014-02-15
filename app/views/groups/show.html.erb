@@ -3,6 +3,8 @@
     <div class="col-md-12">
       <div class="page-header clearfix">
         <h1 class="pull-left"><%= @group.name %></h1>
+
+        <% if current_person.group_id === @group.id %>
         <div class="btn-group pull-right">
           <%= link_to edit_group_path(@group.id), html_options = {:class => 'btn btn-default'} do %>
             <i class="glyphicon glyphicon-edit"></i> Edit
@@ -11,6 +13,8 @@
             <i class="glyphicon glyphicon-arrow-left"></i> Back
           <% end %>
         </div>
+        <% end %>
+
       </div>
     </div>
     <div class="row">
