@@ -14,7 +14,7 @@ end
 
 group :production do
 	gem 'pg'
-	gem 'rails_12factor'
+	gem 'shelly-dependencies'
 end
 
 gem 'carrierwave'
@@ -55,9 +55,6 @@ gem 'leaflet-rails', '~> 0.7'
 # get coordinates from adress
 gem 'geocoder'
 
-# required for shelly and fenerally a bit better
-gem 'thin'
-
 #use rails autolink for fields to automatically display URLs as hyperlinks
 gem 'rails_autolink'
 group :doc do
@@ -67,10 +64,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-end
-
-group :production do
-  gem 'shelly-dependencies'
 end
 
 # Use ActiveModel has_secure_password
