@@ -4,7 +4,7 @@
       <div class="page-header clearfix">
         <h1 class="pull-left"><%= @group.name %></h1>
         <div class="btn-group pull-right">
-          <% if current_person.group_id === @group.id %>
+          <% if current_person.group_id == @group.id %>
             <%= link_to edit_group_path(@group.id), html_options = {:class => 'btn btn-default'} do %>
               <i class="glyphicon glyphicon-edit"></i> Edit
             <% end %>
@@ -70,7 +70,7 @@
     </div>
   </div>
 
-  <% if current_person.group_id === @group.id %>
+  <% if current_person.group_id == @group.id %>
     <%= render template: "topics/index" %>
     <%= render template: "topics/_form" %>
   <% end %>
