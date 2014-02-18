@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-  before_filter :authenticate_person!
+  before_action :authenticate_person!
   before_action :check_same_person, except: [:index, :new, :create, :show ]
 
   def index
