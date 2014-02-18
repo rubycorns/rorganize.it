@@ -23,7 +23,7 @@ Get the code from this repo
     git clone
 
 
-### Deploy
+### Run locally
 Install all the gems
 
     bundle install
@@ -70,4 +70,12 @@ Off to Github
     
     git push
 
+### Deploy to shelly cloud
 
+We are now graciously hosted by [shelly](https://shellycloud.com/)
+
+1. Nudge Tobi to invite you to the shelly cloud
+2. [Follow the shelly cloud join an existing cloud steps](https://shellycloud.com/documentation/joining_existing_cloud)
+3. You can now deploy with `git push shelly` (just like heroku, just with a shelly)
+
+App runs at: http://railsgirlsapp.shellyapp.com/
