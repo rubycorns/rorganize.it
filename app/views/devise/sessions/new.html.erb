@@ -7,12 +7,12 @@
 			<form role="form" class="form">
 				<div class="form-group">
 					<%= f.label :email %>
-					<%= f.email_field :email, :autofocus => true, :class => 'form-control' %>
+					<%= f.email_field :email, :placeholder => 'E-mail',:autofocus => true, :class => 'form-control' %>
 				</div>
 
 				<div class="form-group">
 					<%= f.label :password %>
-					<%= f.password_field :password, :class => 'form-control' %>
+					<%= f.password_field :password, :placeholder => 'Password', :class => 'form-control' %>
 				</div>
 
 				<% if devise_mapping.rememberable? -%>
