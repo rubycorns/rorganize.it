@@ -29,4 +29,9 @@ class Group < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   geocoded_by :address
   after_validation :geocode
+
+  def is_editable_by?(person)
+    students.include?(person) || coaches.include?(person)
+  end
+
 end

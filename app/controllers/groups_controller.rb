@@ -21,8 +21,10 @@ class GroupsController < ApplicationController
   end
 
   def edit
-
     @group = Group.find(params[:id])
+    if !@group.is_editable_by?(current_person)
+      redirect_to root_path, notice: 'You don\'t have permission to view this page.'
+    end
   end
 
   def update
