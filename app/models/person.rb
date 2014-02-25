@@ -33,6 +33,8 @@ class Person < ActiveRecord::Base
   has_many :topics
   mount_uploader :picture, PictureUploader
 
+  validates :first_name, presence: true
+
   def has_group?
     group && group != ''
   end
