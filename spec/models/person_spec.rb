@@ -27,7 +27,12 @@ require 'spec_helper'
 
 describe Person do
 
-  subject {Person.new({first_name: 'testaron', last_name: 'testerson'})} #what to test? no twitter handle
+  let(:minimal_attributes) {{ email:      'a@b.de',
+                              password:   'qwe123qwe',
+                              first_name: 'klaus'}}
+
+  subject {Person.new({first_name: 'testaron',
+                       last_name:  'testerson'})} #what to test? no twitter handle
 
   it 'has the correct full name' do
     expect(subject.full_name).to eq 'testaron testerson'
@@ -36,6 +41,20 @@ describe Person do
   it 'has no group' do 
   	expect(subject.has_group?).to be_false
   end	
+
+  it 'is a minimal valid user' do
+    expect(Person.new(minimal_attributes)).to be_valid
+  end
+
+  it 'is not valid without a first name' do
+    invalid_hash = minimal_attributes.except :first_name
+    expect(Person.new invalid_hash).to_not be_valid
+  end
+
+  it 'is not valid with a blank name' do
+    invalid_hash = minimal_attributes.merge({first_name: ''})
+    expect(Person.new invalid_hash).not_to be_valid
+  end
 
   describe 'with group' do
 
