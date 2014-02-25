@@ -60,6 +60,6 @@ class TopicsController < ApplicationController
     end
 
     def topic_params
-      params.require(:topic).permit(:user_name, :body, :group_id, :full_name)
+      params.require(:topic).permit(:body, :group_id, :full_name)
     end
 end

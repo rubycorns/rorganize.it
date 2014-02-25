@@ -3,7 +3,6 @@
 # Table name: topics
 #
 #  id         :integer          not null, primary key
-#  user_name  :string(255)
 #  body       :text
 #  group_id   :integer
 #  created_at :datetime
