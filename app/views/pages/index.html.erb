@@ -4,10 +4,10 @@
       <h1>Hello Rubycorns</h1>
       <p>This is the new frontpage, check views/pages/index.</p>
       <p>To add another 'static' page add a method to the pages controller, adjust the routes and create a view in views/pages/.</p>
-  	  <% unless person_signed_in? %>
-  	  	<p>If you are a student and not signed up - feel free to register! </p>
-  	  	<%= link_to "register new student", new_student_path, :class => 'btn btn-primary' %>
-  	  <% end %>
+      <% unless person_signed_in? %>
+        <p>If you are a student and not signed up - feel free to register! </p>
+        <%= link_to "register new student", new_student_path, :class => 'btn btn-primary' %>
+      <% end %>
      </div>
   </div>
 </div>
