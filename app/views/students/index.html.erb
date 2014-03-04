@@ -7,7 +7,7 @@
           <li class="list-group-item clearfix">
             <div class="media pull-left">
               <a class="pull-left" href="<%= student_path(student) %>">
-                <%= image_tag(student.picture_url) if student.picture.present? %>
+                <%= image_tag(student.picture_url(:thumb), size: "40x40") if student.picture.present? %>
               </a>
               <div class="media-body">
                 <h4 class="media-heading"><%= student.full_name %></h4>

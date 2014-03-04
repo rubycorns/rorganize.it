@@ -1,2 +1,91 @@
-// import our styles
-@import "_layout.css.scss";
+// first set our variables
+@import "_bootstrap_vars.scss";
+// then include bootstrap
+@import "bootstrap";
+
+* {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin-top: $navbar-height;
+}
+
+
+/*
+ * overall Layout
+ */
+.navbar-default {
+  border: none;
+}
+.main-container {
+  padding: 1em 0 3em;
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -100px;
+  &:after {
+    content: "";
+    display: block;
+  }
+}
+.footer-container {
+  padding: 2.2em 0 1em;
+  background-color: $rg_red;
+  a {
+    color: white;
+  }
+}
+.footer-container, .main-container:after {
+  /* .push must be the same height as footer */
+  height: 100px; 
+}
+
+.profile-header {
+  min-width: 10em;
+  padding-top: .15em;
+  a {
+    color: white;
+  }
+  .media-heading {
+    line-height: 1.3;
+  }
+}
+
+/*
+ * Group Profile
+ */
+.groupprofile {
+  padding-bottom: 10em;
+  .group-header-image {
+    height: 300px;
+    overflow: hidden;
+  }
+}
+.group-info {
+  margin-top: 3em;
+}
+.list-group {
+  .media {
+    width: 50%;
+  }
+}
+.map {
+  width: 100%;
+  height: 100%;
+  min-height: 20em;
+  overflow: hidden;
+}
+
+/*
+ * Student/ Coaches
+ */
+.student-list {
+  img {
+    width: 50px;
+    height: auto;
+  }
+}
+
