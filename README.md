@@ -42,11 +42,11 @@ et voilá
 ### Git: branches 
 Create new branch (you should be in the directory of the project) 
     
-    git branch "Name_of_your_branch"
+    git branch Name_of_your_branch
     
 Switch to the newly created branch (the same if you need to change to the branch that already exist) 
     
-    git checkout "Name_of_your_branch"
+    git checkout Name_of_your_branch
 
 Or for lazy people like Tobi (does both steps at the same time):
     
