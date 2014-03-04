@@ -58,7 +58,7 @@ Push the new branch to the repository (with some commits or just "bare" branch)
     
 Delete local branch
 
-    git branch -D signup_dashboard
+    git branch -D Name_of_your_branch
     
     
 ### Git: commit your changes
