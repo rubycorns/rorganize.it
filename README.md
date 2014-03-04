@@ -56,7 +56,11 @@ Push the new branch to the repository (with some commits or just "bare" branch)
     
     git push --set-upstream origin Name_of_your_branch
     
+Delete local branch
 
+    git branch -D signup_dashboard
+    
+    
 ### Git: commit your changes
 Make changes, then 
     
