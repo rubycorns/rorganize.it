@@ -1,13 +1,30 @@
-<div class="container">
+<div class="container student-list">
   <h1>Coaches overview</h1><br /><br />
-  <div class="row-fluid">
-    <div class="span8">
-      <ul>
+  <div class="row">
+    <div class="col-md-8">
+      <ul class="list-group">
         <% @coaches.each do |coach| %>
-          <li>
-            <div>
-              <p><%= link_to coach.full_name, coach_path(coach) %></p>
-              <p><%= link_to coach.group.name, group_path(coach.group.id) if coach.group %></p>
+          <li class="list-group-item clearfix">
+            <div class="media pull-left">
+              <a class="pull-left" href="<%= coach_path(coach) %>">
+                <%= image_tag(coach.picture_url(:thumb), size: "40x40") if coach.picture.present? %>
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading"><%= coach.full_name %></h4>
+                <p><%= coach.group.name if coach.group %></p>
+              </div>
+            </div>
+            <div class="pull-right">
+              <div class="btn-group">
+                <%= link_to coach_path(coach), :class => 'btn btn-default' do %>
+                  <i class="glyphicon glyphicon-user"></i> Profile
+                <% end %>
+                <% if coach.has_group? %>
+                  <%= link_to group_path(coach.group.id), :class => 'btn btn-default' do %>
+                      <i class="glyphicon glyphicon-glass"></i> Group
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </li>
         <% end %>

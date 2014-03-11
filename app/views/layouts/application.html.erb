@@ -20,7 +20,7 @@
           </button>
           <%= link_to("RailsGirlsApp", root_path, {class: "navbar-brand"}) %>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse pull-left">
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li class="<%= 'active' if params[:controller] == 'groups' %>">
               <%= link_to "Groups", groups_path %>
@@ -32,18 +32,25 @@
               <%= link_to "Coaches", coaches_path %>
             </li>
           </ul>
-        </div>
-        <div>
           <% if person_signed_in? %>
-            <div class="media pull-right profile-header">
-              <a class="pull-left" href="#">
-                <%= image_tag(current_person.picture_url(:thumb), size: "40x40" ) if current_person.picture.present? %>
-              </a>
-              <div class="media-body">
+          <ul class="nav navbar-nav navbar-right profile-header">
+            <li>
+              <div class="media profile-header">
+                <a class="pull-left" href="#">
+                  <%= image_tag(current_person.picture_url(:thumb), size: "40x40" ) if current_person.picture.present? %>
+                </a>
+                <div class="media-body">
                   <p class="media-heading"><%= link_to current_person.full_name, current_person %><br>
                   <%= link_to "logout", destroy_person_session_path, method: :delete %></p>
                 </div>
-            </div>
+              </div>
+            </li>
+          </ul>
+          <% else %>
+          <ul class="nav navbar-nav navbar-right profile-header">
+            <li><%= link_to 'Log in', new_person_session_path %></li>
+            <li><%= link_to 'Sign up', new_person_registration_path %></li>
+          </ul>
           <% end %>
         </div>
       </div>
@@ -66,7 +73,12 @@
 
   <footer class="footer-container">
     <div class="container">
-      <p class="pull-left">made with <span class="glyphicon glyphicon-heart"></span> by the <strong><%= link_to("rubycorns", "https://twitter.com/rubycorns") %></strong><br>check the code on <strong><%= link_to("Github", "//github.com/rubycorns/RailsGirlsApp") %></p>
+      <p class="pull-left">made with 
+        <span class="glyphicon glyphicon-heart"></span> by the 
+        <%= link_to("rubycorns", "https://twitter.com/rubycorns") %><br>
+      check the code on 
+        <%= link_to("Github", "//github.com/rubycorns/RailsGirlsApp") %>
+      </p>
       <div class="pull-right">
         <p><a href="https://shellycloud.com/" target="_blank"><img src="//shellycloud.com/assets/badge.png" alt="Shellycloud badge"></a></p>
       </div>

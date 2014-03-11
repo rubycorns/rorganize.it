@@ -5,7 +5,7 @@
         <h1 class="pull-left"><%= @student.full_name %></h1>
         <div class="btn-group pull-right">
           <% if current_person.id == @student.id %>
-            <%= link_to edit_student_path(@student.id), html_options = {:class => 'btn btn-default'} do %>
+            <%= link_to edit_person_registration_path, html_options = {:class => 'btn btn-default'} do %>
               <i class="glyphicon glyphicon-edit"></i> Edit
             <% end %>
           <% end %>
