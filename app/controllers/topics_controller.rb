@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
-
+  before_action :validate_user_group_member, except: [:index, :show]
   before_action :authenticate_person!
 
   def index
@@ -54,12 +54,19 @@ class TopicsController < ApplicationController
   end
 
   private
+  def set_topic
+    @topic = Topic.find(params[:id])
+  end
 
-    def set_topic
-      @topic = Topic.find(params[:id])
-    end
+  def topic_params
+    params.require(:topic).permit(:body, :group_id, :full_name)
+  end
 
-    def topic_params
-      params.require(:topic).permit(:body, :group_id, :full_name)
+  def validate_user_group_member
+    group = Group.find params[:group_id]
+    unless group.is_editable_by? current_person
+      redirect_to group_path(params[:group_id]),
+                  notice: 'You are not allowed to do that'
     end
+  end
 end

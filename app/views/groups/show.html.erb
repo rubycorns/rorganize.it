@@ -65,10 +65,8 @@
     </div>
   </div>
   <div class="row">
-    <% if current_person.group_id == @group.id %>
-      <%= render template: "topics/index" %>
-      <%= render template: "topics/_form" %>
-    <% end %>
+    <%= render template: "topics/index" %>
+    <%= render template: "topics/_form" if current_person.group_id == @group.id %>
   </div>
 
 </div>
