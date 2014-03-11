@@ -1,13 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
-      <h1>Hello Rubycorns</h1>
-      <p>This is the new frontpage, check views/pages/index.</p>
-      <p>To add another 'static' page add a method to the pages controller, adjust the routes and create a view in views/pages/.</p>
+    <div class="jumbotron">
+      <h1>Rails Girls Groups App</h1>
+      <h2>Find other Rails Girls students, coaches and project groups!</h2>
       <% unless person_signed_in? %>
         <p>If you are a student and not signed up - feel free to register! </p>
         <%= link_to "register new student", new_student_path, :class => 'btn btn-primary' %>
       <% end %>
-     </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Find a project group</h3>
+      <p><%= link_to "all the groups", groups_path, :class => 'btn btn-primary' %></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Find other students</h3>
+      <p><%= link_to "all the students", students_path, :class => 'btn btn-primary' %></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Find coaches</h3>
+      <p><%= link_to "all the coaches", coaches_path, :class => 'btn btn-primary' %></p>
+    </div>
   </div>
 </div>
