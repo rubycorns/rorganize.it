@@ -5,21 +5,22 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th></th>
             <th>Name</th>
-            <th>Address</th>
             <th>Time</th>
-            <th>Actions</th>
-            <th>Picture</th>
+            <th>Address</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <% @groups.each do |group| %>
             <tr>
+              <td><%= image_tag(group.picture_url, :width => 60) if group.picture.present? %></td>
               <td>
               <%= link_to group.name, group %>
               </td>
-              <td><%= group.address %></td>
               <td><%= group.time %></td>
+              <td><%= group.address %></td>
               <td>
                 <%=
                   if group.is_editable_by?(current_person)
@@ -30,8 +31,6 @@
                   end
                 %>
               </td>
-              <td><%= image_tag(group.picture_url, :width => 60) if group.picture.present? %></td>
-
             </tr>
           <% end %>
         </tbody>
