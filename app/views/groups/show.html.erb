@@ -4,17 +4,35 @@
       <div class="page-header clearfix">
         <h1 class="pull-left"><%= @group.name %></h1>
         <div class="btn-group pull-right">
+          <%= link_to groups_path, html_options = {:class => 'btn btn-default'} do %>
+            <i class="glyphicon glyphicon-arrow-left"></i> overview
+          <% end %>
           <% if current_person.group_id == @group.id %>
-            <%= link_to edit_group_path(@group.id), html_options = {:class => 'btn btn-default'} do %>
-              <i class="glyphicon glyphicon-edit"></i> Edit
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-cog"></span><span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li>
+                  <%= link_to edit_group_path(@group.id) do %>
+                    <i class="glyphicon glyphicon-edit"></i> edit group
+                  <% end %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "#" do %>
+                    <i class="glyphicon glyphicon-remove-circle"></i> leave group
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          <% else %>
+            <%= link_to "#", html_options = {:class => 'btn btn-success'} do %>
+              <i class="glyphicon glyphicon-ok-circle"></i> join goup!
             <% end %>
           <% end %>
-          <%= link_to groups_path, html_options = {:class => 'btn btn-default'} do %>
-            <i class="glyphicon glyphicon-arrow-left"></i> Back
-          <% end %>
-        </div>
-        
 
+        </div>
       </div>
     </div>
   </div>
