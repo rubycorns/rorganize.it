@@ -40,3 +40,25 @@ group_list = [
 group_list.each do |group|
   Group.create!(group)
 end
+
+user_list = [
+  {
+    first_name: 'Student',
+    last_name: 'Example',
+    email: 'student@example.org',
+    password: 'testtest',
+    twitter: '@studenttwitter',
+    type: 'Student'
+  },
+  {
+    first_name: 'Coach',
+    last_name: 'Example',
+    email: 'coach@example.org',
+    password: 'testtest',
+    twitter: '@coachtwitter',
+    type: 'Coach'
+  }
+]
+user_list.each do |user|
+  Person.create!(user)
+end
