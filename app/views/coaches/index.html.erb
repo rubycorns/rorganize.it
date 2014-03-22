@@ -17,11 +17,11 @@
             <div class="pull-right">
               <div class="btn-group">
                 <%= link_to coach_path(coach), :class => 'btn btn-default' do %>
-                  <i class="glyphicon glyphicon-user"></i> Profile
+                  <%= fa_icon "user", text: "Profile" %>
                 <% end %>
                 <% if coach.has_group? %>
                   <%= link_to group_path(coach.group.id), :class => 'btn btn-default' do %>
-                      <i class="glyphicon glyphicon-glass"></i> Group
+                    <%= fa_icon "users", text: "Group" %>
                   <% end %>
                 <% end %>
               </div>
