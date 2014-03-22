@@ -20,9 +20,7 @@
     <div class="col-md-4">
       <h4>About</h4>
       <%= image_tag(@student.picture_url(:person_profile)) if @student.picture.present? %>
-      <% if @student.has_twitter? %>
-        <p><%= link_to @student.twitter_handle, @student.twitter_profile_url, html_options = {:target => '_blank'} %></p>
-      <% end %>
+      <p>Twitter <%= render partial: "groups/twitter", locals: { object: @student } %></p>
     </div>
     <div class="col-md-4">
       <h4>Student at</h4>
