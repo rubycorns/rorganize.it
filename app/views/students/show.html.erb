@@ -20,7 +20,7 @@
     <div class="col-md-4">
       <h4>About</h4>
       <%= image_tag(@student.picture_url(:person_profile)) if @student.picture.present? %>
-      <p>Twitter <%= render partial: "groups/twitter", locals: { object: @student } %></p>
+      <p>Twitter <%= render partial: "shared/twitter", locals: { object: @student } %></p>
     </div>
     <div class="col-md-4">
       <h4>Student at</h4>

@@ -25,7 +25,7 @@
       </p>
       <p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
       <p> Contact us <%= auto_link @group.contact %></p>
-      <p> Our Twitter <%= render partial: "groups/twitter", locals: { object: @group } %></p>
+      <p> Our Twitter <%= render partial: "shared/twitter", locals: { object: @group } %></p>
       <p> What we do: <%= auto_link @group.activities %></p>
     </div>
     <div class="col-md-4">
