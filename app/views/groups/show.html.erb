@@ -24,10 +24,8 @@
       <%= fa_icon "clock-o" %> <strong><%= @group.time %>.</strong>
       </p>
       <p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
-      <% if @group.has_twitter? %>
-        <p>Follow us on twitter <%= link_to @group.twitter_handle, @group.twitter_profile_url, html_options = {:target => '_blank'} %></p>
-      <% end %>
       <p> Contact us <%= auto_link @group.contact %></p>
+      <p> Our Twitter <%= render partial: "shared/twitter", locals: { object: @group } %></p>
       <p> What we do: <%= auto_link @group.activities %></p>
     </div>
     <div class="col-md-4">
