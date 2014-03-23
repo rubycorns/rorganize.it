@@ -6,11 +6,11 @@
         <div class="btn-group pull-right">
           <% if current_person.id == @student.id %>
             <%= link_to edit_person_registration_path, html_options = {:class => 'btn btn-default'} do %>
-              <i class="glyphicon glyphicon-edit"></i> Edit
+              <%= fa_icon "pencil", text: "edit" %>
             <% end %>
           <% end %>
           <%= link_to students_path, html_options = {:class => 'btn btn-default'} do %>
-            <i class="glyphicon glyphicon-arrow-left"></i> Back
+            <%= fa_icon "arrow-left", text: "back" %>
           <% end %>
         </div>
       </div>
@@ -31,7 +31,8 @@
           <%= image_tag(@student.group.picture_url(:person_profile)) if @student.group.picture? %>
         <% end%>
         <h2><%= link_to @student.group.name, group_path(@student.group) %></h2>
-        <p>Meeting every <%= @student.group.time %> <br> at <%= @student.group.address %></p>
+        <p><%= fa_icon "map-marker" %> <%= @student.group.address %><br>
+          <%= fa_icon "clock-o" %> <%= @student.group.time %></p>
       <% else %>
         <p><%= @student.first_name %> is currently in no group.</p>
       <% end %>
