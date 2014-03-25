@@ -29,7 +29,7 @@
           <% end %>
           <% if show_join_group_button? current_person, @group %>
 
-            <%= form_tag(person_registration_path, method: 'put') do %>
+            <%= form_tag(memberships_path, method: 'post') do %>
               <input type="hidden" name="person[group_id]" value="<%= @group.id %>">
               <button class="btn btn-success"><i class="glyphicon glyphicon-ok-circle"></i> join group!</button>
 

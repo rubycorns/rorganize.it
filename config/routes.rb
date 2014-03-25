@@ -13,6 +13,7 @@ RailsGirlsApp::Application.routes.draw do
   end
   resources :students
   resources :coaches
+  resources :memberships
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
