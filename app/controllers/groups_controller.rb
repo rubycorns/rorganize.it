@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   respond_to :html
 
-  before_action :authenticate_person!
+  before_action :authenticate_person!, except: [:index, :show]
 
   def index
     @groups = Group.all

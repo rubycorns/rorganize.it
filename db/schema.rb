@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20140225183104) do
     t.datetime "updated_at"
     t.string   "picture"
     t.string   "twitter"
-    t.text     "contact"
-    t.text     "activities"
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "contact"
+    t.text     "activities"
   end
 
   create_table "people", force: true do |t|
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140225183104) do
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140225183104) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "picture"
     t.string   "twitter"
   end
 

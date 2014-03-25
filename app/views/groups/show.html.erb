@@ -7,26 +7,27 @@
           <%= link_to groups_path, html_options = {:class => 'btn btn-default'} do %>
             <i class="glyphicon glyphicon-arrow-left"></i> overview
           <% end %>
-          <% if current_person.group_id == @group.id %>
+          <% if show_group_member_buttons? current_person, @group %>
             <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-cog"></span><span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li>
-                  <%= link_to edit_group_path(@group.id) do %>
-                    <i class="glyphicon glyphicon-edit"></i> edit group
-                  <% end %>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i class="glyphicon glyphicon-remove-circle"></i> leave group
-                  <% end %>
-                </li>
+                  <li>
+                    <%= link_to edit_group_path(@group.id) do %>
+                      <i class="glyphicon glyphicon-edit"></i> edit group
+                    <% end %>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "#" do %>
+                      <i class="glyphicon glyphicon-remove-circle"></i> leave group
+                    <% end %>
+                  </li>
               </ul>
             </div>
-          <% else %>
+          <% end %>
+          <% if show_join_group_button? current_person, @group %>
             <%= link_to "#", html_options = {:class => 'btn btn-success'} do %>
               <i class="glyphicon glyphicon-ok-circle"></i> join goup!
             <% end %>
@@ -84,7 +85,7 @@
   </div>
   <div class="row">
     <%= render template: "topics/index" %>
-    <%= render template: "topics/_form" if current_person.group_id == @group.id %>
+    <%= render template: "topics/_form" if show_group_member_buttons? current_person, @group %>
   </div>
 
 </div>
