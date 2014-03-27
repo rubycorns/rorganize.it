@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RailsGirlsApp</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -58,9 +57,9 @@
   </header>
   <div class="main-container">
 
-    <% [:notice, :error, :alert].each do |level| %>
+    <% [:notice, :error, :alert, :success].each do |level| %>
       <% unless flash[level].blank? %>
-        <p class="container alert alert/dismissable alert-<%= flash_class(level) %>">
+        <p class="container alert alert-dismissable alert-<%= flash_class(level) %>">
           <%= flash[level] %>
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         </p>
@@ -84,5 +83,6 @@
       </div>
     </div>
   </footer>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>
