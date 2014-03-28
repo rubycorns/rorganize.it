@@ -20,8 +20,9 @@
                   </li>
                   <li class="divider"></li>
                   <li>
-                    <%= link_to "#" do %>
-                      <i class="glyphicon glyphicon-remove-circle"></i> leave group
+                    <%= form_tag(membership_path, method: 'patch') do %>
+                      <input type="hidden" name="person[group_id]" value="<%= @group.id %>">
+                      <button class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i>  leave group</button>
                     <% end %>
                   </li>
               </ul>
