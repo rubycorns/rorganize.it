@@ -10,6 +10,7 @@ group :development do
 	gem 'sqlite3'
 	gem 'guard-rspec', require: false
   gem 'annotate'
+  gem 'pry-rails'
 end
 
 group :production do
