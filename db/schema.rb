@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20140225183104) do
     t.datetime "updated_at"
     t.string   "picture"
     t.string   "twitter"
-    t.float    "latitude"
-    t.float    "longitude"
     t.text     "contact"
     t.text     "activities"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "people", force: true do |t|
