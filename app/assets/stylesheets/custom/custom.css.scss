@@ -90,3 +90,17 @@ body {
   }
 }
 
+/*
+ * Style the leave group button
+ */
+
+.btn-leavegroup {
+  padding: 0.4em 1em .3em;
+  background-color: $btn-danger-bg;
+  button {
+    color: white;
+    border: none;
+    background: none;
+  }
+}
+
