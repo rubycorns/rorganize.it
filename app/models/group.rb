@@ -19,12 +19,15 @@
 
 class Group < ActiveRecord::Base
   include TwitterHandle
-  
+
+  FORMAT = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+
   has_many :students
   has_many :coaches
   has_many :topics
 
   validates :name, presence: true
+  validates :email, format: { with: FORMAT }, presence: true
 
   mount_uploader :picture, PictureUploader
   geocoded_by :address

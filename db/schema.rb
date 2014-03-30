@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225183104) do
+ActiveRecord::Schema.define(version: 20140328143912) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140225183104) do
     t.text     "activities"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "email"
   end
 
   create_table "people", force: true do |t|
