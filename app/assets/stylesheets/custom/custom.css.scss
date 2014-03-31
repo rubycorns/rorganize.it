@@ -95,12 +95,13 @@ body {
  */
 
 .btn-leavegroup {
-  padding: 0.4em 1em .3em;
-  background-color: $btn-danger-bg;
+  padding: .3em 1em .2em;
   button {
-    color: white;
     border: none;
     background: none;
+  }
+  &:hover {
+    background-color: #F5F5F5;
   }
 }
 
