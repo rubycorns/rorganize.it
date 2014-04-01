@@ -5,7 +5,7 @@ class MembershipsController < ApplicationController
     @group = Group.find(params[:person][:group_id])
     if @person.update(group_id: @group.id)
       flash[:success] = "Welcome to the group #{@group.name}! Please consider buying everyone cake on your first day."
-      PersonMailer.new_member_email(@group).deliver
+      PersonMailer.new_member_email(@group, @person).deliver
       redirect_to group_path(@group)
     end
   end
