@@ -4,7 +4,6 @@
     <%= devise_error_messages! %>
 
     <div class="col-md-6">
-      <h3>Enter your personal details</h3>
 
       <div class="form-group">
         <%= label_tag(:first_name, "Your first name *") %>
@@ -29,11 +28,6 @@
       </div>
 
       <div class="form-group">
-        <%= label_tag("Are you a coach or a student?") %>
-        <%= f.select( "type", ["Student", "Coach"], {}, { :class => 'form-control' } )%>
-      </div>
-
-      <div class="form-group">
         <%= label_tag(:password, "Enter your password *")%>
         <%= f.password_field :password, :placeholder => 'Password',:class => 'form-control' %>
       </div>
@@ -48,12 +42,10 @@
     </div>
 
     <div class="col-md-6">
-      <h3>Additional information</h3>
 
       <div class="form-group">
-        <label for="selectGroup">Please select your Rails Girls Group</label>
-        <!-- why it works only when there is empty {}? -->
-        <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {:class => 'form-control'}) %>
+        <%= label_tag("Are you a coach or a student?") %>
+        <%= f.select( "type", ["Student", "Coach"], {}, { :class => 'form-control' } )%>
       </div>
 
       <div class="form-group">
