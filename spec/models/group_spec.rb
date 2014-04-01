@@ -27,8 +27,9 @@ describe Group do
     expect(subject.valid?).to be_false
   end
 
-  it 'is valid with a name' do
+  it 'is valid with a name and email' do
     subject.name = 'Awesome Test Group'
+    subject.email = 'mail@group.org'
     expect(subject.valid?).to be_true
   end
 

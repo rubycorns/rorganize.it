@@ -39,8 +39,8 @@ describe Person do
   end
 
   it 'has no group' do 
-  	expect(subject.has_group?).to be_false
-  end	
+    expect(subject.has_group?).to be_false
+  end 
 
   it 'is a minimal valid user' do
     expect(Person.new(minimal_attributes)).to be_valid
@@ -58,19 +58,19 @@ describe Person do
 
   describe 'with group' do
 
-  	let(:group) {Group.new({name: 'test group'})}
+    let(:group) {Group.new({name: 'test group'})}
 
-  	before :each do
-  		subject.group = group
-  	end
+    before :each do
+      subject.group = group
+    end
 
-  	it 'has a group' do
-  		expect(subject.has_group?).to be_true
-  	end
+    it 'has a group' do
+      expect(subject.has_group?).to be_true
+    end
 
     it 'returns a group name' do
       expect(subject.group).to eq group
-    end	
+    end 
 
   end
 
