@@ -43,4 +43,12 @@ class Person < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
+  def join(group)
+    self.group = group
+  end
+
+  def member_of?(group)
+    
+  end
+
 end
