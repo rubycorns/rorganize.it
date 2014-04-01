@@ -61,7 +61,7 @@ describe Person do
     let(:group) {Group.new({name: 'test group'})}
 
     before :each do
-      subject.group = group
+      subject.join(group)
     end
 
     it 'has a group' do
