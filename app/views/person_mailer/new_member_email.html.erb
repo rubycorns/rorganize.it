@@ -1,0 +1,11 @@
+<p> Dear <%= @group.name %>
+
+<p><%= @group.students.last.first_name %> has joined your group! </p>
+
+<% if @group.students.last.twitter? %>
+  They are on twitter! @<%= @group.students.last.twitter %>
+<% end %>
+
+<p>You can find out more about your latest member by heading over to your project group page.</p>
+
+<p>Best wishes from the RailsGirlsApp </p>

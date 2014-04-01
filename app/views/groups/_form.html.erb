@@ -1,4 +1,5 @@
 <%= form_for(@group, :html => {:multipart => true}) do |f|  %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <legend>Register new group</legend>
   <div class="form-group">
@@ -22,9 +23,8 @@
     <%= f.text_field :twitter, :placeholder => '@twitterhandle', :class => 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:picture, "Your group picture") %>
-    <%= f.file_field :picture, :placeholder => 'What you look like'  %>
-    <p class="help-block">Choose a picture representing your group</p>
+    <%= label_tag(:email, "Where we'll send official emails") %>
+    <%= f.text_field :email, :placeholder => "Where we'll send official emails", :class => 'form-control' %>
   </div>
   <div class="form-group">
     <%= label_tag(:contact, "Your groups contact") %>
@@ -34,8 +34,13 @@
     <%= label_tag(:activities, "Your groups activities") %>
     <%= f.text_area :activities, :placeholder => 'Your activities, topics, projects', :class => 'form-control' %>
   </div>
+   <div class="form-group">
+    <%= label_tag(:picture, "Your group picture") %>
+    <%= f.file_field :picture, :placeholder => 'What you look like'  %>
+    <p class="help-block">Choose a picture representing your group</p>
+  </div>
   <div class="actions">
       <%= f.submit :class => "btn btn-primary" %>
   </div>
-  
+
 <% end %>

@@ -49,7 +49,8 @@ class GroupsController < ApplicationController
   # had some problems here, seems like Rails 4 requires
   # defining parameters in separate method and then passing that in CREATE (?) - should be private
   def group_params
-     params.require(:group).permit(:name, :address, :time, :number_of_members, :picture, :twitter, :contact, :activities)
+    params.require(:group).permit(:name, :address, :time, :number_of_members,
+    :picture, :twitter, :contact, :activities, :email)
   end
 
 end
