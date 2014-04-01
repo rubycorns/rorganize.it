@@ -4,7 +4,7 @@ class MembershipsController < ApplicationController
     @person = Person.find(current_person.id)
     @group = Group.find(params[:person][:group_id])
     if @person.update(group_id: @group.id)
-      flash[:success] = "Welcome to #{@group.name}!"
+      flash[:success] = "Welcome to the group #{@group.name}! Please consider buying everyone cake on your first day."
       redirect_to group_path(@group)
     end
   end
