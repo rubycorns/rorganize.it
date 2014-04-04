@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+  before_action :authenticate_person!
 
   def create
     @person = Person.find(current_person.id)
