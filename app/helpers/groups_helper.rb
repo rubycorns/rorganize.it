@@ -15,6 +15,4 @@ module GroupsHelper
       person.group_id == group.id
     end
   end
-
-
 end

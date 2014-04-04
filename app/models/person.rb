@@ -29,8 +29,11 @@ class Person < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  belongs_to :group
+
+  has_many :groups, through: :memberships
+  has_many :memberships
   has_many :topics
+
   mount_uploader :picture, PictureUploader
 
   validates :first_name, presence: true

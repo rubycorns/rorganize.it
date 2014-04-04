@@ -25,6 +25,8 @@ class Group < ActiveRecord::Base
   has_many :students
   has_many :coaches
   has_many :topics
+  has_many :people, through: :memberships
+  has_many :memberships
 
   validates :name, presence: true
   validates :email, format: { with: FORMAT }, presence: true
