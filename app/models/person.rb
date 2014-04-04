@@ -47,11 +47,15 @@ class Person < ActiveRecord::Base
   end
 
   def join(group)
-    self.group = group
+    memberships.create!(group_id: group.id)
+  end
+
+  def leave(group)
+    memberships.find_by(group_id: group.id).destroy
   end
 
   def member_of?(group)
-    
+
   end
 
 end
