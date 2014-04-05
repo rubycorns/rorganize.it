@@ -1,4 +1,4 @@
-<%= form_for(current_person.memberships.find_by(group_id: @group.id), html: { method: :delete }, remote: true) do |f| %>
+<%= form_for(current_person.memberships.find_by(group_id: @group.id), html: { method: :delete }) do |f| %>
   <%= f.submit "leave" %>
 <!--   <input type="hidden" name="person[group_id]" value="<%= @group.id %>">
   <button class=""><i class="glyphicon glyphicon-remove-circle"></i>  leave group</button> -->

@@ -1,4 +1,4 @@
-<%= form_for(current_person.memberships.build(group_id: @group.id), html: { method: :post }) do |f| %>
+<%= form_for(current_person.memberships.build(group_id: @group.id)) do |f| %>
   <%= f.hidden_field :group_id %>
   <%= f.submit "join", class: "btn btn-success" %>
 <% end %>
