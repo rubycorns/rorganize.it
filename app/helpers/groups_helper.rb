@@ -4,7 +4,7 @@ module GroupsHelper
     if person == nil
       true
     else
-      person.group_id != group.id
+      Membership.pluck(:group_id).include?(group.id) == false
     end
   end
 
@@ -12,7 +12,7 @@ module GroupsHelper
     if person == nil
       false
     else
-      person.group_id == group.id
+      Membership.pluck(:group_id).include?(group.id) == true
     end
   end
 end
