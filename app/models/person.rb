@@ -31,7 +31,7 @@ class Person < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :groups, through: :memberships
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :topics
 
   mount_uploader :picture, PictureUploader
