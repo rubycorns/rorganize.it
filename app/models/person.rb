@@ -46,16 +46,16 @@ class Person < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
-  def join(group)
+  def join!(group)
     memberships.create!(group_id: group.id)
   end
 
-  def leave(group)
+  def leave!(group)
     memberships.find_by(group_id: group.id).destroy
   end
 
   def member_of?(group)
-
+    memberships.find_by(group_id: group.id)
   end
 
 end
