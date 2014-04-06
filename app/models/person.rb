@@ -51,7 +51,9 @@ class Person < ActiveRecord::Base
   end
 
   def leave!(group)
-    memberships.find_by(group_id: group.id).destroy
+    # group is set in the controller, and returns the membership relation.
+    # therefore, instead of finding group.id, we have to find group.group_id
+    memberships.find_by(group_id: group.group_id).destroy
   end
 
   def member_of?(group)
