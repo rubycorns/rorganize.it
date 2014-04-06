@@ -13,9 +13,13 @@ Rails version 4.0
 
 Make sure you have ImageMagick installed.
 
-In Terminal run
+In Terminal run (OSX):
 
     brew install imagemagick
+    
+Or for Linux run (or with the package manager of your choice):
+
+    sudo apt-get install imagemagick
 
 ### Get the code
 Get the code from this repo
