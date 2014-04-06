@@ -39,7 +39,7 @@ class Person < ActiveRecord::Base
   validates :first_name, presence: true
 
   def has_group?
-    group && group != ''
+    groups.empty? == false
   end
 
   def full_name
