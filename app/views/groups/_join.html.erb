@@ -1,8 +1,8 @@
 <%= form_for(current_person.memberships.build(group_id: @group.id)) do |f| %>
   <%= f.hidden_field :group_id %>
-  <%= f.submit "join", class: "btn btn-success" %>
+  <button class="btn btn-success"><i class="glyphicon glyphicon-ok-circle"></i> join group!</button>
 <% end %>
 
 <!--   <input type="hidden" name="person[group_id]" value="<%= @group.id %>">
-  <button class="btn btn-success"><i class="glyphicon glyphicon-ok-circle"></i> join group!</button>
+
 <#% end %> -->
