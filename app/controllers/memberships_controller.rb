@@ -16,7 +16,7 @@ class MembershipsController < ApplicationController
 
   def destroy
     @person = current_person
-    @group = Group.find(params[:membership][:group_id])
+    @group = Membership.find(params[:id])
 
     @person.leave!(@group)
       flash[:success] = leave_message
