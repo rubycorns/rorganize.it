@@ -57,7 +57,7 @@ class Person < ActiveRecord::Base
   end
 
   def member_of?(group)
-    memberships.find_by(group_id: group.id)
+    # double !! makes it return a boolean
+    !!memberships.find_by(group_id: group.id)
   end
-
 end
