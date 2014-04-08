@@ -11,7 +11,7 @@
               </a>
               <div class="media-body">
                 <h4 class="media-heading"><%= student.full_name %></h4>
-                <p><%= student.groups.pluck('name').to_s unless student.groups.empty? %></p>
+                  <%= render partial: "shared/groups", locals: { object: student } %>
               </div>
             </div>
               <div class="pull-right">

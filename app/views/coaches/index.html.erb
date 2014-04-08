@@ -11,7 +11,7 @@
               </a>
               <div class="media-body">
                 <h4 class="media-heading"><%= coach.full_name %></h4>
-                <p><%= coach.group.name if coach.group %></p>
+                <%= render partial: "shared/groups", locals: { object: coach } %>
               </div>
             </div>
             <div class="pull-right">
