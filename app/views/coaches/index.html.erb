@@ -19,11 +19,6 @@
                 <%= link_to coach_path(coach), :class => 'btn btn-default' do %>
                   <%= fa_icon "user", text: "Profile" %>
                 <% end %>
-                <% if coach.has_group? %>
-                  <%= link_to group_path(coach.group.id), :class => 'btn btn-default' do %>
-                    <%= fa_icon "users", text: "Group" %>
-                  <% end %>
-                <% end %>
               </div>
             </div>
           </li>

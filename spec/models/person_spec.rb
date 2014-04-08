@@ -55,36 +55,4 @@ describe Person do
     invalid_hash = minimal_attributes.merge({first_name: ''})
     expect(Person.new invalid_hash).not_to be_valid
   end
-
-  describe 'joining groups' do
-
-    let(:group1) {Group.new({name: 'test group'})}
-    let(:group2) {Group.new({name: 'test group 2'})}
-
-    before :each do
-      subject.group = group
-    end
-
-
-    # it 'has a group' do
-    #   expect(subject.has_group?).to be_true
-    # end
-
-    # it 'returns a group name' do
-    #   expect(subject.group).to eq group
-    # end
-
-    it 'can join multiple groups' do
-      expect(subject.member_of?(group1)).to be_false
-      expect(subject.member_of?(group2)).to be_false
-
-      subject.join(group1)
-      subject.join(group2)
-
-      expect(subject.member_of?(group1)).to be_true
-      expect(subject.member_of?(group2)).to be_true
-    end
-
-  end
-
 end

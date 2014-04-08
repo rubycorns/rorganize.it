@@ -28,9 +28,6 @@
         <% @student.groups.each do |group| %>
           <li><%= link_to group.name, group_path(group.id) %></li>
         <% end%>
-        <h2><%#= link_to @student.group.name, group_path(@student.group) %></h2>
-        <p><%#= fa_icon "map-marker" %> <%#= @student.group.address %><br>
-          <%#= fa_icon "clock-o" %> <%#= @student.group.time %></p>
       <% else %>
         <p><%= @student.first_name %> is currently in no group.</p>
       <% end %>
