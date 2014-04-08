@@ -17,20 +17,19 @@ describe GroupsHelper do
       it 'is true' do
         subject.should be_true
       end
-
     end
 
     context 'person is not nil' do
 
-      let(:person) { double(group_id: 123) }
+      let(:person) { double }
 
       it 'is true when person is not in group' do
-        group.stub(id: 321)
+        person.stub(member_of?: false)
         subject.should be_true
       end
 
       it 'is false when person is in group' do
-        group.stub(id: 123)
+        person.stub(member_of?: true)
         subject.should be_false
       end
     end
@@ -55,18 +54,17 @@ describe GroupsHelper do
 
     context 'person is not nil' do
 
-      let(:person) { double(group_id: 123) }
+      let(:person) { double }
 
       it 'is false when person is not in group' do
-        group.stub(id: 321)
+        person.stub(member_of?: false)
         subject.should be_false
       end
 
       it 'is true when person is in group' do
-        group.stub(id: 123)
+        person.stub(member_of?: true)
         subject.should be_true
       end
     end
   end
-
 end

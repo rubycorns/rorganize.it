@@ -21,11 +21,7 @@ require 'spec_helper'
 
 describe Group do
 
-  subject { Group.new }
-
-  it 'is not valid without name' do
-    expect(subject.valid?).to be_false
-  end
+  subject { Group.create!(name: 'hello', email: 'hello@email.com') }
 
   it 'is valid with a name and email' do
     subject.name = 'Awesome Test Group'
@@ -36,27 +32,25 @@ describe Group do
   describe 'editable by' do
 
     it 'is editable by student in the group' do
-      user = Student.new
-      subject.students << user
+      user = Student.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
+      user.join!(subject)
       expect(subject.is_editable_by?(user)).to be_true
     end
 
     it 'is not editable by student not in the group' do
-      user = Student.new
+      user = Student.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
       expect(subject.is_editable_by?(user)).to be_false
     end
 
     it 'is editable by coach in the group' do
-      user = Coach.new
-      subject.coaches << user
+      user = Coach.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
+      user.join!(subject)
       expect(subject.is_editable_by?(user)).to be_true
     end
 
     it 'is not editable by coach not in the group' do
-      user = Coach.new
+      user = Coach.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
       expect(subject.is_editable_by?(user)).to be_false
     end
-
   end
-
 end
