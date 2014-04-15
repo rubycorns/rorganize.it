@@ -25,12 +25,9 @@
     <div class="col-md-4">
       <h4>Student at</h4>
       <% if @student.has_group? %>
-        <%= link_to group_path(@student.group) do %>
-          <%= image_tag(@student.group.picture_url(:person_profile)) if @student.group.picture? %>
+        <% @student.groups.each do |group| %>
+          <li><%= link_to group.name, group_path(group.id) %></li>
         <% end%>
-        <h2><%= link_to @student.group.name, group_path(@student.group) %></h2>
-        <p><%= fa_icon "map-marker" %> <%= @student.group.address %><br>
-          <%= fa_icon "clock-o" %> <%= @student.group.time %></p>
       <% else %>
         <p><%= @student.first_name %> is currently in no group.</p>
       <% end %>

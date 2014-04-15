@@ -4,7 +4,7 @@ module GroupsHelper
     if person == nil
       true
     else
-      person.group_id != group.id
+      !person.member_of?(group)
     end
   end
 
@@ -12,9 +12,7 @@ module GroupsHelper
     if person == nil
       false
     else
-      person.group_id == group.id
+      person.member_of?(group)
     end
   end
-
-
 end

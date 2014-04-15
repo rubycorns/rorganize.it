@@ -11,18 +11,13 @@
               </a>
               <div class="media-body">
                 <h4 class="media-heading"><%= student.full_name %></h4>
-                <p><%= student.group.name if student.group %></p>
+                  <%= render partial: "shared/groups", locals: { object: student } %>
               </div>
             </div>
               <div class="pull-right">
                 <div class="btn-group">
                   <%= link_to student_path(student), :class => 'btn btn-default' do %>
                     <%= fa_icon "user", text: "Profile" %>
-                  <% end %>
-                  <% if student.has_group? %>
-                    <%= link_to group_path(student.group.id), :class => 'btn btn-default' do %>
-                      <%= fa_icon "users", text: "Group" %>
-                    <% end %>
                   <% end %>
                 </div>
               </div>

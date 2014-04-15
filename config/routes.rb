@@ -7,13 +7,13 @@ RailsGirlsApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
 
-  #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)  
+  #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)
   resources :groups do
     resources :topics
   end
   resources :students
   resources :coaches
-  resources :memberships
+  resources :memberships, only: [:create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -49,7 +49,7 @@ RailsGirlsApp::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

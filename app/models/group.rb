@@ -25,6 +25,8 @@ class Group < ActiveRecord::Base
   has_many :students
   has_many :coaches
   has_many :topics
+  has_many :people, through: :memberships
+  has_many :memberships, dependent: :destroy
 
   validates :name, presence: true
   validates :email, format: { with: FORMAT }, presence: true
@@ -34,7 +36,7 @@ class Group < ActiveRecord::Base
   after_validation :geocode
 
   def is_editable_by?(person)
-    students.include?(person) || coaches.include?(person)
+    people.include?(person)
   end
 
 end
