@@ -1,4 +1,4 @@
-<%= form_for(current_person.memberships.build(group_id: @group.id)) do |f| %>
+<%= form_for(current_person.memberships.build(group_id: @group.id), html: {class: 'btn-group inline'}) do |f| %>
   <%= f.hidden_field :group_id %>
   <button class="btn btn-success"><i class="glyphicon glyphicon-ok-circle"></i> join group!</button>
 <% end %>

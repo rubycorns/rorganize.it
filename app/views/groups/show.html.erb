@@ -3,10 +3,12 @@
     <div class="col-md-12">
       <div class="page-header clearfix">
         <h1 class="pull-left"><%= @group.name %></h1>
-        <div class="btn-group pull-right">
-          <%= link_to groups_path, html_options = {:class => 'btn btn-default'} do %>
-            <i class="glyphicon glyphicon-arrow-left"></i> overview
-          <% end %>
+        <div class="pull-right">
+          <div class="btn-group">
+            <%= link_to groups_path, html_options = {:class => 'btn btn-default'} do %>
+              <i class="glyphicon glyphicon-arrow-left"></i> overview
+            <% end %>
+          
           <% if show_group_member_buttons? current_person, @group %>
             <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -28,6 +30,7 @@
           <% if show_join_group_button? current_person, @group %>
               <%= render 'join' %>
           <% end %>
+          </div>
         </div>
       </div>
     </div>

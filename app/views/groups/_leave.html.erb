@@ -1,3 +1,3 @@
-<%= form_for(current_person.memberships.find_by(group_id: @group.id), html: { method: :delete }) do |f| %>
-  <button class=""><i class="glyphicon glyphicon-remove-circle"></i>  leave group</button>
+<%= form_for(current_person.memberships.find_by(group_id: @group.id), html: { method: :delete, class: '' }) do |f| %>
+  <a class="btn-leavegroup"><i class="glyphicon glyphicon-remove-circle"></i>  leave group</a>
 <% end %>

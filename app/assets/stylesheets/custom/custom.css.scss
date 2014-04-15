@@ -95,13 +95,13 @@ body {
  */
 
 .btn-leavegroup {
-  padding: .3em 1em .2em;
-  button {
-    border: none;
-    background: none;
-  }
+  display: block;
+  padding: .3em 1.4em .2em;
+  color: black;
   &:hover {
     background-color: #F5F5F5;
+    text-decoration: none;
+    color: black;
   }
 }
 
