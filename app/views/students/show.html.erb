@@ -25,9 +25,11 @@
     <div class="col-md-4">
       <h4>Student at</h4>
       <% if @student.has_group? %>
+        <ul>
         <% @student.groups.each do |group| %>
           <li><%= link_to group.name, group_path(group.id) %></li>
         <% end%>
+        </ul>
       <% else %>
         <p><%= @student.first_name %> is currently in no group.</p>
       <% end %>
