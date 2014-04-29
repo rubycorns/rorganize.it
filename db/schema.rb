@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415180518) do
+ActiveRecord::Schema.define(version: 20140429185209) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140415180518) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   add_index "memberships", ["group_id", "person_id"], name: "index_memberships_on_group_id_and_person_id", unique: true

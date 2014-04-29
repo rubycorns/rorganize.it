@@ -22,11 +22,13 @@ class Group < ActiveRecord::Base
 
   FORMAT = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  has_many :students
-  has_many :coaches
+  has_many :students, through: :student_memberships
+  has_many :coaches, through: :coach_memberships
   has_many :topics
   has_many :people, through: :memberships
   has_many :memberships, dependent: :destroy
+  has_many :student_memberships
+  has_many :coach_memberships
 
   validates :name, presence: true
   validates :email, format: { with: FORMAT }, presence: true
