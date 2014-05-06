@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-4">
       <h4>Students</h4>
-      <p>This group currently has <%= pluralize @group.students.length, "member" %>.</p>
+      <p>This group currently has <%= pluralize @group.students.length, "student" %>.</p>
       <ul>
         <% @group.students.each do |student| %>
         <li><%= link_to student.first_name, student_path(student) %></li>

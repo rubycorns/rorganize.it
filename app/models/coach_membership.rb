@@ -1,3 +1,3 @@
 class CoachMembership < Membership
-  belongs_to :coach, foreign_key: :person_id
+  belongs_to :person, foreign_key: :person_id
 end
