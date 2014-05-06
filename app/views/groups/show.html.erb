@@ -51,14 +51,14 @@
       <p>This group currently has <%= pluralize @group.students.length, "student" %>.</p>
       <ul>
         <% @group.students.each do |student| %>
-        <li><%= link_to student.first_name, student_path(student) %></li>
+        <li><%= link_to student.first_name, person_path(student) %></li>
         <% end %>
       </ul>
       <h4>Coaches</h4>
-      <p>This group currently has <%= pluralize @group.coaches.length, "coach" %>.</p>
+      <p>This group currently has <%= pluralize @group.people.length, "coach" %>.</p>
       <ul>
         <% @group.coaches.each do |coach| %>
-        <li><%= link_to coach.first_name, coach_path(coach) %></li>
+        <li><%= link_to coach.first_name, person_path(coach) %></li>
         <% end %>
       </ul>
     </div>

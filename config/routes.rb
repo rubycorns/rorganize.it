@@ -11,8 +11,7 @@ RailsGirlsApp::Application.routes.draw do
   resources :groups do
     resources :topics
   end
-  resources :students
-  resources :coaches
+  resources :people
   resources :memberships, only: [:create, :destroy]
 
   # Example of regular route:

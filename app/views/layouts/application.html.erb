@@ -25,11 +25,8 @@
             <li class="<%= 'active' if params[:controller] == 'groups' %>">
               <%= link_to "Groups", groups_path %>
             </li>
-            <li class="<%= 'active' if params[:controller] == 'students' %>">
-              <%= link_to "Students", students_path %>
-            </li>
-            <li class="<%= 'active' if params[:controller] == 'coaches' %>">
-              <%= link_to "Coaches", coaches_path %>
+            <li class="<%= 'active' if params[:controller] == 'people' %>">
+              <%= link_to "People", people_path %>
             </li>
           </ul>
           <% if person_signed_in? %>

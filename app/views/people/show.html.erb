@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-md-12">
       <div class="page-header clearfix">
-        <h1 class="pull-left"><%= @coach.full_name %></h1>
+        <h1 class="pull-left"><%= @person.full_name %></h1>
         <div class="btn-group pull-right">
-          <% if current_person.id == @coach.id %>
+          <% if current_person.id == @person.id %>
             <%= link_to edit_person_registration_path, html_options = {:class => 'btn btn-default'} do %>
               <%= fa_icon "pencil", text: "edit" %>
             <% end %>
           <% end %>
-          <%= link_to coaches_path, html_options = {:class => 'btn btn-default'} do %>
+          <%= link_to people_path, html_options = {:class => 'btn btn-default'} do %>
             <%= fa_icon "arrow-left", text: "back" %>
           <% end %>
       </div>
@@ -19,19 +19,19 @@
   <div class="row">
     <div class="col-md-4">
       <h4>About</h4>
-      <%= image_tag(@coach.picture_url(:person_profile)) if @coach.picture.present? %>
-      <p>Twitter <%= render partial: "shared/twitter", locals: { object: @coach } %></p>
+      <%= image_tag(@person.picture_url(:person_profile)) if @person.picture.present? %>
+      <p>Twitter <%= render partial: "shared/twitter", locals: { object: @person } %></p>
     </div>
     <div class="col-md-4">
-      <h4>Coach at</h4>
-      <% if @coach.has_group? %>
+      <h4>person at</h4>
+      <% if @person.has_group? %>
         <ul>
-        <% @coach.groups.each do |group| %>
+        <% @person.groups.each do |group| %>
           <li><%= link_to group.name, group_path(group.id) %></li>
         <% end%>
         </ul>
       <% else %>
-        <p><%= @coach.first_name %> is currently in no group.</p>
+        <p><%= @person.first_name %> is currently in no group.</p>
       <% end %>
     </div>
     <div class="col-md-4">
