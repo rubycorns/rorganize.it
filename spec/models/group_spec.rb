@@ -31,26 +31,16 @@ describe Group do
 
   describe 'editable by' do
 
-    it 'is editable by student in the group' do
-      user = Student.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
+    it 'is editable by people in the group' do
+      user = Person.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
       user.join!(subject)
       expect(subject.is_editable_by?(user)).to be_true
     end
 
-    it 'is not editable by student not in the group' do
-      user = Student.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
+    it 'is not editable by people not in the group' do
+      user = Person.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
       expect(subject.is_editable_by?(user)).to be_false
     end
 
-    it 'is editable by coach in the group' do
-      user = Coach.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
-      user.join!(subject)
-      expect(subject.is_editable_by?(user)).to be_true
-    end
-
-    it 'is not editable by coach not in the group' do
-      user = Coach.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
-      expect(subject.is_editable_by?(user)).to be_false
-    end
   end
 end
