@@ -1,3 +1,9 @@
+class Student < Person
+end
+
+class Coach < Person
+end
+
 class AddTypeToMemberships < ActiveRecord::Migration
   def change
     add_column :memberships, :type, :string
