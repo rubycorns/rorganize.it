@@ -1,6 +1,6 @@
 <p> Dear <%= @group.name %>
 
-<p><%= @person.first_name %> has joined <%= @group.name %> as a <%= @person.type %>.</p>
+<p><%= @person.first_name %> has joined <%= @group.name %> as a <%= @membership.name %>.</p>
 
 <% if @group.time.present? %>
   <p>You will see them at: <%= @group.time %></p>

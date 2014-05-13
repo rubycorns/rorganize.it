@@ -12,28 +12,32 @@ group_list = [
     address: 'modomoto office, Blücherstraße 22, 10961 Berlin',
     time: 'Thursday 19:00',
     contact: 'https://groups.google.com/forum/#!forum/rails-girls-berlin-project-group-thursdays',
-    activities: 'We build a wishlist app to organize christmas for large families. Users can enter their own wishlist and add wishes. Other users can comment on these wishes, mark them as done etc, but the list owner can’t see that of course.'
+    activities: 'We build a wishlist app to organize christmas for large families. Users can enter their own wishlist and add wishes. Other users can comment on these wishes, mark them as done etc, but the list owner can’t see that of course.',
+    email: 'group1@example.org'
   },
   {
     name: 'The Rubycorns',
     address: 'Travis Office, Prinzessinnenstr. 20, 10969 Berlin',
     time: 'Tuesday 19:00',
     contact: 'https://groups.google.com/forum/#!forum/rails-girls-berlin-project-group-tuesdays',
-    activities: 'We basically meet and have coding sessions where we show of stuff as needed. Sometimes Tobi gives a presentation from his HU course or something. Basically everything including homeworks is pretty ad-hoc.'
+    activities: 'We basically meet and have coding sessions where we show of stuff as needed. Sometimes Tobi gives a presentation from his HU course or something. Basically everything including homeworks is pretty ad-hoc.',
+    email: 'group2@example.org'
   },
   {
     name: 'The Co.Up Group',
     address: 'co.up Coworking Adalbertstraße 8, 10999 Berlin',
     time: 'Tuesday 19:00',
     contact: '',
-    activities: 'Nothing specific, we do exercises around basic web apps with Sinatra.'
+    activities: 'Nothing specific, we do exercises around basic web apps with Sinatra.',
+    email: 'group3@example.org'
   },
   {
     name: 'The Ruby Monsters',
     address: 'Travis Office, Prinzessinnenstr. 20, 10969 Berlin',
     time: 'Monday evening',
     contact: 'https://groups.google.com/forum/#!members/rubymonstaaa',
-    activities: 'The group is now a mixture of old-timers and newcomers, and from the original group some are still working on SpeakerinnenListe, others are doing the Michael Hartl tutorial, and the newcomers have been doing general Ruby exercises. A sub-group is doing the Michael Hartl tutorial'
+    activities: 'The group is now a mixture of old-timers and newcomers, and from the original group some are still working on SpeakerinnenListe, others are doing the Michael Hartl tutorial, and the newcomers have been doing general Ruby exercises. A sub-group is doing the Michael Hartl tutorial',
+    email: 'group4@example.org'
   }
 ]
 
@@ -48,7 +52,6 @@ user_list = [
     email: 'student@example.org',
     password: 'testtest',
     twitter: '@studenttwitter',
-    type: 'Student'
   },
   {
     first_name: 'Coach',
@@ -56,7 +59,6 @@ user_list = [
     email: 'coach@example.org',
     password: 'testtest',
     twitter: '@coachtwitter',
-    type: 'Coach'
   }
 ]
 user_list.each do |user|

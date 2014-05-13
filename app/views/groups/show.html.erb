@@ -8,7 +8,7 @@
             <%= link_to groups_path, html_options = {:class => 'btn btn-default'} do %>
               <i class="glyphicon glyphicon-arrow-left"></i> overview
             <% end %>
-          
+
           <% if show_group_member_buttons? current_person, @group %>
             <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -48,17 +48,17 @@
     </div>
     <div class="col-md-4">
       <h4>Students</h4>
-      <p>This group currently has <%= pluralize @group.students.length, "member" %>.</p>
+      <p>This group currently has <%= pluralize @group.students.length, "student" %>.</p>
       <ul>
         <% @group.students.each do |student| %>
-        <li><%= link_to student.first_name, student_path(student) %></li>
+        <li><%= link_to student.first_name, person_path(student) %></li>
         <% end %>
       </ul>
       <h4>Coaches</h4>
       <p>This group currently has <%= pluralize @group.coaches.length, "coach" %>.</p>
       <ul>
         <% @group.coaches.each do |coach| %>
-        <li><%= link_to coach.first_name, coach_path(coach) %></li>
+        <li><%= link_to coach.first_name, person_path(coach) %></li>
         <% end %>
       </ul>
     </div>

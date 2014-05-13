@@ -44,11 +44,6 @@
     <div class="col-md-6">
 
       <div class="form-group">
-        <%= label_tag("Are you a coach or a student?") %>
-        <%= f.select( "type", ["Student", "Coach"], {}, { :class => 'form-control' } )%>
-      </div>
-
-      <div class="form-group">
         <%= label_tag(:twitter, "Your twitter handle") %>
         <%= f.text_field :twitter, :placeholder => '@twitterhandle', :class => 'form-control' %>
       </div>

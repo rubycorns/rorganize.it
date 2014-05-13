@@ -46,8 +46,8 @@ class Person < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
-  def join!(group)
-    memberships.create!(group_id: group.id)
+  def join!(group, type = 'StudentMembership')
+    memberships.create!(group_id: group.id, type: type)
   end
 
   def leave!(group)
