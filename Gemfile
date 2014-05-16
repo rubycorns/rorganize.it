@@ -59,6 +59,9 @@ gem 'geocoder'
 # more icons!
 gem "font-awesome-rails"
 
+# for markup!
+gem 'redcarpet'
+
 #use rails autolink for fields to automatically display URLs as hyperlinks
 gem 'rails_autolink'
 group :doc do
