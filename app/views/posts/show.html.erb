@@ -1,0 +1,26 @@
+<div class='container'>
+
+  <h1>Corporate Blog</h1>
+  <hr>
+
+  <div class='latest-post-overview'>
+    <h2><%= @post.title %></h2>
+    <div id='post-username'>
+      <%= @post.person.first_name if @post.person %> |
+      <%= @post.created_at %>
+    </div>
+    <div id="post-description">
+      <%= markdown(@post.description) %>
+    </div>
+    <p>
+      <%= @post.try(:picture) %>
+    </p>
+    <div id="post-edit-delete-buttons">
+      <%= link_to 'edit', edit_post_path(@post) %> |
+      <%= link_to 'delete', @post, method: :delete, data: {confirm: 'Are you sure?'} %>
+    </div>
+  </div>
+
+  <hr>
+  <%= link_to 'Back', posts_path %>
+</div>

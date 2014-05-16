@@ -13,6 +13,7 @@ RailsGirlsApp::Application.routes.draw do
   end
   resources :people
   resources :memberships, only: [:create, :destroy]
+  resources :posts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

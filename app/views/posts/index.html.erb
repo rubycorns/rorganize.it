@@ -1,0 +1,30 @@
+<div class="container">
+
+  <h1>Corporate Blog</h1>
+  <hr>
+  <div class='latest-post-overview'>
+    <strong><h2><%= link_to "#{@latest_post.try(:title)}", post_path(@latest_post) %></h2></strong>
+    <div id="post-username">
+      <%= @latest_post.person.first_name if @latest_post.person %> |
+      <%= @latest_post.created_at %>
+    </div>
+    <div id="post-description">
+      <%= markdown(@latest_post.description) %>
+    </div>
+    <p>
+      <%= @post.try(:picture) %>
+    </p>
+  </div>
+
+  <% @remaining_posts.each do |post| %>
+    <div class='remaining-post-overview'>
+      <%= link_to post.title, post %> |
+      <%= post.author %> |
+      <%= post.created_at %>
+    </div>
+  <% end %>
+  <hr>
+
+<%= link_to 'New Post', new_post_path if current_person %>
+
+</div>
