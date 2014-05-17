@@ -19,8 +19,10 @@
       <%= image_tag(@post.picture_url, :width => 700) if @post.picture.present? %>
     </div>
     <div id="post-edit-delete-buttons">
-      <%= link_to 'edit', edit_post_path(@post) %> |
-      <%= link_to 'delete', @post, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% if current_person.has_role? :admin %>
+        <%= link_to 'edit', edit_post_path(@post) %> |
+        <%= link_to 'delete', @post, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
     </div>
   </div>
 

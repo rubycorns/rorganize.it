@@ -32,7 +32,7 @@
     </div>
   <% end %>
 
-<%= link_to 'New Post', new_post_path if current_person %>
+<%= link_to 'New Post', new_post_path if current_person.has_role? :admin %>
 
 <%= will_paginate @remaining_posts, class: 'pull-middle' %>
 

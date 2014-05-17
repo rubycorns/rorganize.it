@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_person!, except: [:index, :show]
+  before_action :check_role, only: [:edit, :create, :update, :destroy, :new]
 
   require 'will_paginate/array'
 
@@ -48,6 +49,10 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def check_role
+    redirect_to posts_path unless current_person.has_role? :admin
   end
 
   def post_params
