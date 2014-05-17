@@ -2,10 +2,12 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_person!, except: [:index, :show]
 
+  require 'will_paginate/array'
+
   def index
     @posts = Post.all(order: 'created_at DESC')
     @latest_post = @posts.first
-    @remaining_posts = Post.all(order: 'created_at DESC') - [@latest_post]
+    @remaining_posts = (Post.all(order: 'created_at DESC') - [@latest_post]).paginate(page: params[:page], per_page: 20)
   end
 
   def show
@@ -19,10 +21,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = Post.new(post_params)
     @post.person = current_person
-
 
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'

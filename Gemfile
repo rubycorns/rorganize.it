@@ -62,6 +62,9 @@ gem "font-awesome-rails"
 # for markup!
 gem 'redcarpet'
 
+# for pagination
+gem 'will_paginate'
+
 #use rails autolink for fields to automatically display URLs as hyperlinks
 gem 'rails_autolink'
 group :doc do
