@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_person!, except: [:index, :show]
-  before_action :check_role, only: [:edit, :create, :update, :destroy, :new]
+  before_action :check_role, except: [:index, :show]
 
   require 'will_paginate/array'
 
