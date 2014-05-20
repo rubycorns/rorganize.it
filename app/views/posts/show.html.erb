@@ -10,7 +10,7 @@
     <h2><%= @post.title %></h2>
     <div id='post-username'>
       <%= @post.person.first_name if @post.person %> |
-      <%= @post.created_at %>
+      <%= @post.created_at.strftime("%d %b %Y") %>
     </div>
     <div id="post-description">
       <%= markdown(@post.description) %>

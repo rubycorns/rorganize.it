@@ -12,18 +12,18 @@
       <strong><h2><%= link_to "#{@latest_post.try(:title)}", post_path(@latest_post) %></h2></strong>
       <div id="post-username">
         <%= @latest_post.person.first_name if @latest_post.person %> |
-        <%= @latest_post.created_at %>
+        <%= @latest_post.created_at.strftime("%d %b %Y") %>
       </div>
       <div id="post-description">
         <%= markdown(@latest_post.description) %>
       </div>
     </div>
 
-    <% @remaining_posts.each do |post| %>
+    <% @posts.each do |post| %>
       <div class='remaining-post-overview'>
         <%= link_to post.title, post %> |
         <%= post.person.first_name if post.person %> |
-        <%= post.created_at %>
+        <%= post.created_at.strftime("%d %b %Y") %>
       </div>
     <% end %>
   <% else %>
@@ -34,6 +34,6 @@
 
 <%= link_to 'New Post', new_post_path if current_person.has_role? :admin %>
 
-<%= will_paginate @remaining_posts, class: 'pull-middle' %>
+<%= will_paginate @posts, class: 'pull-middle' %>
 
 </div>
