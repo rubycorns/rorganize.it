@@ -7,15 +7,15 @@ gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
 group :development do
-	gem 'sqlite3'
-	gem 'guard-rspec', require: false
+  gem 'sqlite3'
+  gem 'guard-rspec', require: false
   gem 'annotate'
   gem 'pry-rails'
 end
 
 group :production do
-	gem 'pg'
-	gem 'shelly-dependencies'
+  gem 'pg'
+  gem 'shelly-dependencies'
 end
 
 gem 'carrierwave'
