@@ -28,6 +28,9 @@
             <li class="<%= 'active' if params[:controller] == 'people' %>">
               <%= link_to "People", people_path %>
             </li>
+            <li class="<%= 'active' if params[:controller] == 'posts' %>">
+              <%= link_to 'Blog', posts_path %>
+            </li>
           </ul>
           <% if person_signed_in? %>
           <ul class="nav navbar-nav navbar-right profile-header">
@@ -70,10 +73,10 @@
 
   <footer class="footer-container">
     <div class="container">
-      <p class="pull-left">made with 
-        <%= fa_icon "heart" %> by the 
+      <p class="pull-left">made with
+        <%= fa_icon "heart" %> by the
         <%= link_to("rubycorns", "https://twitter.com/rubycorns") %><br>
-      check the code on 
+      check the code on
         <%= link_to(fa_icon("github", text: "Github"), "//github.com/rubycorns/RailsGirlsApp") %>
       </p>
       <div class="pull-right">
@@ -81,6 +84,6 @@
       </div>
     </div>
   </footer>
-  
+
 </body>
 </html>

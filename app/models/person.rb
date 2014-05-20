@@ -24,6 +24,7 @@
 #
 
 class Person < ActiveRecord::Base
+  rolify
   include TwitterHandle
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -33,6 +34,7 @@ class Person < ActiveRecord::Base
   has_many :groups, through: :memberships
   has_many :memberships, dependent: :destroy
   has_many :topics
+  has_many :posts
 
   mount_uploader :picture, PictureUploader
 
