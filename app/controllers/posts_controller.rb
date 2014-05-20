@@ -6,9 +6,8 @@ class PostsController < ApplicationController
   require 'will_paginate/array'
 
   def index
-    @posts = Post.all(order: 'created_at DESC')
-    @latest_post = @posts.first
-    @remaining_posts = (Post.all(order: 'created_at DESC') - [@latest_post]).paginate(page: params[:page], per_page: 20)
+    @posts = Post.all(order: 'created_at DESC').paginate(page: params[:page], per_page: 20)
+    @latest_post = @posts.shift
   end
 
   def show
