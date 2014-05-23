@@ -10,7 +10,6 @@ group :development do
   gem 'sqlite3'
   gem 'guard-rspec', require: false
   gem 'annotate'
-  gem 'pry-rails'
 end
 
 group :production do
@@ -77,6 +76,9 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda'
+  gem 'pry-rails'
 end
 
 # Use ActiveModel has_secure_password
