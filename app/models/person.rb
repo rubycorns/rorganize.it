@@ -53,8 +53,10 @@ class Person < ActiveRecord::Base
   end
 
   def leave!(group)
-    # group is set in the controller, and returns the membership relation.
+    # group is set in the controller, and returns the MEMBERSHIP RELATION.
+    # this means you don't pass in a group object, you pass in a membership object.
     # therefore, instead of finding group.id, we have to find group.group_id
+    # (which is essentially membership.group_id)
     memberships.find_by(group_id: group.group_id).destroy
   end
 
