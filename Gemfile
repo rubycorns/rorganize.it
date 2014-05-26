@@ -75,10 +75,12 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.14.0'
   gem 'factory_girl_rails'
   gem 'shoulda'
   gem 'pry-rails'
+  gem 'capybara', '2.1.0'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password
