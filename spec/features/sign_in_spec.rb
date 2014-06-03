@@ -1,16 +1,16 @@
 require 'spec_helper'
 
 describe 'Signing in' do
-
   subject { page }
   before { visit new_person_session_path }
 
-  it { should have_content 'Sign in' }
+  let(:person) { create(:person) }
 
-  describe 'with the correct information' do
-    let(:person) { create(:person) }
+  context 'with the correct information' do
 
-    before { sign_in person }
+    before do
+      sign_in person
+    end
 
     it 'should go to the main page' do
       current_path.should == root_path
