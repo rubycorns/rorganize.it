@@ -38,79 +38,65 @@ describe Person do
   let!(:group)        { create(:group) }
   let!(:second_group) { create(:second_group)}
 
+  subject { person }
+
   it 'has the correct full name' do
-    expect(person.full_name).to eq 'Ruby Corn'
+    expect(subject.full_name).to eq 'Ruby Corn'
   end
 
   it 'has no group' do
-    expect(person.has_group?).to be_false
+    expect(subject.has_group?).to be_false
   end
 
   it 'is a minimal valid user' do
-    expect(person).to be_valid
+    expect(subject).to be_valid
   end
 
   describe 'an invalid person' do
-    before { person.first_name == '' }
+    before { subject.first_name = '' }
+
     it { should_not be_valid }
   end
 
   describe '#has_group?' do
     it 'is not a member of a group' do
-      expect(person.has_group?).to be_false
+      expect(subject.has_group?).to be_false
     end
 
     describe 'joining a group' do
-      before { person.join!(group) }
+      before { subject.join!(group) }
 
       it 'makes a person a member of that group' do
-        expect(person.has_group?).to be_true
+        expect(subject.has_group?).to be_true
       end
     end
   end
 
   describe '#join!' do
-    before { person.join!(group) }
+    before { subject.join!(group) }
 
     it 'puts the person in the correct group' do
-      expect(person.memberships.first.group_id).to eq group.id
+      expect(subject.memberships.first.group_id).to eq group.id
     end
 
     describe 'joining a second group' do
-      before { person.join!(second_group) }
+      before { subject.join!(second_group) }
 
       it 'allows the person to also be a member of the second group' do
-        expect(person.member_of?(second_group)).to be_true
+        expect(subject.member_of?(second_group)).to be_true
       end
 
       it 'allows the person to be a member of both groups' do
-        expect(person.memberships.count).to eq 2
+        expect(subject.memberships.count).to eq 2
       end
-    end
-  end
-
-  describe '#leave!' do
-    before do
-      membership = person.join!(group)
-      person.join!(second_group)
-      # because you don't leave a group, you destroy a membership
-      person.leave!(membership)
-    end
-
-    it 'removes the person from the first group' do
-      expect(person.member_of?(group)).to be_false
-    end
-
-    it 'does not remove the person from the second group' do
-      expect(person.member_of?(second_group)).to be_true
     end
   end
 
   describe '#member_of?' do
-    before { person.join!(group) }
+    before { subject.join!(group) }
 
     it 'checks to see if they are a member of a group' do
-      expect(person.member_of?(group)).to be_true
+      expect(subject.member_of?(group)).to be_true
     end
   end
 end

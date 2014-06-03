@@ -24,8 +24,6 @@ describe Group do
   let!(:group) { create(:group) }
 
   it 'is valid with a name and email' do
-    group.name = 'Test Group'
-    group.email = 'testgroup@email.com'
     expect(group.valid?).to be_true
   end
 

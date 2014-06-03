@@ -14,12 +14,11 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    @person = current_person
-    @group = Membership.find(params[:id])
+    @membership = Membership.find(params[:id])
 
-    @person.leave!(@group)
-      flash[:success] = leave_message
-      redirect_to groups_path
+    @membership.destroy
+    flash[:success] = leave_message
+    redirect_to groups_path
   end
 
   private

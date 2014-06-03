@@ -4,11 +4,12 @@ describe Membership do
   let(:person) { create(:person) }
   let!(:group) { create(:group) }
 
-  describe '#name' do
-    before { person.join!(group) }
-
-    it 'assigns a person their correct membership type' do
-      expect(person.memberships.first.name).to eq 'Student'
-    end
+  before do
+    person.join!(group)
   end
+
+  subject { person.memberships.first }
+
+  its(:name) { should eq 'Student' }
+  its(:type) { should eq 'StudentMembership' }
 end
