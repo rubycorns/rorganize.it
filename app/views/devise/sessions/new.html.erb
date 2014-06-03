@@ -4,7 +4,6 @@
 			<h2>Sign in</h2>
 
 			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-			<form role="form" class="form">
 				<div class="form-group">
 					<%= f.label :email %>
 					<%= f.email_field :email, :placeholder => 'E-mail',:autofocus => true, :class => 'form-control' %>
@@ -23,7 +22,6 @@
 				<% end -%>
 
 				<div><%= f.submit "Sign in", :class => 'btn btn-info', id: 'test' %></div>
-			</form>
 			<% end %>
 			<%= render "devise/shared/links" %>
 		</div>
