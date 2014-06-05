@@ -7,7 +7,6 @@ describe MembershipsController do
   describe 'create' do
     before do
       controller.stub :authenticate_person!
-      # I don't understand what this line is doing and why its important
       controller.stub(:current_person).and_return(person)
       @params = { membership:
         { group_id: group.id,
@@ -45,7 +44,6 @@ describe MembershipsController do
       person.join!(group)
       @membership = person.memberships.first
       controller.stub :authenticate_person!
-      # I don't understand what this line is doing and why its important
       controller.stub(:current_person).and_return(person)
     end
 

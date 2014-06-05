@@ -63,7 +63,6 @@ describe GroupsController do
     before do
       controller.stub :authenticate_person!
       controller.stub(:current_person).and_return(person)
-      # I don't understand what this is doing
       Group.stub(:find).and_return(group)
     end
 
@@ -87,7 +86,6 @@ describe GroupsController do
     before do
       controller.stub :authenticate_person!
       controller.stub(:current_person).and_return(person)
-      # I don't understand what this is doing
       Group.stub(:find).and_return(group)
       @params = { group: { name: 'Changed group name'},
                   id: group.id }
@@ -122,7 +120,6 @@ describe GroupsController do
     before do
       controller.stub :authenticate_person!
       controller.stub(:current_person).and_return(person)
-      # I don't understand what this is doing
       Group.stub(:find).and_return(group)
     end
 
