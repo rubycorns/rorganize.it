@@ -40,5 +40,4 @@ class Group < ActiveRecord::Base
   def is_editable_by?(person)
     people.include?(person)
   end
-
 end
