@@ -34,7 +34,7 @@ body {
 }
 .footer-container {
   padding: 2.2em 0 1em;
-  background-color: $header_red;
+  background-color: white
   a {
     color: white;
   }
@@ -163,3 +163,6 @@ body {
   padding-top: 20px;
 }
 
+#signup-button {
+  margin-left: 60px;
+}

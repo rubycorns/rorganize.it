@@ -4,8 +4,7 @@
       <h1>Rails Girls Groups App</h1>
       <h2>Find other Rails Girls students, coaches and project groups!</h2>
       <% unless person_signed_in? %>
-        <p>If you are a student and not signed up - feel free to register! </p>
-        <%= link_to "SignUp", new_person_registration_path, :class => 'btn btn-primary' %>
+        <p>If you are a student or a coach and not signed up - feel free to register! <%= link_to "SignUp", new_person_registration_path, :class => 'btn btn-primary', :id => 'signup-button' %></p>
       <% end %>
     </div>
   </div>
