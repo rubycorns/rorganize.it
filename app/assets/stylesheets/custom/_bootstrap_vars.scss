@@ -1,11 +1,14 @@
 $rg_red: rgb(222, 57, 12);
+$header_red: rgb(177, 34, 0);
+$button_red: rgb(183, 51, 0);
+
 
 $link-color: $rg_red;
-$navbar-default-bg: $rg_red;
+$navbar-default-bg: $header_red;
 $navbar-default-link-active-bg: white;
 $navbar-default-link-active-color: $rg_red;
 $navbar-default-link-color: white;
 $brand-primary: white;
 $btn-primary-color: white;
-$btn-primary-bg: cornflowerblue;
-$btn-info-bg: cornflowerblue;
+$btn-primary-bg: $button_red;
+$btn-info-bg: $button_red;
