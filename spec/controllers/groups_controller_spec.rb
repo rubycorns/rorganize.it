@@ -6,31 +6,34 @@ describe GroupsController do
     let(:person) { create(:person) }
 
     context 'with correct params' do
+      let(:params) {{ group: { name: 'rubycorns' } }}
+
       before do
         controller.stub :authenticate_person!
-        @params = { group: { name: 'rubycorns' } }
       end
 
       it 'creates a new group' do
         expect do
-          post :create, @params
+          post :create, params
         end.to change{ Group.count }.by(1)
       end
 
       it 'redirects to the root path' do
-        post :create, @params
+        post :create, params
         response.should redirect_to root_path
       end
     end
 
     context 'with incorrect params' do
+
+      let(:params) {{group: { name: ''}}}
+
       before do
         controller.stub :authenticate_person!
-        @params = { group: { name: ''} }
       end
 
       it 'redirects to the sign in path' do
-        post :create, @params
+        post :create, params
         response.should render_template(:new)
       end
     end
