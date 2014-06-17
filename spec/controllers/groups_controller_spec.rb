@@ -2,25 +2,6 @@ require 'spec_helper'
 
 describe GroupsController do
 
-  describe 'index' do
-    let(:group) { create(:group) }
-
-    it 'displays all the groups' do
-      get :index
-      expect { get :index}.to render_template(:index)
-    end
-  end
-
-  describe 'new' do
-    let(:person) { create(:person) }
-    before { controller.stub :authenticate_person! }
-
-    it 'renders the form to create a new group' do
-      get :new
-      expect { get :new }.to render_template(:new)
-    end
-  end
-
   describe 'create' do
     let(:person) { create(:person) }
 
