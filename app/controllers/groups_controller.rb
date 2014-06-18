@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_person!, except: [:index, :show]
 
   def index
-    @groups = Group.all
+    @groups = Group.order :name
   end
 
   def new
