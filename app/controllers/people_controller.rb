@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_action :authenticate_person!
 
   def index
-    @people = Person.all
+    @people = Person.order(:first_name).order(:last_name)
   end
 
   def show
