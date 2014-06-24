@@ -40,4 +40,8 @@ class Group < ActiveRecord::Base
   def is_editable_by?(person)
     people.include?(person)
   end
+
+  def is_deletable_by?(person)
+    person.has_role?(:admin)
+  end
 end
