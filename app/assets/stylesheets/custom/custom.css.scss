@@ -109,57 +109,31 @@ body {
 
 //Corporate Blog
 
-.post {
-  margin: 60px;
-}
-
-.latest-post-overview {
-  background-color: #eee;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  padding-top: 10px;
-  margin-left: 60px;
-  margin-right: 60px;
-  padding: 20px;
-  width: 800px;
-  border-radius: 10px;
-}
-
+.latest-post-overview,
 .remaining-post-overview {
   background-color: #eee;
-  margin-bottom: 30px;
-  padding-top: 10px;
-  margin-left: 60px;
-  margin-right: 60px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  width: 800px;
   border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 2em;
 }
-
 #post-username {
   font-size: .75em;
-  padding-left: 10px;
-  padding-top: .25px;
 }
 
 #post-description {
   font-size: 1.5em;
-  padding-left: 10px;
   margin-top: 20px;
 }
 
 #post-edit-delete-buttons {
   margin-top: 30px;
 }
-
 .post-picture {
-  margin: 20px;
+  margin-bottom: 2em;
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
-.twitter-feed {
-  width: 250px;
-  float: right;
-  padding-top: 20px;
-}
 
