@@ -8,30 +8,35 @@ feature 'admins can delete groups' do
   let!(:group) { create(:group) }
 
   before do
-    person.add_role :admin
     sign_in person
   end
 
   scenario 'admin deletes a group' do
-
-    admin_goes_to_groups_page
-
-    admin_deletes_group
-
+    person.add_role :admin
+    user_visits_group_page
+    user_deletes_group
     group_has_been_deleted
-
   end
 
-  def admin_goes_to_groups_page
+  scenario 'non-admin can not delete a group' do
+    user_visits_group_page
+    delete_link_is_not_visible
+  end
+
+  def user_visits_group_page
     visit groups_path
   end
 
-  def admin_deletes_group
+  def user_deletes_group
     click_link 'delete'
   end
 
   def group_has_been_deleted
     Group.exists?(group.id).should be_false
+  end
+
+  def delete_link_is_not_visible
+    page.should_not have_content('delete')
   end
 
 end
