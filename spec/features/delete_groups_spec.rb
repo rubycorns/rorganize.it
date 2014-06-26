@@ -7,20 +7,30 @@ feature 'admins can delete groups' do
   let(:person) { create(:person) }
   let!(:group) { create(:group) }
 
-  before do
-    sign_in person
+  context 'visitor' do
+
+    it 'does not show the delete link' do
+      user_visits_group_page
+      delete_link_is_not_visible
+    end
   end
 
-  scenario 'admin deletes a group' do
-    person.add_role :admin
-    user_visits_group_page
-    user_deletes_group
-    group_has_been_deleted
-  end
+  context 'signed in person' do
+    before do
+      sign_in person
+    end
 
-  scenario 'non-admin can not delete a group' do
-    user_visits_group_page
-    delete_link_is_not_visible
+    scenario 'admin deletes a group' do
+      person.add_role :admin
+      user_visits_group_page
+      user_deletes_group
+      group_has_been_deleted
+    end
+
+    scenario 'non-admin can not delete a group' do
+      user_visits_group_page
+      delete_link_is_not_visible
+    end
   end
 
   def user_visits_group_page
