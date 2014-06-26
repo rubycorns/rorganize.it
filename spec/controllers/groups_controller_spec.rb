@@ -51,13 +51,13 @@ describe GroupsController do
     end
 
     it 'restricts access if editable is false' do
-      group.stub(:is_editable_by?).with(person).and_return(false)
+      group.stub(:editable_by?).with(person).and_return(false)
       get :edit, id: 1
       expect(response).to be_redirect
     end
 
     it 'allows access if editable is true' do
-      group.stub(:is_editable_by?).with(person).and_return(true)
+      group.stub(:editable_by?).with(person).and_return(true)
       get :edit, id: 1
       expect { get :edit }.to render_template(:edit)
     end
