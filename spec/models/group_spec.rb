@@ -34,11 +34,11 @@ describe Group do
 
     it 'is editable by people in the group' do
       person.join!(group)
-      expect(group.is_editable_by?(person)).to be_true
+      expect(group.editable_by?(person)).to be_true
     end
 
     it 'is not editable by people not in the group' do
-      expect(group.is_editable_by?(person)).to be_false
+      expect(group.editable_by?(person)).to be_false
     end
   end
 
@@ -46,16 +46,16 @@ describe Group do
 
     it 'is not deletable by a person that just joined' do
       person.join!(group)
-      expect(group).not_to be_is_deletable_by person
+      expect(group).not_to be_deletable_by person
     end
 
     it 'is deletable by an admin' do
       person.add_role :admin
-      expect(group).to be_is_deletable_by person
+      expect(group).to be_deletable_by person
     end
 
     it 'handles nil values for not logged in users gracefully' do
-      expect(group).not_to be_is_deletable_by nil
+      expect(group).not_to be_deletable_by nil
     end
 
   end
