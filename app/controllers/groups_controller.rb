@@ -1,7 +1,10 @@
 class GroupsController < ApplicationController
   respond_to :html
 
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_person!, except: [:index, :show]
+  before_action :admin_powers, only: [:destroy]
+  before_action :member_powers, except: [:index, :show, :new, :create, :destroy]
 
   def index
     @groups = Group.order :name
@@ -13,44 +16,48 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-     if @group.save
-        redirect_to root_path, notice: 'Group was successfully created.'
-     else
-        render action: "new"
-     end
-  end
-
-  def edit
-    @group = Group.find(params[:id])
-    if !@group.editable_by?(current_person)
-      redirect_to root_path, notice: 'You don\'t have permission to view this page.'
+    if @group.save
+      redirect_to groups_path, notice: 'Group was successfully created.'
+    else
+      render action: "new"
     end
   end
 
+  def edit
+  end
+
   def update
-    @group = Group.find(params[:id])
     @group.update_attributes group_params
-    redirect_to groups_path, notice: 'Group was successfully updated'
+    redirect_to group_path, notice: 'Group was successfully updated'
   end
 
   def show
-    @group = Group.find(params[:id])
     @topics = @group.topics
     @topic = Topic.new
     @topic.group = @group
   end
 
   def destroy
-    group = Group.find(params[:id])
-    group.destroy
+    @group.destroy
     redirect_to groups_path, notice: 'Group was successfully deleted.'
   end
 
-  # had some problems here, seems like Rails 4 requires
-  # defining parameters in separate method and then passing that in CREATE (?) - should be private
+  private
+
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
   def group_params
     params.require(:group).permit(:name, :address, :time, :number_of_members,
     :picture, :twitter, :contact, :activities, :email)
   end
 
+  def admin_powers
+    redirect_to groups_path unless current_person.has_role?(:admin)
+  end
+
+  def member_powers
+    redirect_to groups_path unless current_person.member_of? @group
+  end
 end
