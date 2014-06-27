@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
 
   def update
     @group.update_attributes group_params
-    redirect_to groups_path, notice: 'Group was successfully updated'
+    redirect_to group_path, notice: 'Group was successfully updated'
   end
 
   def show
@@ -54,12 +54,10 @@ class GroupsController < ApplicationController
   end
 
   def admin_powers
-    group = Group.find(params[:id])
     redirect_to groups_path unless current_person.has_role?(:admin)
   end
 
   def member_powers
-    group = Group.find(params[:id])
-    redirect_to groups_path unless current_person.member_of? group
+    redirect_to groups_path unless current_person.member_of? @group
   end
 end

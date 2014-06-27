@@ -18,7 +18,7 @@ describe GroupsController do
         end.to change{ Group.count }.by(1)
       end
 
-      it 'redirects to the groups overview' do
+      it 'redirects to the group overview page' do
         post :create, params
         response.should redirect_to groups_path
       end
@@ -69,7 +69,7 @@ describe GroupsController do
 
       it 'redirects to the groups overview' do
         put :update, @params
-        expect(response).to redirect_to groups_path
+        expect(response).to redirect_to group_path(group)
       end
 
       it 'displays the correct notice' do
