@@ -98,29 +98,60 @@ describe GroupsController do
   end
 
   describe 'destroy' do
-    let(:group) { create(:group) }
-    let(:person) { create(:person) }
+    context 'as a non-admin' do
+      let(:group) { create(:group) }
+      let(:person) { create(:person) }
 
-    before do
-      controller.stub :authenticate_person!
-      controller.stub(:current_person).and_return(person)
-      Group.stub(:find).and_return(group)
+      before do
+        controller.stub :authenticate_person!
+        controller.stub(:current_person).and_return(person)
+        Group.stub(:find).and_return(group)
+      end
+
+      it 'does not allow a non-admin to delete a group' do
+        delete :destroy, id: group.id
+        expect(response).to redirect_to root_path
+      end
+
+      it 'displays the correct notice' do
+        delete :destroy, id: group.id
+        flash[:notice].should eq "You don't have permission to do that."
+      end
+
+      it 'deletes the group' do
+        expect do
+            delete :destroy, id: group.id
+          end.not_to change{ Group.count }.by(-1)
+      end
     end
 
-    it 'redirects to the groups path after deleting a group' do
-      delete :destroy, id: group.id
-      expect(response).to redirect_to groups_path
-    end
+    context 'as an admin' do
 
-    it 'displays the correct notice' do
-      delete :destroy, id: group.id
-      flash[:notice].should_not be_blank
-    end
+      let(:group) { create(:group) }
+      let(:person) { create(:person) }
 
-    it 'deletes the group' do
-      expect do
-          delete :destroy, id: group.id
-        end.to change{ Group.count }.by(-1)
+      before do
+        person.add_role :admin
+        controller.stub :authenticate_person!
+        controller.stub(:current_person).and_return(person)
+        Group.stub(:find).and_return(group)
+      end
+
+      it 'redirects to the groups path after successful deletion' do
+        delete :destroy, id: group.id
+        expect(response).to redirect_to groups_path
+      end
+
+      it 'displays the correct notice' do
+        delete :destroy, id: group.id
+        flash[:notice].should_not be_blank
+      end
+
+      it 'deletes the group' do
+        expect do
+            delete :destroy, id: group.id
+          end.to change{ Group.count }.by(-1)
+      end
     end
   end
 end

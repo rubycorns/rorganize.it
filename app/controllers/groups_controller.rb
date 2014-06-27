@@ -41,9 +41,14 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    person = current_person
     group = Group.find(params[:id])
-    group.destroy
-    redirect_to groups_path, notice: 'Group was successfully deleted.'
+    if group.deletable_by?(person)
+      group.destroy
+      redirect_to groups_path, notice: 'Group was successfully deleted.'
+    else
+      redirect_to root_path, notice: "You don't have permission to do that."
+    end
   end
 
   # had some problems here, seems like Rails 4 requires
