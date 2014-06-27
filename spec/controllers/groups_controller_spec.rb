@@ -74,14 +74,13 @@ describe GroupsController do
 
       it 'displays the correct notice' do
         put :update, @params
-        flash[:notice].should_not be_blank
+        flash[:notice].should match /updated/
       end
     end
 
     context 'as a non-member of the group' do
 
       it 'does not update the name of the group' do
-        binding.pry
         put :update, @params
         expect(group.name).to eq 'Test Group'
       end
@@ -131,7 +130,7 @@ describe GroupsController do
 
       it 'displays the correct notice' do
         delete :destroy, id: group.id
-        flash[:notice].should_not be_blank
+        flash[:notice].should match /success/
       end
 
       it 'deletes the group' do

@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_person!, except: [:index, :show]
   before_action :admin_powers, only: [:destroy]
-  before_action :member_powers, except: [:index, :show, :new, :create]
+  before_action :member_powers, except: [:index, :show, :new, :create, :destroy]
 
   def index
     @groups = Group.order :name
@@ -38,7 +38,6 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @group.destroy
     redirect_to groups_path, notice: 'Group was successfully deleted.'
   end
@@ -56,7 +55,7 @@ class GroupsController < ApplicationController
 
   def admin_powers
     group = Group.find(params[:id])
-    redirect_to groups_path unless current_person.has_role? :admin
+    redirect_to groups_path unless current_person.has_role?(:admin)
   end
 
   def member_powers
