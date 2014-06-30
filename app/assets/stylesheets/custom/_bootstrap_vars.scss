@@ -1,7 +1,7 @@
 $rg_red: rgb(222, 57, 12);
 $header_red: rgb(177, 34, 0);
 $button_red: rgb(183, 51, 0);
-
+$button_try_colors: rgb(0,0,0);
 
 $link-color: $rg_red;
 $navbar-default-bg: $header_red;
@@ -9,9 +9,9 @@ $navbar-default-link-active-bg: white;
 $navbar-default-link-active-color: $rg_red;
 $navbar-default-link-color: white;
 $brand-primary: white;
-$btn-primary-color: white;
-$btn-primary-bg: $button_red;
-$btn-info-bg: $button_red;
+$btn-primary-color: red;
+$btn-primary-bg: $button_try_colors;
+$btn-info-bg: $button_try_colors;
 
 $jumbotron-bg: white;
 $jumbotron-padding: 10px;
