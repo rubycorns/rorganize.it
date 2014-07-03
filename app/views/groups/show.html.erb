@@ -44,8 +44,10 @@
       <% if @group.number_of_members.present? %>
         <p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
       <% end %>
-      <p> Contact us <%= auto_link @group.contact %></p>
-      <p> Our Twitter <%= render partial: "shared/twitter", locals: { object: @group } %></p>
+      <p> Contact us: <%= auto_link @group.contact %></p>
+      <p> Our Twitter: <%= render partial: "shared/twitter", locals: { object: @group } %></p>
+      <p> Level: <%= @group.level %></p>
+      <p> Coding since: <%= @group.founded_on %></p>
       <p> What we do: <%= auto_link @group.activities %></p>
     </div>
     <div class="col-md-4">

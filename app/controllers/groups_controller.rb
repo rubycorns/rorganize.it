@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:name, :address, :time, :number_of_members,
-    :picture, :twitter, :contact, :activities, :email)
+    :picture, :twitter, :contact, :activities, :email, :level, :founded_on)
   end
 
   def admin_powers

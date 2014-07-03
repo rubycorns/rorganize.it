@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520180352) do
+ActiveRecord::Schema.define(version: 20140703141646) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20140520180352) do
     t.text     "contact"
     t.text     "activities"
     t.string   "email"
+    t.string   "level"
+    t.string   "founded_on"
   end
 
   create_table "memberships", force: true do |t|
