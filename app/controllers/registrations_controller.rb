@@ -9,6 +9,12 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def destroy
+    current_person.destroy
+    redirect_to root_path, notice: 'You have successfully deleted your account.
+    Please consider sending the programmers of this app one last piece of cake.'
+  end
+
   private
 
   def person_params
