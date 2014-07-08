@@ -10,6 +10,8 @@ group :development do
   gem 'sqlite3'
   gem 'guard-rspec', require: false
   gem 'annotate'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :production do
@@ -75,13 +77,14 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.14.0'
+  gem 'rspec-rails', '~> 2.14'
   gem 'factory_girl_rails'
-  gem 'shoulda'
+  gem 'shoulda-matchers', require: false
   gem 'pry-rails'
   gem 'capybara', '2.3.0'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'minitest'
 end
 
 # Use ActiveModel has_secure_password
