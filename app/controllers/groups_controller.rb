@@ -3,8 +3,8 @@ class GroupsController < ApplicationController
 
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_person!, except: [:index, :show]
-  before_action :admin_powers, only: [:destroy]
-  before_action :member_powers, except: [:index, :show, :new, :create, :destroy]
+  before_action :ensure_admin_powers, only: [:destroy]
+  before_action :ensure_member_powers, except: [:index, :show, :new, :create, :destroy]
 
   def index
     @groups = Group.order :name
@@ -53,11 +53,11 @@ class GroupsController < ApplicationController
     :picture, :twitter, :contact, :activities, :email, :level, :founded_on)
   end
 
-  def admin_powers
+  def ensure_admin_powers
     redirect_to groups_path unless current_person.has_role?(:admin)
   end
 
-  def member_powers
+  def ensure_member_powers
     redirect_to groups_path unless current_person.member_of? @group
   end
 end
