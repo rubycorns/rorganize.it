@@ -1,5 +1,5 @@
 module PeopleHelper
-  def currently_logged_in?
-    current_person && current_person.id == @person.id
+  def logged_in?(person)
+    current_person && current_person == person
   end
 end

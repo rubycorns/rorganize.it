@@ -4,7 +4,7 @@
       <div class="page-header clearfix">
         <h1 class="pull-left"><%= @person.full_name %></h1>
         <div class="btn-group pull-right">
-          <% if currently_logged_in? %>
+          <% if logged_in?(@person) %>
             <%= link_to edit_person_registration_path, html_options = {:class => 'btn btn-default'} do %>
               <%= fa_icon "pencil", text: "edit" %>
             <% end %>
@@ -39,7 +39,7 @@
       <p>to be implemented</p>
     </div>
   </div>
-  <% if currently_logged_in? %>
+  <% if logged_in?(@person) %>
     <div class='row'>
       <div class='col-md-2 col-md-offset-10'>
         <div class="btn-group pull-right">
