@@ -77,6 +77,14 @@ Tell the others what you did
 Off to Github
     
     git push
+    
+### Make a pull request
+1. Select your branch on github.
+2. Click 'Pull Request'.
+3. Write a little summary of what you did and alert people if you need help.
+4. If it is a **small** change, wait for one thumbs up from a fellow rubycorns member before merging.
+5. If it is a **large** change, wait for one thumbs up from a coach **and** one from a rubycorns member
+before merging.
 
 ### Deploy to shelly cloud
 
