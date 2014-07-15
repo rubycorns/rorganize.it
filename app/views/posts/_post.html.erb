@@ -1,0 +1,13 @@
+<div class='latest-post-overview'>
+  <strong><h2><%= link_to "#{post.try(:title)}", post_path(post) %></h2></strong>
+  <div id="post-username">
+    <%= post.person.first_name if post.person %> |
+    <%= post.created_at.strftime("%d %b %Y") %>
+  </div>
+  <div id="post-description">
+    <%= markdown(post.description) %>
+  </div>
+  <div class='post-picture'>
+    <%= image_tag(post.picture_url, :width => 700) if post.picture.present? %>
+  </div>
+</div>

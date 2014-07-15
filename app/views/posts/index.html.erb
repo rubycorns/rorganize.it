@@ -1,39 +1,33 @@
 <div class="container">
+  <div class="row">
+    <h1 class="col-sm-12">Corporate Blog</h1>
+    <article class="col-sm-8">
+      <% if @latest_post.present? %>
+        
+        <%= render partial: 'post', object: @latest_post %>
 
-  <h1>Corporate Blog</h1>
+        <% @posts.each do |post| %>
+          <div class='remaining-post-overview'>
+            <%= link_to post.title, post %> |
+            <%= post.person.first_name if post.person %> |
+            <%= post.created_at.strftime("%d %b %Y") %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class='latest-post-overview'>
+          Oops, no blogposts here
+        </div>
+      <% end %>
 
-  <div class='twitter-feed'>
-    <a class="twitter-timeline" href="https://twitter.com/rubycorns" data-widget-id="467588755692322816">Tweets by @rubycorns</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <%= link_to 'New Post', new_post_path if current_person && current_person.has_role?(:admin) %>
+
+      <%= will_paginate @posts, class: 'pull-middle' %>
+    </article>
+    <div class="col-sm-4">
+      <div class='twitter-feed'>
+        <a class="twitter-timeline" href="https://twitter.com/rubycorns" data-widget-id="467588755692322816">Tweets by @rubycorns</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
+    </div>
   </div>
-
-  <% if @latest_post.present? %>
-    <div class='latest-post-overview'>
-      <strong><h2><%= link_to "#{@latest_post.try(:title)}", post_path(@latest_post) %></h2></strong>
-      <div id="post-username">
-        <%= @latest_post.person.first_name if @latest_post.person %> |
-        <%= @latest_post.created_at.strftime("%d %b %Y") %>
-      </div>
-      <div id="post-description">
-        <%= markdown(@latest_post.description) %>
-      </div>
-    </div>
-
-    <% @posts.each do |post| %>
-      <div class='remaining-post-overview'>
-        <%= link_to post.title, post %> |
-        <%= post.person.first_name if post.person %> |
-        <%= post.created_at.strftime("%d %b %Y") %>
-      </div>
-    <% end %>
-  <% else %>
-    <div class='latest-post-overview'>
-      Oops, no blogposts here
-    </div>
-  <% end %>
-
-<%= link_to 'New Post', new_post_path if current_person && current_person.has_role?(:admin) %>
-
-<%= will_paginate @posts, class: 'pull-middle' %>
-
 </div>

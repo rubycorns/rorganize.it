@@ -21,25 +21,41 @@ require 'spec_helper'
 
 describe Group do
 
-  subject { Group.create!(name: 'hello', email: 'hello@email.com') }
+  let!(:group) { create(:group) }
+  let!(:person) { create(:person) }
+
 
   it 'is valid with a name and email' do
-    subject.name = 'Awesome Test Group'
-    subject.email = 'mail@group.org'
-    expect(subject.valid?).to be_true
+    expect(group.valid?).to be_true
   end
 
-  describe 'editable by' do
+  describe '#editable_by?' do
+
 
     it 'is editable by people in the group' do
-      user = Person.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
-      user.join!(subject)
-      expect(subject.is_editable_by?(user)).to be_true
+      person.join!(group)
+      expect(group.editable_by?(person)).to be_true
     end
 
     it 'is not editable by people not in the group' do
-      user = Person.create!(first_name: 'test', email: 'test@test.com', password: 'testtest')
-      expect(subject.is_editable_by?(user)).to be_false
+      expect(group.editable_by?(person)).to be_false
+    end
+  end
+
+  describe '#deletable_by?' do
+
+    it 'is not deletable by a person that just joined' do
+      person.join!(group)
+      expect(group).not_to be_deletable_by person
+    end
+
+    it 'is deletable by an admin' do
+      person.add_role :admin
+      expect(group).to be_deletable_by person
+    end
+
+    it 'handles nil values for not logged in users gracefully' do
+      expect(group).not_to be_deletable_by nil
     end
 
   end

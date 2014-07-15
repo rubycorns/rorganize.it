@@ -37,8 +37,11 @@ class Group < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
 
-  def is_editable_by?(person)
+  def editable_by?(person)
     people.include?(person)
   end
 
+  def deletable_by?(person)
+    person && person.has_role?(:admin)
+  end
 end

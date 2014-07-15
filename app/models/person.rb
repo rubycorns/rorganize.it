@@ -52,12 +52,6 @@ class Person < ActiveRecord::Base
     memberships.create!(group_id: group.id, type: type)
   end
 
-  def leave!(group)
-    # group is set in the controller, and returns the membership relation.
-    # therefore, instead of finding group.id, we have to find group.group_id
-    memberships.find_by(group_id: group.group_id).destroy
-  end
-
   def member_of?(group)
     # double !! makes it return a boolean
     !!memberships.find_by(group_id: group.id)

@@ -4,7 +4,6 @@ class MembershipsController < ApplicationController
   def create
     @person = current_person
     @group = Group.find(params[:membership][:group_id])
-
     if @person.join!(@group, params[:membership][:type])
       flash[:success] = "Welcome to the group #{@group.name}! Please consider buying everyone cake on your first day."
       PersonMailer.new_member_email(@group, @person).deliver if @group.email.present?
@@ -15,12 +14,11 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    @person = current_person
-    @group = Membership.find(params[:id])
+    @membership = Membership.find(params[:id])
 
-    @person.leave!(@group)
-      flash[:success] = leave_message
-      redirect_to groups_path
+    @membership.destroy
+    flash[:success] = leave_message
+    redirect_to groups_path
   end
 
   private

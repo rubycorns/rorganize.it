@@ -64,7 +64,7 @@ class TopicsController < ApplicationController
 
   def validate_user_group_member
     group = Group.find params[:group_id]
-    unless group.is_editable_by? current_person
+    unless group.editable_by? current_person
       redirect_to group_path(params[:group_id]),
                   notice: 'You are not allowed to do that'
     end

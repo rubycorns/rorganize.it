@@ -4,7 +4,7 @@
     <div class="col-md-8">
       <ul class="list-group">
         <% @people.each do |person| %>
-          <li class="list-group-item clearfix">
+          <li class="list-group-item clearfix <%= 'list-group-item-warning' if logged_in?(person) %>">
             <div class="media pull-left">
               <a class="pull-left" href="<%= person_path(person) %>">
                 <%= image_tag(person.picture_url(:thumb), size: "40x40") if person.picture.present? %>
