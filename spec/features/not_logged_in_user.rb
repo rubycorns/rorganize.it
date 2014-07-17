@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Visiting' do
+describe 'User is not logged in' do
   subject { page }
 
   let(:person) { create(:person) }
@@ -16,10 +16,11 @@ describe 'Visiting' do
     end
   end
 
-  context 'the groups#index' do
+  context 'the groups page' do
 
     before do
-      visit '/groups'
+      visit root_path
+      click_link 'Groups'
     end
 
     it 'should have a list of groups' do
@@ -27,7 +28,7 @@ describe 'Visiting' do
     end
   end
 
-  context 'the groups#show' do
+  context 'a group detail page' do
 
     let!(:group) { create(:group) }
 
@@ -40,10 +41,11 @@ describe 'Visiting' do
     end
   end
 
-  context 'the people#index' do
+  context 'the people page' do
 
     before do
-      visit '/people'
+      visit root_path
+      click_link 'People'
     end
 
     it 'should show a list of people' do
@@ -51,7 +53,7 @@ describe 'Visiting' do
     end
   end
 
-  context 'the people#show' do
+  context 'a person\'s detail page' do
 
     let(:person) { create(:person) }
 
@@ -67,10 +69,11 @@ describe 'Visiting' do
   context 'the blog' do
 
     before do
-      visit '/posts'
+      visit root_path
+      click_link 'Blog'
     end
 
-    it 'should show some posts' do
+    it 'should show the blog header' do
       page.should have_content 'Corporate Blog'
     end
   end
