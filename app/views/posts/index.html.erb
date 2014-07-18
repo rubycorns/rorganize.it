@@ -3,17 +3,18 @@
     <h1 class="col-sm-12">Corporate Blog</h1>
     <article class="col-sm-8">
       <% if @latest_post.present? %>
-        
         <%= render partial: 'post', object: @latest_post %>
+      <% end %>
 
-        <% @posts.each do |post| %>
-          <div class='remaining-post-overview'>
-            <%= link_to post.title, post %> |
-            <%= post.person.first_name if post.person %> |
-            <%= post.created_at.strftime("%d %b %Y") %>
-          </div>
-        <% end %>
-      <% else %>
+      <% @posts.each do |post| %>
+        <div class='remaining-post-overview'>
+          <%= link_to post.title, post %> |
+          <%= post.person.first_name if post.person %> |
+          <%= post.created_at.strftime("%d %b %Y") %>
+        </div>
+      <% end %>
+
+      <% if (@latest_post.blank? && @page == 1) || @posts.empty? %>
         <div class='latest-post-overview'>
           Oops, no blogposts here
         </div>
