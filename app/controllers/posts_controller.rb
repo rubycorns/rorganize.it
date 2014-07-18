@@ -11,10 +11,8 @@ class PostsController < ApplicationController
     if @page == 1
       @latest_post = @posts.first
       @posts = @posts.all[1..-1] unless @posts.empty?
-      @posts = @posts.paginate(page: @page, per_page: 19)
-    else
-      @posts = @posts.paginate(page: @page, per_page: 20)
     end
+    @posts = @posts.paginate(page: @page, per_page: 20)
   end
 
   def show
