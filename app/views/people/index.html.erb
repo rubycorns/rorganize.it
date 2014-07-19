@@ -14,13 +14,15 @@
                 <%= render partial: "shared/groups", locals: { object: person } %>
               </div>
             </div>
-            <div class="pull-right">
-              <div class="btn-group">
-                <%= link_to person_path(person), :class => 'btn btn-default' do %>
-                  <%= fa_icon "user", text: "Profile" %>
-                <% end %>
+            <% if person_signed_in? %>
+              <div class="pull-right">
+                <div class="btn-group">
+                  <%= link_to person_path(person), :class => 'btn btn-default' do %>
+                    <%= fa_icon "user", text: "Profile" %>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
           </li>
         <% end %>
       </ul>
