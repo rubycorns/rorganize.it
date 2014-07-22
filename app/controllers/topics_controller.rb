@@ -21,36 +21,26 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     @topic.person = current_person
 
-    respond_to do |format|
-      if @topic.save
-        format.html { redirect_to @topic.group, notice: 'Topic was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @topic }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
+    if @topic.save
+      redirect_to @topic.group, notice: 'Topic was successfully created. If you bring cake, people
+      will be more willing to discuss it with you.'
+    else
+      render action: 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      if @topic.update(topic_params)
-        format.html { redirect_to @topic.group, notice: 'Topic was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
+    if @topic.update(topic_params)
+      redirect_to @topic.group, notice: 'Topic was successfully updated. All efforts, nomatter how small, deserve cake.'
+    else
+      render action: 'edit'
     end
   end
 
   def destroy
     group = @topic.group
     @topic.destroy
-    respond_to do |format|
-      format.html { redirect_to group_path(group) }
-      format.json { head :no_content }
-    end
+    redirect_to group_path(group)
   end
 
   private
