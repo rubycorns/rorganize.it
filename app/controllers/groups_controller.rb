@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
       if @group.join_as_coach == '1'
         current_person.join!(@group, 'CoachMembership')
       end
-      redirect_to group_path(@group), notice: 'Group was successfully created.'
+      redirect_to group_path(@group), notice: "Group was successfully created. This calls for cake!"
     else
       render action: "new"
     end
@@ -31,7 +31,8 @@ class GroupsController < ApplicationController
 
   def update
     @group.update_attributes group_params
-    redirect_to group_path, notice: 'Group was successfully updated'
+    redirect_to group_path, notice: 'Group was successfully updated.
+    All efforts, nomatter how small, deserve cake.'
   end
 
   def show
@@ -42,7 +43,8 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    redirect_to groups_path, notice: 'Group was successfully deleted.'
+    redirect_to groups_path, notice: 'Group was successfully deleted.
+    May we suggest drowning your sorrows in some cake?'
   end
 
   private

@@ -30,7 +30,8 @@ class PostsController < ApplicationController
     @post.person = current_person
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post, notice: 'Post was successfully created.
+      Maybe you should celebrate with some cake!'
     else
       render action: 'new'
     end
@@ -38,7 +39,8 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to @post, notice: 'Post was successfully updated.
+      All efforts, nomatter how small, deserve cake.'
     else
       render action: 'edit'
     end
@@ -46,7 +48,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url
+    redirect_to posts_url, notice: "Deleting that blogpost must have been a hard decision.
+    We suggest drowning your sorrows in some cake."
   end
 
   private
