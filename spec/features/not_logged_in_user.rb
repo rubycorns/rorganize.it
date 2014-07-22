@@ -77,6 +77,4 @@ describe 'User is not logged in' do
       page.should have_content 'Corporate Blog'
     end
   end
-
-
 end
