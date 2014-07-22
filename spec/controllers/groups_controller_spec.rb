@@ -18,9 +18,9 @@ describe GroupsController do
         end.to change{ Group.count }.by(1)
       end
 
-      it 'redirects to the group overview page' do
+      it 'redirects to the group show page' do
         post :create, params
-        response.should redirect_to groups_path
+        response.should redirect_to group_path(Group.first)
       end
     end
 

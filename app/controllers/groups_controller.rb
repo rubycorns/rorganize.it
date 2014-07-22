@@ -17,7 +17,10 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to groups_path, notice: 'Group was successfully created.'
+      if @group.join_as_coach == '1'
+        current_person.join!(@group, 'CoachMembership')
+      end
+      redirect_to group_path(@group), notice: 'Group was successfully created.'
     else
       render action: "new"
     end
@@ -50,7 +53,7 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:name, :address, :time, :number_of_members,
-    :picture, :twitter, :contact, :activities, :email, :level, :founded_on)
+    :picture, :twitter, :contact, :activities, :email, :level, :founded_on, :join_as_coach)
   end
 
   def ensure_admin_powers

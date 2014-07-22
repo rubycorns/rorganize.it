@@ -3,47 +3,51 @@
 
   <legend>Register new group</legend>
   <div class="form-group">
-    <%= label_tag(:name, "Project group name *") %>
+    <%= f.label(:name, "Project group name *") %>
     <%= f.text_field :name, placeholder: 'Name of the group', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:founded_on, "Founded on") %>
+    <%= f.label(:founded_on, "Founded on") %>
     <%= f.text_field :founded_on, placeholder: 'When was your group founded?', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:address, "Meeting place") %>
+    <%= f.label(:address, "Meeting place") %>
     <%= f.text_field :address, placeholder: 'Where you meet', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:time, "Meeting time") %>
+    <%= f.label(:time, "Meeting time") %>
     <%= f.text_field :time, placeholder: 'When you meet', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:number_of_members, "Maximum participants") %>
+    <%= f.label(:number_of_members, "Maximum participants") %>
     <%= f.number_field :number_of_members, placeholder: 'Max number of participants', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:twitter, "Twitter handle") %>
+    <%= f.label(:twitter, "Twitter handle") %>
     <%= f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:email, "Where we'll send official emails") %>
+    <%= f.label(:email, "Where we'll send official emails") %>
     <%= f.text_field :email, placeholder: "email@address.com", class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:contact, "Contact info") %>
+    <%= f.label(:contact, "Contact info") %>
     <%= f.text_area :contact, placeholder: 'How to contact your group', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:activities, "Activities") %>
+    <%= f.label(:activities, "Activities") %>
     <%= f.text_area :activities, placeholder: 'Your activities, topics, projects', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:level, "Level of group") %>
+    <%= f.label(:level, "Level of group") %>
     <%= f.text_area :level, placeholder: 'Beginner, intermediate, advanced, all of the above?', class: 'form-control' %>
   </div>
-   <div class="form-group">
-    <%= label_tag(:picture, "Group picture") %>
+  <div class="form-group">
+    <%= f.check_box :join_as_coach %>
+    <%= f.label(:join_as_coach, "Join group as coach") %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:picture, "Group picture") %>
     <%= f.file_field :picture, placeholder: 'What you look like'  %>
     <p class="help-block">Choose a picture representing your group</p>
   </div>

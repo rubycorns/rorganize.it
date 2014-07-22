@@ -37,6 +37,8 @@ class Group < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
 
+  attr_accessor :join_as_coach
+
   def editable_by?(person)
     people.include?(person)
   end
