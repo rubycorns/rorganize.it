@@ -1,7 +1,7 @@
 <%= form_for(@group, html: {multipart: true}) do |f|  %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <legend>Register new group</legend>
+<div class="col-md-4">
   <div class="form-group">
     <%= f.label(:name, "Project group name *") %>
     <%= f.text_field :name, placeholder: 'Name of the group', class: 'form-control' %>
@@ -22,6 +22,8 @@
     <%= f.label(:number_of_members, "Maximum participants") %>
     <%= f.number_field :number_of_members, placeholder: 'Max number of participants', class: 'form-control' %>
   </div>
+</div>
+<div class="col-md-4">
   <div class="form-group">
     <%= f.label(:twitter, "Twitter handle") %>
     <%= f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control' %>
@@ -38,6 +40,8 @@
     <%= f.label(:activities, "Activities") %>
     <%= f.text_area :activities, placeholder: 'Your activities, topics, projects', class: 'form-control' %>
   </div>
+</div>
+<div class="col-md-4">
   <div class="form-group">
     <%= f.label(:level, "Level of group") %>
     <%= f.text_area :level, placeholder: 'Beginner, intermediate, advanced, all of the above?', class: 'form-control' %>
@@ -51,8 +55,9 @@
     <%= f.file_field :picture, placeholder: 'What you look like'  %>
     <p class="help-block">Choose a picture representing your group</p>
   </div>
-  <div class="actions">
+  <div class="actions pull-right">
       <%= f.submit class: "btn btn-primary" %>
   </div>
+</div>
 
 <% end %>

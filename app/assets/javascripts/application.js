@@ -16,4 +16,5 @@
 //= require leaflet
 //= require turbolinks
 //= require bootstrap
+//= require main
 //= require_tree .
