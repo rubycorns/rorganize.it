@@ -12,6 +12,7 @@ feature 'create a group' do
     click_link 'Groups'
     click_link 'register new group'
     fill_in 'Project group name', with: 'Testgroup'
+    expect(page).to have_content('Join group as coach')
     check 'Join group as coach'
     click_button 'Create Group'
 
@@ -33,6 +34,7 @@ feature 'create a group' do
     click_link 'Groups'
     click_link 'register new group'
     fill_in 'Project group name', with: 'Testgroup'
+    expect(page).to have_content('Join group as coach')
     click_button 'Create Group'
 
     expect(page).to have_content('Group was successfully created.')
