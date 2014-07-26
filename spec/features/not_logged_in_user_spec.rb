@@ -30,14 +30,16 @@ describe 'User is not logged in' do
 
   context 'a group detail page' do
 
-    let!(:group) { create(:group) }
+    # added activities otherwise the markdown field receives a value of 'nil'
+    # and the test fails
+    let!(:group) { create(:group, activities: 'stuff') }
 
     before do
       visit '/groups/1'
     end
 
     it 'should show some group info' do
-      page.should have_content 'Coding since'
+      page.should have_content 'What we do'
     end
   end
 
