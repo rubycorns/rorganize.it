@@ -35,12 +35,14 @@
         <p><%= @person.first_name %> is not in a group.</p>
       <% end %>
     </div>
-    <% if @person.working_on.present? %>
-      <div class="col-md-4">
+    <div class="col-md-4">
+      <% if @person.working_on.present? %>
         <h4>Working on</h4>
         <p><%= markdown(@person.working_on) %></p>
-      </div>
-    <% end %>
+      <% elsif @person == current_person %>
+        <p>Why not tell the world what you're working on?</p>
+      <% end %>
+    </div>
   </div>
   <% if logged_in?(@person) %>
     <div class='row'>
