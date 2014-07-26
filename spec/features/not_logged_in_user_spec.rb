@@ -39,7 +39,7 @@ describe 'User is not logged in' do
     end
 
     it 'should show some group info' do
-      page.should have_content 'What we do'
+      page.should have_content 'Founded'
     end
   end
 
