@@ -34,10 +34,12 @@
         <p><%= @person.first_name %> is currently in no group.</p>
       <% end %>
     </div>
-    <div class="col-md-4">
-      <h4>Working on</h4>
-      <p>to be implemented</p>
-    </div>
+    <% if @person.working_on.present? %>
+      <div class="col-md-4">
+        <h4>Working on</h4>
+        <p><%= markdown(@person.working_on) %></p>
+      </div>
+    <% end %>
   </div>
   <% if logged_in?(@person) %>
     <div class='row'>

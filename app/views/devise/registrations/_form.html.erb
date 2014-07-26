@@ -39,6 +39,10 @@
 
       <% end %>
 
+      <div class="form-group">
+        <%= label_tag(:working_on, "What are you working on? (you can use markdown!)") %>
+        <%= f.text_area :working_on, placeholder: 'tutorials? a cool app?', class: 'form-control' %>
+      </div>
     </div>
 
     <div class="col-md-6">
