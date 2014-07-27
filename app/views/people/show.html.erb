@@ -35,7 +35,7 @@
         <p><%= @person.first_name %> is not in a group.</p>
       <% end %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" id='working-on'>
       <% if @person.working_on.present? %>
         <h4>Working on</h4>
         <p><%= markdown(@person.working_on) %></p>

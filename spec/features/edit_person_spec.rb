@@ -7,14 +7,16 @@ feature 'edit a person' do
 
   let(:person) { create(:person) }
 
+  before do
+    visit person_path(person)
+    click_link 'edit'
+    expect(page).to have_content('Edit Account')
+  end
+
   describe 'changing the working on section ' do
 
-    before :each do
-      visit person_path(person)
-      click_link 'edit'
-      expect(page).to have_content('Edit Account')
-      fill_in "working-on", with: 'stuff'
-      expect(page).to have_button('Save')
+    before do
+      fill_in "working-on", with: 'capybara, rspec, css'
       click_button 'Save'
     end
 
@@ -23,7 +25,13 @@ feature 'edit a person' do
     end
 
     it 'redirects to the correct path' do
-      # Todo Tam
+      expect(current_path).to eq person_path(person)
+    end
+
+    it 'updates the correct information' do
+      within('#working-on') do
+        expect(page).to have_content 'capybara, rspec, css'
+      end
     end
   end
 end
