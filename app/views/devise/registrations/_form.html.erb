@@ -1,6 +1,5 @@
 <div class="row">
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <form role="form">
     <%= devise_error_messages! %>
 
     <div class="col-md-6">
@@ -69,7 +68,5 @@
       </div>
       <% end %>
     </div>
-
-  </form>
   <% end %>
 </div>

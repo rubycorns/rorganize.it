@@ -7,19 +7,23 @@ feature 'edit a person' do
 
   let(:person) { create(:person) }
 
-  scenario 'the working on section ' do
-    visit person_path(person)
-    click_link 'edit'
-    expect(page).to have_content('Edit Account')
-    fill_in "working-on", with: 'stuff'
-    expect(page).to have_button('Save')
-    click_button 'Save'
-  end
+  describe 'changing the working on section ' do
 
-  it 'displays a successful alert message' do
-    expect(page.text).to have_content "You updated your account successfully"
-  end
+    before :each do
+      visit person_path(person)
+      click_link 'edit'
+      expect(page).to have_content('Edit Account')
+      fill_in "working-on", with: 'stuff'
+      expect(page).to have_button('Save')
+      click_button 'Save'
+    end
 
-  it 'redirects to the correct path' do
+    it 'displays a successful alert message' do
+      expect(page.text).to have_content "You updated your account successfully"
+    end
+
+    it 'redirects to the correct path' do
+      # Todo Tam
+    end
   end
 end
