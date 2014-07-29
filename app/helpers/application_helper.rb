@@ -10,11 +10,13 @@ module ApplicationHelper
   end
 
   def markdown(text)
+    html_renderer = Redcarpet::Render::HTML.new(filter_html: true)
+
     redcarpet = Redcarpet::Markdown.new(
-      Redcarpet::Render::HTML,
+      html_renderer,
       autolink: true,
       space_after_headers: false,
-      underline: true
+      underline: true,
     )
     raw redcarpet.render(text)
   end
