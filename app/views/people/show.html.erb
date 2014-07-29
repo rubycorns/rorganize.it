@@ -18,12 +18,13 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <h4>About</h4>
-      <%= image_tag(@person.picture_url(:person_profile)) if @person.picture.present? %>
-      <p>Twitter <%= render partial: "shared/twitter", locals: { object: @person } %></p>
+      <h4 style='display:inline'>Twitter:</h4> <%= render partial: "shared/twitter", locals: { object: @person } %></p>
+      <div id='person-show-pic'>
+        <%= image_tag(@person.picture_url(:person_profile)) if @person.picture.present? %>
+      </div>
     </div>
     <div class="col-md-4">
-      <h4>person at</h4>
+      <h4>Project Groups:</h4>
       <% if @person.has_group? %>
         <ul>
         <% @person.groups.each do |group| %>
@@ -31,12 +32,16 @@
         <% end%>
         </ul>
       <% else %>
-        <p><%= @person.first_name %> is currently in no group.</p>
+        <p><%= @person.first_name %> is not in a group.</p>
       <% end %>
     </div>
-    <div class="col-md-4">
-      <h4>Working on</h4>
-      <p>to be implemented</p>
+    <div class="col-md-4" id='working-on'>
+      <% if @person.working_on.present? %>
+        <h4>Working on</h4>
+        <p><%= markdown(@person.working_on) %></p>
+      <% elsif @person == current_person %>
+        <p>Why not tell the world what you're working on?</p>
+      <% end %>
     </div>
   </div>
   <% if logged_in?(@person) %>

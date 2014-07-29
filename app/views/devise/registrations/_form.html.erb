@@ -1,6 +1,5 @@
 <div class="row">
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <form role="form">
     <%= devise_error_messages! %>
 
     <div class="col-md-6">
@@ -22,23 +21,27 @@
          if resource.new_record?
       %>
 
-      <div class="form-group">
-        <%= label_tag(:email, "Your email address *") %> <small>(don't worry, your email won't be displayed publicly)</small><br />
-        <%= f.email_field :email, :autofocus => true, :placeholder => 'E-mail', :class => 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= label_tag(:email, "Your email address *") %> <small>(don't worry, your email won't be displayed publicly)</small><br />
+          <%= f.email_field :email, :autofocus => true, :placeholder => 'E-mail', :class => 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <%= label_tag(:password, "Enter your password *")%>
-        <%= f.password_field :password, :placeholder => 'Password',:class => 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= label_tag(:password, "Enter your password *")%>
+          <%= f.password_field :password, :placeholder => 'Password',:class => 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <%= label_tag(:password_confirmation, "Confirm your password *")%>
-        <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation', :class => 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= label_tag(:password_confirmation, "Confirm your password *")%>
+          <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation', :class => 'form-control' %>
+        </div>
 
+      <% else %>
+        <div class="form-group">
+          <%= label_tag(:working_on, "What are you working on? (you can use markdown!)") %>
+          <%= f.text_area :working_on, placeholder: 'tutorials? a cool app?', class: 'form-control', rows: 5, id: 'working-on' %>
+        </div>
       <% end %>
-
     </div>
 
     <div class="col-md-6">
@@ -65,7 +68,5 @@
       </div>
       <% end %>
     </div>
-
-  </form>
   <% end %>
 </div>

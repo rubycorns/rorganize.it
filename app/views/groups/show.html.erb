@@ -47,8 +47,8 @@
       <p> Contact us: <%= auto_link @group.contact %></p>
       <p> Our Twitter: <%= render partial: "shared/twitter", locals: { object: @group } %></p>
       <p> Level: <%= @group.level %></p>
-      <p> Coding since: <%= @group.founded_on %></p>
-      <p> What we do: <%= auto_link @group.activities %></p>
+      <p> Founded: <%= @group.founded_on %></p>
+      <p> Description: <%= markdown(@group.activities) %></p>
     </div>
     <div class="col-md-4">
       <h4>Students</h4>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703141646) do
+ActiveRecord::Schema.define(version: 20140718160639) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140703141646) do
     t.string   "last_sign_in_ip"
     t.string   "picture"
     t.string   "twitter"
+    t.text     "working_on"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
