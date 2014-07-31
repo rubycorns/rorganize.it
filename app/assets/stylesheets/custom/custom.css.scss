@@ -26,18 +26,17 @@ body {
 }
 
 .main-container {
-  min-height: 100%;
   padding-top: $navbar-height;
-  margin-bottom: $navbar-height * -2 - 5px;
-  &:after {
-    content: "";
-    display: block;
-    height: $navbar-height;
+  @media (min-height: 770px) {
+    height: 100%;
+    margin-bottom: $navbar-height * -1.5;
   }
 }
 .footer-container {
-  height: $navbar-height;
+  height: $navbar-height * 1.5;
+  padding-top: 1em;
   clear: both;
+  border-top: solid lightgrey 1px;
 }
 
 .profile-header {
@@ -149,11 +148,12 @@ body {
   position: fixed;
   left: 0;
   right: 0;
-  top: 3em;
+  top: 4em;
   width: 80%;
   z-index: 1031; // bootstrap sets the navbar to 1030
   opacity: 0.9;
   transform: translate(0);
+  padding: 4px 30px;
   &.fade-out {
     transition: all 200ms ease;
     transform: translateY(-50%) scale(.8);
