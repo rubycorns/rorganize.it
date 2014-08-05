@@ -32,7 +32,7 @@ describe 'User is not logged in' do
 
     # added activities otherwise the markdown field receives a value of 'nil'
     # and the test fails
-    let!(:group) { create(:group, activities: 'stuff') }
+    let!(:group) { create(:group, founded_on: Date.today, activities: 'stuff') }
 
     before do
       visit '/groups/1'
