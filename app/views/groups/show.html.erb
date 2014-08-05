@@ -41,14 +41,24 @@
       <p><strong><%= fa_icon "map-marker" %> <%= @group.address %></strong><br>
       <%= fa_icon "clock-o" %> <strong><%= @group.time %>.</strong>
       </p>
-      <% if @group.number_of_members.present? %>
+      <% if @group.number_of_members? %>
         <p>We prefer to have up to <strong><%= @group.number_of_members %></strong> members.</p>
       <% end %>
-      <p> Contact us: <%= auto_link @group.contact %></p>
-      <p> Our Twitter: <%= render partial: "shared/twitter", locals: { object: @group } %></p>
-      <p> Level: <%= @group.level %></p>
-      <p> Founded: <%= @group.founded_on %></p>
-      <p> Description: <%= markdown(@group.activities) %></p>
+      <% if @group.contact? %>
+        <p> Contact us: <%= auto_link @group.contact %></p>
+      <% end %>
+      <% if @group.twitter? %>
+        <p> Our Twitter: <%= render partial: "shared/twitter", locals: { object: @group } %></p>
+      <% end %>
+      <% if @group.level? %>
+        <p> Level: <%= @group.level %></p>
+      <% end %>
+      <% if @group.founded_on? %>
+        <p> Founded: <%= @group.founded_on %></p>
+      <% end %>
+      <% if @group.activities? %>
+        <p> Description: <%= markdown(@group.activities) %></p>
+      <% end %>
     </div>
     <div class="col-md-4">
       <h4>Students</h4>
