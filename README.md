@@ -7,9 +7,9 @@ An overview of who meets when, where, with whom to work on what.
 
 ### Just some general information:
 
-Ruby version 2.0+ 
+Ruby version 2.0+
 
-Rails version 4.0
+Rails version 4.1
 
 Make sure you have ImageMagick installed.
 
