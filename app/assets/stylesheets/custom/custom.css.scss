@@ -39,8 +39,10 @@ body {
 }
 
 .profile-header {
-  min-width: 10em;
   padding-top: .15em;
+  &.navbar-nav.navbar-right:last-child {
+    margin-right: 0; // overwrite bootstrap
+  }
   a {
     color: white;
   }
@@ -157,5 +159,39 @@ body {
     transition: all 200ms ease;
     transform: translateY(-50%) scale(.8);
     opacity: 0;
+  }
+}
+
+.dashboard-list {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  img, a {
+    display: inline-block;
+  }
+  span {
+    display: none;
+  }
+  li:hover span {
+    display: inline;
+  }
+}
+.dashboard-list-actions {
+  position: absolute;
+  top: 20%;
+  right: 0;
+}
+
+.no-btn {
+  border: white solid 1px;
+  background: none;
+  border-radius: 25px;
+  padding: 0.1em 0.5em;
+  img {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &:hover {
+    background: white;
   }
 }

@@ -56,4 +56,8 @@ class Person < ActiveRecord::Base
     # double !! makes it return a boolean
     !!memberships.find_by(group_id: group.id)
   end
+
+  def self.admin
+    Person.joins(:roles).where('roles.name = \'admin\'')
+  end
 end
