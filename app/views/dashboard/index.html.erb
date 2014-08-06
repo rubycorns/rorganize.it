@@ -1,0 +1,27 @@
+<div class="container dashboard">
+  <h1 class="page-header">Admin dashboard</h1>
+  <div class="row">
+
+    <div class="col-md-4 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">All admins</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="dashboard-list">
+            <% @admins.each do |admin| %>
+              <li>
+                <%= image_tag(admin.picture_url(:thumb), size: "40x40" ) if admin.picture.present? %>
+                <%= link_to person_path(admin) do %>
+                  <%= admin.first_name %>
+                <% end %>
+                <a href="#" class="dashboard-list-actions"><span><%= fa_icon "magic", text: "un-adminify" %></span></a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

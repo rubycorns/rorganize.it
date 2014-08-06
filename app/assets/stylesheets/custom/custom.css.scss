@@ -27,9 +27,13 @@ body {
 
 .main-container {
   padding-top: $navbar-height;
-  min-height: 600px;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   margin-bottom: $navbar-height * -1.5;
+  overflow: auto;
+  @media (max-height: 660px) {
+    margin-bottom: 0;
+  }
 }
 .footer-container {
   height: $navbar-height * 1.5;
