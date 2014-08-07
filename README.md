@@ -74,7 +74,7 @@ Tell the others what you did
     
     git commit -m "description of changes"
 
-Off to Github
+Off to GitHub
     
     git push
     
