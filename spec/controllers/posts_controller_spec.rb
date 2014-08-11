@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PostsController do
+describe PostsController, :type => :controller do
   describe 'index' do
 
     context 'no posts whatsoever' do

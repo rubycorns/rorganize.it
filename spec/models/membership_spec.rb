@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Membership do
+describe Membership, :type => :model do
   let(:person) { create(:person) }
   let!(:group) { create(:group) }
 
@@ -10,6 +10,13 @@ describe Membership do
 
   subject { person.memberships.first }
 
-  its(:name) { should eq 'Student' }
-  its(:type) { should eq 'StudentMembership' }
+  describe '#name' do
+    subject { super().name }
+    it { is_expected.to eq 'Student' }
+  end
+
+  describe '#type' do
+    subject { super().type }
+    it { is_expected.to eq 'StudentMembership' }
+  end
 end

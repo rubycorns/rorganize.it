@@ -79,7 +79,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14'
+  gem 'rspec-rails', '~> 2.99'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'User is not logged in' do
+describe 'User is not logged in', :type => :feature do
   subject { page }
 
   let(:person) { create(:person) }
@@ -12,7 +12,7 @@ describe 'User is not logged in' do
     end
 
     it 'should have the greeting' do
-      page.should have_content 'Find other Rails Girls students, coaches and project groups!'
+      expect(page).to have_content 'Find other Rails Girls students, coaches and project groups!'
     end
   end
 
@@ -24,7 +24,7 @@ describe 'User is not logged in' do
     end
 
     it 'should have a list of groups' do
-      page.should have_content 'Groups overview'
+      expect(page).to have_content 'Groups overview'
     end
   end
 
@@ -39,7 +39,7 @@ describe 'User is not logged in' do
     end
 
     it 'should show some group info' do
-      page.should have_content 'Founded'
+      expect(page).to have_content 'Founded'
     end
   end
 
@@ -51,7 +51,7 @@ describe 'User is not logged in' do
     end
 
     it 'should show a list of people' do
-      page.should have_content 'People overview'
+      expect(page).to have_content 'People overview'
     end
   end
 
@@ -64,7 +64,7 @@ describe 'User is not logged in' do
     end
 
     it 'should redirect to sign in' do
-      page.should have_content 'You need to sign in'
+      expect(page).to have_content 'You need to sign in'
     end
   end
 
@@ -76,7 +76,7 @@ describe 'User is not logged in' do
     end
 
     it 'should show the blog header' do
-      page.should have_content 'Corporate Blog'
+      expect(page).to have_content 'Corporate Blog'
     end
   end
 end

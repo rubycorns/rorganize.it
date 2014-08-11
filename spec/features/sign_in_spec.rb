@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Signing in' do
+describe 'Signing in', :type => :feature do
   subject { page }
   before { visit new_person_session_path }
 
@@ -13,11 +13,11 @@ describe 'Signing in' do
     end
 
     it 'should go to the main page' do
-      current_path.should == root_path
+      expect(current_path).to eq(root_path)
     end
 
     it 'should display the correct alert message' do
-      page.should have_content 'Signed in successfully'
+      expect(page).to have_content 'Signed in successfully'
     end
   end
 
@@ -29,11 +29,11 @@ describe 'Signing in' do
     end
 
     it 'should not sign in the person' do
-      current_path.should == new_person_session_path
+      expect(current_path).to eq(new_person_session_path)
     end
 
     it 'should display the correct alert message' do
-      page.should have_content 'Invalid email or password'
+      expect(page).to have_content 'Invalid email or password'
     end
   end
 end

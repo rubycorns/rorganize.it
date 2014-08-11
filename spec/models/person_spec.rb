@@ -25,14 +25,14 @@
 
 require 'spec_helper'
 
-describe Person do
+describe Person, :type => :model do
 
-  it { should have_many(:groups) }
-  it { should have_many(:memberships) }
-  it { should have_many(:topics) }
-  it { should have_many(:posts) }
+  it { is_expected.to have_many(:groups) }
+  it { is_expected.to have_many(:memberships) }
+  it { is_expected.to have_many(:topics) }
+  it { is_expected.to have_many(:posts) }
 
-  it { should validate_presence_of(:first_name) }
+  it { is_expected.to validate_presence_of(:first_name) }
 
   let(:person)        { create(:person) }
   let!(:group)        { create(:group) }
@@ -45,7 +45,7 @@ describe Person do
   end
 
   it 'has no group' do
-    expect(subject.has_group?).to be_false
+    expect(subject.has_group?).to be_falsey
   end
 
   it 'is a minimal valid user' do
@@ -55,19 +55,19 @@ describe Person do
   describe 'an invalid person' do
     before { subject.first_name = '' }
 
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
   describe '#has_group?' do
     it 'is not a member of a group' do
-      expect(subject.has_group?).to be_false
+      expect(subject.has_group?).to be_falsey
     end
 
     describe 'joining a group' do
       before { subject.join!(group) }
 
       it 'makes a person a member of that group' do
-        expect(subject.has_group?).to be_true
+        expect(subject.has_group?).to be_truthy
       end
     end
   end
@@ -83,7 +83,7 @@ describe Person do
       before { subject.join!(second_group) }
 
       it 'allows the person to also be a member of the second group' do
-        expect(subject.member_of?(second_group)).to be_true
+        expect(subject.member_of?(second_group)).to be_truthy
       end
 
       it 'allows the person to be a member of both groups' do
@@ -96,7 +96,7 @@ describe Person do
     before { subject.join!(group) }
 
     it 'checks to see if they are a member of a group' do
-      expect(subject.member_of?(group)).to be_true
+      expect(subject.member_of?(group)).to be_truthy
     end
   end
 end

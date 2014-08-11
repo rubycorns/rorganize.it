@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GroupsController do
+describe GroupsController, :type => :controller do
 
   describe 'create' do
     let(:person) { create(:person) }
@@ -9,7 +9,7 @@ describe GroupsController do
       let(:params) {{ group: { name: 'rubycorns' } }}
 
       before do
-        controller.stub :authenticate_person!
+        allow(controller).to receive :authenticate_person!
       end
 
       it 'creates a new group' do
@@ -20,7 +20,7 @@ describe GroupsController do
 
       it 'redirects to the group show page' do
         post :create, params
-        response.should redirect_to group_path(Group.first)
+        expect(response).to redirect_to group_path(Group.first)
       end
     end
 
@@ -29,12 +29,12 @@ describe GroupsController do
       let(:params) {{group: { name: ''}}}
 
       before do
-        controller.stub :authenticate_person!
+        allow(controller).to receive :authenticate_person!
       end
 
       it 'redirects to the sign in path' do
         post :create, params
-        response.should render_template(:new)
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -44,9 +44,9 @@ describe GroupsController do
     let(:person) { create(:person) }
 
     before do
-      controller.stub :authenticate_person!
-      controller.stub(:current_person).and_return(person)
-      Group.stub(:find).and_return(group)
+      allow(controller).to receive :authenticate_person!
+      allow(controller).to receive(:current_person).and_return(person)
+      allow(Group).to receive(:find).and_return(group)
       @params = { group: { name: 'Changed group name'},
                   id: group.id }
     end
@@ -74,7 +74,7 @@ describe GroupsController do
 
       it 'displays the correct notice' do
         put :update, @params
-        flash[:notice].should match /updated/
+        expect(flash[:notice]).to match /updated/
       end
     end
 
@@ -98,9 +98,9 @@ describe GroupsController do
     let(:person) { create(:person) }
 
     before do
-      controller.stub :authenticate_person!
-      controller.stub(:current_person).and_return(person)
-      Group.stub(:find).and_return(group)
+      allow(controller).to receive :authenticate_person!
+      allow(controller).to receive(:current_person).and_return(person)
+      allow(Group).to receive(:find).and_return(group)
     end
 
     context 'as a non-admin' do
@@ -113,7 +113,7 @@ describe GroupsController do
       it 'does not delete the group' do
         expect do
             delete :destroy, id: group.id
-          end.not_to change{ Group.count }.by(-1)
+          end.not_to change { Group.count }
       end
     end
 
@@ -130,7 +130,7 @@ describe GroupsController do
 
       it 'displays the correct notice' do
         delete :destroy, id: group.id
-        flash[:notice].should match /success/
+        expect(flash[:notice]).to match /success/
       end
 
       it 'deletes the group' do

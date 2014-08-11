@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GroupsHelper do
+describe GroupsHelper, :type => :helper do
 
   describe 'show_join_group_button?' do
 
@@ -15,7 +15,7 @@ describe GroupsHelper do
       let(:person) { nil }
 
       it 'is true' do
-        subject.should be_true
+        expect(subject).to be_truthy
       end
     end
 
@@ -25,12 +25,12 @@ describe GroupsHelper do
 
       it 'is true when person is not in group' do
         person.stub(member_of?: false)
-        subject.should be_true
+        expect(subject).to be_truthy
       end
 
       it 'is false when person is in group' do
         person.stub(member_of?: true)
-        subject.should be_false
+        expect(subject).to be_falsey
       end
     end
   end
@@ -48,7 +48,7 @@ describe GroupsHelper do
       let(:person) { nil }
 
       it 'is false' do
-        subject.should be_false
+        expect(subject).to be_falsey
       end
     end
 
@@ -58,12 +58,12 @@ describe GroupsHelper do
 
       it 'is false when person is not in group' do
         person.stub(member_of?: false)
-        subject.should be_false
+        expect(subject).to be_falsey
       end
 
       it 'is true when person is in group' do
         person.stub(member_of?: true)
-        subject.should be_true
+        expect(subject).to be_truthy
       end
     end
   end

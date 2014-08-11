@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RegistrationsController do
+describe RegistrationsController, :type => :controller do
 
   # see accepted answer from stackoverflow for an explanation
   # http://stackoverflow.com/questions/6659555/how-to-write-controller-tests-when-you-override-devise-registration-controller
@@ -12,8 +12,8 @@ describe RegistrationsController do
 
   describe 'destroy' do
     before do
-      controller.stub :authenticate_person!
-      controller.stub(:current_person).and_return(person)
+      allow(controller).to receive :authenticate_person!
+      allow(controller).to receive(:current_person).and_return(person)
     end
 
     it "deletes the user's account" do
@@ -29,7 +29,7 @@ describe RegistrationsController do
 
     it 'displays the correct notice' do
       delete :destroy, id: person.id
-      flash[:notice].should match /success/
+      expect(flash[:notice]).to match /success/
     end
   end
 end

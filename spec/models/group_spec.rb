@@ -19,14 +19,14 @@
 
 require 'spec_helper'
 
-describe Group do
+describe Group, :type => :model do
 
   let!(:group) { create(:group) }
   let!(:person) { create(:person) }
 
 
   it 'is valid with a name and email' do
-    expect(group.valid?).to be_true
+    expect(group.valid?).to be_truthy
   end
 
   describe '#editable_by?' do
@@ -34,11 +34,11 @@ describe Group do
 
     it 'is editable by people in the group' do
       person.join!(group)
-      expect(group.editable_by?(person)).to be_true
+      expect(group.editable_by?(person)).to be_truthy
     end
 
     it 'is not editable by people not in the group' do
-      expect(group.editable_by?(person)).to be_false
+      expect(group.editable_by?(person)).to be_falsey
     end
   end
 

@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe MembershipsController do
+describe MembershipsController, :type => :controller do
   let!(:person) { create(:person) }
   let(:group) { create(:group) }
 
   describe 'create' do
     before do
-      controller.stub :authenticate_person!
-      controller.stub(:current_person).and_return(person)
+      allow(controller).to receive :authenticate_person!
+      allow(controller).to receive(:current_person).and_return(person)
       @params = { membership:
         { group_id: group.id,
           type: 'StudentMembership'
@@ -29,7 +29,7 @@ describe MembershipsController do
 
     it 'renders the correct message' do
       post :create, @params
-      flash[:success].should_not be_blank
+      expect(flash[:success]).not_to be_blank
     end
 
     it 'redirects to the group path' do
@@ -43,8 +43,8 @@ describe MembershipsController do
     before do
       person.join!(group)
       @membership = person.memberships.first
-      controller.stub :authenticate_person!
-      controller.stub(:current_person).and_return(person)
+      allow(controller).to receive :authenticate_person!
+      allow(controller).to receive(:current_person).and_return(person)
     end
 
     it 'redirects to the groups path after leaving a group' do
@@ -60,7 +60,7 @@ describe MembershipsController do
 
     it 'displays the correct notice' do
       delete :destroy, id: @membership.id
-      flash[:success].should_not be_blank
+      expect(flash[:success]).not_to be_blank
     end
 
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'deleting a user as a signed in user' do
+describe 'deleting a user as a signed in user', :type => :feature do
   subject { page }
   before { visit new_person_session_path }
 
@@ -15,7 +15,7 @@ describe 'deleting a user as a signed in user' do
     end
 
     it "should display a delete button on the current_user's profile page" do
-      page.should have_content 'delete'
+      expect(page).to have_content 'delete'
     end
 
     context 'deleting the current_user' do
@@ -28,7 +28,7 @@ describe 'deleting a user as a signed in user' do
       end
 
       it "should redirect the user to the root page" do
-        current_path.should == root_path
+        expect(current_path).to eq(root_path)
       end
 
       it 'should display the correct error message' do
@@ -45,7 +45,7 @@ describe 'deleting a user as a signed in user' do
     end
 
     it "a display button should not be present" do
-      page.should_not have_content 'delete'
+      expect(page).not_to have_content 'delete'
     end
   end
 end
