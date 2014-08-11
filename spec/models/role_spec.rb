@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Role, :type => :model do
+describe Role do
   let(:person) { create(:person) }
 
   it 'does not assign a role to a newly created user' do

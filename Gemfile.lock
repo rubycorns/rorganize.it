@@ -285,7 +285,7 @@ DEPENDENCIES
   rails_autolink
   redcarpet
   rolify
-  rspec-rails (~> 3.0.2)
+  rspec-rails (~> 3.0)
   sass-rails (~> 4.0.0)
   sdoc
   shelly-dependencies

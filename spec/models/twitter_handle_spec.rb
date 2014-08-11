@@ -6,18 +6,18 @@ class TwitterHandleTester < Hash
 
 	def twitter
 		 self[:twitter]
-	end	
+	end
 
 end
 
-describe TwitterHandle, :type => :model do
+describe TwitterHandle do
 
   subject {TwitterHandleTester.new}
 
   describe 'no twitter' do
 
 	  it 'does not have twitter' do
-	  	expect(subject.has_twitter?).to be_falsey 
+	  	expect(subject.has_twitter?).to be_falsey
 		end
 
 		it 'has empty handle' do
@@ -38,7 +38,7 @@ describe TwitterHandle, :type => :model do
 
 	  it 'has twitter handle' do
 	  	expect(subject.has_twitter?).to be_truthy
-  	end 
+  	end
 
   	it 'returns handle' do
 	  	expect(subject.twitter_handle).to eq '@github'
@@ -55,4 +55,4 @@ describe TwitterHandle, :type => :model do
 	  	expect(subject.twitter).to eq 'knut'
 	end
 
-end 
+end

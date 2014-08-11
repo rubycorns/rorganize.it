@@ -19,7 +19,7 @@
 
 require 'spec_helper'
 
-describe Group, :type => :model do
+describe Group do
 
   let!(:group) { create(:group) }
   let!(:person) { create(:person) }

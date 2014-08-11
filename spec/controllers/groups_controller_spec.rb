@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GroupsController, :type => :controller do
+describe GroupsController do
 
   describe 'create' do
     let(:person) { create(:person) }

@@ -25,7 +25,7 @@
 
 require 'spec_helper'
 
-describe Person, :type => :model do
+describe Person do
 
   it { is_expected.to have_many(:groups) }
   it { is_expected.to have_many(:memberships) }

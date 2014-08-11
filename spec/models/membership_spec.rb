@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Membership, :type => :model do
+describe Membership do
   let(:person) { create(:person) }
   let!(:group) { create(:group) }
 

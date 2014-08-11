@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RegistrationsController, :type => :controller do
+describe RegistrationsController do
 
   # see accepted answer from stackoverflow for an explanation
   # http://stackoverflow.com/questions/6659555/how-to-write-controller-tests-when-you-override-devise-registration-controller
