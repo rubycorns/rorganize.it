@@ -12,11 +12,11 @@ describe 'Signing in', :type => :feature do
       sign_in person
     end
 
-    it 'should go to the main page' do
+    it 'goes to the main page' do
       expect(current_path).to eq(root_path)
     end
 
-    it 'should display the correct alert message' do
+    it 'displays the correct alert message' do
       expect(page).to have_content 'Signed in successfully'
     end
   end
@@ -28,11 +28,11 @@ describe 'Signing in', :type => :feature do
       click_button 'Sign in'
     end
 
-    it 'should not sign in the person' do
+    it 'does not sign in the person' do
       expect(current_path).to eq(new_person_session_path)
     end
 
-    it 'should display the correct alert message' do
+    it 'displays the correct alert message' do
       expect(page).to have_content 'Invalid email or password'
     end
   end

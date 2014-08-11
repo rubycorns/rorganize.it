@@ -11,7 +11,7 @@ describe 'User is not logged in', :type => :feature do
       visit root_path
     end
 
-    it 'should have the greeting' do
+    it 'has the greeting' do
       expect(page).to have_content 'Find other Rails Girls students, coaches and project groups!'
     end
   end
@@ -23,7 +23,7 @@ describe 'User is not logged in', :type => :feature do
       click_link 'Groups'
     end
 
-    it 'should have a list of groups' do
+    it 'has a list of groups' do
       expect(page).to have_content 'Groups overview'
     end
   end
@@ -38,7 +38,7 @@ describe 'User is not logged in', :type => :feature do
       visit '/groups/1'
     end
 
-    it 'should show some group info' do
+    it 'shows some group info' do
       expect(page).to have_content 'Founded'
     end
   end
@@ -50,7 +50,7 @@ describe 'User is not logged in', :type => :feature do
       click_link 'People'
     end
 
-    it 'should show a list of people' do
+    it 'shows a list of people' do
       expect(page).to have_content 'People overview'
     end
   end
@@ -63,7 +63,7 @@ describe 'User is not logged in', :type => :feature do
       visit '/people/1'
     end
 
-    it 'should redirect to sign in' do
+    it 'redirects to sign in' do
       expect(page).to have_content 'You need to sign in'
     end
   end
@@ -75,7 +75,7 @@ describe 'User is not logged in', :type => :feature do
       click_link 'Blog'
     end
 
-    it 'should show the blog header' do
+    it 'shows the blog header' do
       expect(page).to have_content 'Corporate Blog'
     end
   end

@@ -24,12 +24,12 @@ describe GroupsHelper, :type => :helper do
       let(:person) { double }
 
       it 'is true when person is not in group' do
-        person.stub(member_of?: false)
+        allow(person).to receive_messages(member_of?: false)
         expect(subject).to be_truthy
       end
 
       it 'is false when person is in group' do
-        person.stub(member_of?: true)
+        allow(person).to receive_messages(member_of?: true)
         expect(subject).to be_falsey
       end
     end
@@ -57,12 +57,12 @@ describe GroupsHelper, :type => :helper do
       let(:person) { double }
 
       it 'is false when person is not in group' do
-        person.stub(member_of?: false)
+        allow(person).to receive_messages(member_of?: false)
         expect(subject).to be_falsey
       end
 
       it 'is true when person is in group' do
-        person.stub(member_of?: true)
+        allow(person).to receive_messages(member_of?: true)
         expect(subject).to be_truthy
       end
     end

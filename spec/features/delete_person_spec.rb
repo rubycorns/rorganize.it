@@ -14,7 +14,7 @@ describe 'deleting a user as a signed in user', :type => :feature do
       visit person_path(person)
     end
 
-    it "should display a delete button on the current_user's profile page" do
+    it "displays a delete button on the current_user's profile page" do
       expect(page).to have_content 'delete'
     end
 
@@ -23,15 +23,15 @@ describe 'deleting a user as a signed in user', :type => :feature do
         click_link 'delete'
       end
 
-      it "should allow a user to delete themselves" do
+      it "allows a user to delete themselves" do
         expect { person.reload }.to raise_error ActiveRecord::RecordNotFound
       end
 
-      it "should redirect the user to the root page" do
+      it "redirects the user to the root page" do
         expect(current_path).to eq(root_path)
       end
 
-      it 'should display the correct error message' do
+      it 'displays the correct error message' do
         expect(page.text).to match(/success/)
       end
     end
@@ -44,7 +44,7 @@ describe 'deleting a user as a signed in user', :type => :feature do
       visit person_path(person)
     end
 
-    it "a display button should not be present" do
+    it "a display button is not be present" do
       expect(page).not_to have_content 'delete'
     end
   end
