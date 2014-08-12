@@ -18,4 +18,16 @@ class ApplicationController < ActionController::Base
       person.permit(editable_fields)
     end
   end
+
+  def ensure_admin_powers
+    render_403 unless current_person.has_role?(:admin)
+  end
+
+  def ensure_member_powers
+    render_403 unless current_person.member_of?(@group)
+  end
+
+  def render_403
+    render file: Rails.root.join('public/403.html'), status: 403
+  end
 end

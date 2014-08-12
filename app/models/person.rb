@@ -40,6 +40,10 @@ class Person < ActiveRecord::Base
 
   validates :first_name, presence: true
 
+  def self.admin
+    joins(:roles).where('roles.name = \'admin\'')
+  end
+
   def has_group?
     groups.empty? == false
   end
@@ -57,7 +61,4 @@ class Person < ActiveRecord::Base
     !!memberships.find_by(group_id: group.id)
   end
 
-  def self.admin
-    Person.joins(:roles).where('roles.name = \'admin\'')
-  end
 end
