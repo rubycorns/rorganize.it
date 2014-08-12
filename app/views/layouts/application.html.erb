@@ -42,7 +42,7 @@
                 <li><%= link_to "logout", destroy_person_session_path, method: :delete %></li>
                 <% if current_person.has_role?('admin') %>
                   <li role="presentation" class="divider"></li>
-                  <li><%= link_to 'Admin dashboard', dashboard_index_path %></li>
+                  <li><%= link_to 'Admin dashboard', dashboard_path %></li>
                 <% end %>
               </ul>
             </div>
