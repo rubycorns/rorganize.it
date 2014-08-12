@@ -9,7 +9,7 @@ describe PostsController do
         get :index
       end
 
-      it 'should be successful' do
+      it 'is successful' do
         expect(response).to be_success
       end
 

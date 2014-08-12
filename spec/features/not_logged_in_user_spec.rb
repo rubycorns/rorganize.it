@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'User is not logged in' do
+describe 'User is not logged in', :type => :feature do
   subject { page }
 
   let(:person) { create(:person) }
@@ -11,8 +11,8 @@ describe 'User is not logged in' do
       visit root_path
     end
 
-    it 'should have the greeting' do
-      page.should have_content 'Find other Rails Girls students, coaches and project groups!'
+    it 'has the greeting' do
+      expect(page).to have_content 'Find other Rails Girls students, coaches and project groups!'
     end
   end
 
@@ -23,8 +23,8 @@ describe 'User is not logged in' do
       click_link 'Groups'
     end
 
-    it 'should have a list of groups' do
-      page.should have_content 'Groups overview'
+    it 'has a list of groups' do
+      expect(page).to have_content 'Groups overview'
     end
   end
 
@@ -38,8 +38,8 @@ describe 'User is not logged in' do
       visit '/groups/1'
     end
 
-    it 'should show some group info' do
-      page.should have_content 'Founded'
+    it 'shows some group info' do
+      expect(page).to have_content 'Founded'
     end
   end
 
@@ -50,8 +50,8 @@ describe 'User is not logged in' do
       click_link 'People'
     end
 
-    it 'should show a list of people' do
-      page.should have_content 'People overview'
+    it 'shows a list of people' do
+      expect(page).to have_content 'People overview'
     end
   end
 
@@ -63,8 +63,8 @@ describe 'User is not logged in' do
       visit '/people/1'
     end
 
-    it 'should redirect to sign in' do
-      page.should have_content 'You need to sign in'
+    it 'redirects to sign in' do
+      expect(page).to have_content 'You need to sign in'
     end
   end
 
@@ -75,8 +75,8 @@ describe 'User is not logged in' do
       click_link 'Blog'
     end
 
-    it 'should show the blog header' do
-      page.should have_content 'Corporate Blog'
+    it 'shows the blog header' do
+      expect(page).to have_content 'Corporate Blog'
     end
   end
 end

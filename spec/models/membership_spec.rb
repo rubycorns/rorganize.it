@@ -10,6 +10,11 @@ describe Membership do
 
   subject { person.memberships.first }
 
-  its(:name) { should eq 'Student' }
-  its(:type) { should eq 'StudentMembership' }
+  describe '#name' do
+    its(:name) { is_expected.to eq 'Student' }
+  end
+
+  describe '#type' do
+    its(:type) { is_expected.to eq 'StudentMembership' }
+  end
 end

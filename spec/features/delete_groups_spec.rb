@@ -42,11 +42,11 @@ feature 'admins can delete groups' do
   end
 
   def group_has_been_deleted
-    Group.exists?(group.id).should be_false
+    expect(Group.exists?(group.id)).to be_falsey
   end
 
   def delete_link_is_not_visible
-    page.should_not have_content('delete')
+    expect(page).not_to have_content('delete')
   end
 
 end
