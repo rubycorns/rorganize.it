@@ -7,13 +7,13 @@ An overview of who meets when, where, with whom to work on what.
 
 ### Just some general information:
 
-Ruby version 2.0+ 
+Ruby version 2.0+
 
-Rails version 4.0
+Rails version 4.1
 
 Make sure you have ImageMagick installed.
 
-In Terminal run (OSX):
+In Terminal run (OS&nbsp;X):
 
     brew install imagemagick
     
@@ -72,26 +72,26 @@ Make changes, then
 
 Tell the others what you did
     
-    git commit -m “description of changes”
+    git commit -m "description of changes"
 
-Off to Github
+Off to GitHub
     
     git push
     
 ### Make a pull request
-1. Select your branch on github.
+1. Select your branch on GitHub.
 2. Click 'Pull Request'.
 3. Write a little summary of what you did and alert people if you need help.
 4. If it is a **small** change, wait for one thumbs up from a fellow rubycorns member before merging.
 5. If it is a **large** change, wait for one thumbs up from a coach **and** one from a rubycorns member
 before merging.
 
-### Deploy to shelly cloud
+### Deploy to Shelly Cloud
 
-We are now graciously hosted by [shelly](https://shellycloud.com/)
+We are now graciously hosted by [Shelly](https://shellycloud.com/)
 
-1. Nudge Tobi to invite you to the shelly cloud
-2. [Follow the shelly cloud join an existing cloud steps](https://shellycloud.com/documentation/joining_existing_cloud)
-3. You can now deploy with `git push shelly` (just like heroku, just with a shelly)
+1. Nudge Tobi to invite you to the Shelly Cloud.
+2. [Follow the Shelly Cloud "Joining to Existing Cloud" steps](https://shellycloud.com/documentation/joining_existing_cloud).
+3. You can now deploy with `git push shelly` (just like Heroku, just with a Shelly).
 
 App runs at: http://railsgirlsapp.shellyapp.com/

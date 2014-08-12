@@ -79,7 +79,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14'
+  gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
@@ -87,6 +87,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'minitest'
+  gem 'rspec-its', '~> 1.0.1'
 end
 
 # Use ActiveModel has_secure_password
