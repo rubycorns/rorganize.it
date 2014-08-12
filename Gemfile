@@ -87,6 +87,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'minitest'
+  gem 'rspec-its', '~> 1.0.1'
 end
 
 # Use ActiveModel has_secure_password

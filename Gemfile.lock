@@ -187,6 +187,9 @@ GEM
     rspec-expectations (3.0.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.0.0)
+    rspec-its (1.0.1)
+      rspec-core (>= 2.99.0.beta1)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-mocks (3.0.3)
       rspec-support (~> 3.0.0)
     rspec-rails (3.0.2)
@@ -285,6 +288,7 @@ DEPENDENCIES
   rails_autolink
   redcarpet
   rolify
+  rspec-its (~> 1.0.1)
   rspec-rails (~> 3.0)
   sass-rails (~> 4.0.0)
   sdoc
