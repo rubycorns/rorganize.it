@@ -206,3 +206,12 @@ body {
     height: auto;
   }
 }
+
+.is-spinning {
+  background: {
+    image: url(/ajax-loader.gif);
+    size: auto;
+    position: center;
+    repeat: no-repeat;
+  }
+}
