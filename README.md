@@ -35,6 +35,10 @@ Install all the gems
 Spice up the database
 
     rake db:migrate
+    
+Get some data
+
+    rake db:seed
 
 Run the server
 
