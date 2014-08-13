@@ -11,16 +11,30 @@
           <ul class="dashboard-list">
             <% @admins.each do |admin| %>
               <li>
-                <%= image_tag(admin.picture_url(:thumb), size: "40x40" ) if admin.picture.present? %>
+                <% if admin.picture.present? %>
+                  <%= image_tag(admin.picture_url(:thumb), size: "40x40" ) %>
+                <% else %>
+                  <%= image_tag('/avatar.png', size: "40x40" ) %>
+                <% end %>
                 <%= link_to admin, person_path(admin) %>
-                <a href="#" class="dashboard-list-actions"><span><%= fa_icon "magic", text: "un-adminify" %></span></a>
+                <%= form_for(admin, html: {:method => :delete}, url: dashboard_admin_path(admin.id)) do |f| %>
+                  <%= f.hidden_field :admin_id, value: admin.id %>
+                  <button class="link no-btn"><span><%= fa_icon "magic", text: "un-adminify" %></span></button>
+                <% end %>
               </li>
             <% end %>
           </ul>
-          <%= form_tag dashboard_admins_path, method: 'POST' do %>
-            <%= select_tag 'admin', options_from_collection_for_select(@non_admins, :id, :name) %>
-
-            <button name="submit"><%= fa_icon "magic", text: "adminify" %></button>
+          <% if @non_admins.length > 0 %>
+            <%= form_tag dashboard_admins_path, method: 'POST' do %>
+              <div class="dashboard-left">
+                <%= select_tag 'admin', options_from_collection_for_select(@non_admins, :id, :name), class: 'form-control' %>
+              </div>
+              <div class="dashboard-right">
+                <button name="submit" class="btn btn-primary"><%= fa_icon "magic", text: "adminify" %></button>
+              </div>
+            <% end %>
+          <% else %>
+            <p>No one left to adminify #sadpanda</p>
           <% end %>
         </div>
       </div>

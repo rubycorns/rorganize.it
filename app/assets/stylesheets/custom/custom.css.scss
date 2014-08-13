@@ -173,17 +173,23 @@ body {
   img, a {
     display: inline-block;
   }
-  span {
+  form {
     display: none;
   }
-  li:hover span {
-    display: inline;
+  li {
+    position: relative;
+    margin-bottom: .5em;
+  }
+  li:hover form {
+    display: inline-block;
   }
 }
-.dashboard-list-actions {
-  position: absolute;
-  top: 20%;
-  right: 0;
+.dashboard-left {
+  display: inline-block;
+  width: 60%;
+}
+.dashboard-right {
+  float: right;
 }
 
 .no-btn {
@@ -197,6 +203,13 @@ body {
   }
   &:hover {
     background: white;
+  }
+}
+.link {
+  color: $link-color;
+  &:hover {
+    text-decoration: underline;
+    color: darken($link-color, 10);
   }
 }
 

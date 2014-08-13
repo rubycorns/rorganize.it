@@ -9,4 +9,10 @@ class AdminsController < ApplicationController
     redirect_to dashboard_path, notice: "Successfully adminified #{person}"
   end
 
+  def destroy
+    person = Person.find(params[:person][:admin_id])
+    person.remove_role(:admin)
+    redirect_to dashboard_path, notice: "Successfully un-adminified #{person}"
+  end
+
 end
