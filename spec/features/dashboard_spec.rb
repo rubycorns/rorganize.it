@@ -53,6 +53,25 @@ describe 'Admin dashboard', :type => :feature do
       expect(page).to have_content 'Successfully adminified Person 2'
     end
 
+    it 'allows to remove another admin' do
+
+      visit '/dashboard'
+      within '.admin-list' do
+        select 'Person 2'
+        click_button 'adminify'
+      end
+
+      within "form#edit_person_#{person2.id}" do
+        click_button 'un-adminify'
+      end
+
+      within '.admin-list' do
+        expect(page).to_not have_selector 'li a', text: 'Person 2'
+      end
+      expect(page).to have_content 'Successfully un-adminified Person 2'
+
+    end
+
   end
 
 
