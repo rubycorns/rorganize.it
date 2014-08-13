@@ -17,7 +17,7 @@
                   <%= image_tag('/avatar.png', size: "40x40" ) %>
                 <% end %>
                 <%= link_to admin, person_path(admin) %>
-                <%= form_for(admin, html: {:method => :delete}, url: dashboard_admin_path(admin.id)) do |f| %>
+                <%= form_for(admin, html: {:method => :delete}, data: { confirm: "You really want to work that magic?" }, url: dashboard_admin_path(admin.id)) do |f| %>
                   <%= f.hidden_field :admin_id, value: admin.id %>
                   <button class="link no-btn"><span><%= fa_icon "magic", text: "un-adminify" %></span></button>
                 <% end %>
@@ -40,7 +40,28 @@
       </div>
     </div>
 
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-4 col-sm-6">
+      <div class="panel panel-default panel-blog">
+        <div class="panel-heading">
+          <h3 class="panel-title">Blog shortcuts</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="dashboard-list">
+            <li><%= link_to fa_icon('list', text: 'all posts'),posts_path %></li>
+            <li><%= link_to fa_icon('plus', text: 'create new post'), new_post_path %></li>
+          </ul>
+          <% if @posts.exists? %>
+            <h2><small>Latest Post:</small><br> <%= link_to @posts.first.title, post_path(@posts.first.id) %></h2>
+            <ul class="dashboard-list">
+              <li><%= link_to fa_icon('edit', text: 'edit latest post'), edit_post_path(@posts.first.id) %></li>
+              <li><%= link_to fa_icon('trash-o', text: 'delete latest post'), post_path(@posts.first.id), method: :delete, data: { confirm: "You really want to trash that?" } %></li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
       <div class="panel panel-default panel-image">
         <div class="panel-heading">
           <h3 class="panel-title">Gif content</h3>
@@ -50,5 +71,7 @@
         </div>
       </div>
     </div>
+
+    
   </div>
 </div>

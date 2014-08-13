@@ -1,7 +1,7 @@
 <div class='container'>
   <div class="row">
     <article class="col-sm-8 col-sm-offset-2">
-      <h1>Corporate Blog</h1>
+      <h1 class="page-header">Corporate Blog</h1>
       <%= render partial: 'post', object: @post %>
       <div id="post-edit-delete-buttons">
         <% if current_person && current_person.has_role?(:admin) %>
