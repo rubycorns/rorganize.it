@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/rubycorns/RailsGirlsApp.png?label=ready&title=Ready)](https://waffle.io/rubycorns/RailsGirlsApp)
 ## RailsGirlsApp [![Build Status](https://travis-ci.org/rubycorns/RailsGirlsApp.png?branch=master)](https://travis-ci.org/rubycorns/RailsGirlsApp)
 
 You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
