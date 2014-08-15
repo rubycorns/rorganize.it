@@ -1,0 +1,18 @@
+.container.student-list
+  %h1.page-header People overview
+  .row
+    .col-md-8
+      %ul.list-group
+        - @people.each do |person|
+          %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
+            .media.pull-left
+              %a.pull-left{href: person_path(person)}
+                = image_tag(person.picture_url(:thumb), size: "40x40") if person.picture?
+              .media-body
+                %h4.media-heading= person.full_name
+                = render partial: "shared/groups", locals: { object: person }
+            - if person_signed_in?
+              .pull-right
+                .btn-group
+                  = link_to person_path(person), :class => 'btn btn-default' do
+                    = fa_icon "user", text: "Profile"

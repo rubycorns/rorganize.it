@@ -71,6 +71,9 @@ gem 'will_paginate'
 # for admins
 gem 'rolify'
 
+# for haml
+gem 'haml'
+
 #use rails autolink for fields to automatically display URLs as hyperlinks
 gem 'rails_autolink'
 group :doc do
