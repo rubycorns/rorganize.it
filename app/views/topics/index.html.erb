@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <h3>Topics we'd like to cover:</h3>
 
   <table class="table">
@@ -7,6 +7,7 @@
       <tr>
         <th>Suggested Topic</th>
         <th>User name</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -17,6 +18,10 @@
         <tr>
           <td><%= topic.body %></td>
           <td><%= topic.person.full_name if topic.person %></td>
+          <td id='comment-button'><%= link_to 'comments' %>
+            <div id='pop-up-comment-index' style="display:none;">
+              <%= render 'topic_comments/index' %>
+            </div>
           <td><%= link_to 'Edit', edit_group_topic_path(topic.group_id, topic) %></td>
           <td><%= link_to 'Destroy', group_topic_path(topic.group_id, topic), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
