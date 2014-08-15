@@ -14,6 +14,7 @@ RailsGirlsApp::Application.routes.draw do
   resources :people
   resources :memberships, only: [:create, :destroy]
   resources :posts
+  resources :topic_comments
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

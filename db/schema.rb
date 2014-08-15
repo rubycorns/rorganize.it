@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718160639) do
+ActiveRecord::Schema.define(version: 20140815111131) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -94,6 +94,14 @@ ActiveRecord::Schema.define(version: 20140718160639) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "topic_comments", force: true do |t|
+    t.integer  "topic_id"
+    t.string   "body"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "topics", force: true do |t|
     t.text     "body"

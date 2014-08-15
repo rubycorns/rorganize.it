@@ -13,4 +13,5 @@
 class Topic < ActiveRecord::Base
   belongs_to :group
   belongs_to :person
+  has_many :topic_comments
 end
