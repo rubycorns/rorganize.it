@@ -1,0 +1,25 @@
+.container
+  %h1.page-header Groups overview
+  .row
+    .col-md-8
+      %table.table.table-striped
+        %thead
+          %tr
+            %th
+            %th Name
+            %th Time
+            %th Address
+            %th
+        %tbody
+          - @groups.each do |group|
+            %tr
+              %td= image_tag(group.picture_url, :width => 60) if group.picture?
+              %td= link_to group.name, group
+              %td= group.time
+              %td= group.address
+              %td
+                = link_to("edit", edit_group_path(group)) if group.editable_by?(current_person)
+                = link_to("delete", group_path(group), method: :delete, confirm: 'Are you sure you want to delete this group?') if group.deletable_by?(current_person)
+    .sidebar.col-md-4
+      %p If you don't see your project group - feel free to add it!
+      = link_to "register new group", new_group_path, :class => 'btn btn-primary'
