@@ -6,6 +6,8 @@ This little app is just the one for you!
 
 An overview of who meets when, where, with whom to work on what.
 
+To see the current status of the project and who's working on what, go to https://waffle.io/rubycorns/railsgirlsapp
+
 ### Just some general information:
 
 Ruby version 2.0+
