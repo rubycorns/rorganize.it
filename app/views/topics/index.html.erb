@@ -18,10 +18,11 @@
         <tr>
           <td><%= topic.body %></td>
           <td><%= topic.person.full_name if topic.person %></td>
-          <td id='comment-button'><%= link_to 'comments', topic_comments_path %></td>
-            <!-- <div id='pop-up-comment-index' style="display:none;">
-              <%= render #template: 'topic_comments/index' %>
-            </div> -->
+          <td id='comment-button'><%= link_to "comments (#{topic.topic_comments.count})" %>
+            <div id='pop-up-comment-index' style="display:none;">
+              <%= render template: 'topic_comments/index', locals: { topic: topic } %>
+            </div>
+          </td>
           <td><%= link_to 'Edit', edit_group_topic_path(topic.group_id, topic) %></td>
           <td><%= link_to 'Destroy', group_topic_path(topic.group_id, topic), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
