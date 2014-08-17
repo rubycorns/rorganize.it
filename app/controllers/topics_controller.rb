@@ -3,10 +3,6 @@ class TopicsController < ApplicationController
   before_action :validate_user_group_member, except: [:index, :show]
   before_action :authenticate_person!
 
-  def index
-    @topics = Topic.all
-  end
-
   def show
   end
 
