@@ -29,10 +29,10 @@ body {
   padding-top: $navbar-height;
   min-height: 100%;
   height: auto;
-  margin-bottom: $navbar-height * -1.5;
+  margin-bottom: 0;
   overflow: auto;
-  @media (max-height: 660px) {
-    margin-bottom: 0;
+  @media (min-height: 660px) and (min-width: 600px) {
+    margin-bottom: $navbar-height * -1.5;
   }
 }
 .footer-container {
