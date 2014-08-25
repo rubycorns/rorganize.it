@@ -1,0 +1,6 @@
+.container
+	%h1 Editing topic
+	= render 'form'
+
+	= link_to 'Show', group_topic_path(@topic.group, @topic) |
+	= link_to 'Back', group_path(@topic.group)

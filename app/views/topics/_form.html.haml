@@ -1,0 +1,11 @@
+.container
+  %h4 Suggest a topic:
+
+  = form_for([@topic.group, @topic], :html => {:multipart => true}) do |f|
+    = render 'shared/error_messages', object: f.object
+
+    .form-group
+      = f.text_area :body, :placeholder => 'Suggest a topic', :class => 'form-control'
+    = f.hidden_field :group_id
+    .actions
+      = f.submit :class => "btn btn-primary"

@@ -1,0 +1,19 @@
+.container
+
+  %h3 Topics we'd like to cover:
+
+  %table.table
+    %thead
+      %tr
+        %th Suggested Topic
+        %th User name
+        %th
+        %th
+
+    %tbody
+      - @topics.each do |topic|
+        %tr
+          %td= topic.body
+          %td= topic.person.full_name if topic.person
+          %td= link_to 'Edit', edit_group_topic_path(topic.group_id, topic)
+          %td= link_to 'Destroy', group_topic_path(topic.group_id, topic), method: :delete, data: { confirm: 'Are you sure?' }
