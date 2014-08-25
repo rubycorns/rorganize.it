@@ -48,4 +48,16 @@ class Group < ActiveRecord::Base
   def deletable_by?(person)
     person && person.has_role?(:admin)
   end
+
+  def pending
+    memberships.where(pending: true)
+  end
+
+  def accepted_students
+    memberships.where(type: 'StudentMembership').where(pending: false)
+  end
+
+  def accepted_coaches
+    memberships.where(type: 'CoachMembership').where(pending: false)
+  end
 end

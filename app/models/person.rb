@@ -60,8 +60,8 @@ class Person < ActiveRecord::Base
     full_name
   end
 
-  def join!(group, type = 'StudentMembership')
-    memberships.create!(group_id: group.id, type: type)
+  def join!(group, type = 'StudentMembership', pending = true)
+    memberships.create!(group_id: group.id, type: type, pending: pending)
   end
 
   def member_of?(group)
