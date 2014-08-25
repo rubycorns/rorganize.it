@@ -1,0 +1,96 @@
+.container.groupprofile
+  .row
+    .col-md-12
+      .page-header.clearfix
+        %h1.pull-left= @group.name
+        .pull-right
+          .btn-group
+            = link_to groups_path, html_options = {:class => 'btn btn-default'} do
+              %i.glyphicon.glyphicon-arrow-left
+              overview
+
+          - if show_group_member_buttons? current_person, @group
+            .btn-group
+              %button.btn.btn-default.dropdown-toggle{:type => "button", "data-toggle" => "dropdown"}
+                %span.glyphicon.glyphicon-cog
+                %span.caret
+              %ul.dropdown-menu.pull-right{:role => "menu", "aria-labelledby" => "dropdownMenu1"}
+                %li
+                  = link_to edit_group_path(@group.id) do
+                    %i.glyphicon.glyphicon-edit
+                    edit group
+                %li.divider
+                %li
+                  = render 'leave'
+
+          - if show_join_group_button? current_person, @group
+            = render 'join'
+
+  .row.group-info
+    .col-md-4
+      %p
+        %strong
+          = fa_icon "map-marker"
+          = @group.address
+        %br/
+        = fa_icon "clock-o"
+        %strong
+          = @group.time
+      - if @group.number_of_members?
+        %p
+          We prefer to have up to
+          %strong= @group.number_of_members
+          members.
+      - if @group.contact?
+        %p
+          Contact us: #{auto_link @group.contact}
+      - if @group.twitter?
+        %p
+          Our Twitter: #{render partial: "shared/twitter", locals: { object: @group }}
+      - if @group.level?
+        %p
+          Level: #{@group.level}
+      - if @group.founded_on?
+        %p
+          Founded: #{@group.founded_on}
+      - if @group.activities?
+        %p
+          Description: #{markdown(@group.activities)}
+    .col-md-4
+      %h4 Students
+      %p
+        This group currently has #{pluralize @group.students.length, "student"}.
+      %ul
+        - @group.students.each do |student|
+          %li= link_to student.first_name, person_path(student)
+      %h4 Coaches
+      %p
+        This group currently has #{pluralize @group.coaches.length, "coach"}.
+      %ul
+        - @group.coaches.each do |coach|
+          %li= link_to coach.first_name, person_path(coach)
+
+
+    -# #group-map.col-md-4
+    -#   .map
+    -#     = map(
+    -#       :container_id => "group-map",
+    -#       :center => {
+    -#       :latlng => [@group.latitude, @group.longitude],
+    -#       :zoom => 16
+    -#     },
+    -#     :markers => [
+    -#       {
+    -#         :latlng => [@group.latitude, @group.longitude],
+    -#       }
+    -#     ],
+    -#     :attribution => "Map data &copy;
+    -#     %a{:href=\"http://openstrteetmap.org\" target=\"_blank\"} OpenStreetMap contributors,
+    -#     %a{:href=\"https://creativecommons.org/licenses/by-sa/2.0/\" target=\"_blank\"  }CC-BY-SA
+    -#     )
+
+
+  .row
+    = render template: "topics/index"
+    = render template: "topics/_form" if show_group_member_buttons? current_person, @group
+
