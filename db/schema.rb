@@ -95,14 +95,6 @@ ActiveRecord::Schema.define(version: 20140825133524) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
-  create_table "topic_comments", force: true do |t|
-    t.integer  "topic_id"
-    t.string   "body"
-    t.integer  "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "topics", force: true do |t|
     t.text     "body"
     t.integer  "group_id"
