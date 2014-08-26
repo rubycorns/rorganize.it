@@ -60,14 +60,9 @@
         <p> Description: <%= markdown(@group.activities) %></p>
       <% end %>
     </div>
+
     <div class="col-md-4">
-      <h4>Pending</h4>
-      <p>This group currently has <%= pluralize @group.pending.length, 'person' %>  waiting to join.</p>
-      <ul>
-        <% @group.pending.each do |membership| %>
-          <li><%= link_to membership.person.first_name, person_path(membership.person) %> has applied to be a <%= membership.name.downcase %></li>
-        <% end %>
-      </ul>
+
       <h4>Students</h4>
       <p>This group currently has <%= pluralize @group.accepted_students.length, "student" %>.</p>
       <ul>
@@ -75,6 +70,7 @@
           <li><%= link_to membership.person.first_name, person_path(membership.person) %></li>
         <% end %>
       </ul>
+
       <h4>Coaches</h4>
       <p>This group currently has <%= pluralize @group.accepted_coaches.length, "coach" %>.</p>
       <ul>
@@ -82,7 +78,24 @@
           <li><%= link_to membership.person.first_name, person_path(membership.person) %></li>
         <% end %>
       </ul>
+
+      <% if show_group_member_buttons? current_person, @group %>
+        <div id='pending-box'>
+          <h4>Pending</h4>
+          <p>This group currently has <%= pluralize @group.pending.length, 'person' %>  waiting to join.</p>
+          <ul>
+            <% @group.pending.each do |membership| %>
+              <li><%= link_to membership.person.first_name, person_path(membership.person) %> has applied to be a <%= membership.name.downcase %></li>
+            <% end %>
+          </ul>
+          <% if @group.pending.length > 0 %>
+            <%= link_to 'manage', group_memberships_path(@group), class: 'pull-right' %>
+          <% end %>
+        </div>
+      <% end %>
+
     </div>
+
     <div class="col-md-4" id="group-map">
       <div class="map">
         <%= map(

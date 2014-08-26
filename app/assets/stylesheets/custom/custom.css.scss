@@ -217,4 +217,13 @@ body {
     position: center;
     repeat: no-repeat;
   }
+
+#pending-box {
+  border: 2px;
+  border-style: solid;
+  border-color: $header_red;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 25px;
+  margin-top: 5px;
 }
