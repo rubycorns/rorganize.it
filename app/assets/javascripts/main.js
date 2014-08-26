@@ -1,12 +1,5 @@
 
-$(document).ready(function() {
-
-	function removeAlert() {
-		$('.alert').addClass('fade-out');
-	}
-	window.setTimeout(removeAlert, 3000);
-
-
+var loadRandomGif = function() {
 	if($('#js-randomGif').length) {
 		$('#js-randomGif').addClass('is-spinning');
 		$.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=adventure+time')
@@ -15,8 +8,19 @@ $(document).ready(function() {
 					$(this).parent().removeClass('is-spinning');
 					$(this).removeClass('hidden');
 				});
-
 			});
 	}
+}
+
+$(document).on('page:load', loadRandomGif);
+
+$(document).ready(function() {
+
+	function removeAlert() {
+		$('.alert').addClass('fade-out');
+	}
+	window.setTimeout(removeAlert, 3000);
+
+	loadRandomGif();
 	
 });

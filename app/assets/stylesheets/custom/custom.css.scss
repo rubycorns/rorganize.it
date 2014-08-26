@@ -47,6 +47,9 @@ body {
   &.navbar-nav.navbar-right:last-child {
     margin-right: 0; // overwrite bootstrap
   }
+  img {
+    margin-left: -0.2em;
+  }
   a {
     color: white;
   }
