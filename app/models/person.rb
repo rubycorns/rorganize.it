@@ -44,8 +44,8 @@ class Person < ActiveRecord::Base
     joins(:roles).where('roles.name = \'admin\'')
   end
 
-  def has_group?
-    groups.empty? == false
+  def in_group?
+    groups.empty? == false && accepted_groups
   end
 
   def full_name
@@ -60,13 +60,23 @@ class Person < ActiveRecord::Base
     full_name
   end
 
+  def pending_groups
+    pending_memberships = memberships.where(pending: true)
+    pending_memberships.map { |m| m.group } unless pending_memberships.empty?
+  end
+
+  def accepted_groups
+    accepted_memberships = memberships.where(pending: false)
+    accepted_memberships.map { |m| m.group } unless accepted_memberships.empty?
+  end
+
   def join!(group, type = 'StudentMembership', pending = true)
     memberships.create!(group_id: group.id, type: type, pending: pending)
   end
 
   def member_of?(group)
     # double !! makes it return a boolean
-    !!memberships.find_by(group_id: group.id)
+    !!memberships.find_by(group_id: group.id, pending: false)
   end
 
 end

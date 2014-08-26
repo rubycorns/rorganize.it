@@ -28,7 +28,7 @@
             </div>
           <% end %>
           <% if show_join_group_button? current_person, @group %>
-              <%= render 'join' %>
+              <%= render 'request_membership' %>
           <% end %>
           </div>
         </div>
@@ -82,13 +82,13 @@
       <% if show_group_member_buttons? current_person, @group %>
         <div id='pending-box'>
           <h4>Pending</h4>
-          <p>This group currently has <%= pluralize @group.pending.length, 'person' %>  waiting to join.</p>
+          <p>This group currently has <%= pluralize @group.pending_members.length, 'person' %>  waiting to join.</p>
           <ul>
-            <% @group.pending.each do |membership| %>
-              <li><%= link_to membership.person.first_name, person_path(membership.person) %> has applied to be a <%= membership.name.downcase %></li>
+            <% @group.pending_members.each do |membership| %>
+              <li><%= link_to membership.person.full_name, person_path(membership.person) %> has applied to be a <%= membership.name.downcase %></li>
             <% end %>
           </ul>
-          <% if @group.pending.length > 0 %>
+          <% if @group.pending_members.length > 0 %>
             <%= link_to 'manage', group_memberships_path(@group), class: 'pull-right' %>
           <% end %>
         </div>

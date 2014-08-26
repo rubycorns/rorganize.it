@@ -42,22 +42,22 @@ class Group < ActiveRecord::Base
   attr_accessor :join_as_coach
 
   def editable_by?(person)
-    people.include?(person)
+    people.include?(person) && !person.memberships.where(group_id: self.id, pending: false).empty?
   end
 
   def deletable_by?(person)
     person && person.has_role?(:admin)
   end
 
-  def pending
+  def pending_members
     memberships.where(pending: true)
   end
 
   def accepted_students
-    memberships.where(type: 'StudentMembership').where(pending: false)
+    memberships.where(type: 'StudentMembership', pending: false)
   end
 
   def accepted_coaches
-    memberships.where(type: 'CoachMembership').where(pending: false)
+    memberships.where(type: 'CoachMembership', pending: false)
   end
 end

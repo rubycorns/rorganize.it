@@ -1,6 +1,11 @@
 class MembershipsController < ApplicationController
   before_action :authenticate_person!
 
+  def index
+    @group = Group.find(params[:group_id])
+    @pending = @group.pending
+  end
+
   def create
     @person = current_person
     @group = Group.find(params[:membership][:group_id])
@@ -11,6 +16,12 @@ class MembershipsController < ApplicationController
     else
       redirect_to groups_path
     end
+  end
+
+  def update
+    @membership = Membership.find(params[:id])
+
+
   end
 
   def destroy
