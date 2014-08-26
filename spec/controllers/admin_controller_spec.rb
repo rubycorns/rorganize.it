@@ -13,6 +13,13 @@ describe AdminsController do
 
   describe 'create' do
 
+    it 'is not allowed for normal users' do
+      admin.remove_role(:admin)
+      admin.save
+      post :create, admin: person.id
+      expect(person).not_to have_role(:admin)
+    end
+
     it 'gives admin powers to a user' do
       post :create, admin: person.id
       expect(person).to have_role(:admin)
@@ -28,4 +35,5 @@ describe AdminsController do
       expect(person).to_not have_role(:admin)
     end
   end
+
 end
