@@ -16,8 +16,8 @@
             <tr>
               <td><%= pending.person.full_name %></td>
               <td><%= pending.name %></td>
-              <td><%= link_to 'accept', memberships_path(pending), method: :put %></td>
-              <td><%= link_to 'deny' %></td>
+              <td><%= link_to 'accept', membership_path(pending), method: :put %></td>
+              <td><%= link_to 'deny', membership_path(pending), method: :delete, data: {confirm: "Are you sure you don't want this person in your group? This means you won't get cake..."} %></td>
             </tr>
           <% end %>
         </tbody>
