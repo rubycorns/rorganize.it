@@ -3,8 +3,10 @@ module GroupsHelper
   def show_join_group_button?(person, group)
     if person == nil
       true
-    else
+    elsif
       !person.member_of?(group)
+    else
+      person.waiting_to_join(group)
     end
   end
 
@@ -31,4 +33,9 @@ module GroupsHelper
       attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap contributors</a>,<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>'
     )
   end
+
+  def show_pending_status(person, group)
+    !!person && (person.waiting_to_join(group))
+  end
+
 end

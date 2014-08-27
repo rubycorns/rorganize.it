@@ -2,6 +2,13 @@
   <div class="row">
     <div class="col-md-12">
       <div class="page-header clearfix">
+
+        <% if show_pending_status current_person, @group %>
+          <div id='person-status-box'>
+            <p>You are currently waiting to join this group</p>
+          </div>
+        <% end %>
+
         <h1 class="pull-left"><%= @group.name %></h1>
         <div class="pull-right">
           <div class="btn-group">
@@ -27,9 +34,11 @@
               </ul>
             </div>
           <% end %>
+
           <% if show_join_group_button? current_person, @group %>
-              <%= render 'request_membership' %>
+            <%= render 'request_membership' %>
           <% end %>
+
           </div>
         </div>
       </div>

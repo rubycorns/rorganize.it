@@ -79,4 +79,7 @@ class Person < ActiveRecord::Base
     !!memberships.find_by(group_id: group.id, pending: false)
   end
 
+  def waiting_to_join(group)
+    !!memberships.find_by(group_id: group.id, pending: true)
+  end
 end
