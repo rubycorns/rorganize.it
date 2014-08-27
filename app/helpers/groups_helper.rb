@@ -3,10 +3,8 @@ module GroupsHelper
   def show_join_group_button?(person, group)
     if person == nil
       true
-    elsif
-      !person.member_of?(group)
     else
-      person.waiting_to_join(group)
+      !person.member_of?(group) && !person.waiting_to_join(group)
     end
   end
 
