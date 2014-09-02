@@ -27,9 +27,13 @@ body {
 
 .main-container {
   padding-top: $navbar-height;
-  min-height: 600px;
-  height: 100%;
-  margin-bottom: $navbar-height * -1.5;
+  min-height: 100%;
+  height: auto;
+  margin-bottom: 0;
+  overflow: auto;
+  @media (min-height: 660px) and (min-width: 600px) {
+    margin-bottom: $navbar-height * -1.5;
+  }
 }
 .footer-container {
   height: $navbar-height * 1.5;
@@ -39,8 +43,13 @@ body {
 }
 
 .profile-header {
-  min-width: 10em;
   padding-top: .15em;
+  &.navbar-nav.navbar-right:last-child {
+    margin-right: 0; // overwrite bootstrap
+  }
+  img {
+    margin-left: -0.2em;
+  }
   a {
     color: white;
   }
@@ -157,5 +166,68 @@ body {
     transition: all 200ms ease;
     transform: translateY(-50%) scale(.8);
     opacity: 0;
+  }
+}
+
+.dashboard-list {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  img, a {
+    display: inline-block;
+  }
+  form {
+    display: none;
+  }
+  li {
+    position: relative;
+    margin-bottom: .5em;
+  }
+  li:hover form {
+    display: inline-block;
+  }
+}
+.dashboard-left {
+  display: inline-block;
+  width: 60%;
+}
+.dashboard-right {
+  float: right;
+}
+
+.no-btn {
+  border: white solid 1px;
+  background: none;
+  border-radius: 25px;
+  padding: 0.1em 0.5em;
+  img {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &:hover {
+    background: white;
+  }
+}
+.link {
+  color: $link-color;
+  &:hover {
+    text-decoration: underline;
+    color: darken($link-color, 10);
+  }
+}
+
+.panel-image {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.is-spinning {
+  background: {
+    image: url(/ajax-loader.gif);
+    size: auto;
+    position: center;
+    repeat: no-repeat;
   }
 }

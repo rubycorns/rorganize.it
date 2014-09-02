@@ -87,7 +87,7 @@ describe GroupsController do
 
       it 'redirects to the groups overview' do
         put :update, @params
-        expect(response).to redirect_to groups_path
+        expect(response.status).to eq 403
       end
     end
   end
@@ -107,7 +107,7 @@ describe GroupsController do
 
       it 'does not allow a non-admin to delete a group' do
         delete :destroy, id: group.id
-        expect(response).to redirect_to groups_path
+        expect(response.status).to eq 403
       end
 
       it 'does not delete the group' do

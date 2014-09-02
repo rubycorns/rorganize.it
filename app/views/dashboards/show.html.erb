@@ -1,0 +1,77 @@
+<div class="container dashboard">
+  <h1 class="page-header">Admin dashboard</h1>
+  <div class="row">
+
+    <div class="col-md-4 col-sm-6">
+      <div class="panel panel-default admin-list">
+        <div class="panel-heading">
+          <h3 class="panel-title">All admins</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="dashboard-list">
+            <% @admins.each do |admin| %>
+              <li>
+                <% if admin.picture.present? %>
+                  <%= image_tag(admin.picture_url(:thumb), size: "40x40" ) %>
+                <% else %>
+                  <%= image_tag('/avatar.png', size: "40x40" ) %>
+                <% end %>
+                <%= link_to admin, person_path(admin) %>
+                <%= form_for(admin, html: {:method => :delete}, data: { confirm: "You really want to work that magic?" }, url: dashboard_admin_path(admin.id)) do |f| %>
+                  <%= f.hidden_field :admin_id, value: admin.id %>
+                  <button class="link no-btn"><span><%= fa_icon "magic", text: "un-adminify" %></span></button>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <% if @non_admins.length > 0 %>
+            <%= form_tag dashboard_admins_path, method: 'POST' do %>
+              <div class="dashboard-left">
+                <%= select_tag 'admin', options_from_collection_for_select(@non_admins, :id, :name), class: 'form-control' %>
+              </div>
+              <div class="dashboard-right">
+                <button name="submit" class="btn btn-primary"><%= fa_icon "magic", text: "adminify" %></button>
+              </div>
+            <% end %>
+          <% else %>
+            <p>No one left to adminify #sadpanda</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="panel panel-default panel-blog">
+        <div class="panel-heading">
+          <h3 class="panel-title">Blog shortcuts</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="dashboard-list">
+            <li><%= link_to fa_icon('list', text: 'all posts'),posts_path %></li>
+            <li><%= link_to fa_icon('plus', text: 'create new post'), new_post_path %></li>
+          </ul>
+          <% if @posts.exists? %>
+            <h2><small>Latest Post:</small><br> <%= link_to @posts.first.title, post_path(@posts.first.id) %></h2>
+            <ul class="dashboard-list">
+              <li><%= link_to fa_icon('edit', text: 'edit latest post'), edit_post_path(@posts.first.id) %></li>
+              <li><%= link_to fa_icon('trash-o', text: 'delete latest post'), post_path(@posts.first.id), method: :delete, data: { confirm: "You really want to trash that?" } %></li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="panel panel-default panel-image">
+        <div class="panel-heading">
+          <h3 class="panel-title">Gif content</h3>
+        </div>
+        <div class="panel-body" id="js-randomGif">
+          <img src="#" class="hidden">
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>

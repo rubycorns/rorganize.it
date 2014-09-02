@@ -79,4 +79,5 @@ describe 'User is not logged in', :type => :feature do
       expect(page).to have_content 'Corporate Blog'
     end
   end
+
 end
