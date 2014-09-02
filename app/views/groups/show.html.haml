@@ -32,30 +32,29 @@
         %strong
           = fa_icon "map-marker"
           = @group.address
-        %br/
+        %br
         = fa_icon "clock-o"
         %strong
           = @group.time
-      - if @group.number_of_members?
-        %p
-          We prefer to have up to
-          %strong= @group.number_of_members
-          members.
       - if @group.contact?
         %p
-          Contact us: #{auto_link @group.contact}
+          %strong Contact us:
+          = auto_link @group.contact
       - if @group.twitter?
         %p
-          Our Twitter: #{render partial: "shared/twitter", locals: { object: @group }}
+          %strong Our Twitter: 
+          = render partial: "shared/twitter", locals: { object: @group }
       - if @group.level?
         %p
-          Level: #{@group.level}
+          %strong Level: 
+          = @group.level
       - if @group.founded_on?
         %p
-          Founded: #{@group.founded_on}
+          %strong Founded:
+          = @group.founded_on
       - if @group.activities?
         %p
-          Description: #{markdown(@group.activities)}
+          = markdown(@group.activities)
     .col-md-4
       %h4 Students
       %p

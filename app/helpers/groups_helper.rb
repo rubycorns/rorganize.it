@@ -18,17 +18,17 @@ module GroupsHelper
 
   def groups_map(group)
     map(
-      :container_id => "group-map",
-      :center => {
-        :latlng => [group.latitude, group.longitude],
-        :zoom => 16
+      container_id: "group-map",
+      center: {
+        latlng: [group.latitude, group.longitude],
+        zoom: 16
       },
-      :markers => [
+      markers: [
         {
-          :latlng => [group.latitude, group.longitude],
+          latlng: [group.latitude, group.longitude],
         }
       ],
-      :attribution => 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap contributors</a>,<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>'
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap contributors</a>,<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>'
     )
   end
 end
