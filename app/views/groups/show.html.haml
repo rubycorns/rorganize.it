@@ -71,23 +71,9 @@
           %li= link_to coach.first_name, person_path(coach)
 
 
-    -# #group-map.col-md-4
-    -#   .map
-    -#     = map(
-    -#       :container_id => "group-map",
-    -#       :center => {
-    -#       :latlng => [@group.latitude, @group.longitude],
-    -#       :zoom => 16
-    -#     },
-    -#     :markers => [
-    -#       {
-    -#         :latlng => [@group.latitude, @group.longitude],
-    -#       }
-    -#     ],
-    -#     :attribution => "Map data &copy;
-    -#     %a{:href=\"http://openstrteetmap.org\" target=\"_blank\"} OpenStreetMap contributors,
-    -#     %a{:href=\"https://creativecommons.org/licenses/by-sa/2.0/\" target=\"_blank\"  }CC-BY-SA
-    -#     )
+    #group-map.col-md-4
+      .map
+        = groups_map @group
 
 
   .row
