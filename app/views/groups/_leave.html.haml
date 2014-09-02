@@ -1,0 +1,4 @@
+= form_tag membership_path(current_person.memberships.find_by(group_id: @group.id)), method: :delete do
+  %button.btn-leavegroup
+    %i.glyphicon.glyphicon-remove-circle
+    leave group

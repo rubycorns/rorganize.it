@@ -1,0 +1,42 @@
+.container.userprofile
+  .row
+    .col-md-12
+      .page-header.clearfix
+        %h1.pull-left= @person.full_name
+        .btn-group.pull-right
+          - if logged_in?(@person)
+            = link_to edit_person_registration_path, html_options = {class: 'btn btn-default'} do
+              = fa_icon "pencil", text: "edit"
+          = link_to people_path, html_options = {class: 'btn btn-default'} do
+            = fa_icon "arrow-left", text: "back"
+
+  .row
+    .col-md-4
+      %h4{style: 'display:inline'} Twitter:
+      = render partial: "shared/twitter", locals: { object: @person }
+      #person-show-pic
+        = image_tag(@person.picture_url(:person_profile)) if @person.picture?
+    .col-md-4
+      %h4 Project Groups:
+      - if @person.has_group?
+        %ul
+          - @person.groups.each do |group|
+            %li= link_to group.name, group_path(group.id)
+      - else
+        %p
+          = @person.first_name
+          is not in a group.
+    #working-on.col-md-4
+      - if @person.working_on?
+        %h4 Working on
+        %p= markdown(@person.working_on)
+      - elsif @person == current_person
+        %p Why not tell the world what you're working on?
+
+  - if logged_in?(@person)
+    .row
+      .col-md-2.col-md-offset-10
+        .btn-group.pull-right
+          = link_to person_registration_path(@person), method: :delete, data: { confirm: "Are you sure you want to delete your account?" } do
+            = fa_icon 'trash-o', text: 'delete'
+
