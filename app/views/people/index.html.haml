@@ -7,7 +7,10 @@
           %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
             .media.pull-left
               %a.pull-left{href: person_path(person)}
-                = image_tag(person.picture_url(:thumb), size: "40x40") if person.picture?
+                - if person.picture?
+                  = image_tag(person.picture_url(:thumb), size: "40x40")
+                - else
+                  = image_tag('/avatar.png', size: "40x40")
               .media-body
                 %h4.media-heading= person.full_name
                 = render partial: "shared/groups", locals: { object: person }

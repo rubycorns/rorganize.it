@@ -58,11 +58,4 @@ class GroupsController < ApplicationController
     :picture, :twitter, :contact, :activities, :email, :level, :founded_on, :join_as_coach)
   end
 
-  def ensure_admin_powers
-    redirect_to groups_path unless current_person.has_role?(:admin)
-  end
-
-  def ensure_member_powers
-    redirect_to groups_path unless current_person.member_of? @group
-  end
 end

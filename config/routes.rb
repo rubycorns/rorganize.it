@@ -14,6 +14,9 @@ RailsGirlsApp::Application.routes.draw do
   resources :people
   resources :memberships, only: [:create, :destroy]
   resources :posts
+  resource :dashboard, only: [:show] do
+    resources :admins, only: [:create, :destroy]
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -40,12 +40,24 @@ class Person < ActiveRecord::Base
 
   validates :first_name, presence: true
 
+  def self.admin
+    joins(:roles).where('roles.name = \'admin\'')
+  end
+
   def has_group?
     groups.empty? == false
   end
 
   def full_name
     [first_name, last_name].join(' ')
+  end
+
+  def name
+    full_name
+  end
+
+  def to_s
+    full_name
   end
 
   def join!(group, type = 'StudentMembership')
@@ -56,4 +68,5 @@ class Person < ActiveRecord::Base
     # double !! makes it return a boolean
     !!memberships.find_by(group_id: group.id)
   end
+
 end
