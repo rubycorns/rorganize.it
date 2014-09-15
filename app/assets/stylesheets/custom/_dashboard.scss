@@ -1,0 +1,35 @@
+
+.dashboard-list {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  img, a {
+    display: inline-block;
+  }
+  form {
+    display: none;
+  }
+  li {
+    position: relative;
+    margin-bottom: .5em;
+  }
+  li:hover form {
+    display: inline-block;
+  }
+}
+.dashboard-left {
+  display: inline-block;
+  width: 60%;
+}
+.dashboard-right {
+  float: right;
+}
+
+
+.panel-image {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+

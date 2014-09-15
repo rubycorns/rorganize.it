@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 300;
+  font-family: Helvetica, sans-serif;
+}
+
+
+/*
+ * overall Layout
+ */
+.header-container {
+  overflow: auto;
+}
+.navbar-default {
+  border: none;
+}
+
+.main-container {
+  padding-top: $navbar-height;
+  min-height: 100%;
+  height: auto;
+  margin-bottom: 0;
+  overflow: auto;
+
+  body:not(.posts) & {
+    @media (min-height: 660px) and (min-width: 600px) {
+      margin-bottom: $navbar-height * -1.7;
+    }
+  }
+  
+}
+.footer-container {
+  height: $navbar-height * 1.5;
+  padding-top: 1em;
+  clear: both;
+  border-top: solid lightgrey 1px;
+}
+
+.profile-header {
+  padding-top: .15em;
+  &.navbar-nav.navbar-right:last-child {
+    margin-right: 0; // overwrite bootstrap
+  }
+  img {
+    margin-left: -0.2em;
+  }
+  a {
+    color: white;
+  }
+  .media-heading {
+    line-height: 1.3;
+  }
+}
+
+.navbar {
+  height: $navbar-height;
+  // overflow: hidden;
+}

@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
     <h1 class="col-sm-12 page-header">Corporate Blog</h1>
-    <article class="col-sm-8">
+    <div class="col-sm-8">
       <% if @latest_post.present? %>
         <%= render partial: 'post', object: @latest_post %>
       <% end %>
 
       <% @posts.each do |post| %>
-        <div class='remaining-post-overview'>
+        <article class='remaining-post-overview'>
           <%= link_to post.title, post %> |
           <%= post.person.first_name if post.person %> |
           <%= post.created_at.strftime("%d %b %Y") %>
-        </div>
+        </article>
       <% end %>
 
       <% if (@latest_post.blank? && @page == 1) || @posts.empty? %>
@@ -23,7 +23,7 @@
       <%= link_to 'New Post', new_post_path if current_person && current_person.has_role?(:admin) %>
 
       <%= will_paginate @posts, class: 'pull-middle' %>
-    </article>
+    </div>
     <div class="col-sm-4">
       <div class='twitter-feed'>
         <a class="twitter-timeline" href="https://twitter.com/rubycorns" data-widget-id="467588755692322816">Tweets by @rubycorns</a>

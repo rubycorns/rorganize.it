@@ -1,0 +1,27 @@
+//Corporate Blog
+
+.latest-post-overview,
+.remaining-post-overview {
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 2em;
+}
+#post-username {
+  font-size: .75em;
+}
+
+#post-description {
+  margin-top: 20px;
+}
+
+#post-edit-delete-buttons {
+  margin-top: 30px;
+}
+.post-picture {
+  margin-bottom: 2em;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

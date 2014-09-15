@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </head>
-<body>
+<body class="<%= controller.controller_name %>">
   <header class="header-container">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
