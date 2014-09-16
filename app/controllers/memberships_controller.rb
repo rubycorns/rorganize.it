@@ -3,7 +3,7 @@ class MembershipsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @pending = @group.pending
+    @pending = @group.pending_members
   end
 
   def create

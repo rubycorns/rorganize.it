@@ -18,9 +18,9 @@
         = image_tag(@person.picture_url(:person_profile)) if @person.picture?
     .col-md-4
       %h4 Project Groups:
-      - if @person.has_group?
+      - if @person.in_group?
         %ul
-          - @person.groups.each do |group|
+          - @person.accepted_groups.each do |group|
             %li= link_to group.name, group_path(group.id)
       - else
         %p

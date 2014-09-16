@@ -13,7 +13,8 @@
                   = image_tag('/avatar.png', size: "40x40")
               .media-body
                 %h4.media-heading= person.full_name
-                = render partial: "shared/groups", locals: { object: person }
+                - if person.accepted_groups
+                  = render partial: "shared/groups", locals: { object: person }
             - if person_signed_in?
               .pull-right
                 .btn-group
