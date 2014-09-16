@@ -1,0 +1,22 @@
+.container
+  .row
+    .jumbotron
+      %h1 About us and this App
+      %p
+        We are the 
+        = link_to("rubycorns", "https://twitter.com/rubycorns") + ','
+        a Rails Girls Project Group meeting once a week.
+
+      %p
+        We made this sh*t with 
+        = fa_icon "heart"
+        
+      %p
+        The code is open source. Check it out and contribute on 
+        = link_to(fa_icon("github", text: "Github"), "//github.com/rubycorns/RailsGirlsApp")
+      %p
+        And we proudly host on Shelly Cloud.
+        
+      %p
+        %a{ href: "https://shellycloud.com/", target: "_blank"}
+          %img{ src: "//shellycloud.com/assets/badge.png", alt: "Shellycloud badge"}
