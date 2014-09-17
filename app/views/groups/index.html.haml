@@ -13,7 +13,11 @@
         %tbody
           - @groups.each do |group|
             %tr
-              %td= image_tag(group.picture_url, :width => 60) if group.picture?
+              %td
+                - if group.picture?
+                  = image_tag(group.picture_url, :width => 60)
+                - else
+                  = image_tag('/group-avatar.png', size: "40x40")
               %td= link_to group.name, group
               %td= group.time
               %td= group.address

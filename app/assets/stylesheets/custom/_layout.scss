@@ -25,24 +25,7 @@ body {
 }
 
 .main-container {
-  padding-top: $navbar-height;
-  min-height: 100%;
-  height: auto;
-  margin-bottom: 0;
-  overflow: auto;
-
-  body:not(.posts) & {
-    @media (min-height: 660px) and (min-width: 600px) {
-      margin-bottom: $navbar-height * -1.7;
-    }
-  }
-  
-}
-.footer-container {
-  height: $navbar-height * 1.5;
-  padding-top: 1em;
-  clear: both;
-  border-top: solid lightgrey 1px;
+padding: $navbar-height 0 $navbar-height * 2;
 }
 
 .profile-header {
