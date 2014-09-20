@@ -6,14 +6,16 @@
   img, a {
     display: inline-block;
   }
-  form {
+  form,
+  .visible-on-hover {
     display: none;
   }
   li {
     position: relative;
     margin-bottom: .5em;
   }
-  li:hover form {
+  li:hover form,
+  li:hover .visible-on-hover {
     display: inline-block;
   }
 }

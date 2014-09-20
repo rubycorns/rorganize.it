@@ -8,10 +8,6 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
     @page = (params[:page] || 1).to_i
-    if @page == 1
-      @latest_post = @posts.first
-      @posts = @posts.all[1..-1] unless @posts.empty?
-    end
     @posts = @posts.paginate(page: @page, per_page: 20)
   end
 

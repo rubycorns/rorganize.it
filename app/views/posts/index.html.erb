@@ -2,24 +2,14 @@
   <div class="row">
     <h1 class="col-sm-12 page-header">Corporate Blog</h1>
     <div class="col-sm-8">
-      <% if @latest_post.present? %>
-        <%= render partial: 'post', object: @latest_post %>
-      <% end %>
 
       <% @posts.each do |post| %>
         <% if post.draft == false || (current_person && current_person.has_role(:admin)) %>
-          <article class='remaining-post-overview'>
-            <%= link_to post.title, post %> |
-            <%= post.person.first_name if post.person %> |
-            <%= post.created_at.strftime("%d %b %Y") %>
-            <% if current_person && current_person.has_role(:admin) && post.draft == true %>
-              <p class="pull-right"><%= fa_icon "edit", text: "it's a draft" %></p>
-            <% end %>
-          </article>
+          <%= render partial: 'post', object: post %>
         <% end %>
       <% end %>
 
-      <% if (@latest_post.blank? && @page == 1) || @posts.empty? %>
+      <% if @posts.empty? %>
         <div class='latest-post-overview'>
           Oops, no blogposts here
         </div>

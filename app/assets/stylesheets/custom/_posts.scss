@@ -1,20 +1,5 @@
 //Corporate Blog
 
-.latest-post-overview,
-.remaining-post-overview {
-  background-color: #eee;
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin-bottom: 2em;
-}
-#post-username {
-  font-size: .75em;
-}
-
-#post-description {
-  margin-top: 20px;
-}
-
 #post-edit-delete-buttons {
   margin-top: 30px;
 }
@@ -24,4 +9,23 @@
     width: 100%;
     height: auto;
   }
+}
+
+.post {
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 2em;
+
+  h2 {
+    margin-bottom: .7em;
+    text-transform: capitalize;
+  }
+}
+.post-meta {
+  font-size: 14px;
+  font-weight: 600;
+}
+.post-body {
+  margin-top: 20px;
 }
