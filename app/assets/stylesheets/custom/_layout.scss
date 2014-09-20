@@ -33,6 +33,14 @@ body {
   &.navbar-nav.navbar-right:last-child {
     margin-right: 0; // overwrite bootstrap
   }
+  .fa {
+    color: white;
+  }
+  button:hover {
+    .fa {
+      color: $rg_red;
+    }
+  }
   img {
     margin-left: -0.2em;
   }
