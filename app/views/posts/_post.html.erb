@@ -1,5 +1,8 @@
 <article class='latest-post-overview'>
   <header>
+    <% if current_person && current_person.has_role(:admin) && post.draft == true %>
+      <p class="pull-right"><%= fa_icon "edit", text: "it's a draft" %></p>
+    <% end %>
     <h2><%= link_to "#{post.try(:title)}", post_path(post) %></h2>
     <p id="post-username">
       <%= post.person.first_name if post.person %> |

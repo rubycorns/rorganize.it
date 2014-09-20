@@ -20,4 +20,8 @@ class Post < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  def get_status
+    draft ? 'draft' : 'published'
+  end
+
 end

@@ -27,6 +27,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+
+    if params[:commit] == 'Publish'
+      @post.draft = false
+    else
+      @post.draft = true
+    end
+
     @post.person = current_person
 
     if @post.save
@@ -38,6 +45,13 @@ class PostsController < ApplicationController
   end
 
   def update
+
+    if params[:commit] == 'Publish'
+      @post.draft = false
+    else
+      @post.draft = true
+    end
+
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.
       All efforts, nomatter how small, deserve cake.'
