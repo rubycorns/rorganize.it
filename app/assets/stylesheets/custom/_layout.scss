@@ -43,6 +43,13 @@ body {
     line-height: 1.3;
   }
 }
+.profile-picture {
+  margin-bottom: 2em;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
 
 .navbar {
   height: $navbar-height;

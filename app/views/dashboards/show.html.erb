@@ -38,6 +38,32 @@
           <% end %>
         </div>
       </div>
+      <div class="panel panel-default panel-groups">
+        <div class="panel-heading">
+          <h3 class="panel-title">Groups</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="dashboard-list">
+            <% @groups.each do |group| %>
+              <li>
+                <% if group.picture.present? %>
+                  <%= image_tag(group.picture_url(:thumb), size: "40x40" ) %>
+                <% else %>
+                  <%= image_tag('/group-avatar.png', size: "40x40" ) %>
+                <% end %>
+                <%= link_to group.name, group_path(group) %>
+                <%= link_to edit_group_path(group), class: 'visible-on-hover' do %>
+                  <%= fa_icon "life-saver", text: 'edit' %>
+                <% end %>
+                <%= form_for(group, html: {:method => :delete}, data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" }, url: dashboard_admin_path(group.id)) do |f| %>
+                  <%= f.hidden_field :admin_id, value: group.id %>
+                  <button class="link no-btn"><span><%= fa_icon "frown-o", text: "delete" %></span></button>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="col-md-4 col-sm-6">
@@ -126,35 +152,6 @@
             </div>
           </div>
         </div> <!-- / Modal -->
-      </div>
-    </div>
-
-    <div class="col-md-4 col-sm-6">
-      <div class="panel panel-default panel-groups">
-        <div class="panel-heading">
-          <h3 class="panel-title">Groups</h3>
-        </div>
-        <div class="panel-body">
-          <ul class="dashboard-list">
-            <% @groups.each do |group| %>
-              <li>
-                <% if group.picture.present? %>
-                  <%= image_tag(group.picture_url(:thumb), size: "40x40" ) %>
-                <% else %>
-                  <%= image_tag('/group-avatar.png', size: "40x40" ) %>
-                <% end %>
-                <%= link_to group.name, group_path(group) %>
-                <%= link_to edit_group_path(group), class: 'visible-on-hover' do %>
-                  <%= fa_icon "life-saver", text: 'edit' %>
-                <% end %>
-                <%= form_for(group, html: {:method => :delete}, data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" }, url: dashboard_admin_path(group.id)) do |f| %>
-                  <%= f.hidden_field :admin_id, value: group.id %>
-                  <button class="link no-btn"><span><%= fa_icon "frown-o", text: "delete" %></span></button>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
       </div>
     </div>
 
