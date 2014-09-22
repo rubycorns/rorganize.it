@@ -23,13 +23,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    if params[:commit] == 'Publish'
-      @post.draft = false
-    else
-      @post.draft = true
-    end
-
+    @post.draft = post_params_draft
     @post.person = current_person
 
     if @post.save
@@ -42,11 +36,7 @@ class PostsController < ApplicationController
 
   def update
 
-    if params[:commit] == 'Publish'
-      @post.draft = false
-    else
-      @post.draft = true
-    end
+    @post.draft = post_params_draft
 
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.
@@ -70,6 +60,10 @@ class PostsController < ApplicationController
 
   def check_role
     redirect_to posts_path unless current_person.has_role? :admin
+  end
+
+  def post_params_draft
+    params[:commit] != 'Publish'
   end
 
   def post_params

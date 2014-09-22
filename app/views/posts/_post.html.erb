@@ -1,6 +1,6 @@
 <article class='post'>
   <header>
-    <% if current_person && current_person.has_role(:admin) && post.draft == true %>
+    <% if current_person && current_person.has_role(:admin) && post.draft? %>
       <p class="pull-right"><%= fa_icon "file-o", text: "it's a draft" %></p>
     <% end %>
     <h2><%= link_to "#{post.try(:title)}", post_path(post) %></h2>
