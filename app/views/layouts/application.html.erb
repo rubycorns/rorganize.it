@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </head>
-<body>
+<body class="<%= controller.controller_name %>">
   <header class="header-container">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -40,10 +40,12 @@
             <div class="dropdown navbar-nav navbar-right profile-header">
               <button class="dropdown-toggle no-btn" type="button" id="dropdownMenu1" data-toggle="dropdown">
                 <% if current_person.picture.present? %>
-                  <%= image_tag(current_person.picture_url(:thumb), size: "40x40" ) %><span class="caret"></span></button>
+                  <%= image_tag(current_person.picture_url(:thumb), size: "40x40" ) %>
                 <% else %>
-                  <%= image_tag('/avatar.png', size: "40x40" ) %><span class="caret"></span></button>
+                  <%= image_tag('/avatar.png', size: "40x40" ) %>
                 <% end %>
+                <%= fa_icon "caret-down" %>
+              </button>
               <ul class="dropdown-menu " role="menu">
                 <li><%= link_to current_person.full_name, current_person %></li>
                 <li><%= link_to "logout", destroy_person_session_path, method: :delete %></li>

@@ -22,19 +22,13 @@ describe PostsController do
 
       before :each do
         5.times {Post.create title: 'random', description: 'important stuff' }
-        Post.create title: 'latest',
-                    description: 'hhrm',
-                    created_at: 2.days.from_now
         get :index
       end
 
       it 'has 5 of them as posts' do
-        expect(assigns(:posts).size).to eq 5
+        expect(assigns(:posts).to_a.size).to eq 5
       end
 
-      it 'has a first_post' do
-        expect(assigns(:latest_post).title).to eq 'latest'
-      end
     end
   end
 end

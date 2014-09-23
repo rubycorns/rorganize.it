@@ -9,52 +9,58 @@
               %i.glyphicon.glyphicon-arrow-left
               overview
 
-          - if show_group_member_buttons? current_person, @group
-            .btn-group
-              %button.btn.btn-default.dropdown-toggle{:type => "button", "data-toggle" => "dropdown"}
-                %span.glyphicon.glyphicon-cog
-                %span.caret
-              %ul.dropdown-menu.pull-right{:role => "menu", "aria-labelledby" => "dropdownMenu1"}
-                %li
-                  = link_to edit_group_path(@group.id) do
-                    %i.glyphicon.glyphicon-edit
-                    edit group
-                %li.divider
-                %li
-                  = render 'leave'
+            - if show_group_member_buttons? current_person, @group
+              .btn-group
+                %button.btn.btn-default.dropdown-toggle{:type => "button", "data-toggle" => "dropdown"}
+                  %span.glyphicon.glyphicon-cog
+                  %span.caret
+                %ul.dropdown-menu.pull-right{:role => "menu", "aria-labelledby" => "dropdownMenu1"}
+                  %li
+                    = link_to edit_group_path(@group.id) do
+                      %i.glyphicon.glyphicon-edit
+                      edit group
+                  %li.divider
+                  %li
+                    = render 'leave'
 
-          - if show_join_group_button? current_person, @group
-            = render 'request_membership'
+
+            - if show_join_group_button? current_person, @group
+              = render 'request_membership'
 
   .row.group-info
     .col-md-4
-      %p
-        %strong
-          = fa_icon "map-marker"
-          = @group.address
-        %br
-        = fa_icon "clock-o"
-        %strong
-          = @group.time
-      - if @group.contact?
-        %p
-          %strong Contact us:
-          = auto_link @group.contact
-      - if @group.twitter?
-        %p
-          %strong Our Twitter:
-          = render partial: "shared/twitter", locals: { object: @group }
-      - if @group.level?
-        %p
-          %strong Level:
-          = @group.level
-      - if @group.founded_on?
-        %p
-          %strong Founded:
-          = @group.founded_on
-      - if @group.activities?
-        %p
-          = markdown(@group.activities)
+      .row
+        .col-md-10
+          = image_tag(@group.picture_url(:person_profile), class: 'profile-picture') if @group.picture?
+      .row
+        .col-md-12
+          %p
+            %strong
+              = fa_icon "map-marker"
+              = @group.address
+            %br
+            = fa_icon "clock-o"
+            %strong
+              = @group.time
+          - if @group.contact?
+            %p
+              %strong Contact us:
+              = auto_link @group.contact
+          - if @group.twitter?
+            %p
+              %strong Our Twitter:
+              = render partial: "shared/twitter", locals: { object: @group }
+          - if @group.level?
+            %p
+              %strong Level:
+              = @group.level
+          - if @group.founded_on?
+            %p
+              %strong Founded:
+              = @group.founded_on
+          - if @group.activities?
+            %p
+              = markdown(@group.activities)
     .col-md-4
       %h4 Students
       %p
@@ -81,13 +87,12 @@
           - if @group.pending_members.length > 0
             = link_to 'manage', group_memberships_path(@group), class: 'pull-right'
 
-
     #group-map.col-md-4
       .map
         = groups_map @group
 
 
-  .row
+  .row.topics
     = render template: "topics/index"
     = render template: "topics/_form" if show_group_member_buttons? current_person, @group
 

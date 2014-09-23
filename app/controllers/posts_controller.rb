@@ -8,10 +8,6 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
     @page = (params[:page] || 1).to_i
-    if @page == 1
-      @latest_post = @posts.first
-      @posts = @posts.all[1..-1] unless @posts.empty?
-    end
     @posts = @posts.paginate(page: @page, per_page: 20)
   end
 
@@ -27,17 +23,20 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.draft = post_params_draft
     @post.person = current_person
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.
-      Maybe you should celebrate with some cake!'
+      redirect_to @post, notice: post_created_notice
     else
       render action: 'new'
     end
   end
 
   def update
+
+    @post.draft = post_params_draft
+
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.
       All efforts, nomatter how small, deserve cake.'
@@ -60,6 +59,18 @@ class PostsController < ApplicationController
 
   def check_role
     redirect_to posts_path unless current_person.has_role? :admin
+  end
+
+  def post_created_notice
+    if @post.draft?
+      'Post was saved as a draft. Maybe you should prepare some cake!'
+    else
+      'Post was successfully published. Bring out that cake!'
+    end
+  end
+
+  def post_params_draft
+    params[:commit] != 'Publish'
   end
 
   def post_params

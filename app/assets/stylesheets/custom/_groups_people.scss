@@ -1,0 +1,69 @@
+/*
+ * Group Profile
+ */
+.groupprofile,
+.userprofile {
+  padding-bottom: 10em;
+  margin-top: 2em;
+  h1 {
+    margin-top: 0;
+  }
+}
+.group-info {
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+}
+.list-group {
+  .media {
+    width: 50%;
+  }
+  h3 {
+    margin-top: 0;
+  }
+}
+.list-group-item {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.map {
+  width: 100%;
+  height: 100%;
+  min-height: 30em;
+  overflow: hidden;
+}
+
+.page-header {
+  margin-top: 1.5em;
+}
+
+/*
+ * Student/ Coaches
+ */
+.student-list {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+.list {
+    padding: 0;
+    list-style-type: none;
+    li {
+        margin-bottom: .5em;
+    }
+    img {
+        width: 40px;
+        height: auto;
+    }
+}
+
+.topics {
+  margin-top: 5em;
+}

@@ -5,18 +5,18 @@
       %ul.list-group
         - @people.each do |person|
           %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
-            .media.pull-left
-              %a.pull-left{href: person_path(person)}
+            .row
+              .col-md-2
                 - if person.picture?
-                  = image_tag(person.picture_url(:thumb), size: "40x40")
+                  = image_tag(person.picture_url(:person_profile), :width => 300)
                 - else
                   = image_tag('/avatar.png', size: "40x40")
-              .media-body
-                %h4.media-heading= person.full_name
+
+              .col-md-8
+                %h3
+                  - if person_signed_in?
+                    = link_to person.full_name, person_path(person)
+                  - else
+                    = person.full_name
                 - if person.accepted_groups
                   = render partial: "shared/groups", locals: { object: person }
-            - if person_signed_in?
-              .pull-right
-                .btn-group
-                  = link_to person_path(person), :class => 'btn btn-default' do
-                    = fa_icon "user", text: "Profile"

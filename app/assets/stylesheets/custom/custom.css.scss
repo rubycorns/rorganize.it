@@ -3,82 +3,12 @@
 // then include bootstrap
 @import "bootstrap";
 @import "font-awesome";
+// other styles
+@import "_layout.scss";
+@import "_dashboard.scss";
+@import "_posts.scss";
+@import "_groups_people.scss";
 
-* {
-  box-sizing: border-box;
-}
-html,
-body {
-  margin: 0;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-/*
- * overall Layout
- */
-.header-container {
-  overflow: auto;
-}
-.navbar-default {
-  border: none;
-}
-
-.main-container {
-  padding: $navbar-height 0 $navbar-height * 2;
-}
-
-.profile-header {
-  padding-top: .15em;
-  &.navbar-nav.navbar-right:last-child {
-    margin-right: 0; // overwrite bootstrap
-  }
-  img {
-    margin-left: -0.2em;
-  }
-  a {
-    color: white;
-  }
-  .media-heading {
-    line-height: 1.3;
-  }
-}
-
-/*
- * Group Profile
- */
-.groupprofile {
-  padding-bottom: 10em;
-  .group-header-image {
-    height: 300px;
-    overflow: hidden;
-  }
-}
-.group-info {
-  margin-top: 3em;
-}
-.list-group {
-  .media {
-    width: 50%;
-  }
-}
-.map {
-  width: 100%;
-  height: 100%;
-  min-height: 20em;
-  overflow: hidden;
-}
-
-/*
- * Student/ Coaches
- */
-.student-list {
-  img {
-    width: 50px;
-    height: auto;
-  }
-}
 
 /*
  * Style the leave group button
@@ -97,36 +27,6 @@ body {
   }
 }
 
-//Corporate Blog
-
-.latest-post-overview,
-.remaining-post-overview {
-  background-color: #eee;
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin-bottom: 2em;
-}
-#post-username {
-  font-size: .75em;
-}
-
-#post-description {
-  font-size: 1.5em;
-  margin-top: 20px;
-}
-
-#post-edit-delete-buttons {
-  margin-top: 30px;
-}
-.post-picture {
-  margin-bottom: 2em;
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-
 #signup-button {
   margin-left: 60px;
 }
@@ -139,6 +39,11 @@ body {
   max-height:40vh;
 }
 
+/*
+ * Helper classes
+ */
+
+// flash messages
 .alert {
   position: fixed;
   left: 0;
@@ -156,32 +61,7 @@ body {
   }
 }
 
-.dashboard-list {
-  position: relative;
-  list-style: none;
-  padding: 0;
-  img, a {
-    display: inline-block;
-  }
-  form {
-    display: none;
-  }
-  li {
-    position: relative;
-    margin-bottom: .5em;
-  }
-  li:hover form {
-    display: inline-block;
-  }
-}
-.dashboard-left {
-  display: inline-block;
-  width: 60%;
-}
-.dashboard-right {
-  float: right;
-}
-
+// remove default button styles
 .no-btn {
   border: white solid 1px;
   background: none;
@@ -195,6 +75,7 @@ body {
     background: white;
   }
 }
+// apply link styles
 .link {
   color: $link-color;
   &:hover {
@@ -203,13 +84,7 @@ body {
   }
 }
 
-.panel-image {
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
+// add a little gif to indicate ajax loading
 .is-spinning {
   background: {
     image: url(/ajax-loader.gif);
