@@ -19,10 +19,21 @@ var randomGif = {
 		$('#js-randomGif').addClass('is-spinning');
 		$.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+ this.gifCategory)
 			.done(function(data) {
-				$('#js-randomGif img').attr('src', data.data.image_url).on('load', function() {
-					$(this).parent().removeClass('is-spinning');
-					$(this).removeClass('hidden');
-				});
+				if (data.data.id) {
+					$('#js-randomGif img').attr('src', data.data.image_url).on('load', function() {
+						if($('#js-randomGif').length) {
+							$('#error-log').remove();
+						}
+						$(this).parent().removeClass('is-spinning');
+						$(this).removeClass('hidden');
+					});
+				} else {
+					$('#js-randomGif').removeClass('is-spinning');
+					$('#js-randomGif').append('<p id="error-log">No gif found, please try something else</p>');
+				}
+			})
+			.fail(function(error) {
+				console.log(error);
 			});
 	},
 
