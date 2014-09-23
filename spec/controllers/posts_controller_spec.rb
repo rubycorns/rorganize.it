@@ -26,7 +26,7 @@ describe PostsController do
       end
 
       it 'has 5 of them as posts' do
-        expect(assigns(:posts).count).to eq 5
+        expect(assigns(:posts).to_a.size).to eq 5
       end
 
     end
