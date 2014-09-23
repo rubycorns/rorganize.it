@@ -38,6 +38,32 @@
           <% end %>
         </div>
       </div>
+      <div class="panel panel-default panel-groups">
+        <div class="panel-heading">
+          <h3 class="panel-title">Groups</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="dashboard-list">
+            <% @groups.each do |group| %>
+              <li>
+                <% if group.picture.present? %>
+                  <%= image_tag(group.picture_url(:thumb), size: "40x40" ) %>
+                <% else %>
+                  <%= image_tag('/group-avatar.png', size: "40x40" ) %>
+                <% end %>
+                <%= link_to group.name, group_path(group) %>
+                <%= link_to edit_group_path(group), class: 'visible-on-hover' do %>
+                  <%= fa_icon "life-saver", text: 'edit' %>
+                <% end %>
+                <%= form_for(group, html: {:method => :delete}, data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" }, url: dashboard_admin_path(group.id)) do |f| %>
+                  <%= f.hidden_field :admin_id, value: group.id %>
+                  <button class="link no-btn"><span><%= fa_icon "frown-o", text: "delete" %></span></button>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="col-md-4 col-sm-6">
@@ -53,6 +79,13 @@
           <% if @posts.exists? %>
             <h2><small>Latest Post:</small><br> <%= link_to @posts.first.title, post_path(@posts.first.id) %></h2>
             <ul class="dashboard-list">
+              <li>
+                <% if @posts.first.draft %>
+                  <%= fa_icon "file-o", text: "it's a draft" %>
+                <% else %>
+                  <%= fa_icon "paper-plane", text: "it's published" %>
+                <% end %>
+              </li>
               <li><%= link_to fa_icon('edit', text: 'edit latest post'), edit_post_path(@posts.first.id) %></li>
               <li><%= link_to fa_icon('trash-o', text: 'delete latest post'), post_path(@posts.first.id), method: :delete, data: { confirm: "You really want to trash that?" } %></li>
             </ul>
@@ -63,15 +96,64 @@
 
     <div class="col-md-4 col-sm-6">
       <div class="panel panel-default panel-image">
-        <div class="panel-heading">
-          <h3 class="panel-title">Gif content</h3>
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title pull-left">Gif content</h3><button class="no-btn pull-right" data-toggle="modal" data-target="#gifModal"><i class="fa fa-exchange"></i></button>
         </div>
         <div class="panel-body" id="js-randomGif">
           <img src="#" class="hidden">
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="gifModal" tabindex="-1" role="dialog" aria-labelledby="gif choosing modal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Choose a different gif category</h4>
+              </div>
+              <div class="modal-body">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="gifOpt" id="gifOpt1" value="adventure+time" checked>
+                    Adventure Time
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="gifOpt" id="gifOpt2" value="game+of+thrones">
+                    Game of Thrones
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="gifOpt" id="gifOpt3" value="sloth">
+                    Sloths
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="gifOpt" id="gifOpt4" value="cats">
+                    Cats
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="gifOpt" id="gifOpt5" value="custom">
+                    or choose your own!
+                  </label>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="customGifString" disabled>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="gifCloseModal">Close</button>
+                <button type="button" class="btn btn-primary" id="gifSaveChange">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- / Modal -->
       </div>
     </div>
 
-    
   </div>
 </div>

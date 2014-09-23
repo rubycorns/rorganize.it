@@ -11,22 +11,29 @@
             = fa_icon "arrow-left", text: "back"
 
   .row
-    .col-md-4
-      %h4{style: 'display:inline'} Twitter:
-      = render partial: "shared/twitter", locals: { object: @person }
-      #person-show-pic
+    .col-md-3
+      #person-show-pic.profile-picture
         = image_tag(@person.picture_url(:person_profile)) if @person.picture?
+      - if @person.twitter?
+        %p
+          Twitter:
+          = render partial: "shared/twitter", locals: { object: @person }
     .col-md-4
       %h4 Project Groups:
       - if @person.has_group?
-        %ul
+        %ul.list
           - @person.groups.each do |group|
-            %li= link_to group.name, group_path(group.id)
+            %li
+              - if group.picture?
+                = image_tag(group.picture_url, :width => 60)
+              - else
+                = image_tag('/group-avatar.png', size: "40x40")
+              = link_to group.name, group_path(group.id)
       - else
         %p
           = @person.first_name
           is not in a group.
-    #working-on.col-md-4
+    #working-on.col-md-5
       - if @person.working_on?
         %h4 Working on
         %p= markdown(@person.working_on)
