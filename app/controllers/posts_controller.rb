@@ -27,8 +27,7 @@ class PostsController < ApplicationController
     @post.person = current_person
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.
-      Maybe you should celebrate with some cake!'
+      redirect_to @post, notice: post_created_notice
     else
       render action: 'new'
     end
@@ -60,6 +59,14 @@ class PostsController < ApplicationController
 
   def check_role
     redirect_to posts_path unless current_person.has_role? :admin
+  end
+
+  def post_created_notice
+    if @post.draft?
+      'Post was saved as a draft. Maybe you should prepare some cake!'
+    else
+      'Post was successfully published. Bring out that cake!'
+    end
   end
 
   def post_params_draft
