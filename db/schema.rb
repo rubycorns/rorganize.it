@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140920085434) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.boolean  "pending",    default: false
   end
 
   add_index "memberships", ["group_id", "person_id"], name: "index_memberships_on_group_id_and_person_id", unique: true

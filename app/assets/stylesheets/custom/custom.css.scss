@@ -93,3 +93,20 @@
     repeat: no-repeat;
   }
 }
+
+#pending-box {
+  border: 2px;
+  border-style: solid;
+  border-color: $header_red;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 25px;
+  margin-top: 5px;
+}
+
+#person-status-box {
+  padding: 2px;
+  background-color: #ADD6FF;
+  text-align: center;
+  color: #335C85;
+}

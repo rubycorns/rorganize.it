@@ -1,0 +1,16 @@
+<% if current_person %>
+  <%= form_for(current_person.memberships.build(group_id: @group.id), html: {class: 'btn-group inline'}, url: memberships_path) do |f| %>
+    <%= f.hidden_field :group_id %>
+    <%= f.hidden_field :type, value: 'StudentMembership' %>
+    <%= f.hidden_field :pending, value: true %>
+    <button class="btn btn-success"><i class="glyphicon glyphicon-ok-circle"></i> ask to join as member!</button>
+  <% end %>
+  <%= form_for(current_person.memberships.build(group_id: @group.id), html: {class: 'btn-group inline'}, url: memberships_path) do |f| %>
+    <%= f.hidden_field :group_id %>
+    <%= f.hidden_field :type, value: 'CoachMembership' %>
+    <%= f.hidden_field :pending, value: true %>
+    <button class="btn btn-success"><i class="glyphicon glyphicon-ok-circle"></i> ask to join as coach!</button>
+  <% end %>
+<% else %>
+  <a href="<%= new_person_registration_path %>" class="btn btn-success"><i class="glyphicon glyphicon-ok-circle"></i> sign up to join!</a>
+<% end %>

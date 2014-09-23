@@ -23,8 +23,9 @@
                   %li
                     = render 'leave'
 
+
             - if show_join_group_button? current_person, @group
-              = render 'join'
+              = render 'request_membership'
 
   .row.group-info
     .col-md-4
@@ -47,11 +48,11 @@
               = auto_link @group.contact
           - if @group.twitter?
             %p
-              %strong Our Twitter: 
+              %strong Our Twitter:
               = render partial: "shared/twitter", locals: { object: @group }
           - if @group.level?
             %p
-              %strong Level: 
+              %strong Level:
               = @group.level
           - if @group.founded_on?
             %p
@@ -63,16 +64,29 @@
     .col-md-4
       %h4 Students
       %p
-        This group currently has #{pluralize @group.students.length, "student"}.
+        This group currently has #{pluralize @group.accepted_students.length, "student"}.
       %ul
-        - @group.students.each do |student|
-          %li= link_to student.first_name, person_path(student)
+        - @group.accepted_students.each do |membership|
+          %li= link_to membership.person.first_name, person_path(membership.person)
       %h4 Coaches
       %p
-        This group currently has #{pluralize @group.coaches.length, "coach"}.
+        This group currently has #{pluralize @group.accepted_coaches.length, "coach"}.
       %ul
-        - @group.coaches.each do |coach|
-          %li= link_to coach.first_name, person_path(coach)
+        - @group.accepted_coaches.each do |membership|
+          %li= link_to membership.person.first_name, person_path(membership.person)
+
+      - if show_group_member_buttons? current_person, @group
+        #pending-box
+          %h4 Pending
+          %p This group currently has #{pluralize @group.pending_members.length, 'person'} waiting to join.
+          %ul
+            - @group.pending_members.each do |membership|
+              %li= link_to(membership.person.full_name, person_path(membership.person))
+              has applied to be a
+              = membership.name
+          - if @group.pending_members.length > 0
+            = link_to 'manage', group_memberships_path(@group), class: 'pull-right'
+
     #group-map.col-md-4
       .map
         = groups_map @group

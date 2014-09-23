@@ -11,10 +11,12 @@
                   = image_tag(person.picture_url(:person_profile), :width => 300)
                 - else
                   = image_tag('/avatar.png', size: "40x40")
+
               .col-md-8
                 %h3
                   - if person_signed_in?
                     = link_to person.full_name, person_path(person)
                   - else
                     = person.full_name
-                = render partial: "shared/groups", locals: { object: person }
+                - if person.accepted_groups
+                  = render partial: "shared/groups", locals: { object: person }

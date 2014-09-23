@@ -20,9 +20,9 @@
           = render partial: "shared/twitter", locals: { object: @person }
     .col-md-4
       %h4 Project Groups:
-      - if @person.has_group?
+      - if @person.in_group?
         %ul.list
-          - @person.groups.each do |group|
+          - @person.accepted_groups.each do |group|
             %li
               - if group.picture?
                 = image_tag(group.picture_url, :width => 60)
