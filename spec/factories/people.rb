@@ -41,4 +41,14 @@ FactoryGirl.define do
     email
     password 'tarntarn'
   end
+
+  factory :admin, class: Person do
+    first_name 'Super'
+    last_name 'Cake'
+    email
+    password 'tarntest'
+    after(:build) do |user|
+      user.add_role(:admin)
+    end
+  end
 end

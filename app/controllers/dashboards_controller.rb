@@ -5,6 +5,8 @@ class DashboardsController < ApplicationController
 
   def show
     @admins, @non_admins = Person.all.partition { |person| person.has_role?(:admin) }
+    @non_admins.sort!
+    @admins.sort!
     @posts = Post.all.order(created_at: :desc)
     @groups = Group.all
   end

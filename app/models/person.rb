@@ -69,4 +69,8 @@ class Person < ActiveRecord::Base
     !!memberships.find_by(group_id: group.id)
   end
 
+  def <=>(other)
+    name <=> other.name
+  end
+
 end
