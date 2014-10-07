@@ -2,6 +2,7 @@
 function makeGif() {
 	if ($('#gifModal').length) {
 		randomGif.init();
+		$('.make-tooltip').tooltip();
 	}
 }
 
@@ -17,7 +18,5 @@ $(document).ready(function() {
 	window.setTimeout(removeAlert, 3000);
 
 	makeGif();
-
-	$('.make-tooltip').tooltip();
 
 });
