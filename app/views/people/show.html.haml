@@ -25,7 +25,7 @@
           - @person.groups.each do |group|
             %li
               - if group.picture?
-                = image_tag(group.picture_url, :width => 60)
+                = image_tag(group.picture_url(:thumb))
               - else
                 = image_tag('/group-avatar.png', size: "40x40")
               = link_to group.name, group_path(group.id)
