@@ -9,6 +9,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  person_id   :integer
+#  draft       :boolean
 #
 
 class Post < ActiveRecord::Base

@@ -36,7 +36,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @topics = @group.topics
+    @covered_topics, @future_topics = Topic.all.partition { |topic| topic.covered? }
+
     @topic = Topic.new
     @topic.group = @group
   end

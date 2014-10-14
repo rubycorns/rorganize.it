@@ -8,9 +8,14 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  person_id  :integer
+#  covered_at :datetime
 #
 
 class Topic < ActiveRecord::Base
   belongs_to :group
   belongs_to :person
+
+  def covered?
+    !!covered_at
+  end
 end

@@ -1,14 +1,7 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy]
-  before_action :validate_user_group_member, except: [:index, :show]
+  before_action :set_topic, only: [:edit, :update, :destroy]
+  before_action :validate_user_group_member
   before_action :authenticate_person!
-
-  def index
-    @topics = Topic.all
-  end
-
-  def show
-  end
 
   def new
     @topic = Topic.new
@@ -30,7 +23,10 @@ class TopicsController < ApplicationController
   end
 
   def update
-    if @topic.update(topic_params)
+    if topic_params['covered']
+      @topic.touch(:covered_at)
+      redirect_to @topic.group, notice: 'Topic was covered. Time for cake!'
+    elsif @topic.update(topic_params)
       redirect_to @topic.group, notice: 'Topic was successfully updated. All efforts, nomatter how small, deserve cake.'
     else
       render action: 'edit'
@@ -44,12 +40,13 @@ class TopicsController < ApplicationController
   end
 
   private
+
   def set_topic
     @topic = Topic.find(params[:id])
   end
 
   def topic_params
-    params.require(:topic).permit(:body, :group_id, :full_name)
+    params.require(:topic).permit(:body, :group_id, :full_name, :covered)
   end
 
   def validate_user_group_member

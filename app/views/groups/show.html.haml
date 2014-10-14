@@ -77,8 +77,5 @@
       .map
         = groups_map @group
 
-
   .row.topics
     = render template: "topics/index"
-    = render template: "topics/_form" if show_group_member_buttons? current_person, @group
-
