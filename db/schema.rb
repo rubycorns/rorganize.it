@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20141014180344) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
-    t.boolean  "draft"
+    t.boolean  "draft",       default: false, null: false
   end
 
   create_table "roles", force: true do |t|
