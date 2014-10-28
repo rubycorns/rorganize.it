@@ -8,8 +8,8 @@ module GroupsHelper
     end
   end
 
-  def show_group_member_buttons?(person, group)
-    if person == nil
+  def show_member_buttons?(person, group)
+    if person.nil?
       false
     else
       person.member_of?(group)
@@ -31,4 +31,5 @@ module GroupsHelper
       attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap contributors</a>,<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>'
     )
   end
+
 end

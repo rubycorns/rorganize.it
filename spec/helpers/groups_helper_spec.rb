@@ -35,10 +35,10 @@ describe GroupsHelper, :type => :helper do
     end
   end
 
-  describe 'show_group_member_buttons?' do
+  describe 'show_member_buttons?' do
 
     subject do
-      helper.show_group_member_buttons? person, group
+      helper.show_member_buttons? person, group
     end
 
     let(:group) { double }
