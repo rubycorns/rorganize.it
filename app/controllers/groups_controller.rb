@@ -31,21 +31,22 @@ class GroupsController < ApplicationController
 
   def update
     @group.update_attributes group_params
-    redirect_to group_path, notice: 'Group was successfully updated.
-    All efforts, nomatter how small, deserve cake.'
+    redirect_to group_path, notice: 'Group was successfully updated. ' \
+    'All efforts, nomatter how small, deserve cake.'
   end
 
   def show
-    @covered_topics, @future_topics = Topic.all.partition { |topic| topic.covered? }
-
+    topics = Topic.where(group_id: @group.id)
+    @covered_topics, @future_topics = topics.partition { |topic| topic.covered? }
+    
     @topic = Topic.new
     @topic.group = @group
   end
 
   def destroy
     @group.destroy
-    redirect_to groups_path, notice: 'Group was successfully deleted.
-    May we suggest drowning your sorrows in some cake?'
+    redirect_to groups_path, notice: 'Group was successfully deleted. ' \
+    'May we suggest drowning your sorrows in some cake?'
   end
 
   private
