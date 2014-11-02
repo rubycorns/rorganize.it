@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GroupsHelper, :type => :helper do
+describe GroupsHelper do
 
   describe 'show_join_group_button?' do
 
@@ -10,7 +10,7 @@ describe GroupsHelper, :type => :helper do
 
     let(:group) { double }
 
-    context 'person is nil' do
+    context 'person is not signed in' do
 
       let(:person) { nil }
 
@@ -19,17 +19,26 @@ describe GroupsHelper, :type => :helper do
       end
     end
 
-    context 'person is not nil' do
+    context 'person is signed in' do
 
       let(:person) { double }
 
-      it 'is true when person is not in group' do
+      before do
         allow(person).to receive_messages(member_of?: false)
+        allow(group).to receive_messages(closed?: false)
+      end
+
+      it 'displays buttons when person is not in group & when group is open' do
         expect(subject).to be_truthy
       end
 
-      it 'is false when person is in group' do
+      it 'does not display buttons when person is in group & when group is open' do
         allow(person).to receive_messages(member_of?: true)
+        expect(subject).to be_falsey
+      end
+
+      it 'does not display buttons when group is closed' do
+        allow(group).to receive_messages(closed?: true)
         expect(subject).to be_falsey
       end
     end
@@ -43,7 +52,7 @@ describe GroupsHelper, :type => :helper do
 
     let(:group) { double }
 
-    context 'person is nil' do
+    context 'person is not signed in' do
 
       let(:person) { nil }
 
@@ -52,7 +61,7 @@ describe GroupsHelper, :type => :helper do
       end
     end
 
-    context 'person is not nil' do
+    context 'person is signed in' do
 
       let(:person) { double }
 

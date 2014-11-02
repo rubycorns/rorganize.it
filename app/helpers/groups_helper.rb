@@ -1,10 +1,12 @@
 module GroupsHelper
 
   def show_join_group_button?(person, group)
-    if person == nil
+    if person == nil # if person not logged in, show the buttons
       true
-    else
-      !person.member_of?(group)
+    elsif group.closed? # if group is closed, do not show the buttons
+      false
+    elsif !person.member_of?(group) # if person not a member of the group, show the buttons
+      true
     end
   end
 

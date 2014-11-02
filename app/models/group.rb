@@ -48,4 +48,8 @@ class Group < ActiveRecord::Base
   def deletable_by?(person)
     person && person.has_role?(:admin)
   end
+
+  def closed?
+    !open
+  end
 end

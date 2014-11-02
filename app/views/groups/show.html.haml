@@ -26,6 +26,11 @@
             - if show_join_group_button? current_person, @group
               = render 'join'
 
+            - if @group.closed?
+              = link_to groups_path, html_options = {:class => 'btn btn-error'} do
+                %i.glyphicon.glyphicon-remove-sign
+                GROUP CURRENTLY CLOSED
+
   .row.group-info
     .col-md-4
       .row
@@ -47,11 +52,11 @@
               = auto_link @group.contact
           - if @group.twitter?
             %p
-              %strong Our Twitter: 
+              %strong Our Twitter:
               = render partial: "shared/twitter", locals: { object: @group }
           - if @group.level?
             %p
-              %strong Level: 
+              %strong Level:
               = @group.level
           - if @group.founded_on?
             %p
