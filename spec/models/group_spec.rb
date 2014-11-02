@@ -61,10 +61,10 @@ describe Group do
 
   end
 
-  describe '#closed?' do
-    it 'is not open' do
-      group.open = false
-      expect(group.closed?).to be true
+  describe '#not_full?' do
+    it 'is full' do
+      group.full = true
+      expect(group.not_full?).to be false
     end
   end
 end

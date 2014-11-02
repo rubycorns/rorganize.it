@@ -19,10 +19,10 @@
                 %p
                   %strong Where?
                   = group.address
-              - if group.closed?
+              - if group.full?
                 .col-md-2
                   %span.label.label-danger
-                    GROUP CLOSED
+                    FULL
               .col-md-2
                 %p
                   - if group.editable_by?(current_person)

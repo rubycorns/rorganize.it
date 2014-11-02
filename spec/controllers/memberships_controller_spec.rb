@@ -64,8 +64,8 @@ describe MembershipsController do
     end
   end
 
-  describe 'a closed group' do
-    let(:group) { create :group, open: false }
+  describe 'a full group' do
+    let(:group) { create :group, full: true }
 
     it 'does allow a membership to be created' do
       expect do

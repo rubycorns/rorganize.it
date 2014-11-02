@@ -49,7 +49,7 @@ class Group < ActiveRecord::Base
     person && person.has_role?(:admin)
   end
 
-  def closed?
-    !open
+  def not_full?
+    !full
   end
 end

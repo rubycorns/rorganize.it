@@ -37,7 +37,8 @@ group_list = [
     time: 'Monday evening',
     contact: 'https://groups.google.com/forum/#!members/rubymonstaaa',
     activities: 'The group is now a mixture of old-timers and newcomers, and from the original group some are still working on SpeakerinnenListe, others are doing the Michael Hartl tutorial, and the newcomers have been doing general Ruby exercises. A sub-group is doing the Michael Hartl tutorial',
-    email: 'group4@example.org'
+    email: 'group4@example.org',
+    full: true
   }
 ]
 

@@ -25,7 +25,7 @@ describe GroupsHelper do
 
       before do
         allow(person).to receive_messages(member_of?: false)
-        allow(group).to receive_messages(closed?: false)
+        allow(group).to receive_messages(full?: false)
       end
 
       it 'displays buttons when person is not in group & when group is open' do
@@ -37,8 +37,8 @@ describe GroupsHelper do
         expect(subject).to be_falsey
       end
 
-      it 'does not display buttons when group is closed' do
-        allow(group).to receive_messages(closed?: true)
+      it 'does not display buttons when group is full' do
+        allow(group).to receive_messages(full?: true)
         expect(subject).to be_falsey
       end
     end

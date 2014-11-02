@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20141102150009) do
     t.string   "email"
     t.string   "level"
     t.string   "founded_on"
-    t.boolean  "open",       default: true
+    t.boolean  "full",       default: false
   end
 
   create_table "memberships", force: true do |t|

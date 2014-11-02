@@ -36,8 +36,8 @@
         = f.check_box :join_as_coach
         = f.label(:join_as_coach, "Join group as coach")
     .form-group
-      = f.check_box :open
-      = f.label(:open, "Open to new members?")
+      = f.check_box :full
+      = f.label(:full, "Is your group full?")
     .form-group
       = f.label(:picture, "Group picture")
       = f.file_field :picture, placeholder: 'What you look like'
