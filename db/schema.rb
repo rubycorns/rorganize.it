@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014180344) do
+ActiveRecord::Schema.define(version: 20141102150009) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141014180344) do
     t.string   "email"
     t.string   "level"
     t.string   "founded_on"
+    t.boolean  "open",       default: true
   end
 
   create_table "memberships", force: true do |t|
