@@ -10,36 +10,55 @@ describe GroupsHelper do
 
     let(:group) { double }
 
-    context 'person is not signed in' do
+    context 'person is signed in' do
+      before do
+        allow(helper).to receive_messages(person_signed_in?: true)
+      end
 
-      let(:person) { nil }
+      context 'person is not a member of the group' do
+        let(:person) { double(member_of?: false) }
 
-      it 'is true' do
-        expect(subject).to be_truthy
+        it 'shows the button' do
+          expect(subject).to be true
+        end
+      end
+
+      context 'person is a member of the group' do
+        let(:person) { double(member_of?: true) }
+
+        it 'does not show the button' do
+          expect(subject).to be false
+        end
       end
     end
 
-    context 'person is signed in' do
-
-      let(:person) { double }
-
+    context 'person is not signed in' do
       before do
-        allow(person).to receive_messages(member_of?: false)
-        allow(group).to receive_messages(full?: false)
+        allow(helper).to receive_messages(person_signed_in?: false)
       end
 
-      it 'displays buttons when person is not in group & when group is open' do
-        expect(subject).to be_truthy
-      end
+      let(:person) { nil }
 
-      it 'does not display buttons when person is in group & when group is open' do
-        allow(person).to receive_messages(member_of?: true)
-        expect(subject).to be_falsey
+      it 'shows the button' do
+        expect(subject).to be true
       end
+    end
+  end
 
-      it 'does not display buttons when group is full' do
-        allow(group).to receive_messages(full?: true)
-        expect(subject).to be_falsey
+  describe '#even_a_button?' do
+    context 'group is not full' do
+      let(:group) { double(full?: false) }
+
+      it 'shows the button' do
+        expect(helper.even_a_button?(group)).to be true
+      end
+    end
+
+    context 'group is full' do
+      let(:group) { double(full?: true) }
+
+      it 'does not show the button' do
+        expect(helper.even_a_button?(group)).to be false
       end
     end
   end
@@ -54,6 +73,10 @@ describe GroupsHelper do
 
     context 'person is not signed in' do
 
+      before do
+        allow(helper).to receive_messages(person_signed_in?: false)
+      end
+
       let(:person) { nil }
 
       it 'is false' do
@@ -62,6 +85,10 @@ describe GroupsHelper do
     end
 
     context 'person is signed in' do
+
+      before do
+        allow(helper).to receive_messages(person_signed_in?: true)
+      end
 
       let(:person) { double }
 
