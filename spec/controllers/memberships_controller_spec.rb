@@ -4,16 +4,18 @@ describe MembershipsController do
   let!(:person) { create(:person) }
   let(:group) { create(:group) }
 
-  describe 'create' do
-    before do
-      allow(controller).to receive :authenticate_person!
-      allow(controller).to receive(:current_person).and_return(person)
-      @params = { membership:
-        { group_id: group.id,
-          type: 'StudentMembership'
-        }
+  before do
+    allow(controller).to receive :authenticate_person!
+    allow(controller).to receive(:current_person).and_return(person)
+    @params = { membership:
+      { group_id: group.id,
+        type: 'StudentMembership'
       }
-    end
+    }
+  end
+
+  describe 'create' do
+
 
     it 'creates a membership' do
       expect do
@@ -43,8 +45,6 @@ describe MembershipsController do
     before do
       person.join!(group)
       @membership = person.memberships.first
-      allow(controller).to receive :authenticate_person!
-      allow(controller).to receive(:current_person).and_return(person)
     end
 
     it 'redirects to the groups path after leaving a group' do
@@ -62,6 +62,16 @@ describe MembershipsController do
       delete :destroy, id: @membership.id
       expect(flash[:success]).not_to be_blank
     end
-
   end
+
+  describe 'a full group' do
+    let(:group) { create :group, full: true }
+
+    it 'does allow a membership to be created' do
+      expect do
+        post :create, @params
+      end.not_to change{ Membership.count}
+    end
+  end
+
 end

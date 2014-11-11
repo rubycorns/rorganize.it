@@ -33,7 +33,6 @@ describe Group do
 
   describe '#editable_by?' do
 
-
     it 'is editable by people in the group' do
       person.join!(group)
       expect(group.editable_by?(person)).to be_truthy
@@ -60,5 +59,12 @@ describe Group do
       expect(group).not_to be_deletable_by nil
     end
 
+  end
+
+  describe '#not_full?' do
+    it 'is full' do
+      group.full = true
+      expect(group.not_full?).to be false
+    end
   end
 end

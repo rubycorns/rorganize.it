@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
   def show
     topics = Topic.where(group_id: @group.id)
     @covered_topics, @future_topics = topics.partition { |topic| topic.covered? }
-    
+
     @topic = Topic.new
     @topic.group = @group
   end
@@ -57,7 +57,8 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:name, :address, :time,
-    :picture, :twitter, :contact, :activities, :email, :level, :founded_on, :join_as_coach)
+    :picture, :twitter, :contact, :activities, :email, :level,
+    :founded_on, :join_as_coach, :full)
   end
 
 end
