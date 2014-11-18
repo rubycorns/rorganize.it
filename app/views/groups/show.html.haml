@@ -80,8 +80,11 @@
         - @group.coaches.each do |coach|
           %li= link_to coach.first_name, person_path(coach)
     #group-map.col-md-4
-      .map
-        = groups_map @group
+      - if @group.address?
+        .map
+          = groups_map @group
+      - else
+        = image_tag('follow_your_dreams.gif')
 
   .row.topics
     = render template: "topics/index"
