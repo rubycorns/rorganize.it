@@ -14,6 +14,7 @@ feature 'create a group' do
     fill_in 'Project group name', with: 'Testgroup'
     expect(page).to have_content('Join group as coach')
     check 'Join group as coach'
+    expect(page).to_not have_content('Is your group full?')
     click_button 'Create Group'
 
     expect(page).to have_content('Group was successfully created.')
