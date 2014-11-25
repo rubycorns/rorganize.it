@@ -30,7 +30,7 @@ feature 'Manage topics of a group' do
   end
 
   def mark_one_topic_as_covered
-    within('.future-topics tbody tr:first-child') do
+    within('.future-topics .topics .row:first-child') do
       click_link 'Done'
     end
   end
