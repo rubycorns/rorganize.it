@@ -92,6 +92,7 @@ Off to GitHub
 4. If it is a **small** change, wait for one thumbs up from a fellow rubycorns member before merging.
 5. If it is a **large** change, wait for one thumbs up from a coach **and** one from a rubycorns member
 before merging.
+6. When you merge and close your branch, please make sure to include a [ridiculous gif](https://github.com/rubycorns/RailsGirlsApp/pull/281#issuecomment-64454385). 
 
 ### Deploy to Shelly Cloud
 
