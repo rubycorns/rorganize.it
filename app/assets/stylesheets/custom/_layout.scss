@@ -63,3 +63,10 @@ body {
   height: $navbar-height;
   // overflow: hidden;
 }
+
+.navbar-collapse {
+  &.in,
+  &.collapsing {
+    background: $header_red;
+  }
+}

@@ -21,21 +21,6 @@
           <%= link_to("RailsGirlsApp", root_path, {class: "navbar-brand"}) %>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li class="<%= 'active' if params[:controller] == 'groups' %>">
-              <%= link_to "Groups", groups_path %>
-            </li>
-            <li class="<%= 'active' if params[:controller] == 'people' %>">
-              <%= link_to "People", people_path %>
-            </li>
-            <li class="<%= 'active' if params[:controller] == 'posts' %>">
-              <%= link_to 'Blog', posts_path %>
-            </li>
-            <li class="<%= 'active' if params[:controller] == 'pages' && params[:action] == 'about' %>">
-              <%= link_to 'About', about_path %>
-            </li>
-          </ul>
-
           <% if person_signed_in? %>
             <div class="dropdown navbar-nav navbar-right profile-header">
               <button class="dropdown-toggle no-btn" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -61,7 +46,20 @@
             <li><%= link_to 'Sign up', new_person_registration_path %></li>
           </ul>
           <% end %>
-
+          <ul class="nav navbar-nav">
+            <li class="<%= 'active' if params[:controller] == 'groups' %>">
+              <%= link_to "Groups", groups_path %>
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'people' %>">
+              <%= link_to "People", people_path %>
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'posts' %>">
+              <%= link_to 'Blog', posts_path %>
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'pages' && params[:action] == 'about' %>">
+              <%= link_to 'About', about_path %>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
