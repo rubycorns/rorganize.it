@@ -35,6 +35,16 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  def create_marker
+
+    # this is what we did to generate the alpha mask
+    # $ convert marker.png -alpha extract marker_extract.png
+    # the marker and alpha mask are in assets/images/marker
+    # this is what we need to do in this process to compose the marker
+    # $ composite -compose CopyOpacity marker_extract.png logo_image.png output.png
+
+  end
+
   # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_fill => [40, 40]
@@ -44,8 +54,8 @@ class PictureUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [370, 370]
   end
 
-  version :group_profile do
-    process :resize_to_fill => [1200, 300, :north]
+  version :map_marker do
+    process :create_marker
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
