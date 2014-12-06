@@ -43,6 +43,19 @@ class PictureUploader < CarrierWave::Uploader::Base
     # this is what we need to do in this process to compose the marker
     # $ composite -compose CopyOpacity marker_extract.png logo_image.png output.png
 
+    # this is what we tried but the composite doesn't really work
+    mask = MiniMagick::Image.new(Rails.root.join('app/assets/images/marker/marker_extract.png'))
+    cache_stored_file! if !cached?
+    tempfile = File.join(File.dirname(current_path), 'temp.png')
+    source = MiniMagick::Image.new(current_path)
+
+    result = mask.composite(source, 'png') do |c|
+      c.compose "CopyOpacity"
+    end
+    result.write tempfile
+
+    File.rename tempfile, current_path
+
   end
 
   # Create different versions of your uploaded files:
@@ -55,6 +68,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   version :map_marker do
+    process :convert => 'png'
     process :create_marker
   end
 
