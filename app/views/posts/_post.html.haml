@@ -1,0 +1,14 @@
+%article.post
+  %header
+    - if current_person && current_person.has_role?(:admin) && post.draft?
+      %p.pull-right= fa_icon "file-o", text: "it's a draft"
+    %h2= link_to "#{post.try(:title)}", post_path(post)
+    %p.post-meta
+      = post.person.first_name if post.person
+      |
+      \#{post.created_at.strftime("%d %b %Y")}
+  %main
+    .post-body
+      = markdown(post.description)
+    .post-picture
+      = image_tag(post.picture_url, :width => 700) if post.picture.present?

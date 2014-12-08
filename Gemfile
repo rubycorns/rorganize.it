@@ -14,6 +14,7 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'better_errors'
   gem 'binding_of_caller' # for advanced features of better_errors (repl)
+  gem 'erb2haml'
 end
 
 group :production do

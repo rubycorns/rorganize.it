@@ -1,0 +1,111 @@
+.container.dashboard
+  %h1.page-header Admin dashboard
+  .row
+    .col-md-4.col-sm-6
+      .panel.panel-default.admin-list
+        .panel-heading
+          %h3.panel-title All admins
+        .panel-body
+          %ul.dashboard-list
+            - @admins.each do |admin|
+              %li
+                - if admin.picture.present?
+                  = image_tag(admin.picture_url(:thumb), size: "40x40" )
+                - else
+                  = image_tag('/avatar.png', size: "40x40" )
+                = link_to admin, person_path(admin)
+                = form_for(admin, html: {:method => :delete}, data: { confirm: "You really want to work that magic?" }, url: dashboard_admin_path(admin.id)) do |f|
+                  = f.hidden_field :admin_id, value: admin.id
+                  %button.link.no-btn
+                    %span= fa_icon "magic", text: "un-adminify"
+          - if @non_admins.length > 0
+            = form_tag dashboard_admins_path, method: 'POST' do
+              .dashboard-left
+                = select_tag 'admin', options_from_collection_for_select(@non_admins, :id, :name), class: 'form-control'
+              .dashboard-right
+                %button.btn.btn-primary{:name => "submit"}= fa_icon "magic", text: "adminify"
+          - else
+            %p No one left to adminify #sadpanda
+      .panel.panel-default.panel-groups
+        .panel-heading
+          %h3.panel-title Groups
+        .panel-body
+          %ul.dashboard-list
+            - @groups.each do |group|
+              %li
+                - if group.picture.present?
+                  = image_tag(group.picture_url(:thumb), size: "40x40" )
+                - else
+                  = image_tag('/group-avatar.png', size: "40x40" )
+                = link_to group.name, group_path(group)
+                = link_to edit_group_path(group), class: 'visible-on-hover' do
+                  = fa_icon "life-saver", text: 'edit'
+                = form_for(group, html: {:method => :delete}, data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" }, url: dashboard_admin_path(group.id)) do |f|
+                  = f.hidden_field :admin_id, value: group.id
+                  %button.link.no-btn
+                    %span= fa_icon "frown-o", text: "delete"
+    .col-md-4.col-sm-6
+      .panel.panel-default.panel-blog
+        .panel-heading
+          %h3.panel-title Blog shortcuts
+        .panel-body
+          %ul.dashboard-list
+            %li= link_to fa_icon('list', text: 'all posts'),posts_path
+            %li= link_to fa_icon('plus', text: 'create new post'), new_post_path
+          - if @posts.exists?
+            %h2
+              %small Latest Post:
+              %br/
+              = link_to @posts.first.title, post_path(@posts.first.id)
+            %ul.dashboard-list
+              %li
+                - if @posts.first.draft
+                  = fa_icon "file-o", text: "it's a draft"
+                - else
+                  = fa_icon "paper-plane", text: "it's published"
+              %li= link_to fa_icon('edit', text: 'edit latest post'), edit_post_path(@posts.first.id)
+              %li= link_to fa_icon('trash-o', text: 'delete latest post'), post_path(@posts.first.id), method: :delete, data: { confirm: "You really want to trash that?" }
+    .col-md-4.col-sm-6
+      .panel.panel-default.panel-image
+        .panel-heading.clearfix
+          %h3.panel-title.pull-left Gif content
+          %button.no-btn.pull-right{"data-target" => "#gifModal", "data-toggle" => "modal"}
+            %i.fa.fa-exchange
+        #js-randomGif.panel-body
+          %img.hidden{:src => "#"}/
+        / Modal
+        #gifModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "gif choosing modal", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} &times;
+                  %span.sr-only Close
+                %h4#myModalLabel.modal-title Choose a different gif category
+              .modal-body
+                .radio
+                  %label
+                    %input#gifOpt1{:checked => "", :name => "gifOpt", :type => "radio", :value => "adventure+time"}/
+                    Adventure Time
+                .radio
+                  %label.make-tooltip{"data-placement" => "right", "data-toggle" => "tooltip", :title => "SPOILER ALERT!!1!"}
+                    %input#gifOpt2{:name => "gifOpt", :type => "radio", :value => "game+of+thrones"}/
+                    Game of Thrones
+                .radio
+                  %label
+                    %input#gifOpt3{:name => "gifOpt", :type => "radio", :value => "sloth"}/
+                    Sloths
+                .radio
+                  %label
+                    %input#gifOpt4{:name => "gifOpt", :type => "radio", :value => "cats"}/
+                    Cats
+                .radio
+                  %label
+                    %input#gifOpt5{:name => "gifOpt", :type => "radio", :value => "custom"}/
+                    or choose your own!
+                .form-group
+                  %input#customGifString.form-control{:disabled => "", :type => "text"}/
+              .modal-footer
+                %button#gifCloseModal.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+                %button#gifSaveChange.btn.btn-primary{:type => "button"} Save changes
+        / / Modal
