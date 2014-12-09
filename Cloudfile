@@ -4,6 +4,8 @@ railsgirlsapp:
   monitoring_email: pragtob@gmail.com
   domains:
     - railsgirlsapp.shellyapp.com
+    - www.rorganize.it
+    - rorganize.it
   servers:
     app1:
       size: large
