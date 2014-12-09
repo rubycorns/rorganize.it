@@ -1,0 +1,14 @@
+= form_for(@post, html: { multipart: true }) do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group
+    = f.label(:title, "Blogpost title")
+    = f.text_field :title, placeholder: "What's this blogpost about?", class: 'form-control'
+  .form-group
+    = f.label(:description, "Text")
+    = f.text_area :description, placeholder: "Tell the world what's happening with our app!", class: 'form-control', rows: '10'
+  .form-group
+    = f.label(:picture, "Add a pic")
+    = f.file_field :picture
+  .actions
+    = f.submit 'Publish', class: 'btn btn-primary'
+    = f.submit 'Save as Draft', class: 'btn btn-warning'

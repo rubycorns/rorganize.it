@@ -1,0 +1,19 @@
+%p
+  Dear #{@group.name}
+  %p
+    = @person.first_name
+    has joined #{@group.name} as a #{@membership.name}.
+  - if @group.time.present?
+    %p
+      You will see them at: #{@group.time}
+  - if @group.address.present?
+    %p
+      They will meet you here: #{@group.address}
+  %p That means it's cake time!
+  - if @person.twitter?
+    Want to know more? They are on twitter: @#{@person.twitter}
+  %p
+    You can find out more about your newest friend by heading over to your
+    \#{link_to "project group page", group_url(@group)}.
+  %p Best wishes from the RailsGirlsApp
+  %p ps - if you like our app, please send cake
