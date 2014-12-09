@@ -18,23 +18,25 @@ module GroupsHelper
   end
 
   def groups_map(group)
+    groupImage = group.picture_url ? "/uploads/group/picture/#{group.id}/marker.png" : image_url('marker/marker.png')
     map(
       container_id: "group-map",
       center: {
         latlng: [group.latitude, group.longitude],
-        zoom: 10
+        zoom: 16
       },
       markers: [
         {
           latlng: [group.latitude, group.longitude],
           icon: {
-            icon_url: "/uploads/group/picture/#{group.id}/marker.png",
+            icon_url: groupImage,
             icon_size: [40, 50],
             icon_anchor: [20, 50]
           }
         }
       ],
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap contributors</a>,<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>'
+      tile_layer: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     )
   end
 

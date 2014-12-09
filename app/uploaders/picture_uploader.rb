@@ -37,18 +37,14 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   def create_marker
 
-    # this is what we did to generate the alpha mask
+    # generate the alha mask
     # $ convert marker.png -alpha extract marker_extract.png
-    # the marker and alpha mask are in assets/images/marker
-    # this is what we need to do in this process to compose the marker
+    # cookie cut image with alpha mask
     # $ composite -compose CopyOpacity marker_extract.png logo_image.png output.png
 
-    # this is what we tried but the composite doesn't really work
     mask = MiniMagick::Image.new(Rails.root.join('app/assets/images/marker/marker_extract.png'))
     cache_stored_file! if !cached?
     tempfile = File.join(File.dirname(current_path), 'temp.png')
-    #binding.pry
-    puts(tempfile)
     source = MiniMagick::Image.new(current_path)
 
     result = source.composite(mask, 'png') do |c|
@@ -56,9 +52,9 @@ class PictureUploader < CarrierWave::Uploader::Base
     end
 
     result.write "public/#{store_dir}/marker.png"
-    # not sure if these things do mater
+    # nice to have: saving the marker.png under the version name
     # or /\..{3,4}$/
-    # real_current_path = current_path.sub /\.....?$/, '.png'
+    # current_path.sub /\.....?$/, '.png'
   end
 
   # Create different versions of your uploaded files:
