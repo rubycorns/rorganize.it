@@ -55,18 +55,10 @@ class PictureUploader < CarrierWave::Uploader::Base
       c.compose "CopyOpacity"
     end
 
-    #result.write tempfile
-
     result.write "public/#{store_dir}/marker.png"
+    # not sure if these things do mater
     # or /\..{3,4}$/
-    
-
-    #binding.pry
-    #real_current_path = current_path.sub /\.....?$/, '.png'
-
-    #File.rename tempfile, real_current_path
-
-
+    # real_current_path = current_path.sub /\.....?$/, '.png'
   end
 
   # Create different versions of your uploaded files:
