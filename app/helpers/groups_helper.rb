@@ -22,11 +22,16 @@ module GroupsHelper
       container_id: "group-map",
       center: {
         latlng: [group.latitude, group.longitude],
-        zoom: 16
+        zoom: 10
       },
       markers: [
         {
           latlng: [group.latitude, group.longitude],
+          icon: {
+            icon_url: "/uploads/group/picture/#{group.id}/marker.png",
+            icon_size: [40, 50],
+            icon_anchor: [20, 50]
+          }
         }
       ],
       attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap contributors</a>,<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>'

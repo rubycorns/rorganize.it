@@ -47,14 +47,25 @@ class PictureUploader < CarrierWave::Uploader::Base
     mask = MiniMagick::Image.new(Rails.root.join('app/assets/images/marker/marker_extract.png'))
     cache_stored_file! if !cached?
     tempfile = File.join(File.dirname(current_path), 'temp.png')
+    #binding.pry
+    puts(tempfile)
     source = MiniMagick::Image.new(current_path)
 
-    result = mask.composite(source, 'png') do |c|
+    result = source.composite(mask, 'png') do |c|
       c.compose "CopyOpacity"
     end
-    result.write tempfile
 
-    File.rename tempfile, current_path
+    #result.write tempfile
+
+    result.write "public/#{store_dir}/marker.png"
+    # or /\..{3,4}$/
+    
+
+    #binding.pry
+    #real_current_path = current_path.sub /\.....?$/, '.png'
+
+    #File.rename tempfile, real_current_path
+
 
   end
 
@@ -69,6 +80,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   version :map_marker do
     process :convert => 'png'
+    process :resize_to_fill => [40, 50]
     process :create_marker
   end
 
