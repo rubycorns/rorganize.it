@@ -18,7 +18,7 @@ module GroupsHelper
   end
 
   def groups_map(group)
-    groupImage = group.picture_url ? "/uploads/group/picture/#{group.id}/marker.png" : image_url('marker/marker.png')
+    group_image = group.picture_url ? "/uploads/group/picture/#{group.id}/marker.png" : image_url('marker/marker.png')
     map(
       container_id: "group-map",
       center: {
