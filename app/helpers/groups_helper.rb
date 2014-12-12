@@ -29,7 +29,7 @@ module GroupsHelper
         {
           latlng: [group.latitude, group.longitude],
           icon: {
-            icon_url: groupImage,
+            icon_url: group_image,
             icon_size: [40, 50],
             icon_anchor: [20, 50]
           }
