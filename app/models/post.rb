@@ -21,4 +21,7 @@ class Post < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  def to_param
+    [id, title.parameterize].join('-')
+  end
 end

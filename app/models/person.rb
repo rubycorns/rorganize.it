@@ -73,4 +73,7 @@ class Person < ActiveRecord::Base
     name <=> other.name
   end
 
+  def to_param
+    [id, name.parameterize].join('-')
+  end
 end

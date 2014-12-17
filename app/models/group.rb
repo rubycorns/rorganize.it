@@ -52,4 +52,8 @@ class Group < ActiveRecord::Base
   def not_full?
     !full
   end
+
+  def to_param
+    [id, name.parameterize].join('-')
+  end
 end
