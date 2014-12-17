@@ -10,7 +10,7 @@ RailsGirlsApp::Application.routes.draw do
   get 'about' => 'pages#about', as: :about
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)
   resources :groups do
-    resources :topics
+    resources :topics, except: :show
   end
   resources :people
   resources :memberships, only: [:create, :destroy]
