@@ -3,10 +3,6 @@ class TopicsController < ApplicationController
   before_action :validate_user_group_member
   before_action :authenticate_person!
 
-  def new
-    @topic = Topic.new
-  end
-
   def edit
   end
 
