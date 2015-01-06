@@ -35,6 +35,27 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  def create_marker
+
+    # generate the alha mask
+    # $ convert marker.png -alpha extract marker_extract.png
+    # cookie cut image with alpha mask
+    # $ composite -compose CopyOpacity marker_extract.png logo_image.png output.png
+
+    mask = MiniMagick::Image.new(Rails.root.join('app/assets/images/marker/marker_extract.png'))
+    cache_stored_file! if !cached?
+    tempfile = File.join(File.dirname(current_path), 'temp.png')
+    source = MiniMagick::Image.new(current_path)
+
+    result = source.composite(mask, 'png') do |c|
+      c.compose "CopyOpacity"
+    end
+    result.write Rails.root.join("public/#{store_dir}/marker.png")
+    # nice to have: saving the marker.png under the version name
+    # or /\..{3,4}$/
+    # current_path.sub /\.....?$/, '.png'
+  end
+
   # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_fill => [40, 40]
@@ -44,8 +65,10 @@ class PictureUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [370, 370]
   end
 
-  version :group_profile do
-    process :resize_to_fill => [1200, 300, :north]
+  version :map_marker do
+    process :convert => 'png'
+    process :resize_to_fill => [40, 50]
+    process :create_marker
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

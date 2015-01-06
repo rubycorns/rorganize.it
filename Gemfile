@@ -24,7 +24,7 @@ end
 
 gem 'carrierwave'
 # Use for image crop and resize
-gem "mini_magick", "~> 3.7.0"
+gem "mini_magick"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -55,7 +55,7 @@ gem 'jbuilder', '~> 1.2'
 gem "modernizr-rails", "~> 2.6.2.3"
 
 #use osm maps
-gem 'leaflet-rails', '~> 0.7'
+gem 'leaflet-rails'
 
 # get coordinates from adress
 gem 'geocoder'
