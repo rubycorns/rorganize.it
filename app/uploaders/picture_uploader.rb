@@ -50,8 +50,7 @@ class PictureUploader < CarrierWave::Uploader::Base
     result = source.composite(mask, 'png') do |c|
       c.compose "CopyOpacity"
     end
-
-    result.write "public/#{store_dir}/marker.png"
+    result.write Rails.root.join("public/#{store_dir}/marker.png")
     # nice to have: saving the marker.png under the version name
     # or /\..{3,4}$/
     # current_path.sub /\.....?$/, '.png'

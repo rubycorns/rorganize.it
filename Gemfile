@@ -23,7 +23,7 @@ end
 
 gem 'carrierwave'
 # Use for image crop and resize
-gem "mini_magick", "~> 3.7.0"
+gem "mini_magick"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
