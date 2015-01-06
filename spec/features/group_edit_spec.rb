@@ -25,4 +25,16 @@ feature 'edit a group' do
     end
   end
 
+  scenario 'upload an image' do
+    visit root_path
+    click_link 'Groups'
+    expect(page).to have_content('edit')
+    click_link 'edit'
+    attach_file('group_picture', Rails.root.join('spec/fixtures/image_to_upload.jpg'))
+    click_button 'Update Group'
+    
+    #expect(page.body).to eq(Rails.root.join('spec/fixtures/marker_expected.png').read)
+    
+  end
+
 end
