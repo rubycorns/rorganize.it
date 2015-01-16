@@ -5,6 +5,8 @@ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 
+gem 'omniauth-github'
+
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
