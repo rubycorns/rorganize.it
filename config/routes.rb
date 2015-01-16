@@ -1,6 +1,10 @@
 RailsGirlsApp::Application.routes.draw do
 
-  devise_for :people, controllers: { registrations: 'registrations' }
+  devise_for :people, controllers: { registrations: 'registrations', omniauth_callbacks: 'people/omniauth_callbacks' }
+
+  # devise_scope :person do
+  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_person_session
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
