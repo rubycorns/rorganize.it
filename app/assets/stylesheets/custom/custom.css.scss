@@ -10,6 +10,10 @@
 @import "_groups_people.scss";
 
 
+.section {
+  padding: 3em 0;
+}
+
 /*
  * Style the leave group button
  */
@@ -103,4 +107,7 @@
 
 .inline {
   display: inline
+}
+.center {
+  text-align: center;
 }
