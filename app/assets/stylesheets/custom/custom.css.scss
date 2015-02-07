@@ -16,10 +16,12 @@
 
 .btn-leavegroup {
   display: block;
+  width: 100%;
   padding: .3em 1.4em .2em;
   color: black;
   border: none;
   background: none;
+  text-align: left;
   &:hover {
     background-color: #F5F5F5;
     text-decoration: none;
@@ -77,9 +79,14 @@
 }
 // apply link styles
 .link {
+  text-decoration: none;
+  padding-right: 0;
+  padding-left: 0;
   color: $link-color;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
   &:hover {
-    text-decoration: underline;
+    border-bottom: 1px solid $link-color;
     color: darken($link-color, 10);
   }
 }
@@ -92,4 +99,8 @@
     position: center;
     repeat: no-repeat;
   }
+}
+
+.inline {
+  display: inline
 }

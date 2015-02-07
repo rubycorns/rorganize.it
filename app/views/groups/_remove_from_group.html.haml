@@ -1,0 +1,6 @@
+= form_tag membership_path(object.memberships.find_by(group_id: group.id)),
+  method: :delete, 
+  class: 'inline pull-right', 
+  data: { confirm: "This will remove the person from the group.\nYou really want to do that?" } do
+  %button.remove-from-group.no-btn.link
+    = fa_icon("times")
