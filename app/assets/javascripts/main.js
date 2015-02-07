@@ -19,16 +19,4 @@ $(document).ready(function() {
 
 	makeGif();
 
-	var easterEgg = [114, 111, 97, 114];
-	var userInput = [];
-	$(document).keypress(function (event) {
-			userInput.push(event.which);
-			console.log(userInput);
-			if (userInput[userInput.length -1] === easterEgg[3]
-					&& userInput[userInput.length -2] === easterEgg[2]
-					&& userInput[userInput.length -3] === easterEgg[1]
-					&& userInput[userInput.length -4] === easterEgg[0]) {
-						$('body').css('background', 'url(http://media.giphy.com/media/7NYMwyskTnl6/giphy.gif)');
-					}
-	});
 });
