@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include PeopleHelper
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_person!, except: [:index, :show]
   before_action :check_role, except: [:index, :show]
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def check_role
-    redirect_to posts_path unless current_person.has_role? :admin
+    redirect_to posts_path unless admin?
   end
 
   def post_created_notice
