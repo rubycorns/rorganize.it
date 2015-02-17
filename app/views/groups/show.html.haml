@@ -70,7 +70,7 @@
       %h4 Students
       %p
         This group currently has #{pluralize @group.students.length, "student"}.
-      %ul
+      %ul.list--people
         - @group.students.each do |student|
           %li
             = link_to student.first_name, person_path(student)
@@ -79,7 +79,7 @@
       %h4 Coaches
       %p
         This group currently has #{pluralize @group.coaches.length, "coach"}.
-      %ul
+      %ul.list--people
         - @group.coaches.each do |coach|
           %li
             = link_to coach.first_name, person_path(coach)
