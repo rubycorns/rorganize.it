@@ -18,6 +18,9 @@
                   = group.time
                 %p
                   %strong Where?
+                  = group_location(group)
+                %p
+                  %strong Where exactly?
                   = group.address
               - if group.full?
                 .col-md-2

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102150009) do
+ActiveRecord::Schema.define(version: 20150217194042) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20141102150009) do
     t.string   "level"
     t.string   "founded_on"
     t.boolean  "full",       default: false
+    t.string   "city"
+    t.string   "country"
   end
 
   create_table "memberships", force: true do |t|
@@ -62,6 +64,8 @@ ActiveRecord::Schema.define(version: 20141102150009) do
     t.string   "picture"
     t.string   "twitter"
     t.text     "working_on"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
