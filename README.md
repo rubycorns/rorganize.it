@@ -98,8 +98,9 @@ before merging.
 
 We are now graciously hosted by [Shelly](https://shellycloud.com/)
 
-1. Nudge Tobi to invite you to the Shelly Cloud.
-2. [Follow the Shelly Cloud "Joining to Existing Cloud" steps](https://shellycloud.com/documentation/joining_existing_cloud).
-3. You can now deploy with `git push shelly` (just like Heroku, just with a Shelly).
+1. Nudge Tobi or Lisa to invite you to the Shelly Cloud.
+1. Do NOT register online, use the command line option.
+1. [Follow the Shelly Cloud "Joining to Existing Cloud" steps](https://shellycloud.com/documentation/joining_existing_cloud).
+1. You can now deploy with `git push shelly` (just like Heroku, just with a Shelly).
 
-App runs at: http://railsgirlsapp.shellyapp.com/
+App runs at: http://rorganize.it

@@ -70,3 +70,7 @@ body {
     background: $header_red;
   }
 }
+
+body.ghosticorn {
+  background: image-url("ghosticorn.gif");
+}
