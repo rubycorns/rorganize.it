@@ -21,7 +21,9 @@ group_list = [
     time: 'Tuesday 19:00',
     contact: 'https://groups.google.com/forum/#!forum/rails-girls-berlin-project-group-tuesdays',
     activities: 'We basically meet and have coding sessions where we show of stuff as needed. Sometimes Tobi gives a presentation from his HU course or something. Basically everything including homeworks is pretty ad-hoc.',
-    email: 'group2@example.org'
+    email: 'group2@example.org',
+    city: 'Berlin',
+    country: 'Germany'
   },
   {
     name: 'The Co.Up Group',
@@ -29,7 +31,8 @@ group_list = [
     time: 'Tuesday 19:00',
     contact: '',
     activities: 'Nothing specific, we do exercises around basic web apps with Sinatra.',
-    email: 'group3@example.org'
+    email: 'group3@example.org',
+    city: 'Berlin'
   },
   {
     name: 'The Ruby Monsters',
@@ -38,7 +41,9 @@ group_list = [
     contact: 'https://groups.google.com/forum/#!members/rubymonstaaa',
     activities: 'The group is now a mixture of old-timers and newcomers, and from the original group some are still working on SpeakerinnenListe, others are doing the Michael Hartl tutorial, and the newcomers have been doing general Ruby exercises. A sub-group is doing the Michael Hartl tutorial',
     email: 'group4@example.org',
-    full: true
+    full: true,
+    city: '',
+    country: ''
   }
 ]
 

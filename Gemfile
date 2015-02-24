@@ -26,6 +26,7 @@ gem 'carrierwave'
 # Use for image crop and resize
 gem "mini_magick", "~> 3.7.0"
 
+gem 'country_select', github: 'stefanpenner/country_select'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 # Use Compass to supercharge SCSS
