@@ -64,8 +64,6 @@ ActiveRecord::Schema.define(version: 20150217194042) do
     t.string   "picture"
     t.string   "twitter"
     t.text     "working_on"
-    t.string   "provider"
-    t.string   "uid"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true

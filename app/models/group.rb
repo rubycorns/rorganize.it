@@ -36,7 +36,7 @@ class Group < ActiveRecord::Base
   validates :email, format: { with: FORMAT }, allow_blank: true
 
   mount_uploader :picture, PictureUploader
-  geocoded_by :address
+  geocoded_by :location
   after_validation :geocode
 
   attr_accessor :join_as_coach
@@ -51,5 +51,9 @@ class Group < ActiveRecord::Base
 
   def not_full?
     !full
+  end
+
+  def location
+    [address, city, country].join(' ')
   end
 end
