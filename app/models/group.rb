@@ -39,6 +39,9 @@ class Group < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
 
+  scope :by_country, -> (country) { where country: country }
+  scope :by_city, -> (city) { where city: city }
+
   attr_accessor :join_as_coach
 
   def editable_by?(person)
@@ -54,6 +57,6 @@ class Group < ActiveRecord::Base
   end
 
   def location
-    [address, city, country].join(' ')
+    [address, street, zip, city, country].join(' ')
   end
 end
