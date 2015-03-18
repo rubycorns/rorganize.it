@@ -15,20 +15,20 @@
       = f.label(:address, "Meeting place")
       = f.text_field :address, placeholder: 'Where you meet', class: 'form-control'
     .form-group
-      = f.label(:city, "City")
+      = f.label(:city, "City *")
       = f.text_field :city, placeholder: 'In what city', class: 'form-control'
     .form-group
-      = f.label(:country, "Country")
+      = f.label(:country, "Country *")
       = f.country_select(:country, {priority_countries: ["DE", "PL", "IN", "US"], include_blank: true}, {class: 'form-control'})
   .col-md-4
     .form-group
       = f.label(:twitter, "Twitter handle")
       = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
     .form-group
-      = f.label(:email, "Where we'll send official emails")
+      = f.label(:email, "Where we'll send official emails *")
       = f.text_field :email, placeholder: "email@address.com", class: 'form-control'
     .form-group
-      = f.label(:contact, "Contact info")
+      = f.label(:contact, "Contact info *")
       = f.text_area :contact, placeholder: 'How to contact your group', class: 'form-control'
     .form-group
       = label_tag(:activities, "Description (you can use markdown!)")

@@ -33,7 +33,8 @@ class Group < ActiveRecord::Base
   has_many :coach_memberships
 
   validates :name, presence: true
-  validates :email, format: { with: FORMAT }, allow_blank: true
+  validates :email, format: { with: FORMAT }, presence: true
+  validates :contact, presence: true
 
   mount_uploader :picture, PictureUploader
   geocoded_by :location

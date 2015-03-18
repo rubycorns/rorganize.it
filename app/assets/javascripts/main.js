@@ -15,7 +15,7 @@ $(document).ready(function() {
 	function removeAlert() {
 		$('.alert').addClass('fade-out');
 	}
-	window.setTimeout(removeAlert, 3000);
+	window.setTimeout(removeAlert, 5000);
 
 	makeGif();
 
