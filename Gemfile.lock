@@ -89,6 +89,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    emoji (1.0.1)
+      json
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
@@ -144,6 +146,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    md_emoji (1.0.2)
+      railties (>= 3.1.0)
+      redcarpet (>= 2.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_magick (3.7.0)
@@ -299,6 +304,7 @@ DEPENDENCIES
   country_select!
   database_cleaner
   devise
+  emoji (~> 1.0.1)
   erb2haml
   factory_girl_rails
   font-awesome-rails
@@ -309,6 +315,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   leaflet-rails (~> 0.7)
+  md_emoji
   mini_magick (~> 3.7.0)
   minitest
   modernizr-rails (~> 2.6.2.3)
