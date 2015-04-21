@@ -29,7 +29,7 @@ group_list = [
     name: 'The Co.Up Group',
     address: 'co.up Coworking Adalbertstraße 8, 10999 Berlin',
     time: 'Tuesday 19:00',
-    contact: '',
+    contact: 'foo',
     activities: 'Nothing specific, we do exercises around basic web apps with Sinatra.',
     email: 'group3@example.org',
     city: 'Berlin'
