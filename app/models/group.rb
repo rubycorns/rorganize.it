@@ -39,8 +39,9 @@ class Group < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   geocoded_by :location
   after_validation :geocode
+  after_save :update_slug
 
-  attr_accessor :join_as_coach
+  attr_accessor :join_as_coach, :slug
 
   def editable_by?(person)
     people.include?(person)
@@ -56,5 +57,18 @@ class Group < ActiveRecord::Base
 
   def location
     [address, city, country].join(' ')
+  end
+
+  def to_param
+    slug
+  end
+
+
+  def generate_slug
+    name.downcase.gsub(" ", "-")
+  end
+
+  def update_slug
+    self.slug = slug
   end
 end
