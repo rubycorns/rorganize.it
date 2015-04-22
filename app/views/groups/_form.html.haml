@@ -9,31 +9,43 @@
       = f.label(:founded_on, "Founded on")
       = f.text_field :founded_on, placeholder: 'When was your group founded?', class: 'form-control'
     .form-group
+      = f.label(:twitter, "Twitter handle")
+      = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
+    .form-group
+      = label_tag(:activities, "Description (you can use markdown!)")
+      = f.text_area :activities, placeholder: 'Your activities, topics, projects', class: 'form-control'
+    .form-group
+      = f.label(:picture, "Group picture")
+      = f.file_field :picture, placeholder: 'What you look like'
+      %p.help-block Choose a picture representing your group
+
+  .col-md-4
+    .form-group
       = f.label(:time, "Meeting time")
       = f.text_field :time, placeholder: 'When you meet', class: 'form-control'
     .form-group
       = f.label(:address, "Meeting place")
       = f.text_field :address, placeholder: 'Where you meet', class: 'form-control'
     .form-group
+      = f.label(:street, "Street")
+      = f.text_field :street, placeholder: 'The name of the street', class: 'form-control'
+    .form-group
+      = f.label(:zip, "Zip Code")
+      = f.text_field :zip, placeholder: 'What\'s the zip code' , class: 'form-control'
+    .form-group
       = f.label(:city, "City *")
       = f.text_field :city, placeholder: 'In what city', class: 'form-control'
     .form-group
       = f.label(:country, "Country *")
       = f.country_select(:country, {priority_countries: ["DE", "PL", "IN", "US"], include_blank: true}, {class: 'form-control'})
+    
   .col-md-4
     .form-group
-      = f.label(:twitter, "Twitter handle")
-      = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
-    .form-group
-      = f.label(:email, "Where we'll send official emails *")
+      = f.label(:email, "Where we'll send official emails")
       = f.text_field :email, placeholder: "email@address.com", class: 'form-control'
     .form-group
       = f.label(:contact, "Contact info *")
       = f.text_area :contact, placeholder: 'How to contact your group', class: 'form-control'
-    .form-group
-      = label_tag(:activities, "Description (you can use markdown!)")
-      = f.text_area :activities, placeholder: 'Your activities, topics, projects', class: 'form-control'
-  .col-md-4
     .form-group
       = f.label(:level, "Level of group")
       = f.text_area :level, placeholder: 'Beginner, intermediate, advanced, all of the above?', class: 'form-control'
@@ -45,9 +57,5 @@
       .form-group
         = f.check_box :full
         = f.label(:full, "Is your group full?")
-    .form-group
-      = f.label(:picture, "Group picture")
-      = f.file_field :picture, placeholder: 'What you look like'
-      %p.help-block Choose a picture representing your group
     .actions.pull-right
       = f.submit class: "btn btn-primary"

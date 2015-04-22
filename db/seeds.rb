@@ -9,41 +9,52 @@
 group_list = [
   {
     name: 'The Thursday Group',
-    address: 'modomoto office, Blücherstraße 22, 10961 Berlin',
+    address: 'modomoto office',
     time: 'Thursday 19:00',
     contact: 'https://groups.google.com/forum/#!forum/rails-girls-berlin-project-group-thursdays',
     activities: 'We build a wishlist app to organize christmas for large families. Users can enter their own wishlist and add wishes. Other users can comment on these wishes, mark them as done etc, but the list owner can’t see that of course.',
-    email: 'group1@example.org'
+    email: 'group1@example.org',
+    city: 'Berlin',
+    country: 'Germany',
+    street: 'Blücherstraße 22',
+    zip: '10961'
   },
   {
     name: 'The Rubycorns',
-    address: 'Travis Office, Prinzessinnenstr. 20, 10969 Berlin',
+    address: 'Bitcrowd',
     time: 'Tuesday 19:00',
     contact: 'https://groups.google.com/forum/#!forum/rails-girls-berlin-project-group-tuesdays',
     activities: 'We basically meet and have coding sessions where we show of stuff as needed. Sometimes Tobi gives a presentation from his HU course or something. Basically everything including homeworks is pretty ad-hoc.',
     email: 'group2@example.org',
     city: 'Berlin',
-    country: 'Germany'
+    country: 'Germany',
+    street: 'Sanderstr. 28 ',
+    zip: '12047'
   },
   {
     name: 'The Co.Up Group',
-    address: 'co.up Coworking Adalbertstraße 8, 10999 Berlin',
+    address: 'co.up Coworking',
     time: 'Tuesday 19:00',
     contact: 'foo',
     activities: 'Nothing specific, we do exercises around basic web apps with Sinatra.',
     email: 'group3@example.org',
-    city: 'Berlin'
+    city: 'Berlin',
+    country: 'Germany',
+    street: 'Adalbertstraße 8',
+    zip: '10999'
   },
   {
     name: 'The Ruby Monsters',
-    address: 'Travis Office, Prinzessinnenstr. 20, 10969 Berlin',
+    address: 'Travis Office',
     time: 'Monday evening',
     contact: 'https://groups.google.com/forum/#!members/rubymonstaaa',
     activities: 'The group is now a mixture of old-timers and newcomers, and from the original group some are still working on SpeakerinnenListe, others are doing the Michael Hartl tutorial, and the newcomers have been doing general Ruby exercises. A sub-group is doing the Michael Hartl tutorial',
     email: 'group4@example.org',
     full: true,
-    city: '',
-    country: ''
+    city: 'Berlin',
+    country: 'Germany',
+    street: 'Prinzessinnenstr. 20',
+    zip: '10969'
   }
 ]
 
