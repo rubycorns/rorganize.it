@@ -12,6 +12,8 @@ feature 'create a group' do
     click_link 'Groups'
     click_link 'register new group'
     fill_in 'Project group name', with: 'Testgroup'
+    fill_in 'Where we\'ll send official emails', with: 'test@email.com'
+    fill_in 'Contact info', with: 'this googlegroup'
     expect(page).to have_content('Join group as coach')
     check 'Join group as coach'
     expect(page).to_not have_content('Is your group full?')
@@ -35,6 +37,8 @@ feature 'create a group' do
     click_link 'Groups'
     click_link 'register new group'
     fill_in 'Project group name', with: 'Testgroup'
+    fill_in 'Where we\'ll send official emails', with: 'test@email.com'
+    fill_in 'Contact info', with: 'this googlegroup'
     expect(page).to have_content('Join group as coach')
     click_button 'Create Group'
 

@@ -10,16 +10,22 @@
 @import "_groups_people.scss";
 
 
+.section {
+  padding: 3em 0;
+}
+
 /*
  * Style the leave group button
  */
 
 .btn-leavegroup {
   display: block;
+  width: 100%;
   padding: .3em 1.4em .2em;
   color: black;
   border: none;
   background: none;
+  text-align: left;
   &:hover {
     background-color: #F5F5F5;
     text-decoration: none;
@@ -46,12 +52,12 @@
 // flash messages
 .alert {
   position: fixed;
-  left: 0;
-  right: 0;
+  left: 10%;
+  right: 10%;
   top: 4em;
   width: 80%;
   z-index: 1031; // bootstrap sets the navbar to 1030
-  opacity: 0.9;
+  opacity: 1;
   transform: translate(0);
   padding: 4px 30px;
   &.fade-out {
@@ -77,9 +83,14 @@
 }
 // apply link styles
 .link {
+  text-decoration: none;
+  padding-right: 0;
+  padding-left: 0;
   color: $link-color;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
   &:hover {
-    text-decoration: underline;
+    border-bottom: 1px solid $link-color;
     color: darken($link-color, 10);
   }
 }
@@ -92,4 +103,11 @@
     position: center;
     repeat: no-repeat;
   }
+}
+
+.inline {
+  display: inline
+}
+.center {
+  text-align: center;
 }

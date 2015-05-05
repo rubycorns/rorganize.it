@@ -33,11 +33,15 @@ class Group < ActiveRecord::Base
   has_many :coach_memberships
 
   validates :name, presence: true
-  validates :email, format: { with: FORMAT }, allow_blank: true
+  validates :email, format: { with: FORMAT }, presence: true
+  validates :contact, presence: true
 
   mount_uploader :picture, PictureUploader
-  geocoded_by :address
+  geocoded_by :location
   after_validation :geocode
+
+  scope :by_country, -> (country) { where country: country }
+  scope :by_city, -> (city) { where city: city }
 
   attr_accessor :join_as_coach
 
@@ -51,5 +55,9 @@ class Group < ActiveRecord::Base
 
   def not_full?
     !full
+  end
+
+  def location
+    [address, street, zip, city, country].join(' ')
   end
 end

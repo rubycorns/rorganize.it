@@ -34,7 +34,7 @@
     - @future_topics.each do |topic|
       .row
         .col-xs-5
-          %p= topic.body
+          %p= markdown(topic.body)
         .col-xs-5
           %p= topic.person.full_name if topic.person
         - if show_member_buttons?(current_person, @group)

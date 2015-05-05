@@ -12,13 +12,6 @@
     word-break: break-word;
   }
 }
-.group-info {
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-}
 .list-group {
   .media {
     width: 50%;
@@ -47,13 +40,6 @@
 /*
  * Student/ Coaches
  */
-.student-list {
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
 
 .list {
     padding: 0;
@@ -65,6 +51,12 @@
         width: 40px;
         height: auto;
     }
+}
+
+.list--people {
+  a {
+    line-height: 2em;
+  }
 }
 
 .topics {

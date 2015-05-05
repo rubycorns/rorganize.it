@@ -1,17 +1,27 @@
-.container
-  .row
-    .jumbotron
-      %h1 Rails Girls Groups
-      %h2 Find other Rails Girls students, coaches and project groups!
-      - unless person_signed_in?
-        %p If you are a student or a coach and not signed up - feel free to register! #{link_to "SignUp", new_person_registration_path, class: 'btn btn-primary', id: 'signup-button'}
-
-  .row
-    .col-md-6
-      = image_tag "groups.png", class: 'landing-image'
-      %h3 Find a project group
-      %p= link_to "All The Groups", groups_path, class: 'btn btn-primary'
-    .col-md-6
-      = image_tag "people.png", class: 'landing-image'
-      %h3 Find fellow rubyists
-      %p= link_to "All The Rubyists", people_path, class: 'btn btn-primary'
+.jumbotron
+  .container.center.section
+    %h1 RoRganize.it
+    %h2 Find other Rails Girls students, coaches and project groups!
+    - unless person_signed_in?
+      %p
+        If you are a student or a coach and not signed up - feel free to register!
+        = link_to "Sign up", new_person_registration_path, class: 'btn btn-primary', id: 'signup-button'
+.container.section
+  .col-sm-6.col-md-5.col-md-offset-1
+    = image_tag "groups.png", class: 'landing-image'
+    %h3 Find a project group
+    %p= link_to "All The Groups", groups_path, class: 'btn btn-primary'
+  .col-sm-6.col-md-5.col-md-offset-1
+    = image_tag "people.png", class: 'landing-image'
+    %h3 Find fellow rubyists
+    %p= link_to "All The Rubyists", people_path, class: 'btn btn-primary'
+.jumbotron
+  .container.center.section
+    %h2 Discover and meet
+    .col-md-6.col-md-offset-3
+      %p
+        = pluralize(@students.size, 'student')
+        and
+        = pluralize(@coaches.size, 'coach')
+        in
+        = pluralize(@groups.size, 'group')

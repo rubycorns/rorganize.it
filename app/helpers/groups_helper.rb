@@ -33,4 +33,8 @@ module GroupsHelper
     )
   end
 
+  def group_location(group) 
+    [group.street, group.zip, group.city, group.country].select {|x| x.present? }.join(', ')
+  end
+
 end

@@ -8,6 +8,11 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.order :name
+    @groups = @groups.by_country(params[:country]) if params[:country].present?
+    @groups = @groups.by_city(params[:city]) if params[:city].present?
+
+    @group_cities = Group.select(:city).distinct
+    @group_countries = Group.select(:country).distinct
   end
 
   def new
@@ -58,7 +63,7 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, :address, :time,
     :picture, :twitter, :contact, :activities, :email, :level,
-    :founded_on, :join_as_coach, :full)
+    :founded_on, :join_as_coach, :full, :city, :country, :street, :zip)
   end
 
 end

@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116125235) do
+ActiveRecord::Schema.define(version: 20150317183935) do
+
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -29,6 +30,10 @@ ActiveRecord::Schema.define(version: 20150116125235) do
     t.string   "level"
     t.string   "founded_on"
     t.boolean  "full",       default: false
+    t.string   "city"
+    t.string   "country"
+    t.string   "zip"
+    t.string   "street"
   end
 
   create_table "memberships", force: true do |t|

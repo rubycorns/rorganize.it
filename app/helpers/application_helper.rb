@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+
   def flash_class(level)
     case level
       when :notice then "info"
@@ -10,15 +11,16 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    html_renderer = Redcarpet::Render::HTML.new(filter_html: true)
 
-    redcarpet = Redcarpet::Markdown.new(
-      html_renderer,
+    emoji = Redcarpet::Markdown.new(
+      MdEmoji::Render.new(filter_html: true),
+      no_intra_emphasis: true,
       autolink: true,
       space_after_headers: false,
-      underline: true,
+      underline: true
     )
-    raw redcarpet.render(text)
+
+    raw emoji.render(text)
   end
 
 end
