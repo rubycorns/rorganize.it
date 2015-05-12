@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 20150505182728) do
     t.boolean  "full",       default: false
     t.string   "city"
     t.string   "country"
-    t.string   "slug"
     t.string   "zip"
     t.string   "street"
+    t.string   "slug"
   end
 
   add_index "groups", ["slug"], name: "index_groups_on_slug", unique: true
