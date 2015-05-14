@@ -21,4 +21,7 @@ class Post < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  def set_published_on!
+    update_attribute(:published_on, Date.today)
+  end
 end
