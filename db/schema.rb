@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150614105629) do
     t.boolean  "full",               default: false
     t.string   "city"
     t.string   "country"
+    t.string   "slug"
     t.string   "zip"
     t.string   "street"
     t.string   "slug"
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 20150614105629) do
     t.string   "picture"
     t.string   "twitter"
     t.text     "working_on"
+    t.boolean  "willing_to_coach"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
