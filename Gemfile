@@ -96,6 +96,7 @@ group :development, :test do
   gem 'launchy'
   gem 'minitest'
   gem 'rspec-its', '~> 1.0.1'
+  gem 'timecop'
 end
 
 # Use ActiveModel has_secure_password
