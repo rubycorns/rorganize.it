@@ -7,11 +7,8 @@
           %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
             .row
               .col-md-2
-                = render partial: "shared/person_picture", locals: { person: person }
+                = person_avatar(person)
               .col-md-8
                 %h3
-                  - if person_signed_in?
-                    = link_to person.full_name, person_path(person)
-                  - else
-                    = person.full_name
+                  = profile_link(person)
                 = render partial: "shared/groups", locals: { object: person }

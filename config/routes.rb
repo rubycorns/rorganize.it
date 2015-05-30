@@ -15,6 +15,7 @@ RailsGirlsApp::Application.routes.draw do
     resources :topics, only: [:create, :edit, :update, :destroy]
   end
   resources :people
+  resources :coaches
   resources :memberships, only: [:create, :destroy]
   resources :posts
   resource :dashboard, only: [:show] do
