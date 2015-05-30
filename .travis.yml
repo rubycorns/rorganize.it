@@ -7,8 +7,4 @@ script: "bundle exec rspec"
 notifications:
   email:
     recipients:
-      - tobias.pfeiffer@student.hpi.uni-potsdam.de
-      - locokaja@gmail.com
-      - tils@tils.net
-      - mail@lislis.de
       - rubycorns@googlegroups.com
