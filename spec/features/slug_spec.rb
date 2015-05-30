@@ -5,7 +5,7 @@ feature 'slugs' do
   before { visit new_person_session_path }
 
   let(:person) { create(:person) }
-  let!(:group) { create(:group, name: 'Rubycorns') }
+  let!(:group) { create(:group, name: 'Rubycorns', slug: 'rubycorns') }
   let!(:post) { create(:post, title: 'Some Awesome Blog Post') }
 
 

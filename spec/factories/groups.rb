@@ -24,11 +24,13 @@ FactoryGirl.define do
     name 'Test Group'
     email 'testgroup@email.com'
     contact 'some googlegroup'
+    slug 'test-group'
   end
 
   factory :second_group, class: Group do
     name 'Second Group'
     email 'secondgroup@email.com'
     contact 'some other googlegroup'
+    slug 'second-group'
   end
 end

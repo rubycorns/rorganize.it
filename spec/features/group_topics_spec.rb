@@ -36,7 +36,7 @@ feature 'Manage topics of a group' do
   end
 
   def visit_group_page
-    visit group_path(group)
+    visit group_path(group.slug)
   end
 
   def add_topic
