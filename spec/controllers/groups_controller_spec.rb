@@ -42,13 +42,14 @@ describe GroupsController do
   describe 'update' do
     let(:group) { create(:group) }
     let(:person) { create(:person) }
+    let!(:params) { {group: { name: 'Changed group name'},
+                id: group.id} }
 
     before do
       allow(controller).to receive :authenticate_person!
       allow(controller).to receive(:current_person).and_return(person)
       allow(Group).to receive(:find).and_return(group)
-      @params = { group: { name: 'Changed group name'},
-                  id: group.id }
+
     end
 
     context 'as a member of the group' do
@@ -58,22 +59,22 @@ describe GroupsController do
 
       it 'updates the group' do
         expect do
-          put :update, @params
+          put :update, params
         end.not_to change{ Group.count }
       end
 
       it 'updates the name of the group' do
-        put :update, @params
-        expect(group.name).to eq 'Changed group name'
+        put :update, params
+        expect(Group.find_by(name: 'Changed group name')).to_not be nil
       end
 
       it 'redirects to the groups overview' do
-        put :update, @params
+        put :update, params
         expect(response).to redirect_to group_path(group)
       end
 
       it 'displays the correct notice' do
-        put :update, @params
+        put :update, params
         expect(flash[:notice]).to match /updated/
       end
     end
@@ -81,12 +82,12 @@ describe GroupsController do
     context 'as a non-member of the group' do
 
       it 'does not update the name of the group' do
-        put :update, @params
+        put :update, params
         expect(group.name).to eq 'Test Group'
       end
 
       it 'redirects to the groups overview' do
-        put :update, @params
+        put :update, params
         expect(response.status).to eq 403
       end
     end
