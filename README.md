@@ -8,6 +8,12 @@ An overview of who meets when, where, with whom to work on what.
 
 To see the current status of the project and who's working on what, go to https://waffle.io/rubycorns/railsgirlsapp
 
+### Contributing
+
+We've had lots of people asking us if this project is open for all to work on and if they can contribute
+even though they are a) not women, b) not in our project group, c) don't know us, d) some other reason. The answer is of course yes! We are not a closed group and we welcome your PRs. All we ask is that you communicate with us regularly, make clean PRs, test your work, and be nice. If you write some crazy code, explanations are helpful so that we can learn
+from what you've done and become better coders ourselves in the process. If you have a great idea for a feature & want to implement it, please open an issue, assign yourself to it, and hack away :)
+
 ### Just some general information:
 
 Ruby version 2.0+
@@ -89,10 +95,8 @@ Off to GitHub
 1. Select your branch on GitHub.
 2. Click 'Pull Request'.
 3. Write a little summary of what you did and alert people if you need help.
-4. If it is a **small** change, wait for one thumbs up from a fellow rubycorns member before merging.
-5. If it is a **large** change, wait for one thumbs up from a coach **and** one from a rubycorns member
 before merging.
-6. When you merge and close your branch, please make sure to include a [ridiculous gif](https://github.com/rubycorns/RailsGirlsApp/pull/281#issuecomment-64454385). 
+4. When you merge and close your branch, please make sure to include a [ridiculous gif](https://github.com/rubycorns/RailsGirlsApp/pull/281#issuecomment-64454385). 
 
 ### Deploy to Shelly Cloud
 
