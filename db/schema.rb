@@ -102,13 +102,9 @@ ActiveRecord::Schema.define(version: 20150505182728) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
-<<<<<<< HEAD
-    t.boolean  "draft",       default: false, null: false
     t.string   "slug"
-=======
     t.boolean  "draft",        default: false, null: false
     t.date     "published_on"
->>>>>>> master
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
