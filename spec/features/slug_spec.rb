@@ -6,8 +6,7 @@ feature 'slugs' do
 
   let(:person) { create(:person) }
   let!(:group) { create(:group, name: 'Rubycorns', slug: 'rubycorns') }
-  let!(:post) { create(:post, title: 'Some Awesome Blog Post') }
-
+  let!(:post) { create(:post, title: 'Some Awesome Blog Post', slug: 'some-awesome-blog-post') }
 
   scenario 'take user to right group page' do
   	visit_group_slug
