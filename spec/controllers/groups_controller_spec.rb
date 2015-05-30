@@ -42,7 +42,7 @@ describe GroupsController do
   describe 'update' do
     let(:group) { create(:group) }
     let(:person) { create(:person) }
-    let!(:params) { {group: { name: 'Changed group name'},
+    let(:params) { {group: { name: 'Changed group name'},
                 id: group.id} }
 
     before do
