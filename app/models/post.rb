@@ -24,4 +24,7 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  def set_published_on!
+    update_attribute(:published_on, Date.today)
+  end
 end

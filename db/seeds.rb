@@ -83,3 +83,25 @@ user_list.each do |user|
 end
 
 Person.find_by(email: 'coach@example.org').add_role(:admin)
+
+posts_list = [
+  {
+    title: 'What a day!',
+    description: 'We did so much today it was incredible. Time for a beer',
+    created_at: DateTime.yesterday,
+    updated_at: DateTime.now,
+    person_id: 1,
+    draft: false
+  },
+  {
+    title: 'What is even a button?!',
+    description: 'Today we got confused and had serious conversations about the state of the world and of buttons',
+    created_at: DateTime.yesterday,
+    updated_at: DateTime.now,
+    person_id: 2,
+    draft: false
+  }
+]
+posts_list.each do |post|
+  Post.create!(post)
+end

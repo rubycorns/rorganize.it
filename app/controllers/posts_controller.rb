@@ -27,6 +27,8 @@ class PostsController < ApplicationController
     @post.draft = post_params_draft
     @post.person = current_person
 
+    @post.set_published_on! if !@post.draft
+
     if @post.save
       redirect_to @post, notice: post_created_notice
     else
@@ -35,9 +37,12 @@ class PostsController < ApplicationController
   end
 
   def update
-
     @post.draft = post_params_draft
 
+    if !@post.draft && @post.draft_changed?
+      @post.set_published_on!
+    end
+      
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.
       All efforts, nomatter how small, deserve cake.'

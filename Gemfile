@@ -29,6 +29,8 @@ gem 'carrierwave'
 # Use for image crop and resize
 gem "mini_magick", "~> 3.7.0"
 
+gem 'emoji', '~> 1.0.1'
+
 gem 'country_select', github: 'stefanpenner/country_select'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -69,6 +71,7 @@ gem "font-awesome-rails"
 
 # for markup!
 gem 'redcarpet'
+gem 'md_emoji'
 
 # for pagination
 gem 'will_paginate'
@@ -96,6 +99,7 @@ group :development, :test do
   gem 'launchy'
   gem 'minitest'
   gem 'rspec-its', '~> 1.0.1'
+  gem 'timecop'
 end
 
 # Use ActiveModel has_secure_password
