@@ -7,8 +7,8 @@ class DashboardsController < ApplicationController
     @admins, @non_admins = Person.all.partition { |person| person.has_role?(:admin) }
     @non_admins.sort!
     @admins.sort!
-    @published_posts = Post.where(draft: false).order(published_on: :desc)
-    @unpublished_posts = Post.where(draft: true).order(created_at: :desc)
+    @published_posts = Post.published
+    @unpublished_posts = Post.draft
     @groups = Group.all
   end
 

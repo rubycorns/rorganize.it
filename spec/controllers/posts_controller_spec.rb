@@ -13,22 +13,24 @@ describe PostsController do
       end
 
       it 'has an empty posts' do
-        expect(assigns(:posts)).to be_empty
+        expect(assigns(:published_posts)).to be_empty
       end
     end
 
     context 'with a couple of posts' do
 
       before :each do
-        5.times {Post.create title: 'random', description: 'important stuff' }
+        2.times { Post.create title: 'random', description: 'important stuff', draft: false }
         get :index
+
+        1.times { Post.create title: 'draft', description: 'draft', draft: true }
       end
 
-      it 'has 5 of them as posts' do
-        expect(assigns(:posts).to_a.size).to eq 5
+      it 'has 2 published posts' do
+        expect(assigns(:published_posts).to_a.size).to eq 2
       end
-
     end
+
   end
 
   describe 'create' do

@@ -2,8 +2,14 @@ require 'spec_helper'
 
 describe Post do
 
-  it { is_expected.to belong_to(:person) }
+  describe 'scopes' do
+    specify do
+      expect(Post.published.to_sql).to eql "SELECT \"posts\".* FROM \"posts\"  WHERE \"posts\".\"draft\" = 'f'  ORDER BY \"posts\".\"published_on\" DESC"
+      expect(Post.draft.to_sql).to eql "SELECT \"posts\".* FROM \"posts\"  WHERE \"posts\".\"draft\" = 't'  ORDER BY \"posts\".\"created_at\" DESC"
+    end
+  end
 
+  it { is_expected.to belong_to(:person) }
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_presence_of(:description) }
 

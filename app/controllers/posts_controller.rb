@@ -7,8 +7,7 @@ class PostsController < ApplicationController
   require 'will_paginate/array'
 
   def index
-    @published_posts = Post.where(draft: false)
-    @published_posts.order(published_on: :desc)
+    @published_posts = Post.published
     page = (params[:page] || 1).to_i
     @published_posts = @published_posts.paginate(page: page, per_page: 20)
   end
