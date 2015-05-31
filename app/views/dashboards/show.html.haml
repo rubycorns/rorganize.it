@@ -55,19 +55,21 @@
           %ul.dashboard-list
             %li= link_to fa_icon('list', text: 'all posts'),posts_path
             %li= link_to fa_icon('plus', text: 'create new post'), new_post_path
-          - if @posts.exists?
+          - if @published_posts.any?
             %h2
-              %small Latest Post:
+              %small Latest Published Post:
               %br/
-              = link_to @posts.first.title, post_path(@posts.first.id)
-            %ul.dashboard-list
-              %li
-                - if @posts.first.draft
-                  = fa_icon "file-o", text: "it's a draft"
-                - else
-                  = fa_icon "paper-plane", text: "it's published"
-              %li= link_to fa_icon('edit', text: 'edit latest post'), edit_post_path(@posts.first.id)
-              %li= link_to fa_icon('trash-o', text: 'delete latest post'), post_path(@posts.first.id), method: :delete, data: { confirm: "You really want to trash that?" }
+            = link_to @published_posts.first.title, post_path(@published_posts.first.id)
+            = link_to fa_icon('edit', text: 'edit'), edit_post_path(@published_posts.first.id)
+            = link_to fa_icon('trash-o', text: 'delete'), post_path(@published_posts.first.id), method: :delete, data: { confirm: "You really want to trash that?" }
+
+          - if @unpublished_posts.any?
+            %h2
+              %small Unpublished posts:
+            - @unpublished_posts.each do |post|
+              = link_to post.title, post_path(post.id)
+              = link_to fa_icon('edit', text: 'edit',), edit_post_path(post.id)
+              = link_to fa_icon('trash-o', text: 'delete'), post_path(post.id), method: :delete, data: { confirm: "You really want to trash that?" }
     .col-md-4.col-sm-6
       .panel.panel-default.panel-image
         .panel-heading.clearfix
