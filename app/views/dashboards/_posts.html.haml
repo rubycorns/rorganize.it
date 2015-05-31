@@ -1,0 +1,4 @@
+- posts.each do |post|
+  %li= link_to post.title, post_path(post.id)
+  = link_to fa_icon('edit', text: 'edit',), edit_post_path(post.id)
+  = link_to fa_icon('trash-o', text: 'delete'), post_path(post.id), method: :delete, data: { confirm: "You really want to trash that?" }

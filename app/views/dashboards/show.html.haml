@@ -57,19 +57,16 @@
             %li= link_to fa_icon('plus', text: 'create new post'), new_post_path
           - if @published_posts.any?
             %h2
-              %small Latest Published Post:
+              %small Latest Published Posts:
               %br/
-            = link_to @published_posts.first.title, post_path(@published_posts.first.id)
-            = link_to fa_icon('edit', text: 'edit'), edit_post_path(@published_posts.first.id)
-            = link_to fa_icon('trash-o', text: 'delete'), post_path(@published_posts.first.id), method: :delete, data: { confirm: "You really want to trash that?" }
+            = render partial: 'posts', locals: { posts: @published_posts.limit(2) }
 
           - if @unpublished_posts.any?
             %h2
               %small Unpublished posts:
-            - @unpublished_posts.each do |post|
-              = link_to post.title, post_path(post.id)
-              = link_to fa_icon('edit', text: 'edit',), edit_post_path(post.id)
-              = link_to fa_icon('trash-o', text: 'delete'), post_path(post.id), method: :delete, data: { confirm: "You really want to trash that?" }
+              %br/
+            = render partial: 'posts', locals: { posts: @unpublished_posts }
+
     .col-md-4.col-sm-6
       .panel.panel-default.panel-image
         .panel-heading.clearfix
