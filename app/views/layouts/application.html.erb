@@ -65,7 +65,6 @@
     </nav>
   </header>
   <div class="main-container">
-
     <% [:notice, :error, :alert, :success].each do |level| %>
       <% unless flash[level].blank? %>
         <p class="container alert alert-dismissable alert-<%= flash_class(level) %>">
@@ -78,6 +77,5 @@
     <%= yield %>
 
   </div>
-
 </body>
 </html>
