@@ -4,8 +4,7 @@
     .col-sm-8
       - if @published_posts.any?
         - @published_posts.each do |post|
-          - if post.draft == false || (current_person && current_person.has_role?(:admin))
-            = render partial: 'post', object: post
+          = render partial: 'post', object: post
         = will_paginate @published_posts, class: 'pull-middle'
       - else
         .latest-post-overview
