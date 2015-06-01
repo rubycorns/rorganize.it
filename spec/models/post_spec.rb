@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Post do
 
+  # this is an example for how to test scopes using sql. See convo here: https://github.com/rubycorns/rorganize.it/pull/341
   describe 'scopes' do
     specify do
       expect(Post.published.to_sql).to eql "SELECT \"posts\".* FROM \"posts\"  WHERE \"posts\".\"draft\" = 'f'  ORDER BY \"posts\".\"published_on\" DESC"
@@ -9,6 +10,7 @@ describe Post do
     end
   end
 
+  # this is an example for how to test scopes using the database. See convo here: https://github.com/rubycorns/rorganize.it/pull/341
   describe '.published' do
     subject { described_class.published }
 
