@@ -2,14 +2,14 @@
   .row
     %h1.col-sm-12.page-header Corporate Blog
     .col-sm-8
-      - @posts.each do |post|
-        - if post.draft == false || (current_person && current_person.has_role?(:admin))
+      - if @published_posts.any?
+        - @published_posts.each do |post|
           = render partial: 'post', object: post
-      - if @posts.empty?
+        = will_paginate @published_posts, class: 'pull-middle'
+      - else
         .latest-post-overview
           Oops, no blogposts here
       = link_to 'New Post', new_post_path if current_person && current_person.has_role?(:admin)
-      = will_paginate @posts, class: 'pull-middle'
     %aside.col-sm-4
       .twitter-feed
         %a.twitter-timeline{"data-widget-id" => "467588755692322816", :href => "https://twitter.com/rubycorns"} Tweets by @rubycorns

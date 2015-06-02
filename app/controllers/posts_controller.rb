@@ -7,9 +7,9 @@ class PostsController < ApplicationController
   require 'will_paginate/array'
 
   def index
-    @posts = Post.all.order(created_at: :desc)
-    @page = (params[:page] || 1).to_i
-    @posts = @posts.paginate(page: @page, per_page: 20)
+    @published_posts = Post.published
+    page = (params[:page] || 1).to_i
+    @published_posts = @published_posts.paginate(page: page, per_page: 20)
   end
 
   def show
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     end
       
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.
+      redirect_to post_path(@post), notice: 'Post was successfully updated.
       All efforts, nomatter how small, deserve cake.'
     else
       render action: 'edit'

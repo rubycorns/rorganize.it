@@ -14,6 +14,9 @@
 
 class Post < ActiveRecord::Base
 
+  scope :published, -> { where(draft: false).order(published_on: :desc)}
+  scope :draft, -> { where(draft: true).order(created_at: :desc) }
+
   validates :title, presence: true
   validates :description, presence: true
 
