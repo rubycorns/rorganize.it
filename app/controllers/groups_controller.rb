@@ -36,7 +36,7 @@ class GroupsController < ApplicationController
 
   def update
     @group.update_attributes group_params
-    redirect_to group_path, notice: 'Group was successfully updated. ' \
+    redirect_to group_path(@group), notice: 'Group was successfully updated. ' \
     'All efforts, nomatter how small, deserve cake.'
   end
 
@@ -57,11 +57,11 @@ class GroupsController < ApplicationController
   private
 
   def set_group
-    @group = Group.find(params[:id])
+    @group = Group.friendly.find(params[:id])
   end
 
   def group_params
-    params.require(:group).permit(:name, :address, :time,
+    params.require(:group).permit(:id, :name, :address, :time,
     :picture, :twitter, :contact, :activities, :email, :level,
     :founded_on, :join_as_coach, :full, :city, :country, :street, :zip)
   end

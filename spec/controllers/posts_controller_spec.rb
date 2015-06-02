@@ -176,14 +176,14 @@ describe PostsController do
 
         let(:post) { create :post, draft: true, published_on: nil }
 
-        it 'does not mark the post as draft' do
+        it 'sets draft to false, b/c it is published' do
           put :update, params
-          expect(post.draft).to be false
+          expect(Post.find_by(slug: 'a-blogpost').draft).to be false
         end 
 
         it 'sets the correct published_on date' do
           put :update, params
-          expect(post.published_on).to eql test_date
+          expect(Post.find_by(slug: 'a-blogpost').published_on).to eql test_date
         end
 
         it 'redirects to the post' do

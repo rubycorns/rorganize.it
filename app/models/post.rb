@@ -21,6 +21,9 @@ class Post < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   def set_published_on!
     update_attribute(:published_on, Date.today)
   end

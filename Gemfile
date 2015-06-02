@@ -6,6 +6,9 @@ gem 'devise'
 gem 'rails'
 
 # Use sqlite3 as the database for Active Record
+
+gem 'friendly_id', '~> 5.1.0'
+
 group :development do
   gem 'sqlite3'
   gem 'guard-rspec', require: false

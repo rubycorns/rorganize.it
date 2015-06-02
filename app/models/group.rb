@@ -42,6 +42,9 @@ class Group < ActiveRecord::Base
 
   scope :by_country, -> (country) { where country: country }
   scope :by_city, -> (city) { where city: city }
+  
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   attr_accessor :join_as_coach
 

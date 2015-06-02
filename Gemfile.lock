@@ -107,6 +107,8 @@ GEM
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     fssm (0.2.10)
     geocoder (1.2.1)
     guard (2.6.1)
@@ -309,6 +311,7 @@ DEPENDENCIES
   erb2haml
   factory_girl_rails
   font-awesome-rails
+  friendly_id (~> 5.1.0)
   geocoder
   guard-rspec
   haml
