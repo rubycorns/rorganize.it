@@ -16,15 +16,15 @@ describe Post do
 
     it 'includes only published posts' do
       published = create(:post, draft: false)
-      create(:post, draft: true)
+      create(:post, draft: true, slug: 'post-1')
 
       expect(subject).to contain_exactly(published)
     end
 
     it 'sorts by published_on, latest first' do
-      create(:post, draft: false, published_on: '2015-04-01')
-      create(:post, draft: false, published_on: '2015-03-01')
-      create(:post, draft: false, published_on: '2015-05-01')
+      create(:post, draft: false, published_on: '2015-04-01', slug: 'post-2')
+      create(:post, draft: false, published_on: '2015-03-01', slug: 'post-3')
+      create(:post, draft: false, published_on: '2015-05-01', slug: 'post-4')
 
       expect(subject.map(&:published_on))
         .to eq([
@@ -40,7 +40,7 @@ describe Post do
 
     it 'includes only draft posts' do
       create(:post, draft: false)
-      draft = create(:post, draft: true)
+      draft = create(:post, draft: true, slug: 'post-5')
 
       expect(subject).to contain_exactly(draft)
     end
