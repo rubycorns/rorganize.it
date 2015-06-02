@@ -1,8 +1,6 @@
 .container
   .row
-    .col-md-12.page-header
-      %h2 Edit group #{@group.name}
-  .row
-    = render 'form'
-    .col-md-4
-      = link_to 'Back', groups_path, class: 'pull-right'
+    .form-box
+      = render 'form'
+      .col-md-4
+        = link_to 'Back', groups_path, class: 'pull-right'

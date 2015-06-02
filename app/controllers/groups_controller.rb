@@ -25,9 +25,9 @@ class GroupsController < ApplicationController
       if @group.join_as_coach == '1'
         current_person.join!(@group, 'CoachMembership')
       end
-      redirect_to group_path(@group), notice: "Group was successfully created. This calls for cake!"
+      redirect_to group_path(@group), notice: 'Group was successfully created. This calls for cake!'
     else
-      render action: "new"
+      render action: 'new'
     end
   end
 
@@ -35,9 +35,12 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group.update_attributes group_params
-    redirect_to group_path(@group), notice: 'Group was successfully updated. ' \
-    'All efforts, nomatter how small, deserve cake.'
+    if @group.update_attributes group_params
+      redirect_to group_path(@group), notice: 'Group was successfully updated. ' \
+      'All efforts, nomatter how small, deserve cake.'
+    else
+      render action: 'edit'
+    end
   end
 
   def show
