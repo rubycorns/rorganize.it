@@ -35,7 +35,7 @@ feature 'edit a group' do
     click_link 'Groups'
     expect(page).to have_content('edit')
     click_link 'edit'
-    expect(page).to have_content('Edit group')
+    expect(page).to have_content('Project group name')
   end
 
 end
