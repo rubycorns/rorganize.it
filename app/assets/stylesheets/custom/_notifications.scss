@@ -1,0 +1,48 @@
+.edit_notification {
+  display: inline-block;
+  text-align: center;
+}
+
+.notifications-list {
+  padding: 0
+}
+
+.notifications {
+  li {
+    border-bottom: 1px solid lightgrey;
+    padding: 0.2em .2em;
+    &.unread {
+      color: #0E0D0D;
+      background-color: #DBD7D7;
+    }
+  }
+  .link {
+    border: none;
+    width: 2em;
+    border-radius: 2px;
+    &:hover {
+      border: none;
+      background-color: $button_red;
+      color: white;
+    }
+  }
+
+  .dropdown-toggle {
+    border: medium none;
+    color: white;
+    font-size: 18px;
+    line-height: 2.5;
+    font-weight: 300;
+    width: 4em;
+    position: relative;
+    .badge {
+      top: 2em;
+      position: absolute;
+      right: 1.2em;
+    }
+    &.no-btn:hover {
+      background-color: transparent;
+      color: #333;
+    }
+  }
+}

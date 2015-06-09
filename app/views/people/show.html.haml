@@ -64,6 +64,9 @@
         %p= markdown(@person.working_on)
       - elsif @person == current_person
         %p Why not tell the world what you're working on?
+    .col-md-12
+      - @person.notifications.each do |note|
+        = note.content
 
   - if logged_in?(@person)
     .row
