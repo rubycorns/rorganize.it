@@ -23,6 +23,7 @@ RailsGirlsApp::Application.routes.draw do
   resource :dashboard, only: [:show] do
     resources :admins, only: [:create, :destroy]
   end
+  resources :notifications
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

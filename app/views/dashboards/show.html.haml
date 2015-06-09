@@ -69,6 +69,16 @@
               %br/
             = render partial: 'posts', locals: { posts: @unpublished_posts }
 
+      .panel.panel-default.panel-actions
+        .panel-heading
+          %h3.panel-title Notifications
+        .panel-body
+          %ul
+            %li
+              =link_to 'View latest notifications', notifications_path
+            %li
+              =link_to 'Create a new notification', new_notification_path
+
     .col-md-4.col-sm-6
       .panel.panel-default.panel-image
         .panel-heading.clearfix

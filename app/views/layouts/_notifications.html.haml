@@ -1,0 +1,30 @@
+.dropdown.navbar-nav.navbar-right.notifications
+  %button.dropdown-toggle.no-btn{ type: "button", id: "dropdownMenu1", "data-toggle" => "dropdown"}
+    = fa_icon "bullhorn"
+    %span.hidden Notifications
+    - if current_person.unread_notifications.size != 0
+      %span{class: "badge"}= current_person.unread_notifications.size
+
+  %ul.dropdown-menu.notifications-list
+    - current_person.notifications.reverse.each do |notification|
+      %li{:class => (notification.viewed_at.present? ? "read" : "unread")}
+        = notification.content
+
+        = form_for(notification,
+            html: {:method => :put},
+            ) do |f|
+          - if notification.viewed_at.present?
+            = f.hidden_field :viewed_at, :value => nil
+          - else
+            = f.hidden_field :viewed_at, :value => Time.now
+          %button.link.no-btn
+            %span= fa_icon "eye"
+            %span.hidden read
+
+        = form_for(notification,
+            html: {:method => :delete},
+            data: { confirm: "Sure?" },
+            ) do |f|
+          %button.link.no-btn
+            %span= fa_icon "trash-o"
+            %span.hidden delete

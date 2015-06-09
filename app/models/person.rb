@@ -35,6 +35,7 @@ class Person < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :topics
   has_many :posts
+  has_many :notifications
 
   mount_uploader :picture, PictureUploader
 
@@ -107,6 +108,10 @@ class Person < ActiveRecord::Base
   def member_of?(group)
     # double !! makes it return a boolean
     !!memberships.find_by(group_id: group.id)
+  end
+
+  def unread_notifications
+    notifications.select { |notification| notification.viewed_at == nil }
   end
 
   def <=>(other)
