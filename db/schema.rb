@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 20150614105629) do
     t.string   "picture"
     t.string   "twitter"
     t.text     "working_on"
-    t.boolean  "willing_to_coach"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
@@ -105,8 +104,8 @@ ActiveRecord::Schema.define(version: 20150614105629) do
     t.datetime "updated_at"
     t.integer  "person_id"
     t.boolean  "draft",        default: false, null: false
-    t.date     "published_on"
     t.string   "slug"
+    t.date     "published_on"
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
