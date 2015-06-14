@@ -14,6 +14,8 @@ feature 'create a group' do
     fill_in 'Project group name', with: 'Testgroup'
     fill_in 'Where we\'ll send official emails', with: 'test@email.com'
     fill_in 'Contact info', with: 'this googlegroup'
+    fill_in 'City', with: 'Berlin'
+    select('Germany', from: 'Country', match: :first) # selects the first Germany from dropdown (there are two b/c one is a preferred country at the top)
     expect(page).to have_content('Join group as coach')
     check 'Join group as coach'
     expect(page).to_not have_content('Is your group full?')
@@ -39,6 +41,8 @@ feature 'create a group' do
     fill_in 'Project group name', with: 'Testgroup'
     fill_in 'Where we\'ll send official emails', with: 'test@email.com'
     fill_in 'Contact info', with: 'this googlegroup'
+    fill_in 'City', with: 'Berlin'
+    select('Germany', from: 'Country', match: :first)
     expect(page).to have_content('Join group as coach')
     click_button 'Create Group'
 

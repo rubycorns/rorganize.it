@@ -6,7 +6,7 @@ describe GroupsController do
     let(:person) { create(:person) }
 
     context 'with correct params' do
-      let(:params) {{ group: { name: 'rubycorns', email: 'test@tehest.com', contact: 'fruitcakes' } }}
+      let(:params) {{ group: { name: 'rubycorns', email: 'test@tehest.com', contact: 'fruitcakes', city: 'Berlin', country: 'DE' } }}
 
       before do
         allow(controller).to receive :authenticate_person!

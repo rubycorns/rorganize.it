@@ -24,6 +24,8 @@ FactoryGirl.define do
     name 'Test Group'
     email 'testgroup@email.com'
     contact 'some googlegroup'
+    city 'Berlin'
+    country 'DE'
     slug 'test-group'
   end
 
@@ -31,6 +33,8 @@ FactoryGirl.define do
     name 'Second Group'
     email 'secondgroup@email.com'
     contact 'some other googlegroup'
+    city 'Hamburg'
+    country 'DE'
     slug 'second-group'
   end
 end
