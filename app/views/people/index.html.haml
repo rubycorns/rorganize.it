@@ -7,10 +7,7 @@
           %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
             .row
               .col-md-2
-                - if person.picture?
-                  = image_tag(person.picture_url(:person_profile), :width => 300)
-                - else
-                  = image_tag('/avatar.png', size: "40x40")
+                = render partial: "shared/person_picture", locals: { person: person }
               .col-md-8
                 %h3
                   - if person_signed_in?

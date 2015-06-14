@@ -7,10 +7,7 @@
           %li{class: "list-group-item clearfix"}
             .row
               .col-md-2
-                - if group.picture?
-                  = image_tag(group.picture_url(:person_profile))
-                - else
-                  = image_tag('/group-avatar.png', size: "40x40")
+                = render partial: 'shared/group_picture', locals: { group: group}
               .col-md-8
                 %h3= link_to group.name, group
                 %p
