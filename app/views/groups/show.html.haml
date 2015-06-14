@@ -87,12 +87,21 @@
             = link_to coach.first_name, person_path(coach)
             - if admin?
               = render partial: 'remove_from_group', locals: { object: coach, group: @group }
-    #group-map.col-md-4
-      - if @group.address?
-        .map
-          = groups_map @group
-      - else
-        = image_tag('follow_your_dreams.gif')
+
+    .col-md-4
+      #group-map
+        - if @group.address?
+          .map
+            = groups_map @group
+        - else
+          = image_tag('follow_your_dreams.gif')
+
+      - if @group.learning_resources?
+        %br
+        %p
+          %strong Suggested learning resources:
+          = markdown(@group.learning_resources)
+
 
   .row.topics
     = render template: "topics/index"

@@ -35,6 +35,8 @@ class Group < ActiveRecord::Base
   validates :name, presence: true
   validates :email, format: { with: FORMAT }, presence: true
   validates :contact, presence: true
+  validates :city, presence: true
+  validates :country, presence: true
 
   mount_uploader :picture, PictureUploader
   geocoded_by :location
