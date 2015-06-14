@@ -5,17 +5,17 @@
         %h1.pull-left= @group.name
         .pull-right
           .btn-group
-            = link_to groups_path, html_options = {:class => 'btn btn-default'} do
+            = link_to groups_path, html_options = { class: 'btn btn-default'} do
               %i.glyphicon.glyphicon-arrow-left
               overview
 
             - if show_member_buttons?(current_person, @group)
 
               .btn-group
-                %button.btn.btn-default.dropdown-toggle{:type => "button", "data-toggle" => "dropdown"}
+                %button.btn.btn-default.dropdown-toggle{ type: "button", "data-toggle" => "dropdown"}
                   %span.glyphicon.glyphicon-cog
                   %span.caret
-                %ul.dropdown-menu.pull-right{:role => "menu", "aria-labelledby" => "dropdownMenu1"}
+                %ul.dropdown-menu.pull-right{ role: "menu", "aria-labelledby" => "dropdownMenu1"}
                   %li
                     = link_to edit_group_path(@group.id) do
                       %i.glyphicon.glyphicon-edit
@@ -28,7 +28,7 @@
               = render 'join'
 
             - if @group.full?
-              = link_to groups_path, html_options = {:class => 'btn btn-error'} do
+              = link_to groups_path, html_options = { class: 'btn btn-error'} do
                 %i.glyphicon.glyphicon-remove-sign
                 GROUP CURRENTLY FULL
 

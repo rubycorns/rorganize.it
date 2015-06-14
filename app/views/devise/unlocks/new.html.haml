@@ -2,11 +2,11 @@
   .row
     .col-md-4
       %h2 Resend unlock instructions
-      = form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f|
+      = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
         = devise_error_messages!
         .form-group
           = f.label :email
-          = f.email_field :email, :autofocus => true
+          = f.email_field :email, autofocus: true
         %div
-          = f.submit "Resend unlock instructions", :class => "btn btn-primary"
+          = f.submit "Resend unlock instructions", class: "btn btn-primary"
       = render "devise/shared/links"

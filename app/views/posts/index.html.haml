@@ -12,6 +12,6 @@
       = link_to 'New Post', new_post_path if current_person && current_person.has_role?(:admin)
     %aside.col-sm-4
       .twitter-feed
-        %a.twitter-timeline{"data-widget-id" => "467588755692322816", :href => "https://twitter.com/rubycorns"} Tweets by @rubycorns
+        %a.twitter-timeline{"data-widget-id" => "467588755692322816", href: "https://twitter.com/rubycorns"} Tweets by @rubycorns
         :javascript
           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

@@ -34,6 +34,6 @@ RailsGirlsApp::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  config.action_mailer.default_url_options = { :host => 'test.localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'test.localhost:3000' }
 
 end
