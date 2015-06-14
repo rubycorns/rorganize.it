@@ -7,10 +7,7 @@
           %li{class: "list-group-item clearfix"}
             .row
               .col-md-2
-                - if group.picture?
-                  = image_tag(group.picture_url(:person_profile))
-                - else
-                  = image_tag('/group-avatar.png', size: "40x40")
+                = render partial: 'shared/group_picture', locals: { group: group}
               .col-md-8
                 %h3= link_to group.name, group
                 %p
@@ -36,7 +33,7 @@
     %aside.sidebar.col-md-4
       %h1.page-header Hey listen!
       %p If you don't see your project group - feel free to add it!
-      = link_to "register new group", new_group_path, :class => 'btn btn-primary'
+      = link_to "register new group", new_group_path, class: 'btn btn-primary'
       
       %h2.page-header Filter by
       = form_tag groups_path, method: 'get' do

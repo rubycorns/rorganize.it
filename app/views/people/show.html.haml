@@ -13,7 +13,7 @@
   .row
     .col-md-3
       #person-show-pic.profile-picture
-        = image_tag(@person.picture_url(:person_profile)) if @person.picture?
+        = render partial: "shared/person_picture", locals: { person: @person }
       - if @person.twitter?
         %p
           Twitter:
@@ -24,11 +24,10 @@
         %ul.list
           - @person.groups.each do |group|
             %li
-              - if group.picture?
-                = image_tag(group.picture_url(:thumb))
-              - else
-                = image_tag('/group-avatar.png', size: "40x40")
+              = render partial: 'shared/group_picture', locals: { group: group}
+
               = link_to group.name, group_path(group.id)
+
               - if admin?
                 = render partial: 'groups/remove_from_group', locals: { object: @person, group: group }
       - else
