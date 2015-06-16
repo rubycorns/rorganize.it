@@ -8,6 +8,7 @@
     .form-group
       = f.label(:email, "Where we'll send official emails (only visible to us) *")
       = f.text_field :email, placeholder: "email@address.com", class: 'form-control'
+      %p.help-block Please don't use a googlegroup because emails from us won't go through
     .form-group
       = f.label(:contact, "Contact info (visible to everyone) *")
       = f.text_area :contact, placeholder: 'How to contact your group', class: 'form-control'
