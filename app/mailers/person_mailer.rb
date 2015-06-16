@@ -1,5 +1,5 @@
 class PersonMailer < ActionMailer::Base
-  default from: "railsgirlsapp@do-not-reply.com"
+  default from: "rorganize@do-not-reply.com"
 
   def new_member_email(group, person)
     @group = group
