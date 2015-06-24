@@ -1,0 +1,53 @@
+.container.welcome-page
+  %header
+    %h1
+      Welcome to rorganize! 
+
+    %p 
+      This is a website that helps connect learners with project groups. You're probably here because you recently went to a workshop of some kind and want to keep learning. 
+
+    %section
+      .row
+        .col-sm-offset-2.col-sm-4
+          %h2.join-group
+            Join a group! 
+        .col-sm-4
+          %figure
+            = image_tag asset_path('join.png')
+      .row
+        .col-sm-offset-5.col-sm-2
+          %p
+            OR
+      .row
+        .col-sm-6
+          %figure
+            = image_tag asset_path('make.png')
+        .col-sm-6
+          %h2.make-group
+            Make a group!
+          
+
+    %section
+      .row
+        .col-sm-offset-3.col-sm-6
+          %h2
+            Then
+          %ul
+            %li
+              read our
+              %a{href: '/posts'} blog
+              for updates
+            %li
+              fork it on 
+              %a{href: 'https://github.com/rubycorns/rorganize.it'} github
+            %li
+              open 
+              %a{href: 'https://github.com/rubycorns/rorganize.it/issues'} an issue 
+              if you have suggestions
+            %li
+              and most important of all, make us some cake
+              %br
+              = image_tag asset_path('cake.gif')
+
+
+
