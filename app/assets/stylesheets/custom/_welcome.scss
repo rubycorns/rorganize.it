@@ -6,13 +6,56 @@
     height: auto;
   }
 
-  .join-group {
-    margin-top: 200px;
+  .welcome {
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 20px;
   }
 
   .make-group {
-    margin-top: 130px;
+    margin-top: 40px;
+    padding-left: 120px
   }
 
+  .picture-box {
+    background-color: #cc0000;
+    padding: 10px;
+  }
+
+  .text-box {
+    margin-bottom: 50px;
+  }
+
+  .join-group-section {
+    margin-top: 50px;
+  }
+
+  .join-group-box {
+    margin-top: 100px;
+  }
+
+  .or-box {
+    margin: 80px;
+    font-family: 'Pacifico', cursive;
+    font-size: 100px;
+  }
+
+  .make-cake-section {
+    margin-top: 150px;
+  }
+
+  .additional-suggestions {
+    margin-top: 100px;
+  }
+
+  .button-class {
+    margin-top: 110px;
+    margin-left: 60px;
+  }
+
+  .btn-custom {
+    background-color: #B12200;
+    a {
+      color: white;
+    }
+  }
 }
-  

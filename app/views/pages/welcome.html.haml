@@ -1,35 +1,51 @@
 .container.welcome-page
-  %header
-    %h1
-      Welcome to rorganize! 
+  .row.join-group-section
+    .col-sm-6
+      %header
+        %h1.text-center.welcome
+          Welcome to rorganize! 
 
-    %p 
-      This is a website that helps connect learners with project groups. You're probably here because you recently went to a workshop of some kind and want to keep learning. 
+        %p.text-center.text-box
+          This is a website that helps connect learners with project groups. 
+          You're probably here because you recently went to a workshop of some kind and want to keep learning. Here's a short tutorial to get you started!
 
-    %section
-      .row
-        .col-sm-offset-2.col-sm-4
-          %h2.join-group
-            Join a group! 
-        .col-sm-4
-          %figure
-            = image_tag asset_path('join.png')
-      .row
-        .col-sm-offset-5.col-sm-2
-          %p
-            OR
-      .row
-        .col-sm-6
-          %figure
-            = image_tag asset_path('make.png')
-        .col-sm-6
-          %h2.make-group
-            Make a group!
+        %section
+          .row.join-group-box
+            .col-sm-offset-3.col-sm-7
+              %h3 Looking for a group?
+              %ol
+                %li 
+                  %a{href: '/groups' } Head over to the groups page
+                %li 
+                  Click on a group
+                %li Join one!
+
+
+    .col-sm-6
+      %figure.picture-box
+        = image_tag asset_path('join.png')
+
+  .row.or-box
+    .col-sm-offset-5.col-sm-6
+      %p
+        OR
+
+  .row
+    .col-sm-6
+      %figure.picture-box
+        = image_tag asset_path('make.png')
+    .col-sm-6.make-group
+      %h3 Don't see a group for you?
+      %ol
+        %li
+          %a{href: '/groups' } Head over to the groups page
+        %li 
+          Make a group!
           
-
-    %section
+  .row.make-cake-section
+    .col-sm-6.additional-suggestions
       .row
-        .col-sm-offset-3.col-sm-6
+        .col-sm-offset-3.col-sm-7
           %h2
             Then
           %ul
@@ -46,8 +62,13 @@
               if you have suggestions
             %li
               and most important of all, make us some cake
-              %br
-              = image_tag asset_path('cake.gif')
+
+          .button-class
+            %button.btn.btn-custom
+              = link_to "Go To Groups!", groups_path
+          
+    .col-sm-6.picture-box.img-circle
+      = image_tag asset_path('cake.gif'), class: 'img-circle'
 
 
 
