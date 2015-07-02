@@ -33,5 +33,6 @@ feature 'edit a person' do
         expect(page).to have_content 'capybara, rspec, css'
       end
     end
+
   end
 end

@@ -18,6 +18,9 @@
         %p
           Twitter:
           = render partial: "shared/twitter", locals: { object: @person }
+        - if @person.workshop_coach?
+          %p
+            I am willing to coach at Rails Girls workshops
     .col-md-4
       %h4 Project Groups:
       - if @person.has_group?
@@ -47,4 +50,3 @@
         .btn-group.pull-right
           = link_to person_registration_path(@person), method: :delete, data: { confirm: "Are you sure you want to delete your account?" } do
             = fa_icon 'trash-o', text: 'delete'
-
