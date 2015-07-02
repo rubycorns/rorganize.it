@@ -9,7 +9,8 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  person_id   :integer
-#  draft       :boolean
+#  draft       :boolean          default(FALSE), not null
+#  slug        :string(255)
 #
 
 class Post < ActiveRecord::Base

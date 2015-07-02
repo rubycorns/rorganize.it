@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
       :twitter,
       :picture,
       :working_on,
-      :willing_to_coach,
+      :workshop_coach,
     ]
 
     devise_parameter_sanitizer.for(:sign_up) do |person|
