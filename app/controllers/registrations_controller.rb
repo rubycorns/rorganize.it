@@ -15,6 +15,10 @@ class RegistrationsController < Devise::RegistrationsController
     Please consider sending the programmers of this app one last piece of cake.'
   end
 
+  def after_sign_up_path_for(resource)
+    welcome_path
+  end
+
   private
 
   def person_params
