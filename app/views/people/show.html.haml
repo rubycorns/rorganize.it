@@ -18,9 +18,9 @@
         %p
           Twitter:
           = render partial: "shared/twitter", locals: { object: @person }
-        - if @person.workshop_coach?
-          %p
-            I am willing to coach at Rails Girls workshops
+      - if @person.workshop_coach?
+        %p
+          I am willing to coach at Rails Girls workshops
     .col-md-4
       %h4 Project Groups:
       - if @person.has_group?
