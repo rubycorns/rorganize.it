@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature 'workshop coach' do
+  before { login_as_user }
 
   scenario 'see workshop coach text' do
     visit_profile_page_of_a_workshop_coach
@@ -11,13 +12,13 @@ feature 'workshop coach' do
 
   def login_as_user
     person = create(:person)
+    visit new_person_session_path
     sign_in person
   end
 
   def coach_text
     'I am willing to coach at Rails Girls workshops'
   end
-
 
   def see_workshop_coach_text
     expect(page).to have_content(coach_text)
@@ -28,8 +29,6 @@ feature 'workshop coach' do
   end
 
   def visit_profile_page_of_a_workshop_coach
-    visit new_person_session_path
-    login_as_user
     person = create(:person, first_name: 'Sara', workshop_coach: true)
     click_link 'People'
     click_link 'Sara'
