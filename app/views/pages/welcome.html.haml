@@ -38,11 +38,40 @@
       %h3 Don't see a group for you?
       %ol
         %li
-          %a{ href: groups_path } Head over to the groups page
+          %a{ href: groups_path } Head over to your profile page
         %li 
           Make a group!
           
+  .row.or-box
+    .col-sm-offset-4.col-sm-7
+      %p
+        THEN
+
+  .row
+    .col-sm-6.make-group
+      %h3 Tell others about you!
+      %ol
+        %li
+          - if logged_in?(current_person)
+            %a{ href: edit_person_registration_path(current_person.id) } Head over to your profile
+          - else
+            %a{ href: new_person_session_path } Log in and head over to your profile
+        %li 
+          Upload a picture so your new project group knows what you look like!
+        %li
+          Tell us what you are working on
+        %li
+          Fill in your twitter handle (if you want)
+
+
+    .col-sm-6
+      %figure.picture-box
+        = image_tag asset_path('make_profile.png')
+
+
   .row.make-cake-section
+    .col-sm-6.picture-box.img-circle
+      = image_tag asset_path('cake.gif'), class: 'img-circle'
     .col-sm-6.additional-suggestions
       .row
         .col-sm-offset-3.col-sm-7
@@ -62,13 +91,16 @@
               if you have suggestions
             %li
               and most important of all, make us some cake
+              .row
+                .col-sm-offset-2.col-sm-5.hidden-sm
+                  = markdown(":cake:")
+
 
           .button-class
             %button.btn.btn-custom
               = link_to "Go To Groups!", groups_path
           
-    .col-sm-6.picture-box.img-circle
-      = image_tag asset_path('cake.gif'), class: 'img-circle'
+
 
 
 
