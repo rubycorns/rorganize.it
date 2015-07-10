@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614105629) do
+ActiveRecord::Schema.define(version: 20150630183729) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150614105629) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -49,8 +50,6 @@ ActiveRecord::Schema.define(version: 20150614105629) do
     t.string   "slug"
     t.text     "learning_resources"
   end
-
-  add_index "groups", ["slug"], name: "index_groups_on_slug", unique: true
 
   create_table "memberships", force: true do |t|
     t.integer  "group_id"
@@ -83,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150614105629) do
     t.string   "picture"
     t.string   "twitter"
     t.text     "working_on"
+    t.boolean  "workshop_coach"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
@@ -107,8 +107,6 @@ ActiveRecord::Schema.define(version: 20150614105629) do
     t.string   "slug"
     t.date     "published_on"
   end
-
-  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
 
   create_table "roles", force: true do |t|
     t.string   "name"

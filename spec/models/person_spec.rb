@@ -21,6 +21,7 @@
 #  picture                :string(255)
 #  twitter                :string(255)
 #  working_on             :text
+#  workshop_coach         :boolean
 #
 
 require 'spec_helper'
@@ -97,6 +98,17 @@ describe Person do
 
     it 'checks to see if they are a member of a group' do
       expect(subject.member_of?(group)).to be_truthy
+    end
+  end
+
+  describe 'willing to coach workshop checkbox' do
+    it 'indicates the Person wants to coach workshops' do
+      person.workshop_coach = true
+      expect(person.workshop_coach).to be_truthy
+    end
+
+    it 'indicates the Person does not want to coach workshops' do
+      expect(person.workshop_coach).to be_falsey
     end
   end
 

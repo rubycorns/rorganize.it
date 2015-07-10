@@ -32,6 +32,9 @@
         = label_tag(:twitter, "Your twitter handle")
         = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
       .form-group
+        = f.check_box(:workshop_coach)
+        = label_tag(:person_workshop_coach, "I am willing to coach at Rails Girls Workshops")
+      .form-group
         = label_tag(:picture, "Add your profile picture")
         = f.file_field :picture, placeholder: 'picture'
         %p.help-block Choose your profile picture

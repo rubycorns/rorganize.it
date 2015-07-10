@@ -17,6 +17,12 @@
 #  email      :string(255)
 #  level      :string(255)
 #  founded_on :string(255)
+#  full       :boolean          default(FALSE)
+#  city       :string(255)
+#  country    :string(255)
+#  slug       :string(255)
+#  zip        :string(255)
+#  street     :string(255)
 #
 
 require 'spec_helper'

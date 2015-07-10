@@ -8,7 +8,15 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    editable_fields = [:first_name, :last_name, :group_id, :twitter, :picture, :working_on]
+    editable_fields = [
+      :first_name,
+      :last_name,
+      :group_id,
+      :twitter,
+      :picture,
+      :working_on,
+      :workshop_coach,
+    ]
 
     devise_parameter_sanitizer.for(:sign_up) do |person|
       person.permit(editable_fields + [:email, :password, :password_confirmation, :type])

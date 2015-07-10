@@ -21,6 +21,7 @@
 #  picture                :string(255)
 #  twitter                :string(255)
 #  working_on             :text
+#  workshop_coach         :boolean
 #
 
 class Person < ActiveRecord::Base
