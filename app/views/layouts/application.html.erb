@@ -45,6 +45,7 @@
           <ul class="nav navbar-nav navbar-right profile-header">
             <li><%= link_to 'Log in', new_person_session_path %></li>
             <li><%= link_to 'Sign up', new_person_registration_path %></li>
+            <li><%= link_to "Sign in with Github", person_omniauth_authorize_path(:github) %></li>
           </ul>
           <% end %>
           <ul class="nav navbar-nav">
