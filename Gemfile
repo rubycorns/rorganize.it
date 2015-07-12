@@ -84,6 +84,9 @@ gem 'haml'
 
 #use rails autolink for fields to automatically display URLs as hyperlinks
 gem 'rails_autolink'
+
+gem 'omniauth-github'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
