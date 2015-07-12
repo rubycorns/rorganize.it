@@ -1,6 +1,7 @@
 RailsGirlsApp::Application.routes.draw do
 
-  devise_for :people, controllers: { registrations: 'registrations' }
+  devise_for :people, controllers: { registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
