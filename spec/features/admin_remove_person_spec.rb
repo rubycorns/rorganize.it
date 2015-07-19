@@ -23,7 +23,7 @@ feature 'Remove a person from a group' do
   context 'the admin' do
 
     before do
-      person.add_role 'admin'
+      person.update_attribute(:admin, true)
       person.join!(group, 'StudentMembership')
       go_to_group_page
     end

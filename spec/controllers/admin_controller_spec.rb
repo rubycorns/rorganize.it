@@ -2,11 +2,9 @@ require 'spec_helper'
 
 describe AdminsController do
 
-  let(:person) { create(:person) }
-  let(:admin) { create(:second_person) }
+  let(:person) { create :person }
+  let(:admin) { create :admin }
   before :each do
-    admin.add_role(:admin)
-    admin.save
     allow(controller).to receive :authenticate_person!
     allow(controller).to receive(:current_person).and_return(admin)
   end
@@ -14,25 +12,21 @@ describe AdminsController do
   describe 'create' do
 
     it 'is not allowed for normal users' do
-      admin.remove_role(:admin)
-      admin.save
-      post :create, admin: person.id
-      expect(person).not_to have_role(:admin)
+      post :create, id: person.id
+      expect(person.admin?).to be false
     end
 
-    it 'gives admin powers to a user' do
-      post :create, admin: person.id
-      expect(person).to have_role(:admin)
+    it 'gives admin powers to an admin user' do
+      post :create, id: admin.id
+      expect(admin.admin?).to be true
     end
   end
 
   describe 'destroy' do
 
     it 'removes admin power from a user' do
-      person.add_role(:admin)
-      person.save
-      delete :destroy, person: { admin_id: person.id }, id: person.id
-      expect(person).to_not have_role(:admin)
+      delete :destroy, id: admin.id
+      expect(admin.reload.admin?).to be false
     end
   end
 
