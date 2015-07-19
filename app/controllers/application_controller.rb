@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
       :picture,
       :working_on,
       :workshop_coach,
+      :admin
     ]
 
     devise_parameter_sanitizer.for(:sign_up) do |person|
@@ -28,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_admin_powers
-    render_403 unless current_person.has_role?(:admin)
+    render_403 unless current_person.admin?
   end
 
   def ensure_member_powers

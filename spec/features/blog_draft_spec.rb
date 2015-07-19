@@ -12,8 +12,7 @@ feature 'Blog drafts' do
   end
 
   def login_as_admin
-    person = create(:person)
-    person.add_role(:admin)
+    person =  create(:admin)
     visit new_person_session_path
     sign_in person
   end
