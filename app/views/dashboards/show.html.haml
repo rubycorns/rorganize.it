@@ -20,7 +20,7 @@
                     %span= fa_icon "magic", text: "un-adminify"
 
           - if @non_admins.length > 0
-            = form_tag dashboard_admins_path, method: 'create' do
+            = form_tag dashboard_admins_path, method: 'post' do
               .dashboard-left
                 = select_tag 'id', options_from_collection_for_select(@non_admins, :id, :name), class: 'form-control'
 
