@@ -49,8 +49,6 @@ FactoryGirl.define do
     last_name 'Cake'
     email
     password 'tarntest'
-    after(:build) do |user|
-      user.add_role(:admin)
-    end
+    admin true
   end
 end

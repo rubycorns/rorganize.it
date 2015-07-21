@@ -60,8 +60,7 @@ describe PostsController do
       context 'as an admin' do
 
         before do
-          person.add_role :admin
-          person.save
+          person.admin = true
         end
 
         context 'publishing the post' do
@@ -143,8 +142,7 @@ describe PostsController do
     context 'as an admin' do
 
       before do
-        person.add_role :admin
-        person.save
+        person.admin = true
         allow(Post).to receive(:find).and_return(post)
       end
 

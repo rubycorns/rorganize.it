@@ -61,7 +61,7 @@ class Group < ActiveRecord::Base
   end
 
   def deletable_by?(person)
-    person && person.has_role?(:admin)
+    person && person.admin?
   end
 
   def not_full?

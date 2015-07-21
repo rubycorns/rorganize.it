@@ -16,25 +16,25 @@ describe Role do
   let(:person) { create(:person) }
 
   it 'does not assign a role to a newly created user' do
-    expect(person.has_role?(:admin)).to be_falsey
+    expect(person.admin?).to be_falsey
   end
 
   describe 'adding a role' do
-    before { person.add_role(:admin) }
+    before { person.admin = true }
 
     it 'assigns the user an admin role' do
-      expect(person.has_role?(:admin)).to be_truthy
+      expect(person.admin?).to be_truthy
     end
   end
 
   describe 'removing a role' do
     before do
-      person.add_role(:admin)
-      person.remove_role(:admin)
+      person.admin = true
+      person.admin = false
     end
 
     it 'removes the admin role from the person' do
-      expect(person.has_role?(:admin)).to be_falsey
+      expect(person.admin?).to be_falsey
     end
   end
 end

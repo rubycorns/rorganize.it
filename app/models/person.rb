@@ -41,9 +41,7 @@ class Person < ActiveRecord::Base
 
   validates :first_name, presence: true
 
-  def self.admin
-    joins(:roles).where('roles.name = \'admin\'')
-  end
+  scope :admin, -> { where(admin: true) }
 
   def has_group?
     groups.empty? == false
