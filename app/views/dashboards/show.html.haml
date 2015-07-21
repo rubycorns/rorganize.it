@@ -18,10 +18,12 @@
                   = f.hidden_field :admin_id, value: admin.id
                   %button.link.no-btn
                     %span= fa_icon "magic", text: "un-adminify"
+
           - if @non_admins.length > 0
-            = form_tag dashboard_admins_path, method: 'POST' do
+            = form_tag dashboard_admins_path, method: 'create' do
               .dashboard-left
-                = select_tag 'admin', options_from_collection_for_select(@non_admins, :id, :name), class: 'form-control'
+                = select_tag 'id', options_from_collection_for_select(@non_admins, :id, :name), class: 'form-control'
+
               .dashboard-right
                 %button.btn.btn-primary{ name: "submit"}= fa_icon "magic", text: "adminify"
           - else

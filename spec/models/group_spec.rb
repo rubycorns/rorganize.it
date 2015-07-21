@@ -57,7 +57,7 @@ describe Group do
     end
 
     it 'is deletable by an admin' do
-      person.add_role :admin
+      person.update_attribute(:admin, true)
       expect(group).to be_deletable_by person
     end
 

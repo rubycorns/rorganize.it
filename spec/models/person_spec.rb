@@ -112,14 +112,11 @@ describe Person do
     end
   end
 
-
   describe '.admin' do
-
     subject { described_class.admin }
 
-    let!(:admin) { create(:person) }
+    let!(:admin) { create(:admin) }
     let!(:user) { create(:person) }
-    before { admin.add_role :admin }
 
     it 'lists all the admins' do
       expect(subject).to contain_exactly(admin)

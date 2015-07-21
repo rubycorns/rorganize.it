@@ -4,7 +4,7 @@ module PeopleHelper
   end
 
   def admin?
-     person_signed_in? && current_person.has_role?('admin')
+     person_signed_in? && current_person.admin?
   end
 
   def person_avatar(person)

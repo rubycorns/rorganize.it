@@ -26,11 +26,10 @@ describe 'Admin dashboard', :type => :feature do
   end
 
   context 'the user is logged in as admin' do
-    let!(:person) { create(:person) }
+    let!(:person) { create(:admin) }
     let!(:person2) { create(:person, first_name: 'Person', last_name: '2') }
 
     before do
-      person.add_role :admin
       visit new_person_session_path
       sign_in person
     end
@@ -69,10 +68,6 @@ describe 'Admin dashboard', :type => :feature do
         expect(page).to_not have_selector 'li a', text: 'Person 2'
       end
       expect(page).to have_content 'Successfully un-adminified Person 2'
-
     end
-
   end
-
-
 end
