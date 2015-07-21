@@ -76,6 +76,7 @@ user_list = [
     email: 'coach@example.org',
     password: 'testtest',
     twitter: '@coachtwitter',
+    admin: true,
   }
 ]
 user_list.each do |user|
