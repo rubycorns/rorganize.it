@@ -83,8 +83,6 @@ user_list.each do |user|
   Person.create!(user)
 end
 
-Person.find_by(email: 'coach@example.org').add_role(:admin)
-
 posts_list = [
   {
     title: 'What a day!',
