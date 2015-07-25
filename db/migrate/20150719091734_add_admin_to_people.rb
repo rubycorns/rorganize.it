@@ -2,7 +2,7 @@ class AddAdminToPeople < ActiveRecord::Migration
   def up
     add_column :people, :admin, :boolean, default: false, null: false
     
-    execute 'UPDATE people SET admin = 1 WHERE id IN(SELECT person_id FROM people_roles);'
+    execute "UPDATE people SET admin = 't' WHERE id IN(SELECT person_id FROM people_roles);"
 
     drop_table :roles
     drop_table :people_roles
