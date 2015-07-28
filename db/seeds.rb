@@ -76,13 +76,12 @@ user_list = [
     email: 'coach@example.org',
     password: 'testtest',
     twitter: '@coachtwitter',
+    admin: true,
   }
 ]
 user_list.each do |user|
   Person.create!(user)
 end
-
-Person.find_by(email: 'coach@example.org').add_role(:admin)
 
 posts_list = [
   {

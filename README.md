@@ -111,6 +111,6 @@ We are now graciously hosted by [Shelly](https://shellycloud.com/)
 1. Nudge Tobi or Lisa to invite you to the Shelly Cloud.
 1. Do NOT register online, use the command line option.
 1. [Follow the Shelly Cloud "Joining to Existing Cloud" steps](https://shellycloud.com/documentation/joining_existing_cloud).
-1. You can now deploy with `git push shelly` (just like Heroku, just with a Shelly).
+1. You can now deploy with `shelly login` (enter email and password), and then `git push shelly` (just like Heroku, just with a Shelly).
 
 App runs at: http://rorganize.it

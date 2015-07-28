@@ -25,7 +25,6 @@
 #
 
 class Person < ActiveRecord::Base
-  rolify
   include TwitterHandle
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -41,9 +40,7 @@ class Person < ActiveRecord::Base
 
   validates :first_name, presence: true
 
-  def self.admin
-    joins(:roles).where('roles.name = \'admin\'')
-  end
+  scope :admin, -> { where(admin: true) }
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |person|

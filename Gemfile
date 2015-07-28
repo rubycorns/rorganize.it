@@ -76,9 +76,6 @@ gem 'md_emoji'
 # for pagination
 gem 'will_paginate'
 
-# for admins
-gem 'rolify'
-
 # for haml
 gem 'haml'
 
