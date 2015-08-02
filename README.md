@@ -1,8 +1,7 @@
 
-## RailsGirlsApp [![Build Status](https://travis-ci.org/rubycorns/rorganize.it.svg)](https://travis-ci.org/rubycorns/rorganize.it) [![Stories in Ready](https://badge.waffle.io/rubycorns/rorganize.it.png?label=ready&title=Ready)](https://waffle.io/rubycorns/rorganize.it)
+## Rorganize.it [![Build Status](https://travis-ci.org/rubycorns/rorganize.it.svg)](https://travis-ci.org/rubycorns/rorganize.it) [![Stories in Ready](https://badge.waffle.io/rubycorns/rorganize.it.png?label=ready&title=Ready)](https://waffle.io/rubycorns/rorganize.it)
 
-You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
-This little app is just the one for you!
+You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code? Or maybe you recently coached at a workshop and now want to do it on a regular basis! If that's the case, this little app is just the one for you!
 
 An overview of who meets when, where, with whom to work on what.
 
