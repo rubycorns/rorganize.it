@@ -1,0 +1,29 @@
+.row
+  = form_for(current_person, html: { multipart: true }) do |f|
+    = render 'shared/error_messages', object: f.object
+
+    .col-md-6
+      .form-group
+        = label_tag(:first_name, "Your first name *")
+        = f.text_field :first_name, placeholder: 'First name', class: 'form-control'
+      .form-group
+        = label_tag(:last_name, "Your last name")
+        = f.text_field :last_name, placeholder: 'Last name', class: 'form-control'
+      .form-group
+        = label_tag(:twitter, "Your twitter handle")
+        = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
+      .form-group
+        = f.check_box(:workshop_coach)
+        = label_tag(:person_workshop_coach, "I am willing to coach at Rails Girls Workshops")
+      .form-group
+        = label_tag(:picture, "Add your profile picture")
+        = f.file_field :picture, placeholder: 'picture'
+        %p.help-block Choose your profile picture
+
+    .col-md-6
+      .form-group
+        = label_tag(:working_on, "What are you working on? (you can use markdown!)")
+        = f.text_area :working_on, placeholder: 'tutorials? a cool app?', class: 'form-control', rows: 5, id: 'working-on'
+
+      .form-group
+        = f.submit "Save", class: 'btn btn-primary'

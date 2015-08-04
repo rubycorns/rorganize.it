@@ -1,13 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  def update
-    @person = Person.find(current_person.id)
-    if @person.update_without_password(person_params)
-      set_flash_message :notice, :updated
-      redirect_to @person
-    else
-      render 'edit'
-    end
-  end
 
   def destroy
     current_person.destroy
