@@ -18,7 +18,6 @@ describe PostsController do
     end
 
     context 'with a couple of posts' do
-
       before :each do
         2.times { Post.create title: 'random', description: 'important stuff', draft: false }
         get :index
@@ -60,8 +59,7 @@ describe PostsController do
       context 'as an admin' do
 
         before do
-          person.add_role :admin
-          person.save
+          person.admin = true
         end
 
         context 'publishing the post' do
@@ -128,7 +126,7 @@ describe PostsController do
       allow(controller).to receive(:current_person).and_return(person)
     end
 
-    let(:person) { create :person }
+    let(:person) { create :admin }
     let(:post)   { create :post, published_on: Date.new(2015, 01, 01) }
     let(:params)  {
                     { post: 
@@ -143,8 +141,6 @@ describe PostsController do
     context 'as an admin' do
 
       before do
-        person.add_role :admin
-        person.save
         allow(Post).to receive(:find).and_return(post)
       end
 

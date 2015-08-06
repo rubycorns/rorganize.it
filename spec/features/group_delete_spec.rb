@@ -21,7 +21,7 @@ feature 'admins can delete groups' do
     end
 
     scenario 'admin deletes a group' do
-      person.add_role :admin
+      person.update_attribute(:admin, true)
       user_visits_group_page
       user_deletes_group
       group_has_been_deleted

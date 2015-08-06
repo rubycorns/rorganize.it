@@ -1,8 +1,7 @@
 
-## RailsGirlsApp [![Build Status](https://travis-ci.org/rubycorns/rorganize.it.svg)](https://travis-ci.org/rubycorns/rorganize.it) [![Stories in Ready](https://badge.waffle.io/rubycorns/rorganize.it.png?label=ready&title=Ready)](https://waffle.io/rubycorns/rorganize.it)
+## Rorganize.it [![Build Status](https://travis-ci.org/rubycorns/rorganize.it.svg)](https://travis-ci.org/rubycorns/rorganize.it) [![Stories in Ready](https://badge.waffle.io/rubycorns/rorganize.it.png?label=ready&title=Ready)](https://waffle.io/rubycorns/rorganize.it)
 
-You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
-This little app is just the one for you!
+You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code? Or maybe you recently coached at a workshop and now want to do it on a regular basis! If that's the case, this little app is just the one for you!
 
 An overview of who meets when, where, with whom to work on what.
 
@@ -105,6 +104,6 @@ We are now graciously hosted by [Shelly](https://shellycloud.com/)
 1. Nudge Tobi or Lisa to invite you to the Shelly Cloud.
 1. Do NOT register online, use the command line option.
 1. [Follow the Shelly Cloud "Joining to Existing Cloud" steps](https://shellycloud.com/documentation/joining_existing_cloud).
-1. You can now deploy with `git push shelly` (just like Heroku, just with a Shelly).
+1. You can now deploy with `shelly login` (enter email and password), and then `git push shelly` (just like Heroku, just with a Shelly).
 
 App runs at: http://rorganize.it

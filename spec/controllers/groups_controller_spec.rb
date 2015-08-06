@@ -121,7 +121,7 @@ describe GroupsController do
     context 'as an admin' do
 
       before do
-        person.add_role :admin
+        person.admin = true
       end
 
       it 'redirects to the groups path after successful deletion' do
