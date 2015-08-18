@@ -14,10 +14,10 @@ class PeopleController < ApplicationController
   end
 
   def update
-    if @person.update_attributes person_params
-      redirect_to person_path(@person), notice: 'You updated your profile!
-      Please endulge in some cake and pat yourself on the back for
-      a job well done.'
+    @person.update_attributes person_params
+    if @person.save
+      redirect_to person_path(@person), notice: 'You updated your profile! Please endulge in some cake'\
+      'and pat yourself on the back for a job well done.'
     else
       render 'edit'
     end
