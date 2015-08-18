@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719091734) do
+ActiveRecord::Schema.define(version: 20150804191714) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -48,9 +48,8 @@ ActiveRecord::Schema.define(version: 20150719091734) do
     t.string   "street"
     t.string   "slug"
     t.text     "learning_resources"
+    t.boolean  "inactive",           default: false
   end
-
-  add_index "groups", ["slug"], name: "index_groups_on_slug", unique: true
 
   create_table "memberships", force: true do |t|
     t.integer  "group_id"
@@ -102,8 +101,6 @@ ActiveRecord::Schema.define(version: 20150719091734) do
     t.string   "slug"
     t.date     "published_on"
   end
-
-  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
 
   create_table "topics", force: true do |t|
     t.text     "body"
