@@ -44,7 +44,6 @@ class Person < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |person|
-      binding.pry
       person.email = auth.info.email
       person.password = Devise.friendly_token[0,20]
       person.name = auth.info.name   # assuming the user model has a name
