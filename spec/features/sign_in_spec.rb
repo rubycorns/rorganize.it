@@ -21,7 +21,7 @@ describe 'Signing in', :type => :feature do
     end
   end
 
-  describe 'with the incorrect information' do
+  context 'with the incorrect information' do
     before do
       fill_in 'Email', with: person.email
       fill_in 'Password', with: 'wrongpassword'
@@ -34,6 +34,34 @@ describe 'Signing in', :type => :feature do
 
     it 'displays the correct alert message' do
       expect(page).to have_content 'Invalid email or password'
+    end
+  end
+
+  context 'with github' do
+    let!(:person) { create(:person, provider: 'github', uid: '1234567') }
+
+    before(:each) do
+      OmniAuth.config.test_mode = true
+
+      OmniAuth.config.mock_auth[:github] = {
+        "provider" => "github",
+        "uid" => "1234567",
+        "info" => {
+          "nickname" => "Willow",
+          "email" => "willow.rosenberg@example.com",
+          "name" => "Willow Rosenberg",
+          "image" => 'cake.jpg'
+        }
+      }
+    end
+
+    before do
+      visit root_path
+      click_link "Sign in with Github"
+    end
+
+    it 'successfully signs in the user via github' do
+      expect(page).to have_content("Successfully authenticated from Github account")
     end
   end
 end
