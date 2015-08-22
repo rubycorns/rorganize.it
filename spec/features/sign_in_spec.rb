@@ -41,18 +41,19 @@ describe 'Signing in', :type => :feature do
     let!(:person) { create(:person, provider: 'github', uid: '1234567') }
 
     before(:each) do
+      # https://github.com/intridea/omniauth/wiki/Integration-Testing#omniauthconfigadd_mock
       OmniAuth.config.test_mode = true
 
-      OmniAuth.config.mock_auth[:github] = {
-        "provider" => "github",
-        "uid" => "1234567",
-        "info" => {
-          "nickname" => "Willow",
-          "email" => "willow.rosenberg@example.com",
-          "name" => "Willow Rosenberg",
-          "image" => 'cake.jpg'
+      OmniAuth.config.add_mock(:github, 
+        provider: "github",
+        uid: "1234567",
+        info: {
+          nickname: "Willow",
+          email: "willow.rosenberg@example.com",
+          name: "Willow Rosenberg",
+          image: "cake.jpg"
         }
-      }
+      )
     end
 
     before do
