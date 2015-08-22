@@ -123,4 +123,27 @@ describe Person do
     end
   end
 
+  describe '.from_omniauth' do
+    let(:person) { build :person, provider: 'github', picture: "1.jpg" }
+    let(:auth) { OpenStruct.new({ provider: 'github', 
+                                    uid: '123456', 
+                                    info: { 
+                                      email: 'buffy.summers@example.com', 
+                                      name: 'Buffy', 
+                                      image: 'https://avatars.githubusercontent.com/u/1'
+                                    } 
+                                })} 
+
+    before do
+      expect(Person).to receive(:where).with(hash_including(provider: auth.provider)).and_return([person])
+      expect([person]).to receive(:first_or_create).and_return person
+    end
+  
+    specify do
+      expect(Person.from_omniauth(auth)).to eql person
+      expect(person.email).to eql "buffy.summers@example.com"
+      expect(person.name).to eql 'Buffy'
+    end
+  end
+
 end

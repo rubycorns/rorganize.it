@@ -44,11 +44,11 @@ class Person < ActiveRecord::Base
 
   #test this
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |person|
-      person.email = auth.info.email
+    where(provider: auth["provider"], uid: auth["uid"]).first_or_create do |person|
+      person.email = auth["info"]["email"]
       person.password = Devise.friendly_token[0,20]
-      person.name = auth.info.name   # assuming the user model has a name
-      person.remote_picture_url = auth.info.image # assuming the user model has an image
+      person.name = auth["info"]["name"]   # assuming the user model has a name
+      person.remote_picture_url = auth["info"]["image"] # assuming the user model has an image
     end
   end
 
