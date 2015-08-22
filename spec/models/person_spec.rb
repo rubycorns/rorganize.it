@@ -124,25 +124,25 @@ describe Person do
   end
 
   describe '.from_omniauth' do
-    let(:person) { build :person, provider: 'github', picture: "1.jpg" }
-    let(:auth) { OpenStruct.new({ provider: 'github', 
-                                    uid: '123456', 
-                                    info: { 
-                                      email: 'buffy.summers@example.com', 
-                                      name: 'Buffy', 
-                                      image: 'https://avatars.githubusercontent.com/u/1'
-                                    } 
-                                })} 
+    let(:auth)        { double "auth", provider: 'github', uid: '123456', info: auth_info }
+    let(:auth_info)   { double "auth_info", email: 'buffy.summers@example.com', name: 'Buffy Summers', image: 'https://avatars.githubusercontent.com/u/1' }
+    let(:auth_person) { Person.from_omniauth(auth) }
 
-    before do
-      expect(Person).to receive(:where).with(hash_including(provider: auth.provider)).and_return([person])
-      expect([person]).to receive(:first_or_create).and_return person
+    context 'where a does not already exist' do
+      specify do
+        expect(auth_person.email).to eql "buffy.summers@example.com"
+        expect(auth_person.name).to eql 'Buffy Summers'
+        expect(auth_person.uuid).to eql '123456'
+        expect(auth_person.provider).to eql 'github'
+      end
     end
-  
-    specify do
-      expect(Person.from_omniauth(auth)).to eql person
-      expect(person.email).to eql "buffy.summers@example.com"
-      expect(person.name).to eql 'Buffy'
+
+    context 'where a person already exists' do
+      let!(:person) { create :person, provider: 'github', uid: 123456, first_name: 'Buffy', last_name: 'Summers' }
+
+      specify do
+        expect(auth_person).to eql person
+      end
     end
   end
 
