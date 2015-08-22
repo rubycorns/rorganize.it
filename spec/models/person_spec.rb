@@ -132,7 +132,7 @@ describe Person do
       specify do
         expect(auth_person.email).to eql "buffy.summers@example.com"
         expect(auth_person.name).to eql 'Buffy Summers'
-        expect(auth_person.uuid).to eql '123456'
+        expect(auth_person.uid).to eql '123456'
         expect(auth_person.provider).to eql 'github'
       end
     end
