@@ -15,7 +15,7 @@ from what you've done and become better coders ourselves in the process. If you 
 
 ### Code of Conduct
 
-You can learn about our Code of Conduct [here](http://rorganize.it/conduct) and [here](https://github.com/rubycorns/rorganize.it/blob/master/CODE_OF_CONDUCT.md)
+You can learn about our [Code of Conduct online ](http://rorganize.it/conduct) or [in the repo](https://github.com/rubycorns/rorganize.it/blob/master/CODE_OF_CONDUCT.md)
 
 ### Just some general information:
 
