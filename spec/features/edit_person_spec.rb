@@ -10,7 +10,7 @@ feature 'edit a person' do
   before do
     visit person_path(person)
     click_link 'edit'
-    expect(page).to have_content('Edit Account')
+    expect(page).to have_content('Edit Profile')
   end
 
   describe 'changing the working on section ' do
@@ -21,7 +21,7 @@ feature 'edit a person' do
     end
 
     it 'displays a successful alert message' do
-      expect(page.text).to have_content "You updated your account successfully"
+      expect(page.text).to have_content "You updated your profile!"
     end
 
     it 'redirects to the correct path' do
