@@ -10,7 +10,7 @@ feature 'edit a person' do
   before do
     visit person_path(person)
     click_link 'edit'
-    expect(page).to have_content('Edit Profile')
+    expect(page).to have_content('Your first name')
   end
 
   describe 'changing the working on section ' do
