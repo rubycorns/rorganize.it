@@ -21,6 +21,13 @@
       - if @person.workshop_coach?
         %p
           I am willing to coach at Rails Girls workshops
+      - if @person.willing_to_travel?
+        %p
+          I am willing to travel to a Rails Girls Workshop
+      - if coach_location?(@person)
+        %p
+          %strong Based in:
+          #{@person.city} #{@person.country}
     .col-md-4
       %h4 Project Groups:
       - if @person.has_group?
