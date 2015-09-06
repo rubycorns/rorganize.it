@@ -3,6 +3,7 @@ rvm: 2.0.0
 cache: bundler
 before_script:
   - "bundle exec rake db:migrate"
+  - "cp config/secrets.yml.sample config/secrets.yml"
 script: "bundle exec rspec"
 notifications:
   email:
