@@ -27,7 +27,11 @@
             - if even_a_button?(@group) && show_join_group_button?(current_person, @group)
               = render 'join'
 
-            - if @group.full?
+            - if @group.inactive?
+              = link_to groups_path, html_options = { class: 'btn btn-error'} do
+                %i.glyphicon.glyphicon-remove-sign
+                GROUP CURRENTLY INACTIVE
+            - elsif @group.full?
               = link_to groups_path, html_options = { class: 'btn btn-error'} do
                 %i.glyphicon.glyphicon-remove-sign
                 GROUP CURRENTLY FULL

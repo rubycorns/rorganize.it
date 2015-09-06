@@ -23,4 +23,10 @@ module PeopleHelper
     end
   end
 
+  def coach_location?(person)
+    if person.city? || person.country?
+      true
+    end
+  end
+
 end

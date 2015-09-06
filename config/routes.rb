@@ -10,6 +10,7 @@ RailsGirlsApp::Application.routes.draw do
 
   get 'about' => 'pages#about'
   get 'welcome' => 'pages#welcome'
+  get 'conduct' => 'pages#conduct'
 
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)
   resources :groups do

@@ -5,9 +5,9 @@
         %h1.pull-left= @person.full_name
         .btn-group.pull-right
           - if logged_in?(@person)
-            = link_to edit_person_registration_path, html_options = {class: 'btn btn-default'} do
+            = link_to edit_person_path(@person), class: 'btn btn-default' do
               = fa_icon "pencil", text: "edit"
-          = link_to people_path, html_options = {class: 'btn btn-default'} do
+          = link_to people_path, class: 'btn btn-default' do
             = fa_icon "arrow-left", text: "back"
 
   .row
@@ -21,6 +21,13 @@
       - if @person.workshop_coach?
         %p
           I am willing to coach at Rails Girls workshops
+      - if @person.willing_to_travel?
+        %p
+          I am willing to travel to a Rails Girls Workshop
+      - if coach_location?(@person)
+        %p
+          %strong Based in:
+          #{@person.city} #{@person.country}
     .col-md-4
       %h4 Project Groups:
       - if @person.has_group?

@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
     editable_fields = [
       :first_name,
       :last_name,
-      :group_id,
-      :twitter,
-      :picture,
-      :working_on,
-      :workshop_coach,
-      :admin
     ]
 
     devise_parameter_sanitizer.for(:sign_up) do |person|

@@ -44,7 +44,7 @@
       = f.text_field :city, class: 'form-control'
     .form-group
       = f.label(:country, "Country *")
-      = f.country_select(:country, {priority_countries: ["DE", "PL", "IN", "US"], include_blank: true}, {class: 'form-control'})  
+      = f.country_select(:country, {priority_countries: ["DE", "PL", "IN", "US"], include_blank: true}, {class: 'form-control'})
 
   .col-md-4
     .form-group
@@ -61,5 +61,8 @@
       .form-group
         = f.check_box :full
         = f.label(:full, "Is your group full?")
+      .form-group
+        = f.check_box :inactive
+        = f.label(:inactive, "Is your group inactive?")
     .actions.pull-right
       = f.submit class: "btn btn-primary"

@@ -1,8 +1,7 @@
 
-## RailsGirlsApp [![Build Status](https://travis-ci.org/rubycorns/rorganize.it.svg)](https://travis-ci.org/rubycorns/rorganize.it) [![Stories in Ready](https://badge.waffle.io/rubycorns/rorganize.it.png?label=ready&title=Ready)](https://waffle.io/rubycorns/rorganize.it)
+## Rorganize.it [![Build Status](https://travis-ci.org/rubycorns/rorganize.it.svg)](https://travis-ci.org/rubycorns/rorganize.it) [![Stories in Ready](https://badge.waffle.io/rubycorns/rorganize.it.png?label=ready&title=Ready)](https://waffle.io/rubycorns/rorganize.it)
 
-You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code?
-This little app is just the one for you!
+You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code? Or maybe you recently coached at a workshop and now want to do it on a regular basis! If that's the case, this little app is just the one for you!
 
 An overview of who meets when, where, with whom to work on what.
 
@@ -13,6 +12,10 @@ To see the current status of the project and who's working on what, go to https:
 We've had lots of people asking us if this project is open for all to work on and if they can contribute
 even though they are a) not women, b) not in our project group, c) don't know us, d) some other reason. The answer is of course yes! We are not a closed group and we welcome your PRs. All we ask is that you communicate with us regularly, make clean PRs, test your work, and be nice. If you write some crazy code, explanations are helpful so that we can learn
 from what you've done and become better coders ourselves in the process. If you have a great idea for a feature & want to implement it, please open an issue, assign yourself to it, and hack away :)
+
+### Code of Conduct
+
+You can learn about our [Code of Conduct online ](http://rorganize.it/conduct) or [in the repo](https://github.com/rubycorns/rorganize.it/blob/master/CODE_OF_CONDUCT.md)
 
 ### Just some general information:
 

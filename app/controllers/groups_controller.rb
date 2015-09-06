@@ -67,7 +67,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:id, :name, :address, :time,
     :picture, :twitter, :contact, :activities, :email, :level,
     :founded_on, :join_as_coach, :full, :city, :country, :street, :zip,
-    :learning_resources)
+    :learning_resources, :inactive)
   end
 
 end

@@ -33,6 +33,7 @@ feature 'create a group' do
     expect(page).to have_content('This group currently has 0 students.')
     expect(page).to have_content('This group currently has 1 coach.')
   end
+  
 
   scenario 'create a group and don\'t become a member of it' do
     visit root_path

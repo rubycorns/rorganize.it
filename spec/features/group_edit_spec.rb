@@ -30,6 +30,17 @@ feature 'edit a group' do
     expect(page).to have_content('Not Berlin, FR')
   end
 
+  scenario 'make current group inactive' do
+    visit_group_edit_page
+    check 'Is your group inactive?'
+    click_button 'Update Group'
+    expect(page).to have_content('GROUP CURRENTLY INACTIVE')
+    visit_group_edit_page
+    check 'Is your group full?'
+    click_button 'Update Group'
+    expect(page).to have_content('GROUP CURRENTLY INACTIVE')
+  end
+
   def visit_group_edit_page
     visit root_path
     click_link 'Groups'
