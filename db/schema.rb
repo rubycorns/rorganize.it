@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719091734) do
+ActiveRecord::Schema.define(version: 20150825181332) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150719091734) do
     t.string   "street"
     t.string   "slug"
     t.text     "learning_resources"
+    t.boolean  "inactive",           default: false
   end
 
   add_index "groups", ["slug"], name: "index_groups_on_slug", unique: true
@@ -84,9 +85,12 @@ ActiveRecord::Schema.define(version: 20150719091734) do
     t.string   "twitter"
     t.text     "working_on"
     t.boolean  "workshop_coach"
+    t.boolean  "admin",                  default: false, null: false
+    t.boolean  "willing_to_travel",      default: false
+    t.string   "city"
+    t.string   "country"
     t.string   "provider"
     t.string   "uid"
-    t.boolean  "admin",                  default: false, null: false
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
