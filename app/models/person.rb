@@ -29,7 +29,7 @@ class Person < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:github]
 
   has_many :groups, through: :memberships
   has_many :memberships, dependent: :destroy
@@ -42,6 +42,15 @@ class Person < ActiveRecord::Base
 
   scope :admin, -> { where(admin: true) }
 
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |person|
+      person.email = auth.info.email
+      person.password = Devise.friendly_token[0,20]
+      person.name = auth.info.name   # assuming the user model has a name
+      person.remote_picture_url = auth.info.image # assuming the user model has an image
+    end
+  end
+
   def has_group?
     groups.empty? == false
   end
@@ -52,6 +61,12 @@ class Person < ActiveRecord::Base
 
   def name
     full_name
+  end
+
+  def name=(string)
+    names = string.split(' ')
+    self.first_name = names.first
+    self.last_name = names.last
   end
 
   def to_s

@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 20150825181332) do
     t.boolean  "willing_to_travel",      default: false
     t.string   "city"
     t.string   "country"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true

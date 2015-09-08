@@ -123,4 +123,27 @@ describe Person do
     end
   end
 
+  describe '.from_omniauth' do
+    let(:auth)        { double "auth", provider: 'github', uid: '123456', info: auth_info }
+    let(:auth_info)   { double "auth_info", email: 'buffy.summers@example.com', name: 'Buffy Summers', image: 'https://avatars.githubusercontent.com/u/1' }
+    let(:auth_person) { Person.from_omniauth(auth) }
+
+    context 'where a does not already exist' do
+      specify do
+        expect(auth_person.email).to eql "buffy.summers@example.com"
+        expect(auth_person.name).to eql 'Buffy Summers'
+        expect(auth_person.uid).to eql '123456'
+        expect(auth_person.provider).to eql 'github'
+      end
+    end
+
+    context 'where a person already exists' do
+      let!(:person) { create :person, provider: 'github', uid: 123456, first_name: 'Buffy', last_name: 'Summers' }
+
+      specify do
+        expect(auth_person).to eql person
+      end
+    end
+  end
+
 end

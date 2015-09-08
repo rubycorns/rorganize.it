@@ -40,6 +40,11 @@ Get the code from this repo
 
 
 ### Run locally
+
+Get all the secrets:
+
+    cp config/secrets.yml.sample config/secrets.yml
+    
 Install all the gems
 
     bundle install
@@ -57,6 +62,7 @@ Run the server
     rails s 
 
 et voilá
+
 
 
 ### Git: branches 
