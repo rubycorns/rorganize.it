@@ -11,8 +11,8 @@ class GroupsController < ApplicationController
     @groups = @groups.by_country(params[:country]) if params[:country].present?
     @groups = @groups.by_city(params[:city]) if params[:city].present?
 
-    @group_cities = Group.select(:city).distinct
-    @group_countries = Group.select(:country).distinct
+    @cities = @groups.map { |group| group.city }.uniq
+    @countries = @groups.map { |group| group.country }.uniq
   end
 
   def new

@@ -34,22 +34,4 @@
       %h1.page-header Hey listen!
       %p If you don't see your project group - feel free to add it!
       = link_to "register new group", new_group_path, class: 'btn btn-primary'
-      
-      %h2.page-header Filter by
-      = form_tag groups_path, method: 'get' do
-        .row
-          %label.col-md-2.control-label city
-          .col-md-9
-            %select{name: :city, class: 'form-control'} 
-              - @group_cities.each do |group|
-                %option{value: group.city}= group.city
-        .row
-          %label.col-md-2.control-label country
-          .col-md-9
-            %select{name: :country, class: 'form-control'} 
-              - @group_countries.each do |group|
-                %option{value: group.country}= group.country
-        %button{type: 'submit', class: 'btn btn-primary'}
-          filter
-
-      
+      = render 'shared/filter'
