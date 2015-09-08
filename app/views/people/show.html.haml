@@ -5,6 +5,7 @@
         %h1.pull-left= @person.full_name
         .btn-group.pull-right
           - if logged_in?(@person)
+            = link_to "Link account with Github", person_omniauth_authorize_path(:github), class: 'btn btn-custom', id: 'github-button' unless @person.provider.present?
             = link_to edit_person_path(@person), class: 'btn btn-default' do
               = fa_icon "pencil", text: "edit"
           = link_to people_path, class: 'btn btn-default' do
@@ -44,6 +45,7 @@
         %p
           = @person.first_name
           is not in a group.
+
     #working-on.col-md-5
       - if @person.working_on?
         %h4 Working on
