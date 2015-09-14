@@ -3,13 +3,21 @@
     .col-md-12
       .page-header.clearfix
         %h1.pull-left= @person.full_name
-        .btn-group.pull-right
-          - if logged_in?(@person)
-            = link_to "Link account with Github", person_omniauth_authorize_path(:github), class: 'btn btn-custom', id: 'github-button' unless @person.provider.present?
+        - if logged_in?(@person)
+          .btn-group.pull-right
             = link_to edit_person_path(@person), class: 'btn btn-default' do
               = fa_icon "pencil", text: "edit"
-          = link_to people_path, class: 'btn btn-default' do
-            = fa_icon "arrow-left", text: "back"
+            = link_to people_path, class: 'btn btn-default' do
+              = fa_icon "arrow-left", text: "back"
+          .link-with-github.pull-right
+            - if @person.provider.present?
+              = fa_icon("github", text: "Linked with Github")
+            - else
+              = link_to "Link account with Github", person_omniauth_authorize_path(:github), id: 'github-button'
+        - else
+          .btn-group.pull-right
+            = link_to people_path, class: 'btn btn-default' do
+              = fa_icon "arrow-left", text: "back"
 
   .row
     .col-md-3

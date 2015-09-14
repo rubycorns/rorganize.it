@@ -91,7 +91,8 @@ describe 'Signing in', :type => :feature do
 
     it 'successfully merges the users accound with github' do
       expect(page).to have_content("Successfully authenticated from Github account")
-      expect(page).to_not have_content("Link with Github")
+      expect(page).to_not have_content("Link account with Github")
+      expect(page).to have_content("Linked with Github")
     end
 
   end
