@@ -30,9 +30,7 @@ feature 'workshop coach' do
 
   def visit_profile_page_of_a_workshop_coach
     person = create(:person, first_name: 'Sara', workshop_coach: true)
-    within('.people-dropdown') do
-      click_link 'All'
-    end
+    click_link 'All'
     click_link 'Sara'
   end
 
