@@ -11,9 +11,9 @@
               = fa_icon "arrow-left", text: "back"
           .link-with-github.pull-right
             - if @person.provider.present?
-              = fa_icon("github", text: "Linked with Github")
+              = fa_icon("github", text: "Linked with GitHub")
             - else
-              = link_to "Link account with Github", person_omniauth_authorize_path(:github), id: 'github-button'
+              = link_to "Link account with GitHub", person_omniauth_authorize_path(:github), id: 'github-button'
         - else
           .btn-group.pull-right
             = link_to people_path, class: 'btn btn-default' do

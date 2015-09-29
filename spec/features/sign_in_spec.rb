@@ -57,11 +57,11 @@ describe 'Signing in', :type => :feature do
 
     before do
       visit root_path
-      click_link "Sign in with Github"
+      click_link "Sign in with GitHub"
     end
 
     it 'successfully signs in the user via github' do
-      expect(page).to have_content("Successfully authenticated from Github account")
+      expect(page).to have_content("Successfully authenticated from GitHub account")
     end
   end
 
@@ -83,16 +83,14 @@ describe 'Signing in', :type => :feature do
       )
     end
 
-    before do
+    it 'successfully merges the users accound with github' do
       sign_in person
       visit person_path(person)
       find("#github-button").click
-    end
 
-    it 'successfully merges the users accound with github' do
-      expect(page).to have_content("Successfully authenticated from Github account")
-      expect(page).to_not have_content("Link account with Github")
-      expect(page).to have_content("Linked with Github")
+      expect(page).to have_content("Successfully authenticated from GitHub account")
+      expect(page).to_not have_content("Link account with GitHub")
+      expect(page).to have_content("Linked with GitHub")
     end
 
   end

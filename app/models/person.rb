@@ -54,7 +54,7 @@ class Person < ActiveRecord::Base
   def merge_with_github!(github_person)
     self.provider = github_person.provider
     self.uid = github_person.uid
-    self.save
+    self.save!
   end
 
   def has_group?
