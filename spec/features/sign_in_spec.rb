@@ -83,7 +83,7 @@ describe 'Signing in', :type => :feature do
       )
     end
 
-    it 'successfully merges the users accound with github' do
+    it 'successfully merges the users account with github' do
       sign_in person
       visit person_path(person)
       find("#github-button").click
