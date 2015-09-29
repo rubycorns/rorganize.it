@@ -73,6 +73,28 @@ describe Person do
     end
   end
 
+  describe '#name=' do
+    it 'displays the first and last name' do
+      subject.name = 'Ruby Corn'
+      expect(subject.name).to eql 'Ruby Corn'
+    end
+
+    it 'does not double the name if there is only one' do
+      subject.name = 'Ruby'
+      expect(subject.name).to eql 'Ruby'
+    end
+
+    it 'allows for three names' do
+      subject.name = 'Ruby Fabulous Rubycorn'
+      expect(subject.name).to eql 'Ruby Fabulous Rubycorn'
+    end
+
+    it 'allows for many many names' do
+      subject.name = 'Ruby Fabulous Rubycorn What Does It Even Mean'
+      expect(subject.name).to eql 'Ruby Fabulous Rubycorn What Does It Even Mean'
+    end
+  end
+
   describe '#join!' do
     before { subject.join!(group) }
 
