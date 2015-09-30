@@ -146,4 +146,15 @@ describe Person do
     end
   end
 
+  describe '#merge_with_github!' do
+    let(:github_person) { build :person, provider: 'github', uid: '123456' }
+    let(:person) { build :second_person }
+
+    it 'merges the rorganize person with a github person' do
+      person.merge_with_github!(github_person)
+      expect(person.reload.provider).to eql 'github'
+      expect(person.reload.uid).to eql '123456'
+    end
+  end
+
 end

@@ -38,7 +38,6 @@ describe 'Signing in', :type => :feature do
   end
 
   context 'with github' do
-    let!(:person) { create(:person, provider: 'github', uid: '1234567') }
 
     before(:each) do
       # https://github.com/intridea/omniauth/wiki/Integration-Testing#omniauthconfigadd_mock
@@ -51,18 +50,48 @@ describe 'Signing in', :type => :feature do
           nickname: "Willow",
           email: "willow.rosenberg@example.com",
           name: "Willow Rosenberg",
-          image: "cake.jpg"
+          image: ""
         }
       )
     end
 
     before do
       visit root_path
-      click_link "Sign in with Github"
+      click_link "Sign in with GitHub"
     end
 
     it 'successfully signs in the user via github' do
-      expect(page).to have_content("Successfully authenticated from Github account")
+      expect(page).to have_content("Successfully authenticated from GitHub account")
     end
+  end
+
+  context 'merging an account with github' do
+    let!(:person) { create(:person, email: 'cordelia.chase@example.com', first_name: 'Cordelia', provider: nil) }
+
+    before(:each) do
+      OmniAuth.config.test_mode = true
+
+      OmniAuth.config.add_mock(:github, 
+        provider: "github",
+        uid: "7654321",
+        info: {
+          nickname: "Cordelia",
+          email: "cordelia.chase@example.com",
+          name: "Cordelia Chase",
+          image: ""
+        }
+      )
+    end
+
+    it 'successfully merges the users account with github' do
+      sign_in person
+      visit person_path(person)
+      find("#github-button").click
+
+      expect(page).to have_content("Successfully authenticated from GitHub account")
+      expect(page).to_not have_content("Link account with GitHub")
+      expect(page).to have_content("Linked with GitHub")
+    end
+
   end
 end
