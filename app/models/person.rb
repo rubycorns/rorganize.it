@@ -40,6 +40,8 @@ class Person < ActiveRecord::Base
 
   validates :first_name, presence: true
 
+  before_validation :prepend_http
+
   scope :admin, -> { where(admin: true) }
   scope :by_country, -> (country) { where(country: country) }
   scope :by_city, -> (city) { where(city: city) }
@@ -113,4 +115,14 @@ class Person < ActiveRecord::Base
     name <=> other.name
   end
 
+  private
+    def prepend_http
+      if website.present?
+        website.prepend("http://") unless website_has_protocol?
+      end
+    end
+
+    def website_has_protocol?
+      !!(website =~ %r{\Ahttp://|\Ahttps://|\A//})
+    end
 end
