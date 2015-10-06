@@ -81,17 +81,26 @@ describe Person do
 
     it 'does not double the name if there is only one' do
       subject.name = 'Ruby'
+
       expect(subject.name).to eql 'Ruby'
+      expect(subject.first_name).to eql 'Ruby'
+      expect(subject.last_name).to eql nil
     end
 
     it 'allows for three names' do
       subject.name = 'Ruby Fabulous Rubycorn'
+
       expect(subject.name).to eql 'Ruby Fabulous Rubycorn'
+      expect(subject.first_name).to eql 'Ruby Fabulous'
+      expect(subject.last_name).to eql 'Rubycorn'
     end
 
     it 'allows for many many names' do
       subject.name = 'Ruby Fabulous Rubycorn What Does It Even Mean'
+
       expect(subject.name).to eql 'Ruby Fabulous Rubycorn What Does It Even Mean'
+      expect(subject.first_name).to eql 'Ruby Fabulous Rubycorn What Does It Even'
+      expect(subject.last_name).to eql 'Mean'
     end
   end
 
