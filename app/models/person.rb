@@ -62,7 +62,11 @@ class Person < ActiveRecord::Base
   end
 
   def full_name
-    [first_name, last_name].join(' ')
+    if last_name.present?
+      [first_name, last_name].join(' ')
+    else
+      first_name
+    end
   end
 
   def name
@@ -71,8 +75,14 @@ class Person < ActiveRecord::Base
 
   def name=(string)
     names = string.split(' ')
-    self.first_name = names.first
-    self.last_name = names.last
+
+    if names.count > 1
+      self.first_name = names.take(names.size - 1).join(' ')
+      self.last_name = names.last
+    else
+      self.first_name = names.first
+      self.last_name = nil
+    end
   end
 
   def to_s
