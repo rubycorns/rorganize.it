@@ -1,0 +1,16 @@
+%h2.page-header Filter by
+= form_tag url_for, method: 'get' do
+  .row
+    %label.col-md-2.control-label city
+    .col-md-9
+      %select{name: :city, class: 'form-control'}
+        - @cities.each do |city|
+          %option{value: city}= city
+  .row
+    %label.col-md-2.control-label country
+    .col-md-9
+      %select{name: :country, class: 'form-control'}
+        - @countries.each do |country|
+          %option{value: country}= country
+  %button{type: 'submit', class: 'btn btn-primary'}
+    filter
