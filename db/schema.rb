@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825181332) do
+ActiveRecord::Schema.define(version: 20151013180304) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 20150825181332) do
   add_index "memberships", ["group_id", "person_id"], name: "index_memberships_on_group_id_and_person_id", unique: true
   add_index "memberships", ["group_id"], name: "index_memberships_on_group_id"
   add_index "memberships", ["person_id"], name: "index_memberships_on_person_id"
+
+  create_table "notifications", force: true do |t|
+    t.integer  "person_id"
+    t.datetime "viewed_at"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "people", force: true do |t|
     t.string   "first_name"
