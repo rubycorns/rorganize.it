@@ -20,7 +20,6 @@
                   Click on a group
                 %li Join one!
 
-
     .col-sm-6
       %figure.picture-box
         = image_tag asset_path('join.png')
@@ -63,11 +62,9 @@
         %li
           Fill in your twitter handle (if you want)
 
-
     .col-sm-6
       %figure.picture-box
         = image_tag asset_path('make_profile.png')
-
 
   .row.make-cake-section
     .col-sm-6.picture-box.img-circle
@@ -95,10 +92,7 @@
                 .col-sm-offset-2.col-sm-5.hidden-sm
                   = markdown(":cake:")
 
-
-          .button-class
-            %button.btn.btn-custom
-              = link_to "Go To Groups!", groups_path
+          = link_to "Go To Groups!", groups_path, class: 'btn btn-custom'
           
 
 
