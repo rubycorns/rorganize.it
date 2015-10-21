@@ -66,6 +66,10 @@ et voilá
 
 
 ### Git: branches 
+*Note*: you will need permission from rubycorns in order to push your branches to this repository. 
+Until you have been granted permission, please [fork](https://help.github.com/articles/fork-a-repo/) this repository, 
+and create a branch from your fork.  
+
 Create new branch (you should be in the directory of the project) 
     
     git branch Name_of_your_branch
