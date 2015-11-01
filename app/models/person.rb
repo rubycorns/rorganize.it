@@ -41,8 +41,9 @@ class Person < ActiveRecord::Base
   validates :first_name, presence: true
 
   scope :admin, -> { where(admin: true) }
-  scope :by_country, -> (country) { where country: country }
-  scope :by_city, -> (city) { where city: city }
+  scope :by_country, -> (country) { where(country: country) }
+  scope :by_city, -> (city) { where(city: city) }
+  scope :willing_to_travel, -> { where(willing_to_travel: true) }
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |person|
@@ -51,6 +52,14 @@ class Person < ActiveRecord::Base
       person.name = auth.info.name   # assuming the user model has a name
       person.remote_picture_url = auth.info.image # assuming the user model has an image
     end
+  end
+
+  def self.cities
+    pluck(:city).uniq.compact
+  end
+
+  def self.countries
+    pluck(:country).uniq.compact
   end
 
   def merge_with_github!(github_person)

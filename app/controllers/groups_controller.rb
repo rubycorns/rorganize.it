@@ -8,11 +8,11 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.order :name
-    @groups = @groups.by_country(params[:country]) if params[:country].present?
-    @groups = @groups.by_city(params[:city]) if params[:city].present?
+    @groups = @groups.by_country(params[:country])
+    @groups = @groups.by_city(params[:city])
 
-    @cities = @groups.map { |group| group.city }.uniq
-    @countries = @groups.map { |group| group.country }.uniq
+    @cities = @groups.cities
+    @countries = @groups.countries
   end
 
   def new

@@ -48,13 +48,21 @@ class Group < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
 
-  scope :by_country, -> (country) { where country: country }
-  scope :by_city, -> (city) { where city: city }
-  
+  scope :by_country, -> (country) { where(country: country) if country.present? }
+  scope :by_city, -> (city) { where(city: city) if city.present? }
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
   attr_accessor :join_as_coach
+
+  def self.cities
+    pluck(:city).uniq.compact
+  end
+
+  def self.countries
+    pluck(:country).uniq.compact
+  end
 
   def editable_by?(person)
     people.include?(person)
