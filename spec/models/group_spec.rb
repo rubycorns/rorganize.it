@@ -73,4 +73,21 @@ describe Group do
       expect(group.not_full?).to be false
     end
   end
+
+  context 'filtering by city or country' do
+    let!(:group) { create :group }
+    let!(:second_group) { create :second_group }
+
+    describe '.cities' do
+      it 'returns a list of cities' do
+        expect(Group.cities).to eql ['Berlin', 'Hamburg']
+      end
+    end
+
+    describe '.countries' do
+      it 'returns a list of countries' do
+        expect(Group.countries).to eql ['DE']
+      end
+    end
+  end
 end
