@@ -9,5 +9,12 @@
     %label.col-md-3.control-label country
     .col-md-8
       = select_tag 'country', options_for_select(@countries), include_blank: true, class: 'form-control'
+
+  - if current_page?(coaches_path)
+    .row.filter-option
+      %label.col-md-9.control-lable willing to travel
+      .col-md-2
+        = check_box_tag 'willing_to_travel'
+
   %button{type: 'submit', class: 'btn btn-primary'}
     filter

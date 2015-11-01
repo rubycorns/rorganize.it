@@ -3,6 +3,7 @@ class CoachesController < ApplicationController
     @coaches = Person.where(workshop_coach: true)
     @coaches = @coaches.by_country(params[:country]) if params[:country].present?
     @coaches = @coaches.by_city(params[:city]) if params[:city].present?
+    @coaches = @coaches.willing_to_travel if params[:willing_to_travel] == '1'
 
     @cities = @coaches.cities
     @countries = @coaches.countries
