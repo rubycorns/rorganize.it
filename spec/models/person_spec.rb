@@ -156,7 +156,7 @@ describe Person do
 
   describe '.from_omniauth' do
     let(:auth)        { double "auth", provider: 'github', uid: '123456', info: auth_info }
-    let(:auth_info)   { double "auth_info", email: 'buffy.summers@example.com', name: 'Buffy Summers', image: 'https://avatars.githubusercontent.com/u/1' }
+    let(:auth_info)   { double "auth_info", email: 'buffy.summers@example.com', name: 'Buffy Summers', image: nil }
     let(:auth_person) { Person.from_omniauth(auth) }
 
     context 'where a does not already exist' do
