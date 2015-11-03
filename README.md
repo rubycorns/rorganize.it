@@ -52,7 +52,8 @@ Install all the gems
 Spice up the database
 
     rake db:migrate
-    
+*Note: if running the migrations alters the schema.db file with changes such as unneccessary linebreaks and spaces, and you have not created any of your own migrations to specifically modify it, it's best not to commit the schema file. You can delete the modified file from your local copy by running `git checkout db/schema.rb`*
+
 Get some data
 
     rake db:seed
