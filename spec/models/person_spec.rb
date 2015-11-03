@@ -76,31 +76,31 @@ describe Person do
   describe '#name=' do
     it 'displays the first and last name' do
       subject.name = 'Ruby Corn'
-      expect(subject.name).to eql 'Ruby Corn'
+      expect(subject.name).to eq 'Ruby Corn'
     end
 
     it 'does not double the name if there is only one' do
       subject.name = 'Ruby'
 
-      expect(subject.name).to eql 'Ruby'
-      expect(subject.first_name).to eql 'Ruby'
-      expect(subject.last_name).to eql nil
+      expect(subject.name).to eq 'Ruby'
+      expect(subject.first_name).to eq 'Ruby'
+      expect(subject.last_name).to eq nil
     end
 
     it 'allows for three names' do
       subject.name = 'Ruby Fabulous Rubycorn'
 
-      expect(subject.name).to eql 'Ruby Fabulous Rubycorn'
-      expect(subject.first_name).to eql 'Ruby Fabulous'
-      expect(subject.last_name).to eql 'Rubycorn'
+      expect(subject.name).to eq 'Ruby Fabulous Rubycorn'
+      expect(subject.first_name).to eq 'Ruby Fabulous'
+      expect(subject.last_name).to eq 'Rubycorn'
     end
 
     it 'allows for many many names' do
       subject.name = 'Ruby Fabulous Rubycorn What Does It Even Mean'
 
-      expect(subject.name).to eql 'Ruby Fabulous Rubycorn What Does It Even Mean'
-      expect(subject.first_name).to eql 'Ruby Fabulous Rubycorn What Does It Even'
-      expect(subject.last_name).to eql 'Mean'
+      expect(subject.name).to eq 'Ruby Fabulous Rubycorn What Does It Even Mean'
+      expect(subject.first_name).to eq 'Ruby Fabulous Rubycorn What Does It Even'
+      expect(subject.last_name).to eq 'Mean'
     end
   end
 
@@ -161,10 +161,10 @@ describe Person do
 
     context 'where a does not already exist' do
       specify do
-        expect(auth_person.email).to eql "buffy.summers@example.com"
-        expect(auth_person.name).to eql 'Buffy Summers'
-        expect(auth_person.uid).to eql '123456'
-        expect(auth_person.provider).to eql 'github'
+        expect(auth_person.email).to eq "buffy.summers@example.com"
+        expect(auth_person.name).to eq 'Buffy Summers'
+        expect(auth_person.uid).to eq '123456'
+        expect(auth_person.provider).to eq 'github'
       end
     end
 
@@ -172,7 +172,7 @@ describe Person do
       let!(:person) { create :person, provider: 'github', uid: 123456, first_name: 'Buffy', last_name: 'Summers' }
 
       specify do
-        expect(auth_person).to eql person
+        expect(auth_person).to eq person
       end
     end
   end
@@ -183,8 +183,8 @@ describe Person do
 
     it 'merges the rorganize person with a github person' do
       person.merge_with_github!(github_person)
-      expect(person.reload.provider).to eql 'github'
-      expect(person.reload.uid).to eql '123456'
+      expect(person.reload.provider).to eq 'github'
+      expect(person.reload.uid).to eq '123456'
     end
   end
 
@@ -194,13 +194,13 @@ describe Person do
 
     describe '.cities' do
       it 'returns a list of cities' do
-        expect(Person.cities).to eql ['Berlin', 'Hamburg']
+        expect(Person.cities).to eq ['Berlin', 'Hamburg']
       end
     end
 
     describe '.countries' do
       it 'returns a list of countries' do
-        expect(Person.countries).to eql ['DE']
+        expect(Person.countries).to eq ['DE']
       end
     end
   end

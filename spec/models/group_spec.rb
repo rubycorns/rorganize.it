@@ -80,13 +80,13 @@ describe Group do
 
     describe '.cities' do
       it 'returns a list of cities' do
-        expect(Group.cities).to eql ['Berlin', 'Hamburg']
+        expect(Group.cities).to eq ['Berlin', 'Hamburg']
       end
     end
 
     describe '.countries' do
       it 'returns a list of countries' do
-        expect(Group.countries).to eql ['DE']
+        expect(Group.countries).to eq ['DE']
       end
     end
   end

@@ -32,7 +32,7 @@ describe PeopleController do
 
       it 'updates the group' do
         put :update, params
-        expect(person.reload.first_name).to eql 'Buffy'
+        expect(person.reload.first_name).to eq 'Buffy'
       end
 
       it 'displays the correct notice' do

@@ -4,6 +4,7 @@ describe AdminsController do
 
   let(:person) { create :person }
   let(:admin) { create :admin }
+
   before :each do
     allow(controller).to receive :authenticate_person!
     allow(controller).to receive(:current_person).and_return(admin)

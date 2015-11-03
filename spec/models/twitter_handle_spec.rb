@@ -5,7 +5,7 @@ class TwitterHandleTester < Hash
 	include TwitterHandle
 
 	def twitter
-		 self[:twitter]
+		self[:twitter]
 	end
 
 end
@@ -51,8 +51,8 @@ describe TwitterHandle do
   end
 
   it 'removes the @ is added' do
-	  	subject.twitter = '@knut'
-	  	expect(subject.twitter).to eq 'knut'
+  	subject.twitter = '@knut'
+  	expect(subject.twitter).to eq 'knut'
 	end
 
 end

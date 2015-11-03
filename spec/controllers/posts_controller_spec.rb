@@ -35,7 +35,7 @@ describe PostsController do
   describe 'create' do
     test_date = Date.new(2015, 05, 12)
 
-    before do 
+    before do
       Timecop.freeze(test_date)
       allow(controller).to receive :authenticate_person!
       allow(controller).to receive(:current_person).and_return(person)
@@ -76,7 +76,7 @@ describe PostsController do
 
           it 'sets the correct published_on date' do
             post :create, params
-            expect(Post.last.published_on).to eql test_date
+            expect(Post.last.published_on).to eq test_date
           end
 
           it 'redirects to the post' do
@@ -87,12 +87,12 @@ describe PostsController do
 
         context 'saving the post as draft' do
           let(:params)  {
-                          { post: 
-                            { title: 'something', 
+                          { post:
+                            { title: 'something',
                               description: 'stuff'
-                            }, 
+                            },
                           commit: 'Save as draft'
-                          } 
+                          }
                         }
 
           it 'is successful' do
@@ -104,7 +104,7 @@ describe PostsController do
           it 'marks the post as a draft' do
             post :create, params
             expect(Post.last.draft).to be true
-          end 
+          end
 
           it 'sets the correct published_on date' do
             post :create, params
@@ -114,14 +114,14 @@ describe PostsController do
           it 'redirects to the post' do
             post :create, params
             expect(response).to redirect_to post_path(Post.last)
-          end 
+          end
         end
       end
     end
   end
 
   describe 'update' do
-    before do 
+    before do
       allow(controller).to receive :authenticate_person!
       allow(controller).to receive(:current_person).and_return(person)
     end
@@ -129,13 +129,13 @@ describe PostsController do
     let(:person) { create :admin }
     let(:post)   { create :post, published_on: Date.new(2015, 01, 01) }
     let(:params)  {
-                    { post: 
-                      { title: 'blargh!', 
+                    { post:
+                      { title: 'blargh!',
                         description: 'things are happening!'
-                      }, 
-                      id: post.id, 
+                      },
+                      id: post.id,
                       commit: 'Publish'
-                    } 
+                    }
                   }
 
     context 'as an admin' do
@@ -177,17 +177,17 @@ describe PostsController do
         it 'sets draft to false, b/c it is published' do
           put :update, params
           expect(Post.find_by(slug: 'a-blogpost').draft).to be false
-        end 
+        end
 
         it 'sets the correct published_on date' do
           put :update, params
-          expect(Post.find_by(slug: 'a-blogpost').published_on).to eql test_date
+          expect(Post.find_by(slug: 'a-blogpost').published_on).to eq test_date
         end
 
         it 'redirects to the post' do
           put :update, params
           expect(response).to redirect_to post_path(post)
-        end 
+        end
       end
     end
   end

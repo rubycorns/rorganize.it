@@ -5,8 +5,8 @@ describe Post do
   # this is an example for how to test scopes using sql. See convo here: https://github.com/rubycorns/rorganize.it/pull/341
   describe 'scopes' do
     specify do
-      expect(Post.published.to_sql).to eql "SELECT \"posts\".* FROM \"posts\"  WHERE \"posts\".\"draft\" = 'f'  ORDER BY \"posts\".\"published_on\" DESC"
-      expect(Post.draft.to_sql).to eql "SELECT \"posts\".* FROM \"posts\"  WHERE \"posts\".\"draft\" = 't'  ORDER BY \"posts\".\"created_at\" DESC"
+      expect(Post.published.to_sql).to eq "SELECT \"posts\".* FROM \"posts\"  WHERE \"posts\".\"draft\" = 'f'  ORDER BY \"posts\".\"published_on\" DESC"
+      expect(Post.draft.to_sql).to eq "SELECT \"posts\".* FROM \"posts\"  WHERE \"posts\".\"draft\" = 't'  ORDER BY \"posts\".\"created_at\" DESC"
     end
   end
 
@@ -60,9 +60,9 @@ describe Post do
     end
 
     after { Timecop.return }
-    
+
     it 'sets the correct date' do
-      expect(post.published_on).to eql test_date
+      expect(post.published_on).to eq test_date
     end
   end
 end

@@ -49,7 +49,6 @@ describe GroupsController do
       allow(controller).to receive :authenticate_person!
       allow(controller).to receive(:current_person).and_return(person)
       allow(Group).to receive(:find).and_return(group)
-
     end
 
     context 'as a member of the group' do
@@ -113,8 +112,8 @@ describe GroupsController do
 
       it 'does not delete the group' do
         expect do
-            delete :destroy, id: group.id
-          end.not_to change { Group.count }
+          delete :destroy, id: group.id
+        end.not_to change { Group.count }
       end
     end
 
@@ -136,8 +135,8 @@ describe GroupsController do
 
       it 'deletes the group' do
         expect do
-            delete :destroy, id: group.id
-          end.to change{ Group.count }.by(-1)
+          delete :destroy, id: group.id
+        end.to change{ Group.count }.by(-1)
       end
     end
   end
