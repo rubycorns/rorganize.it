@@ -33,6 +33,8 @@ FactoryGirl.define do
   factory :person do
     first_name 'Ruby'
     last_name 'Corn'
+    city 'Berlin'
+    country 'DE'
     email
     password 'testtest'
   end
@@ -40,6 +42,8 @@ FactoryGirl.define do
   factory :second_person, class: Person do
     first_name 'Tarn'
     last_name 'Shoes'
+    city 'Hamburg'
+    country 'DE'
     email
     password 'tarntarn'
   end

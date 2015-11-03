@@ -188,4 +188,20 @@ describe Person do
     end
   end
 
+  context 'filtering by city or country' do
+    let!(:person) { create :person }
+    let!(:second_person) { create :second_person }
+
+    describe '.cities' do
+      it 'returns a list of cities' do
+        expect(Person.cities).to eql ['Berlin', 'Hamburg']
+      end
+    end
+
+    describe '.countries' do
+      it 'returns a list of countries' do
+        expect(Person.countries).to eql ['DE']
+      end
+    end
+  end
 end
