@@ -1,5 +1,4 @@
 class PeopleController < ApplicationController
-
   before_action :authenticate_person!, except: [:index]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
@@ -20,8 +19,8 @@ class PeopleController < ApplicationController
 
   def update
     if @person.update_attributes person_params
-      redirect_to person_path(@person), notice: 'You updated your profile! Please endulge in some cake'\
-      'and pat yourself on the back for a job well done.'
+      redirect_to person_path(@person), notice: 'You updated your profile! '\
+        'Please indulge in some cake and pat yourself on the back for a job well done.'
     else
       render action: 'edit'
     end
