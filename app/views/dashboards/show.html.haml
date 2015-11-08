@@ -4,7 +4,7 @@
     .col-md-4.col-sm-6
       .panel.panel-default.admin-list
         .panel-heading
-          %h3.panel-title All admins
+          %h3.panel-title= "All admins (#{@admins.count})"
         .panel-body
           %ul.dashboard-list
             - @admins.each do |admin|
@@ -30,7 +30,7 @@
             %p No one left to adminify #sadpanda
       .panel.panel-default.panel-groups
         .panel-heading
-          %h3.panel-title Groups
+          %h3.panel-title= "Groups (#{@groups.count})"
         .panel-body
           %ul.dashboard-list
             - @groups.each do |group|
@@ -55,7 +55,7 @@
           %h3.panel-title Blog shortcuts
         .panel-body
           %ul.dashboard-list
-            %li= link_to fa_icon('list', text: 'all posts'),posts_path
+            %li= link_to fa_icon('list', text: "all posts (#{@published_posts.count})"), posts_path
             %li= link_to fa_icon('plus', text: 'create new post'), new_post_path
           - if @published_posts.any?
             %h2
