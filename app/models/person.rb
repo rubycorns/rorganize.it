@@ -22,7 +22,7 @@
 #  twitter                :string(255)
 #  working_on             :text
 #  workshop_coach         :boolean
-#
+#  slug                   :string(255)
 
 class Person < ActiveRecord::Base
   include TwitterHandle
@@ -44,6 +44,16 @@ class Person < ActiveRecord::Base
   scope :by_country, -> (country) { where(country: country) }
   scope :by_city, -> (city) { where(city: city) }
   scope :willing_to_travel, -> { where(willing_to_travel: true) }
+
+  extend FriendlyId
+  friendly_id :slug_candidates, use: [:slugged, :finders]
+
+  def slug_candidates
+    [
+      :full_name,
+      [:full_name, rand(1000)]
+    ]
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |person|

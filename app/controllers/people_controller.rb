@@ -12,6 +12,7 @@ class PeopleController < ApplicationController
   end
 
   def show
+    @person = Person.friendly.find(params[:id])
   end
 
   def edit
@@ -29,7 +30,7 @@ class PeopleController < ApplicationController
   private
 
   def set_person
-    @person = Person.find(params[:id])
+    @person = Person.friendly.find(params[:id])
   end
 
   def person_params

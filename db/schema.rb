@@ -85,17 +85,19 @@ ActiveRecord::Schema.define(version: 20151013180304) do
     t.string   "twitter"
     t.text     "working_on"
     t.boolean  "workshop_coach"
+    t.string   "provider"
+    t.string   "uid"
     t.boolean  "admin",                  default: false, null: false
     t.boolean  "willing_to_travel",      default: false
     t.string   "city"
     t.string   "country"
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "slug"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
   add_index "people", ["group_id"], name: "index_people_on_group_id"
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
+  add_index "people", ["slug"], name: "index_people_on_slug", unique: true
 
   create_table "posts", force: true do |t|
     t.string   "title"
