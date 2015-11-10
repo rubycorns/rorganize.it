@@ -47,7 +47,7 @@ describe 'User is not logged in', :type => :feature do
 
     before do
       visit root_path
-      click_link 'People'
+      click_link 'All'
     end
 
     it 'shows a list of people' do
