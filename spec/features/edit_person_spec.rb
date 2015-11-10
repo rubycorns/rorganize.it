@@ -20,19 +20,34 @@ feature 'edit a person' do
       click_button 'Save'
     end
 
-    it 'displays a successful alert message' do
+    scenario 'displays a successful alert message' do
       expect(page.text).to have_content "You updated your profile!"
     end
 
-    it 'redirects to the correct path' do
+    scenario 'redirects to the correct path' do
       expect(current_path).to eq person_path(person)
     end
 
-    it 'updates the correct information' do
+    scenario 'updates the correct information' do
       within('#working-on') do
         expect(page).to have_content 'capybara, rspec, css'
       end
     end
 
+  end
+
+  describe 'adding a valid personal website' do
+
+    scenario 'with complete link' do
+      fill_in "Website", with: 'http://pragtob.info'
+      click_button 'Save'
+      expect(page).to have_content 'http://pragtob.info'
+    end
+
+    scenario 'with incomplete link' do
+      fill_in "Website", with: 'malweene.com'
+      click_button 'Save'
+      expect(page).to have_content 'http://malweene.com'
+    end
   end
 end

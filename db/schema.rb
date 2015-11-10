@@ -86,11 +86,12 @@ ActiveRecord::Schema.define(version: 20151013180304) do
     t.text     "working_on"
     t.boolean  "workshop_coach"
     t.boolean  "admin",                  default: false, null: false
+    t.string   "provider"
+    t.string   "uid"
     t.boolean  "willing_to_travel",      default: false
     t.string   "city"
     t.string   "country"
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "website"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true

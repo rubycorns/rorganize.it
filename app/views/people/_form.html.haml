@@ -4,20 +4,23 @@
 
     .col-md-5
       .form-group
-        = label_tag(:first_name, "Your first name *")
+        = f.label(:first_name, "Your first name *")
         = f.text_field :first_name, placeholder: 'First name', class: 'form-control'
       .form-group
-        = label_tag(:last_name, "Your last name")
+        = f.label(:last_name, "Your last name")
         = f.text_field :last_name, placeholder: 'Last name', class: 'form-control'
       .form-group
-        = label_tag(:twitter, "Your twitter handle")
+        = f.label(:twitter, "Your twitter handle")
         = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
       .form-group
-        = label_tag(:picture, "Add your profile picture")
+        = f.label(:website, "Website")
+        = f.text_field :website, placeholder: 'http://example.me', class: 'form-control'
+      .form-group
+        = f.label(:picture, "Add your profile picture")
         = f.file_field :picture, placeholder: 'picture'
         %p.help-block Choose your profile picture
       .form-group
-        = label_tag(:working_on, "What are you working on? (you can use markdown!)")
+        = f.label(:working_on, "What are you working on? (you can use markdown!)")
         = f.text_area :working_on, placeholder: 'tutorials? a cool app?', class: 'form-control', rows: 5, id: 'working-on'
 
     .col-md-1
@@ -38,14 +41,14 @@
 
       .form-group
         = f.check_box(:workshop_coach)
-        = label_tag(:person_workshop_coach, "I am willing to COACH at Rails Girls workshops")
+        = f.label(:person_workshop_coach, "I am willing to COACH at Rails Girls workshops")
 
       .form-group
         = f.check_box(:willing_to_travel)
-        = label_tag(:willing_to_travel, "I am willing to TRAVEL to Rails Girls workshops")
+        = f.label(:willing_to_travel, "I am willing to TRAVEL to Rails Girls workshops")
       
       .form-group
-        = label_tag(:city, "City")
+        = f.label(:city, "City")
         = f.text_field :city, placeholder: 'Rubycity', class: 'form-control'
 
       .form-group
