@@ -95,8 +95,7 @@
     .col-md-4
       #group-map
         - if @group.address?
-          .map
-            = groups_map @group
+          #map{data: {latitude: @group.latitude, longitude: @group.longitude}}
         - else
           = image_tag('follow_your_dreams.gif')
 
