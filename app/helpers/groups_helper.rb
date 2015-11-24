@@ -17,22 +17,6 @@ module GroupsHelper
     end
   end
 
-  def groups_map(group)
-    map(
-      container_id: "group-map",
-      center: {
-        latlng: [group.latitude, group.longitude],
-        zoom: 16
-      },
-      markers: [
-        {
-          latlng: [group.latitude, group.longitude],
-        }
-      ],
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap contributors</a>,<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>'
-    )
-  end
-
   def group_location(group) 
     [group.street, group.zip, group.city, group.country].select {|x| x.present? }.join(', ')
   end
