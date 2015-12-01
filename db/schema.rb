@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013180304) do
+ActiveRecord::Schema.define(version: 20160105185150) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20151013180304) do
     t.integer  "person_id"
     t.boolean  "draft",        default: false, null: false
     t.string   "slug"
-    t.date     "published_on"
+    t.datetime "published_at"
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true

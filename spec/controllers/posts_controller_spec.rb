@@ -19,14 +19,25 @@ describe PostsController do
 
     context 'with a couple of posts' do
       before :each do
-        2.times { Post.create title: 'random', description: 'important stuff', draft: false }
+        2.times { create :post, draft: false }
         get :index
 
-        1.times { Post.create title: 'draft', description: 'draft', draft: true }
+        1.times { create :post, draft: true }
       end
 
       it 'has 2 published posts' do
         expect(assigns(:published_posts).to_a.size).to eq 2
+      end
+    end
+
+    context 'with pagination' do
+      before :each do
+        6.times { create :post }
+        get :index
+      end
+
+      it 'has 5 published posts' do
+        expect(assigns(:published_posts).to_a.size).to eq 5
       end
     end
 
@@ -74,9 +85,9 @@ describe PostsController do
             expect(Post.last.draft).to be false
           end
 
-          it 'sets the correct published_on date' do
+          it 'sets the correct published_at date' do
             post :create, params
-            expect(Post.last.published_on).to eq test_date
+            expect(Post.last.published_at).to eq test_date
           end
 
           it 'redirects to the post' do
@@ -106,9 +117,9 @@ describe PostsController do
             expect(Post.last.draft).to be true
           end
 
-          it 'sets the correct published_on date' do
+          it 'sets the correct published_at date' do
             post :create, params
-            expect(Post.last.published_on).to be_nil
+            expect(Post.last.published_at).to be_nil
           end
 
           it 'redirects to the post' do
@@ -127,7 +138,7 @@ describe PostsController do
     end
 
     let(:person) { create :admin }
-    let(:post)   { create :post, published_on: Date.new(2015, 01, 01) }
+    let(:post)   { create :post, published_at: Date.new(2015, 01, 01) }
     let(:params)  {
                     { post:
                       { title: 'blargh!',
@@ -156,9 +167,9 @@ describe PostsController do
           expect(post.draft).to be false
         end
 
-        it 'keeps the old published_on date' do
+        it 'keeps the old published_at date' do
           put :update, params
-          expect(post.published_on).to eq Date.new(2015, 01, 01)
+          expect(post.published_at).to eq Date.new(2015, 01, 01)
         end
 
         it 'redirects to the post' do
@@ -172,16 +183,17 @@ describe PostsController do
         before { Timecop.freeze(test_date) }
         after { Timecop.return }
 
-        let(:post) { create :post, draft: true, published_on: nil }
+        let(:post) { create :post, draft: true, published_at: nil }
 
         it 'sets draft to false, b/c it is published' do
           put :update, params
-          expect(Post.find_by(slug: 'a-blogpost').draft).to be false
+          expect(Post.find_by(slug: :slug).draft).to be false
         end
 
-        it 'sets the correct published_on date' do
+        it 'sets the correct published_at
+         date' do
           put :update, params
-          expect(Post.find_by(slug: 'a-blogpost').published_on).to eq test_date
+          expect(Post.find_by(slug: :slug).published_at).to eq test_date
         end
 
         it 'redirects to the post' do
