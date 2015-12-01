@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def index
     @published_posts = Post.published
     page = (params[:page] || 1).to_i
-    @published_posts = @published_posts.paginate(page: page, per_page: 20)
+    @published_posts = @published_posts.paginate(page: page, per_page: 5)
   end
 
   def show
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     if !@post.draft && @post.draft_changed?
       @post.set_published_on!
     end
-      
+
     if @post.update(post_params)
       redirect_to post_path(@post), notice: 'Post was successfully updated.
       All efforts, nomatter how small, deserve cake.'

@@ -30,6 +30,17 @@ describe PostsController do
       end
     end
 
+    context 'with pagination' do
+      before :each do
+        7.times { Post.create title: 'random', description: 'important stuff', draft: false }
+        get :index
+      end
+
+      it 'has 5 published posts' do
+        expect(assigns(:published_posts).to_a.size).to eq 5
+      end
+    end
+
   end
 
   describe 'create' do
