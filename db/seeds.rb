@@ -81,7 +81,8 @@ user_list = [
     twitter: '@anotherstudenttwitter',
     country: 'CA',
     city: 'Toronto',
-    membership: 'Student'
+    membership: 'Student',
+    non_public: true
   },
   {
     first_name: 'Sara',
@@ -92,7 +93,8 @@ user_list = [
     admin: true,
     country: 'US',
     city: 'New York',
-    membership: 'Coach'
+    membership: 'Coach',
+    workshop_coach: true
   },
   {
     first_name: 'Lisa',
@@ -103,7 +105,9 @@ user_list = [
     admin: false,
     country: 'US',
     city: 'New York',
-    membership: 'Coach'
+    membership: 'Coach',
+    non_public: true,
+    workshop_coach: true
   }
 ]
 user_list.map do |user|

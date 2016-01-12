@@ -54,6 +54,11 @@ class GroupsController < ApplicationController
 
     @topic = Topic.new
     @topic.group = @group
+
+    @students = @group.students.public_profile
+    @students = @group.students if signed_in?
+    @coaches = @group.coaches.public_profile
+    @coaches = @group.coaches if signed_in?
   end
 
   def destroy
