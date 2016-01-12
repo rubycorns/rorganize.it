@@ -1,4 +1,6 @@
 module TwitterHandle
+  extend ActiveSupport::Concern
+
 	def twitter=(handle)
     self[:twitter] = handle.gsub('@', '');
   end
