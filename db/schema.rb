@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621202750) do
+ActiveRecord::Schema.define(version: 20170127155731) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "person_id",  null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160621202750) do
     t.string   "city",                   limit: 255
     t.string   "country",                limit: 255
     t.string   "website",                limit: 255
+    t.boolean  "non_public",                         default: false, null: false
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
