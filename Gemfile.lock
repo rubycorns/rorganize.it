@@ -111,7 +111,7 @@ GEM
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     fssm (0.2.10)
-    geocoder (1.2.1)
+    geocoder (1.2.14)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -363,4 +363,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
