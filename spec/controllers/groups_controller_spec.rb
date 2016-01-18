@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GroupsController do
+describe GroupsController, :vcr => {:cassette_name => "create_group" } do
 
   describe 'create' do
     let(:person) { create(:person) }
