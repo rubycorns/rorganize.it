@@ -35,4 +35,4 @@
                   %p #{coach.city} #{coach.country}
 
     %aside.sidebar.col-md-4
-      = render 'shared/filter'
+      = render partial: 'shared/filter', locals: { path: coaches_path }
