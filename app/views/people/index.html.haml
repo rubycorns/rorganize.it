@@ -14,4 +14,4 @@
                 = render partial: "shared/groups", locals: { object: person }
 
     %aside.sidebar.col-md-4
-      = render 'shared/filter'
+      = render partial: 'shared/filter', locals: { path: people_path }
