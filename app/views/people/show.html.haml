@@ -40,7 +40,7 @@
       - if coach_location?(@person)
         %p
           %strong Based in:
-          #{@person.city} #{@person.country}
+          #{@person.city} #{@person.country_name}
     .col-md-4
       %h4 Project Groups:
       - if @person.has_group?

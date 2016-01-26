@@ -103,4 +103,17 @@ describe GroupsHelper do
       end
     end
   end
+
+  describe '#group_location' do
+    let(:group) { build_stubbed :group, city: 'Berlin', country: 'DE', street: 'Willy-Brandt-Straße 1', zip: '10557' }
+    let(:group_empty) { build_stubbed :group, city: nil, country: nil }
+
+    it 'returns a string with all relevant location info together' do
+      expect(helper.group_location(group)).to eql 'Willy-Brandt-Straße 1, 10557, Berlin, Germany'
+    end
+
+    it 'does not complain if none of that info is present' do
+      expect(helper.group_location(group_empty)).to eql ''
+    end
+  end
 end

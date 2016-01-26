@@ -9,4 +9,8 @@ module LocationFilter
     scope :by_country, -> (country) { where(country: country) }
   end
 
+  def country_name
+    ISO3166::Country[country].name if country.present?
+  end
+
 end
