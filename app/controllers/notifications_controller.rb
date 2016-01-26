@@ -11,10 +11,8 @@ class NotificationsController < ApplicationController
   end
 
   def create
-
     group_id = params[:notification][:group].to_i
     group = Group.find(group_id)
-    success = true
     unless group
       @notification = Notification.new(notification_params)
       @notification.person = Person.find(params[:notification][:person_id].to_i)
