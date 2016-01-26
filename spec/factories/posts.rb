@@ -15,17 +15,9 @@
 #
 
 FactoryGirl.define do
-  sequence :title do |n|
-    "A blogPost #{n}"
-  end
-
-  sequence :slug do |n|
-    "a-blogpost-#{n}"
-  end
-
   factory :post do
-    title :title
+    sequence(:title) { |n| "A blogPost #{n}" }
     description 'about stuff'
-    slug :slug
+    sequence(:slug) { |n| "a-blogpost-#{n}" }
   end
 end
