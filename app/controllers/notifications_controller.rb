@@ -34,9 +34,6 @@ class NotificationsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
 
     if @notification
@@ -55,11 +52,7 @@ class NotificationsController < ApplicationController
     end
   end
 
-  def show
-    # notifications = Notification.where(notification_id: @notification.id)
-  end
-
-  def destroy 
+  def destroy
     @notification = Notification.find(params[:id])
     @notification.destroy
     redirect_to root_path, notice: 'Notification was successfully deleted.'
