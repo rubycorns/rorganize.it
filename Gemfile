@@ -97,6 +97,8 @@ group :development, :test do
   gem 'minitest'
   gem 'rspec-its', '~> 1.0.1'
   gem 'timecop'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 # Use ActiveModel has_secure_password

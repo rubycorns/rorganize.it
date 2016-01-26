@@ -28,7 +28,7 @@ describe 'User is not logged in', :type => :feature do
     end
   end
 
-  context 'a group detail page' do
+  context 'a group detail page', :vcr => {:cassette_name => "create_group" } do
 
     # added activities otherwise the markdown field receives a value of 'nil'
     # and the test fails
