@@ -15,7 +15,7 @@ group_list = [
     activities: 'We build a wishlist app to organize christmas for large families. Users can enter their own wishlist and add wishes. Other users can comment on these wishes, mark them as done etc, but the list owner can’t see that of course.',
     email: 'group1@example.org',
     city: 'Berlin',
-    country: 'Germany',
+    country: 'DE',
     street: 'Blücherstraße 22',
     zip: '10961'
   },
@@ -27,7 +27,7 @@ group_list = [
     activities: 'We basically meet and have coding sessions where we show of stuff as needed. Sometimes Tobi gives a presentation from his HU course or something. Basically everything including homeworks is pretty ad-hoc.',
     email: 'group2@example.org',
     city: 'Berlin',
-    country: 'Germany',
+    country: 'DE',
     street: 'Sanderstr. 28 ',
     zip: '12047'
   },
@@ -39,7 +39,7 @@ group_list = [
     activities: 'Nothing specific, we do exercises around basic web apps with Sinatra.',
     email: 'group3@example.org',
     city: 'Berlin',
-    country: 'Germany',
+    country: 'DE',
     street: 'Adalbertstraße 8',
     zip: '10999'
   },
@@ -52,7 +52,7 @@ group_list = [
     email: 'group4@example.org',
     full: true,
     city: 'Berlin',
-    country: 'Germany',
+    country: 'DE',
     street: 'Prinzessinnenstr. 20',
     zip: '10969'
   }
