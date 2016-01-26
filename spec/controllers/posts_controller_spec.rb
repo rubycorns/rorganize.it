@@ -187,13 +187,13 @@ describe PostsController do
 
         it 'sets draft to false, b/c it is published' do
           put :update, params
-          expect(Post.find_by(slug: :slug).draft).to be false
+          expect(Post.find_by(slug: post.slug).draft).to be false
         end
 
         it 'sets the correct published_at
          date' do
           put :update, params
-          expect(Post.find_by(slug: :slug).published_at).to eq test_date
+          expect(Post.find_by(slug: post.slug).published_at).to eq test_date
         end
 
         it 'redirects to the post' do
