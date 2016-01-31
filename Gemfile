@@ -97,6 +97,9 @@ group :development, :test do
   gem 'minitest'
   gem 'rspec-its', '~> 1.0.1'
   gem 'timecop'
+end
+
+group :test do
   gem 'vcr'
   gem 'webmock'
 end
