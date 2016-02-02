@@ -1,11 +1,11 @@
-.dropdown.navbar-nav.navbar-right.notifications
-  %button.dropdown-toggle.no-btn{ type: "button", id: "dropdownMenu1", "data-toggle" => "dropdown"}
+.dropdown.navbar-nav.navbar-right.notifications-list
+  %button.dropdown-toggle.no-btn{ type: "button", id: "drop-notes", "data-toggle" => "dropdown"}
     = fa_icon "bullhorn"
     %span.hidden Notifications
     - if current_person.unread_notifications.size != 0
       %span{class: "badge"}= current_person.unread_notifications.size
 
-  %ul.dropdown-menu.notifications-list
+  %ul.dropdown-menu
     - current_person.notifications.reverse.each do |notification|
       %li{:class => (notification.viewed_at.present? ? "read" : "unread")}
         = notification.content
