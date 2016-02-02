@@ -1,6 +1,5 @@
 module ApplicationHelper
 
-
   def flash_class(level)
     case level
       when :notice then "info"
@@ -11,7 +10,6 @@ module ApplicationHelper
   end
 
   def markdown(text)
-
     emoji = Redcarpet::Markdown.new(
       MdEmoji::Render.new(filter_html: true),
       no_intra_emphasis: true,
@@ -21,6 +19,10 @@ module ApplicationHelper
     )
 
     raw emoji.render(text)
+  end
+
+  def country_names_for_select(countries)
+    countries.map { |c| [ISO3166::Country[c].name, c] }
   end
 
 end

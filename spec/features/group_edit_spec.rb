@@ -27,7 +27,7 @@ feature 'edit a group', :vcr => {:cassette_name => "create_group" } do
     select 'France'
     click_button 'Update Group'
 
-    expect(page).to have_content('Not Berlin, FR')
+    expect(page).to have_content('Not Berlin, France')
   end
 
   scenario 'make current group inactive' do
