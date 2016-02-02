@@ -82,4 +82,19 @@ RailsGirlsApp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # set up for uberspace-capistrano
+  server 'ror.schedar.uberspace.de',
+         user: 'ror',
+         roles: [:app, :web, :cron, :db],
+         primary: true,
+         ssh_options: {
+           keys: %w{~/.ssh/id_rsa},
+           forward_agent: true,
+           auth_methods: %w(publickey)
+         }
+
+  set :user, 'ror'
+  set :branch, :production
+  set :domain, 'ror.schedar.uberspace.de'
 end
