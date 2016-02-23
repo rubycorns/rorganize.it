@@ -1,0 +1,288 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Berlin%20DE&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 18 Jan 2016 01:04:54 GMT
+      Expires:
+      - Tue, 19 Jan 2016 01:04:54 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '409'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Berlin",
+                       "short_name" : "Berlin",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Berlin",
+                       "short_name" : "Berlin",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Germany",
+                       "short_name" : "DE",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Berlin, Germany",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 52.6754542,
+                          "lng" : 13.7611176
+                       },
+                       "southwest" : {
+                          "lat" : 52.33962959999999,
+                          "lng" : 13.0891553
+                       }
+                    },
+                    "location" : {
+                       "lat" : 52.52000659999999,
+                       "lng" : 13.404954
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 52.6754542,
+                          "lng" : 13.7611176
+                       },
+                       "southwest" : {
+                          "lat" : 52.33962959999999,
+                          "lng" : 13.0891553
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJAVkDPzdOqEcRcDteW0YgIQQ",
+                 "types" : [ "locality", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Mon, 18 Jan 2016 01:04:54 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Hamburg%20DE&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 18 Jan 2016 01:05:05 GMT
+      Expires:
+      - Tue, 19 Jan 2016 01:05:05 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '437'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Hamburg",
+                       "short_name" : "Hamburg",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Hamburg",
+                       "short_name" : "HH",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Germany",
+                       "short_name" : "DE",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Hamburg, Germany",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 53.7394338,
+                          "lng" : 10.32528
+                       },
+                       "southwest" : {
+                          "lat" : 53.3962857,
+                          "lng" : 9.7301316
+                       }
+                    },
+                    "location" : {
+                       "lat" : 53.5510846,
+                       "lng" : 9.993681799999999
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 53.717145,
+                          "lng" : 10.123492
+                       },
+                       "southwest" : {
+                          "lat" : 53.399999,
+                          "lng" : 9.732151000000002
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJuRMYfoNhsUcRoDrWe_I9JgQ",
+                 "types" : [ "locality", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Mon, 18 Jan 2016 01:05:05 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Berlin%20DE&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 18 Jan 2016 01:05:55 GMT
+      Expires:
+      - Tue, 19 Jan 2016 01:05:55 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '409'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Berlin",
+                       "short_name" : "Berlin",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Berlin",
+                       "short_name" : "Berlin",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Germany",
+                       "short_name" : "DE",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Berlin, Germany",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 52.6754542,
+                          "lng" : 13.7611176
+                       },
+                       "southwest" : {
+                          "lat" : 52.33962959999999,
+                          "lng" : 13.0891553
+                       }
+                    },
+                    "location" : {
+                       "lat" : 52.52000659999999,
+                       "lng" : 13.404954
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 52.6754542,
+                          "lng" : 13.7611176
+                       },
+                       "southwest" : {
+                          "lat" : 52.33962959999999,
+                          "lng" : 13.0891553
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJAVkDPzdOqEcRcDteW0YgIQQ",
+                 "types" : [ "locality", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Mon, 18 Jan 2016 01:05:55 GMT
+recorded_with: VCR 3.0.1

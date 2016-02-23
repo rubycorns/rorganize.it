@@ -34,4 +34,4 @@
       %h1.page-header Hey listen!
       %p If you don't see your project group - feel free to add it!
       = link_to "register new group", new_group_path, class: 'btn btn-primary'
-      = render 'shared/filter'
+      = render partial: 'shared/filter', locals: { path: groups_path }

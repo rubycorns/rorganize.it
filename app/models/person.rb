@@ -26,6 +26,8 @@
 
 class Person < ActiveRecord::Base
   include TwitterHandle
+  include LocationFilter
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -43,8 +45,6 @@ class Person < ActiveRecord::Base
   before_validation :prepend_http
 
   scope :admin, -> { where(admin: true) }
-  scope :by_country, -> (country) { where(country: country) }
-  scope :by_city, -> (city) { where(city: city) }
   scope :willing_to_travel, -> { where(willing_to_travel: true) }
 
   def self.from_omniauth(auth)
@@ -54,14 +54,6 @@ class Person < ActiveRecord::Base
       person.name = auth.info.name   # assuming the user model has a name
       person.remote_picture_url = auth.info.image # assuming the user model has an image
     end
-  end
-
-  def self.cities
-    pluck(:city).uniq.compact
-  end
-
-  def self.countries
-    pluck(:country).uniq.compact
   end
 
   def merge_with_github!(github_person)

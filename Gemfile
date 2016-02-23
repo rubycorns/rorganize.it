@@ -99,6 +99,11 @@ group :development, :test do
   gem 'timecop'
 end
 
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

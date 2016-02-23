@@ -7,9 +7,9 @@ class PostsController < ApplicationController
   require 'will_paginate/array'
 
   def index
-    @published_posts = Post.published
+    @published_posts = Post.published_descending_order
     page = (params[:page] || 1).to_i
-    @published_posts = @published_posts.paginate(page: page, per_page: 20)
+    @published_posts = @published_posts.paginate(page: page, per_page: 5)
   end
 
   def show
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @post.draft = post_params_draft
     @post.person = current_person
 
-    @post.set_published_on! if !@post.draft
+    @post.set_published_at! if !@post.draft
 
     if @post.save
       redirect_to @post, notice: post_created_notice
@@ -40,9 +40,9 @@ class PostsController < ApplicationController
     @post.draft = post_params_draft
 
     if !@post.draft && @post.draft_changed?
-      @post.set_published_on!
+      @post.set_published_at!
     end
-      
+
     if @post.update(post_params)
       redirect_to post_path(@post), notice: 'Post was successfully updated.
       All efforts, nomatter how small, deserve cake.'

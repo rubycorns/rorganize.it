@@ -1,9 +1,14 @@
 language: ruby
-rvm: 2.0.0
-sudo: false
+rvm:
+  - 2.3.0
+  - ruby-head
+matrix:
+  allow_failures:
+    - rvm: ruby-head
 cache: bundler
+sudo: false
 before_script:
-  - "bundle exec rake db:migrate"
+  - "bundle exec rake db:schema:load"
   - "cp config/secrets.yml.sample config/secrets.yml"
 script: "bundle exec rspec"
 notifications:

@@ -11,8 +11,8 @@ class GroupsController < ApplicationController
     @groups = @groups.by_country(params[:country]) if params[:country].present?
     @groups = @groups.by_city(params[:city]) if params[:city].present?
 
-    @cities = @groups.cities
-    @countries = @groups.countries
+    @cities = Group.cities
+    @countries = Group.countries
   end
 
   def new

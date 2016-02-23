@@ -3,6 +3,10 @@
     %article.col-sm-8.col-sm-offset-2
       %h1.page-header Corporate Blog
       = render partial: 'post', object: @post
+      - if @post.newer_post
+        = link_to "< more recent post", post_path(@post.newer_post)
+      - if @post.older_post
+        = link_to "older post >", post_path(@post.older_post)
       #post-edit-delete-buttons
         - if current_person && current_person.admin?
           = link_to 'edit', edit_post_path(@post)

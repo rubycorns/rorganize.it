@@ -17,8 +17,8 @@ module GroupsHelper
     end
   end
 
-  def group_location(group) 
-    [group.street, group.zip, group.city, group.country].select {|x| x.present? }.join(', ')
+  def group_location(group)
+    [group.street, group.zip, group.city, group.country_name].select {|x| x.present? }.join(', ')
   end
 
 end
