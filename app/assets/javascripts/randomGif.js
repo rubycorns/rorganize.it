@@ -19,7 +19,7 @@ var randomGif = {
 		cleanCategory = encodeURI(cleanCategory);
 		$('#js-randomGif img').addClass('hidden');
 		$('#js-randomGif').addClass('is-spinning');
-		$.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+ cleanCategory)
+		$.get('//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+ cleanCategory)
 			.done(function(data) {
 				if (data.data.id) {
 					$('#js-randomGif img').attr('src', data.data.image_url).on('load', function() {
