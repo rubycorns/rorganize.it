@@ -113,13 +113,18 @@ Off to GitHub
 before merging.
 4. When you merge and close your branch, please make sure to include a [ridiculous gif](https://github.com/rubycorns/RailsGirlsApp/pull/281#issuecomment-64454385). 
 
-### Deploy to Shelly Cloud
+### Deploy
 
-We are now graciously hosted by [Shelly](https://shellycloud.com/)
+We are hosted by [Uberspace](https://uberspace.de/).
 
-1. Nudge Tobi or Lisa to invite you to the Shelly Cloud.
-1. Do NOT register online, use the command line option.
-1. [Follow the Shelly Cloud "Joining to Existing Cloud" steps](https://shellycloud.com/documentation/joining_existing_cloud).
-1. You can now deploy with `shelly login` (enter email and password), and then `git push shelly` (just like Heroku, just with a Shelly).
+Here's the current sophisticated manualistrano deploy process:
 
-App runs at: http://rorganize.it
+1. ssh to production
+1. cd html/rorganize.it
+1. git pull
+1. bundle
+1. bin/rake assets:precompile
+1. bin/rake db:migrate
+1. bin/thin -a 127.0.0.1 -p 34567 restart
+
+App runs at: https://rorganize.it
