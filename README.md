@@ -13,7 +13,7 @@ from what you've done and become better coders ourselves in the process. If you 
 
 ### Code of Conduct
 
-You can learn about our [Code of Conduct online ](http://rorganize.it/conduct) or [in the repo](https://github.com/rubycorns/rorganize.it/blob/master/CODE_OF_CONDUCT.md)
+You can learn about our [Code of Conduct online ](https://rorganize.it/conduct) or [in the repo](https://github.com/rubycorns/rorganize.it/blob/master/CODE_OF_CONDUCT.md)
 
 ### Just some general information:
 
@@ -26,7 +26,7 @@ Make sure you have ImageMagick installed.
 In Terminal run (OS&nbsp;X):
 
     brew install imagemagick
-    
+
 Or for Linux run (or with the package manager of your choice):
 
     sudo apt-get install imagemagick
@@ -42,7 +42,7 @@ Get the code from this repo
 Get all the secrets:
 
     cp config/secrets.yml.sample config/secrets.yml
-    
+
 Install all the gems
 
     bundle install
@@ -62,56 +62,56 @@ Run the server
 
 et voilá
 
-Run all the tests 
+Run all the tests
 
     bundle exec rspec
 
 
-### Git: branches 
-*Note*: you will need permission from rubycorns in order to push your branches to this repository. 
-Until you have been granted permission, please [fork](https://help.github.com/articles/fork-a-repo/) this repository, 
-and create a branch from your fork.  
+### Git: branches
+*Note*: you will need permission from rubycorns in order to push your branches to this repository.
+Until you have been granted permission, please [fork](https://help.github.com/articles/fork-a-repo/) this repository,
+and create a branch from your fork.
 
-Create new branch (you should be in the directory of the project) 
-    
+Create new branch (you should be in the directory of the project)
+
     git branch Name_of_your_branch
-    
-Switch to the newly created branch (the same if you need to change to the branch that already exist) 
-    
+
+Switch to the newly created branch (the same if you need to change to the branch that already exist)
+
     git checkout Name_of_your_branch
 
 Or for lazy people like Tobi (does both steps at the same time):
-    
-    git checkout -b Name_of_your_branch    
 
-Push the new branch to the repository (with some commits or just "bare" branch) 
-    
+    git checkout -b Name_of_your_branch
+
+Push the new branch to the repository (with some commits or just "bare" branch)
+
     git push --set-upstream origin Name_of_your_branch
-    
+
 Delete local branch
 
     git branch -D Name_of_your_branch
-    
-    
+
+
 ### Git: commit your changes
-Make changes, then 
-    
+Make changes, then
+
     git add -A
 
 Tell the others what you did
-    
+
     git commit -m "description of changes"
 
 Off to GitHub
-    
+
     git push
-    
+
 ### Make a pull request
 1. Select your branch on GitHub.
 2. Click 'Pull Request'.
 3. Write a little summary of what you did and alert people if you need help.
 before merging.
-4. When you merge and close your branch, please make sure to include a [ridiculous gif](https://github.com/rubycorns/RailsGirlsApp/pull/281#issuecomment-64454385). 
+4. When you merge and close your branch, please make sure to include a [ridiculous gif](https://github.com/rubycorns/RailsGirlsApp/pull/281#issuecomment-64454385).
 
 ### Deploy
 
