@@ -285,4 +285,144 @@ http_interactions:
         }
     http_version: 
   recorded_at: Mon, 18 Jan 2016 01:05:55 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Not%20Berlin%20FR&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 08 Mar 2016 18:47:01 GMT
+      Expires:
+      - Wed, 09 Mar 2016 18:47:01 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '65'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Tue, 08 Mar 2016 18:47:01 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Berlin%20DE&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 08 Mar 2016 18:47:01 GMT
+      Expires:
+      - Wed, 09 Mar 2016 18:47:01 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '409'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Berlin",
+                       "short_name" : "Berlin",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Berlin",
+                       "short_name" : "Berlin",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Germany",
+                       "short_name" : "DE",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Berlin, Germany",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 52.6754542,
+                          "lng" : 13.7611176
+                       },
+                       "southwest" : {
+                          "lat" : 52.33962959999999,
+                          "lng" : 13.0891553
+                       }
+                    },
+                    "location" : {
+                       "lat" : 52.52000659999999,
+                       "lng" : 13.404954
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 52.6754542,
+                          "lng" : 13.7611176
+                       },
+                       "southwest" : {
+                          "lat" : 52.33962959999999,
+                          "lng" : 13.0891553
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJAVkDPzdOqEcRcDteW0YgIQQ",
+                 "types" : [ "locality", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Tue, 08 Mar 2016 18:47:01 GMT
 recorded_with: VCR 3.0.1
