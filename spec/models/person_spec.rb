@@ -204,4 +204,12 @@ describe Person, :vcr => {:cassette_name => "create_group" } do
       end
     end
   end
+
+
+  describe '#unread_notifications' do
+
+    it 'returns a list of unread notifications' do
+      expect(Person.unread_notifications).to eq 0
+    end
+  end
 end

@@ -1,0 +1,8 @@
+%ul.dropdown-menu
+  - current_person.notifications.each do |note|
+    %li
+      - note.content
+      %a{:href => ""} 
+        - fa_icon 'eye'
+      %a{:href => ""}
+        - fa_icon 'trash-o'

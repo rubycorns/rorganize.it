@@ -1,0 +1,8 @@
+.container.student-list
+  %h1.page-header Notifications Overview
+  .row
+    .col-md-8
+      %ul.list-group
+        - @notifications.each do |note|
+          %li
+            = note.content

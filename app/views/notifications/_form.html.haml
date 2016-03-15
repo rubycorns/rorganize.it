@@ -1,0 +1,14 @@
+= form_for(@notification, html: { multipart: true }) do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group
+    = f.label(:person_id, "User")
+    = f.select(:person_id, options_from_collection_for_select(Person.all, :id, :name))
+  .form-group
+    = f.label(:group, "Group")
+    = f.select(:group, options_from_collection_for_select(Group.all, :id, :name), {:include_blank => 'no group'})
+  .form-group
+    = f.label(:content, "Content")
+    = f.text_field :content, placeholder: "What what?", class: 'form-control'
+
+  .actions
+    = f.submit 'Broadcast', class: 'btn btn-primary'
