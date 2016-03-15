@@ -5,8 +5,12 @@ module GroupsHelper
     !person.member_of?(group)
   end
 
-  def even_a_button?(group)
+  def group_open?(group)
     !group.full?
+  end
+
+  def group_active?(group)
+    !group.inactive
   end
 
   def show_member_buttons?(person, group)
