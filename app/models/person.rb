@@ -105,7 +105,7 @@ class Person < ActiveRecord::Base
   end
 
   def unread_notifications
-    notifications.select { |notification| notification.viewed_at == nil }
+    notifications.where(viewed_at: nil)
   end
 
   def <=>(other)
