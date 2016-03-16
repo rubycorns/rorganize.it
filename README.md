@@ -120,11 +120,11 @@ We are hosted by [Uberspace](https://uberspace.de/).
 Here's the current sophisticated manualistrano deploy process:
 
 1. ssh to production
-1. cd html/rorganize.it
-1. git pull
-1. bundle
-1. bin/rake assets:precompile
-1. bin/rake db:migrate
-1. bin/thin -a 127.0.0.1 -p 34567 restart
+1. `$ cd html/rorganize.it`
+1. `$ git pull`
+1. `$ bundle`
+1. `$ bundle exec rake assets:precompile`
+1. `$ bundle exec rake db:migrate`
+1. `$ bundle exec thin -a 127.0.0.1 -p 34567 restart`
 
 App runs at: https://rorganize.it
