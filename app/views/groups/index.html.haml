@@ -23,6 +23,10 @@
                 .col-md-2
                   %span.label.label-danger
                     FULL
+              - if group.inactive?
+                .col-md-2
+                  %span.label.label-warning
+                    INACTIVE
               .col-md-2
                 %p
                   - if group.editable_by?(current_person)
