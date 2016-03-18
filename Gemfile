@@ -23,6 +23,8 @@ end
 group :production do
   gem 'pg'
   gem 'shelly-dependencies'
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-uberspace', github: 'tessi/capistrano-uberspace'
 end
 
 gem 'carrierwave'
