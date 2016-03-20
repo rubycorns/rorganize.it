@@ -45,42 +45,6 @@ describe GroupsHelper do
     end
   end
 
-  describe '#group_open?' do
-    context 'group is not full' do
-      let(:group) { double(full?: false) }
-
-      it 'shows the button' do
-        expect(helper.group_open?(group)).to be true
-      end
-    end
-
-    context 'group is full' do
-      let(:group) { double(full?: true) }
-
-      it 'does not show the button' do
-        expect(helper.group_open?(group)).to be false
-      end
-    end
-  end
-
-  describe '#group_active?' do
-    context 'group is not active' do
-      let(:group) { double(inactive: true) }
-
-      it 'does not show the button' do
-        expect(helper.group_active?(group)).to be false
-      end
-    end
-
-    context 'group is active' do
-      let(:group) { double(inactive: false) }
-
-      it 'shoes the button' do
-        expect(helper.group_active?(group)).to be true
-      end
-    end
-  end
-
   describe 'show_member_buttons?' do
 
     subject do

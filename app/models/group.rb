@@ -66,6 +66,10 @@ class Group < ActiveRecord::Base
     !full
   end
 
+  def active?
+    !inactive
+  end
+
   def location
     [address, street, zip, city, country].join(' ')
   end

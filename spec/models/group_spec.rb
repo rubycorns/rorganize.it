@@ -74,6 +74,13 @@ describe Group, :vcr => {:cassette_name => "create_group" } do
     end
   end
 
+  describe '#active?' do
+    it 'is active' do
+      group.inactive = false
+      expect(group.active?).to be true
+    end
+  end
+
   context 'filtering by city or country' do
     let!(:group) { create :group }
     let!(:second_group) { create :second_group }
