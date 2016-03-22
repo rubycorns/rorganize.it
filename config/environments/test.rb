@@ -13,7 +13,7 @@ RailsGirlsApp::Application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets  = true
+  config.serve_static_files  = true
   config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching.
@@ -22,6 +22,11 @@ RailsGirlsApp::Application.configure do
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
+
+  # Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks
+  # and only print them to the logs. In the next version, these errors will no longer be suppressed.
+  # Instead, the errors will propagate normally just like in other Active Record callbacks. (Rails 4.2 message)
+  config.active_record.raise_in_transactional_callbacks = true
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
