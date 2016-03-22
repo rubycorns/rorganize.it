@@ -24,7 +24,7 @@
                   %li
                     = render 'leave'
 
-            - if even_a_button?(@group) && show_join_group_button?(current_person, @group)
+            - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
               = render 'join'
 
             - if @group.inactive?

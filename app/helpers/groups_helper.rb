@@ -5,10 +5,6 @@ module GroupsHelper
     !person.member_of?(group)
   end
 
-  def even_a_button?(group)
-    !group.full?
-  end
-
   def show_member_buttons?(person, group)
     if !person_signed_in?
       false
