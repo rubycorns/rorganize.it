@@ -25,4 +25,12 @@ module ApplicationHelper
     countries.map { |c| [ISO3166::Country[c].name, c] }
   end
 
+  def guaranteed_person
+    @guaranteed_person ||=  if current_person.present?
+                              current_person
+                            else
+                              NullPerson.new
+                            end
+  end
+
 end

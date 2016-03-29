@@ -9,7 +9,7 @@
       - else
         .latest-post-overview
           Oops, no blogposts here
-      = link_to 'New Post', new_post_path if current_person && current_person.admin?
+      = link_to 'New Post', new_post_path if guaranteed_person.admin?
     %aside.col-sm-4
       .twitter-feed
         %a.twitter-timeline{"data-widget-id" => "467588755692322816", href: "https://twitter.com/rubycorns"} Tweets by @rubycorns

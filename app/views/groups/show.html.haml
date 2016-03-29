@@ -5,7 +5,7 @@
         %h1.pull-left= @group.name
 
         .pull-right
-          - if current_person && current_person.admin?
+          - if guaranteed_person.admin?
             %button.btn.btn-default.admin-button
               = link_to edit_group_path(@group) do
                 EDIT AS ADMIN &#9873;
