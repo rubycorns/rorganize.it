@@ -11,9 +11,9 @@ feature 'edit a group', :vcr => {:cassette_name => "create_group" } do
     before { person.join!(group, 'StudentMembership') }
 
     scenario 'edit the name of an existing group' do
-      visit_group_edit_page_as_a_member
+      visit_group_edit_page
       expect(page).to_not have_content('Join group as coach')
-      fill_in 'Project group name', with: 'Testgroup'
+      fill_in 'Group name', with: 'Testgroup'
       click_button 'Update Group'
 
       within('.page-header') do
@@ -46,7 +46,15 @@ feature 'edit a group', :vcr => {:cassette_name => "create_group" } do
       click_link 'Groups'
       expect(page).to have_content('edit')
       click_link 'edit'
-      expect(page).to have_content('Project group name')
+      expect(page).to have_content('Group name')
+    end
+
+    def visit_group_edit_page
+      visit root_path
+      click_link 'Groups'
+      expect(page).to have_content('edit')
+      click_link 'edit'
+      expect(page).to have_content('Group name')
     end
   end
 
@@ -63,7 +71,7 @@ feature 'edit a group', :vcr => {:cassette_name => "create_group" } do
       click_link 'AWESOME GROUP'
       expect(page).to have_content('EDIT AS ADMIN')
       click_link 'EDIT AS ADMIN'
-      expect(page).to have_content('Project group name')
+      expect(page).to have_content('Group name')
     end
   end
 end

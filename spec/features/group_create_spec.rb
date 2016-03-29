@@ -11,9 +11,9 @@ feature 'create a group', :vcr => {:cassette_name => "create_group" } do
     visit root_path
     click_link 'Groups'
     click_link 'register new group'
-    fill_in 'Project group name', with: 'Testgroup'
-    fill_in 'Where we\'ll send official emails', with: 'test@email.com'
-    fill_in 'Contact info', with: 'this googlegroup'
+    fill_in 'Group name', with: 'Testgroup'
+    fill_in 'Where we\'ll send automated emails to *', with: 'test@email.com'
+    fill_in 'Group contact info', with: 'this googlegroup'
     fill_in 'City', with: 'Berlin'
     select('Germany', from: 'Country', match: :first) # selects the first Germany from dropdown (there are two b/c one is a preferred country at the top)
     expect(page).to have_content('Join group as coach')
@@ -39,9 +39,9 @@ feature 'create a group', :vcr => {:cassette_name => "create_group" } do
     visit root_path
     click_link 'Groups'
     click_link 'register new group'
-    fill_in 'Project group name', with: 'Testgroup'
-    fill_in 'Where we\'ll send official emails', with: 'test@email.com'
-    fill_in 'Contact info', with: 'this googlegroup'
+    fill_in 'Group name', with: 'Testgroup'
+    fill_in 'Where we\'ll send automated emails to *', with: 'test@email.com'
+    fill_in 'Group contact info', with: 'this googlegroup'
     fill_in 'City', with: 'Berlin'
     select('Germany', from: 'Country', match: :first)
     expect(page).to have_content('Join group as coach')
