@@ -55,4 +55,15 @@ FactoryGirl.define do
     password 'tarntest'
     admin true
   end
+
+  factory :workshop_coach, class: Person do
+    first_name 'Corny'
+    last_name 'Chocolate-Bar'
+    city 'Köln'
+    country 'DE'
+    email
+    password 'testtarn'
+    workshop_coach true
+  end
+
 end

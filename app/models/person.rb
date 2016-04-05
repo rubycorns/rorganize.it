@@ -47,7 +47,7 @@ class Person < ActiveRecord::Base
   scope :admin, -> { where(admin: true) }
   scope :willing_to_travel, -> { where(willing_to_travel: true) }
   scope :order_by_name, -> { order("lower(first_name) ASC, lower(last_name) ASC") }
-
+  scope :workshop_coach, -> { where(workshop_coach: true)}
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |person|

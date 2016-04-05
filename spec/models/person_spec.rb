@@ -143,6 +143,45 @@ describe Person, :vcr => {:cassette_name => "create_group" } do
     end
   end
 
+  describe '.workshop_coach' do
+    subject { described_class.workshop_coach }
+    let!(:workshop_coach) { create :workshop_coach }
+    let!(:second_person)  { create :second_person }
+
+    it 'lists the correct name' do
+      expect(subject).to contain_exactly workshop_coach
+    end
+
+    context 'for several workshop coaches' do
+      let!(:second_workshop_coach)  { create :workshop_coach, first_name: 'Zlatan', last_name: 'Zukanovic'  }
+      it 'lists in alphabetical order' do
+        expect(subject.map(&:name)).to eq ['Corny Chocolate-Bar', 'Zlatan Zukanovic']
+      end
+    end
+  end
+ 
+  describe '.order_by_name' do
+    let!(:person) { create :person }
+    let!(:second_person) { create :second_person }
+    let!(:third_person)  { create :person, first_name: 'lolo', last_name: 'lowercase' }
+    let!(:fourth_person) { create :person, first_name: 'Anna', last_name: 'Analog' }
+    it 'returns an ordered names list ' do
+      expect((Person.order_by_name).map(&:name)).to eq [ 'Anna Analog', 'lolo lowercase', 'Ruby Corn', 'Tarn Shoes']
+    end
+  end
+
+  describe '.order_by_name, .workshop_coach' do
+    subject { described_class.workshop_coach }
+    let!(:workshop_coach) { create :workshop_coach }
+    let!(:second_workshop_coach)  { create :workshop_coach, first_name: 'Zlatan', last_name: 'Zukanovic'  }
+    let!(:third_workshop_coach)  { create :workshop_coach, first_name: 'lolo', last_name: 'lowercase' }
+    context 'combine scopes' do
+      it 'lists in alphabetical order when lowercased name is present' do
+        expect((subject.order_by_name).map(&:name)).to eq ['Corny Chocolate-Bar', 'lolo lowercase', 'Zlatan Zukanovic']
+      end
+    end
+  end
+
   describe '.admin' do
     subject { described_class.admin }
 
