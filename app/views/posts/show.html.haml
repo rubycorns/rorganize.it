@@ -8,7 +8,7 @@
       - if @post.older_post
         = link_to "older post >", post_path(@post.older_post)
       #post-edit-delete-buttons
-        - if guaranteed_person.admin?
+        - if current_person.admin?
           = link_to 'edit', edit_post_path(@post)
           |
           \#{link_to 'delete', @post, method: :delete, data: {confirm: 'Are you sure?'}}

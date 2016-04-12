@@ -4,4 +4,8 @@ class NullPerson
     false
   end
 
+  def can_join_group?
+    false
+  end
+
 end

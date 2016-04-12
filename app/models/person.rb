@@ -107,6 +107,10 @@ class Person < ActiveRecord::Base
     name <=> other.name
   end
 
+  def can_join_group?
+    true
+  end
+
   private
     def prepend_http
       if website.present?

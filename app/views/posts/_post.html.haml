@@ -1,6 +1,6 @@
 %article.post
   %header
-    - if guaranteed_person.admin? && post.draft?
+    - if current_person.admin? && post.draft?
       %p.pull-right= fa_icon "file-o", text: "it's a draft"
     %h2= link_to "#{post.try(:title)}", post_path(post)
     %p.post-meta
