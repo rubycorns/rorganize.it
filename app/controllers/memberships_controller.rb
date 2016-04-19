@@ -21,6 +21,10 @@ class MembershipsController < ApplicationController
     redirect_to groups_path
   end
 
+  def new
+    # here code is needed which creates the message for the membership request
+  end
+
   private
 
   def leave_message

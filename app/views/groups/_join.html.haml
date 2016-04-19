@@ -1,16 +1,10 @@
 - if current_person
   = form_for(current_person.memberships.build(group_id: @group.id), html: {class: 'btn-group inline'}, url: memberships_path) do |f|
     = f.hidden_field :group_id
-    = f.hidden_field :type, value: 'StudentMembership'
+    = f.hidden_field :type
     %button.btn.btn-success
       %i.glyphicon.glyphicon-ok-circle
-      join as member!
-  = form_for(current_person.memberships.build(group_id: @group.id), html: {class: 'btn-group inline'}, url: memberships_path) do |f|
-    = f.hidden_field :group_id
-    = f.hidden_field :type, value: 'CoachMembership'
-    %button.btn.btn-success
-      %i.glyphicon.glyphicon-ok-circle
-      join as coach!
+      Join this group
 - else
   %a.btn.btn-success{href: new_person_registration_path}
     %i.glyphicon.glyphicon-ok-circle
