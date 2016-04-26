@@ -16,7 +16,6 @@ describe MembershipsController, :vcr => {:cassette_name => "create_group" } do
 
   describe 'create' do
 
-
     it 'creates a membership' do
       expect do
         post :create, @params
@@ -42,25 +41,47 @@ describe MembershipsController, :vcr => {:cassette_name => "create_group" } do
 
   describe 'destroy' do
 
-    before do
-      person.join!(group)
-      @membership = person.memberships.first
-    end
+    context 'removing yourself from a group' do
+      before do
+        person.join!(group)
+        @membership = person.memberships.first
+      end
 
-    it 'redirects to the groups path after leaving a group' do
-      delete :destroy, id: @membership.id
-      expect(response).to redirect_to groups_path
-    end
-
-    it 'deletes the membership' do
-      expect do
+      it 'redirects to the groups path after leaving a group' do
         delete :destroy, id: @membership.id
-      end.to change{ Membership.count }.by(-1)
+        expect(response).to redirect_to groups_path
+      end
+
+      it 'deletes the membership' do
+        expect do
+          delete :destroy, id: @membership.id
+        end.to change{ Membership.count }.by(-1)
+      end
+
+      it 'displays the correct notice' do
+        delete :destroy, id: @membership.id
+        expect(flash[:success]).to have_content  "You have left your group. No doubt they will miss you. Please consider buying everyone cake on your last day."
+      end
     end
 
-    it 'displays the correct notice' do
-      delete :destroy, id: @membership.id
-      expect(flash[:success]).not_to be_blank
+    context 'removing someone else from a group' do
+      let(:another_person) { create :person }
+      let(:membership) { another_person.memberships.first}
+
+      before do
+        another_person.join!(group)
+      end
+
+      it 'deletes the membership' do
+        expect do
+          delete :destroy, id: membership.id
+        end.to change{ Membership.count }.by(-1)
+      end
+
+      it 'displays the correct notice' do
+        delete :destroy, id: membership.id
+        expect(flash[:success]).to have_content "You have successfully deleted a person. That was a very tough decision. Cake will make it all better."
+      end
     end
   end
 
