@@ -41,6 +41,13 @@ feature 'edit a group', :vcr => {:cassette_name => "create_group" } do
     expect(page).to have_content('GROUP CURRENTLY INACTIVE')
   end
 
+  scenario 'allow male students' do
+    visit_group_edit_page
+    check 'Do you welcome male students?'
+    click_button 'Update Group'
+    expect(page).to have_content('mixed group')
+  end
+
   def visit_group_edit_page
     visit root_path
     click_link 'Groups'

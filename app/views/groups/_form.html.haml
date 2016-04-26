@@ -66,5 +66,9 @@
       .form-group
         = f.check_box :inactive
         = f.label(:inactive, "Is your group inactive?")
+      .form-group
+        = f.check_box :allow_male_students
+        = f.label(:allow_male_students, "Do you welcome male students?")
+        %p.help-block Many groups prefer to only have students who identify as women. Please indicate if you also welcome students who identify as men.
     .actions.pull-right
       = f.submit class: "btn btn-primary"

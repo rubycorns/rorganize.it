@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105185150) do
+ActiveRecord::Schema.define(version: 20160327223742) do
 
-  create_table "friendly_id_slugs", force: true do |t|
+  create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160105185150) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
-  create_table "groups", force: true do |t|
+  create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "time"
@@ -41,19 +41,20 @@ ActiveRecord::Schema.define(version: 20160105185150) do
     t.string   "email"
     t.string   "level"
     t.string   "founded_on"
-    t.boolean  "full",               default: false
+    t.boolean  "full",                default: false
     t.string   "city"
     t.string   "country"
     t.string   "zip"
     t.string   "street"
     t.string   "slug"
     t.text     "learning_resources"
-    t.boolean  "inactive",           default: false
+    t.boolean  "inactive",            default: false
+    t.boolean  "allow_male_students", default: false
   end
 
   add_index "groups", ["slug"], name: "index_groups_on_slug", unique: true
 
-  create_table "memberships", force: true do |t|
+  create_table "memberships", force: :cascade do |t|
     t.integer  "group_id"
     t.integer  "person_id"
     t.datetime "created_at"
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(version: 20160105185150) do
   add_index "memberships", ["group_id"], name: "index_memberships_on_group_id"
   add_index "memberships", ["person_id"], name: "index_memberships_on_person_id"
 
-  create_table "people", force: true do |t|
+  create_table "people", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email",                  default: "",    null: false
@@ -98,7 +99,7 @@ ActiveRecord::Schema.define(version: 20160105185150) do
   add_index "people", ["group_id"], name: "index_people_on_group_id"
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "picture"
@@ -112,7 +113,7 @@ ActiveRecord::Schema.define(version: 20160105185150) do
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
 
-  create_table "topics", force: true do |t|
+  create_table "topics", force: :cascade do |t|
     t.text     "body"
     t.integer  "group_id"
     t.datetime "created_at"
