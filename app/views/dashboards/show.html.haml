@@ -40,7 +40,7 @@
                 - else
                   = image_tag('/group-avatar.png', size: "40x40" )
                 = link_to group.name, group_path(group)
-                = link_to "mailto:#{group.email}", class: 'visible-on-hover' do
+                = mail_to group.email, class: 'visible-on-hover' do
                   = fa_icon "envelope", text: 'contact'
                 = link_to edit_group_path(group), class: 'visible-on-hover' do
                   = fa_icon "life-saver", text: 'edit'
