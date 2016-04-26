@@ -22,11 +22,15 @@
               - if group.full?
                 .col-md-2
                   %span.label.label-danger
-                    FULL
+                    full
               - if group.inactive?
                 .col-md-2
                   %span.label.label-warning
-                    INACTIVE
+                    inactive
+              - if group.allow_male_students?
+                .col-md-2
+                  %span.label.label-info
+                    mixed group
               .col-md-2
                 %p
                   - if group.editable_by?(current_person)

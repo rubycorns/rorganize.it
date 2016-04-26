@@ -80,6 +80,16 @@
             %p
               = markdown(@group.activities)
     .col-md-4
+      - if @group.allow_male_students?
+        .label.label-info mixed group
+        %p.help-block This group also welcomes men to join as students.
+      - if @group.full?
+        .label.label-danger full
+        %p.help-block This group does currently not accept new members.
+      - if @group.inactive?
+        .label.label-warning inactive
+        %p.help-block This group is currently not meeting.
+
       %h4 Students
       %p
         This group currently has #{pluralize @group.students.length, "student"}.
