@@ -26,6 +26,8 @@ group :production do
 end
 
 gem 'carrierwave'
+gem 'carrierwave-bombshelter'
+
 # Use for image crop and resize
 gem "mini_magick", "~> 3.7.0"
 
