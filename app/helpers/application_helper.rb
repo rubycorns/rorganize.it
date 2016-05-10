@@ -26,11 +26,7 @@ module ApplicationHelper
   end
 
   def current_person
-    @current_person ||=  if super.present?
-                              super
-                            else
-                              NullPerson.new
-                            end
+    @current_person ||=  super || NullPerson.new
   end
 
 end
