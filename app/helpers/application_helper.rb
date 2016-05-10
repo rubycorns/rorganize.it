@@ -25,4 +25,8 @@ module ApplicationHelper
     countries.map { |c| [ISO3166::Country[c].name, c] }
   end
 
+  def current_person
+    @current_person ||=  super || NullPerson.new
+  end
+
 end

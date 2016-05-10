@@ -3,6 +3,13 @@
     .col-md-12
       .page-header.clearfix
         %h1.pull-left= @group.name
+
+        .pull-right
+          - if current_person.admin?
+            %button.btn.btn-default.admin-button
+              = link_to edit_group_path(@group) do
+                EDIT AS ADMIN &#9873;
+
         .pull-right
           .btn-group
             = link_to groups_path, html_options = { class: 'btn btn-default'} do
@@ -17,7 +24,7 @@
                   %span.caret
                 %ul.dropdown-menu.pull-right{ role: "menu", "aria-labelledby" => "dropdownMenu1"}
                   %li
-                    = link_to edit_group_path(@group.id) do
+                    = link_to edit_group_path(@group) do
                       %i.glyphicon.glyphicon-edit
                       edit group
                   %li.divider

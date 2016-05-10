@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_member_powers
-    render_403 unless current_person.member_of?(@group)
+    render_403 unless current_person.member_of?(@group) || current_person.admin?
   end
 
   def render_403

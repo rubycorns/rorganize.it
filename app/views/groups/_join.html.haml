@@ -1,4 +1,4 @@
-- if current_person
+- if current_person.can_join_group?
   = form_for(current_person.memberships.build(group_id: @group.id), html: {class: 'btn-group inline'}, url: memberships_path) do |f|
     = f.hidden_field :group_id
     = f.hidden_field :type, value: 'StudentMembership'
