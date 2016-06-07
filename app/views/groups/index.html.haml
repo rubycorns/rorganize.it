@@ -3,43 +3,15 @@
     .col-md-8
       %h1.page-header Groups overview
       %ul.list-group
-        - @groups.each do |group|
-          %li{class: "list-group-item clearfix"}
-            .row
-              .col-md-2
-                = render partial: 'shared/group_picture', locals: { group: group}
-              .col-md-8
-                %h3= link_to group.name, group
-                %p
-                  %strong When?
-                  = group.time
-                %p
-                  %strong Where?
-                  = group.address
-                %p
-                  %strong Where exactly?
-                  = group_location(group)
-              - if group.full?
-                .col-md-2
-                  %span.label.label-danger
-                    full
-              - if group.inactive?
-                .col-md-2
-                  %span.label.label-warning
-                    inactive
-              - if group.allow_male_students?
-                .col-md-2
-                  %span.label.label-info
-                    mixed group
-              .col-md-2
-                %p
-                  - if group.editable_by?(current_person)
-                    = link_to edit_group_path(group) do
-                      = fa_icon "edit", text: 'edit'
-                  - if group.deletable_by?(current_person)
-                    = link_to("delete", group_path(group), method: :delete, data: {confirm: 'Are you sure you want to delete this group?'}) if group.deletable_by?(current_person)
+        = render partial: 'one_group', collection: @groups, as: :group
+        
+      %h2.page-group Inactive groups
+      %ul.list-group
+        = render partial: 'one_group', collection: @groups_inactive, as: :group
+
     %aside.sidebar.col-md-4
       %h1.page-header Hey listen!
       %p If you don't see your project group - feel free to add it!
       = link_to "register new group", new_group_path, class: 'btn btn-primary'
       = render partial: 'shared/filter', locals: { path: groups_path }
+                  
