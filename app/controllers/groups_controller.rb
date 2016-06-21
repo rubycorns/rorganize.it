@@ -7,9 +7,13 @@ class GroupsController < ApplicationController
   before_action :ensure_member_powers, except: [:index, :show, :new, :create, :destroy]
 
   def index
-    @groups = Group.order :name
+    @groups_inactive, @groups = Group.all.order(:name).partition { |g| g.inactive? }
+    
     @groups = @groups.by_country(params[:country]) if params[:country].present?
     @groups = @groups.by_city(params[:city]) if params[:city].present?
+
+    @groups_inactive = @groups_inactive.by_country(params[:country]) if params[:country].present?
+    @groups_inactive = @groups_inactive.by_city(params[:city]) if params[:city].present?
 
     @cities = Group.cities
     @countries = Group.countries
