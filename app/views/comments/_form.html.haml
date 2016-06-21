@@ -1,0 +1,10 @@
+%h4 Leave a comment:
+
+= form_for([@topic.group, @comment], html: { multipart: true}) do |f|
+  = render 'shared/error_messages', object: f.object
+
+  .form-group
+    = f.text_area :body, placeholder: 'leave a comment', class: 'form-control'
+    = f.hidden_field :topic_id, @topic.id
+  .actions
+    = f.submit class: "btn btn-primary"
