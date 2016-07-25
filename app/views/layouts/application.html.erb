@@ -52,8 +52,8 @@
             <li class="<%= 'active' if params[:controller] == 'groups' %>">
               <%= link_to "Groups", groups_path, title: "See all Groups" %>
             </li>
-            <li class="<%= 'active' if params[:controller].in? ['people', 'coaches'] %>">
-              <a href="<%= people_path %>" data-toggle="dropdown" class="dropdown-toggle" title="All people">People <b class="caret"></b></a>
+            <li class="dropdown<%= ' active' if params[:controller].in? ['people', 'coaches'] %>">
+              <a href="<%= people_path %>" title="All people" class="dropdown-toggle">People <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "All", people_path, title: "See all people" %></li>
                 <li><%= link_to "Workshop Coaches", coaches_path, title: "See all workshop coaches" %> </li>

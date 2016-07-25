@@ -23,6 +23,12 @@ body {
   border: none;
 }
 
+@media screen and (min-width: 979px) {
+  .dropdown:hover .dropdown-menu {
+      display: block;
+  }
+}
+
 .main-container {
   padding: $navbar-height 0 $navbar-height * 2;
 }
