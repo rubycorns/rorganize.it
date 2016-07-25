@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to("RoRganize.it", root_path, {class: "navbar-brand"}) %>
+          <%= link_to("RoRganize.it", root_path, {class: "navbar-brand", title: "RoRganize.it home"}) %>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <% if person_signed_in? %>
@@ -28,42 +28,42 @@
                 <% if current_person.picture.present? %>
                   <%= image_tag(current_person.picture_url(:thumb), size: "40x40" ) %>
                 <% else %>
-                  <%= image_tag('/avatar.png', size: "40x40" ) %>
+                  <%= image_tag('/avatar.png', size: "40x40", alt: "User profile image") %>
                 <% end %>
                 <%= fa_icon "caret-down" %>
               </button>
               <ul class="dropdown-menu " role="menu">
-                <li><%= link_to current_person.full_name, current_person %></li>
-                <li><%= link_to "logout", destroy_person_session_path, method: :delete %></li>
+                <li><%= link_to current_person.full_name, current_person, title: current_person %></li>
+                <li><%= link_to "logout", destroy_person_session_path, method: :delete, title: "Logout" %></li>
                 <% if current_person.admin? %>
                   <li role="presentation" class="divider"></li>
-                  <li><%= link_to 'Admin dashboard', dashboard_path %></li>
+                  <li><%= link_to 'Admin dashboard', dashboard_path, title: "Admin dashboard" %></li>
                 <% end %>
               </ul>
             </div>
           <% else %>
           <ul class="nav navbar-nav navbar-right profile-header">
-            <li><%= link_to 'Sign in', new_person_session_path %></li>
-            <li><%= link_to 'Sign up', new_person_registration_path %></li>
-            <li><%= link_to "Sign in with GitHub", person_omniauth_authorize_path(:github) %></li>
+            <li><%= link_to 'Sign in', new_person_session_path, title: "Sign in" %></li>
+            <li><%= link_to 'Sign up', new_person_registration_path, title: "Sign up" %></li>
+            <li><%= link_to "Sign in with GitHub", person_omniauth_authorize_path(:github), title: "Sign in with Github" %></li>
           </ul>
           <% end %>
           <ul class="nav navbar-nav">
             <li class="<%= 'active' if params[:controller] == 'groups' %>">
-              <%= link_to "Groups", groups_path %>
+              <%= link_to "Groups", groups_path, title: "See all Groups" %>
             </li>
             <li class="<%= 'active' if params[:controller].in? ['people', 'coaches'] %>">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle">People <b class="caret"></b></a>
+              <a href="<%= people_path %>" data-toggle="dropdown" class="dropdown-toggle" title="All people">People <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
-                <li><%= link_to "All", people_path %></li>
-                <li><%= link_to "Workshop Coaches", coaches_path %> </li>
+                <li><%= link_to "All", people_path, title: "See all people" %></li>
+                <li><%= link_to "Workshop Coaches", coaches_path, title: "See all workshop coaches" %> </li>
               </ul>
             </li>
             <li class="<%= 'active' if params[:controller] == 'posts' %>">
-              <%= link_to 'Blog', posts_path %>
+              <%= link_to 'Blog', posts_path, title: "Blog" %>
             </li>
             <li class="<%= 'active' if params[:controller] == 'pages' && params[:action] == 'about' %>">
-              <%= link_to 'About', about_path %>
+              <%= link_to 'About', about_path, title: "About RoRganize.it" %>
             </li>
           </ul>
         </div>
