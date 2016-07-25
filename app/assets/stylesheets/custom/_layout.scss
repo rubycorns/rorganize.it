@@ -1,34 +1,124 @@
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   margin: 0;
   height: 100%;
   overflow-x: hidden;
-  font-size: 16px;
-  line-height: 1.45;
-  font-weight: 300;
-  font-family: Helvetica, sans-serif;
+  font-family: $font-stack;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $body-color;
 }
-
 
 /*
  * overall Layout
  */
+
+
+h1, h2, h3 {
+  font-size: 25px;
+}
+
+h1, h2 {
+  font-weight: 700;
+}
+
+h1 {
+  color: $ochre-yellow;
+  border-bottom: solid 1px;
+}
+
+h2 {
+  color: $limestone-grey;
+}
+
+h3 {
+  font-weight: 400;
+  color: $onyx-grey;
+  border-bottom: solid 1px;
+}
+
+// Header + Navigation
 .header-container {
   overflow: auto;
 }
+
 .navbar-default {
   border: none;
 }
-
-.main-container {
-  padding: $navbar-height 0 $navbar-height * 2;
+.navbar {
+  height: $navbar-height;
+  overflow: hidden;
+  border-bottom: 2px solid $limestone-grey;
 }
 
+.navbar-brand {
+  padding: 1rem 1rem 1rem 0;
+}
+
+.navbar-default .navbar-nav {
+  padding: 0 0.5em;
+
+  > li {
+    border-top: 3px solid $navbar-default-link-active-bg;
+    &:hover,
+    &.active {
+      border-top: 3px solid $header_red;
+    }
+    & > a:hover,
+    & > a:focus,
+    &.active > a {
+      color: $header_red;
+    }
+  }
+}
+
+// Dropdown for people menu item
+// buggy-hacky, but just temporary
+.dropdown-menu {
+  top: 10%;
+  left: 99%;
+  border: 2px solid black; //for debugging
+}
+
+.navbar-default .navbar-nav > li.open {
+  & > a,
+  & > a:hover,
+  & > a:focus {
+    color: $header_red;
+    & > .dropdown-menu > li > a {
+      color: black;
+    }
+  }
+}
+
+// GH sign in button
+.navbar-right > li:last-child > a {
+  margin-top: 0.9em;
+  padding: 0.5em 0.7em;
+  background-color: $limestone-grey;
+  border: 2px solid $limestone-grey;
+  border-radius: 5px;
+  color: white;
+
+  &:hover {
+    color: $limestone-grey;
+  }
+}
+
+.navbar-collapse {
+  &.in,
+  &.collapsing {
+    background: $header_red;
+  }
+}
+
+
 .profile-header {
-  padding-top: .15em;
   &.navbar-nav.navbar-right:last-child {
     margin-right: 0; // overwrite bootstrap
   }
@@ -58,16 +148,9 @@ body {
   }
 }
 
-.navbar {
-  height: $navbar-height;
-  // overflow: hidden;
-}
-
-.navbar-collapse {
-  &.in,
-  &.collapsing {
-    background: $header_red;
-  }
+// Main Container
+.main-container {
+  padding: $navbar-height 0 $navbar-height * 2;
 }
 
 body.ghosticorn {

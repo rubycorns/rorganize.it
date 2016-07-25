@@ -62,7 +62,7 @@
   transform: translate(0);
   padding: 4px 30px;
   &.fade-out {
-    transition: all 200ms ease;
+    transition: all 300ms ease;
     transform: translateY(-50%) scale(.8);
     opacity: 0;
   }
@@ -113,6 +113,6 @@
   text-align: center;
 }
 
-.form-box { 
+.form-box {
   padding-top: 100px
 }

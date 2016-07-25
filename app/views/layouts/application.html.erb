@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </head>
 <body class="<%= controller.controller_name %>">
@@ -19,7 +20,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to("RoRganize.it", root_path, {class: "navbar-brand"}) %>
+          <%= link_to(image_tag("rorganize_logo_new.png", alt: "RoRganize.it Logo", title: "Home"), root_path, {class: "navbar-brand"}) %>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <% if person_signed_in? %>

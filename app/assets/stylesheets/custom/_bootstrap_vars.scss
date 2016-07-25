@@ -1,16 +1,31 @@
-$rg_red: rgb(222, 57, 12);
-$header_red: rgb(177, 34, 0);
-$button_red: rgb(183, 51, 0);
+$rg_red: rgb(222, 57, 12); //#de390c
+$header_red: rgb(177, 34, 0); //#b12200
+$button_red: rgb(183, 51, 0); //#b73300
 $button_try_colors: rgb(0,0,0);
 
-$link-color: $rg_red;
-$navbar-default-bg: $header_red;
+// New Design (darker->lighter)
+$salmon-pink: #e2635a;
+$petal-pink: #f2bbae;
+$ochre-yellow: #ffc842;
+$daisy-yellow: #ffe6b2;
+$onyx-grey: #606161;
+$limestone-grey: #a09f9f;
+$header_white: rgb(255,255, 255);
+$body-color: #484748;
+$font-stack: 'Lato', Helvetica, sans-serif;
+
+$link-color: $limestone-grey;
+$headline-link-color: $limestone-grey;
+$navbar-default-bg: $header_white;
 $navbar-default-link-active-bg: white;
-$navbar-default-link-active-color: $rg_red;
-$navbar-default-link-color: white;
+$navbar-default-link-active-border: $salmon-pink;
+$navbar-default-link-active-color: $salmon-pink;
+$navbar-default-link-color: black;
+$navbar-inverse-link-color: black;
+$navbar-height: 75px;
 $brand-primary: white;
 $btn-primary-color: white;
-$btn-primary-bg: $header_red;
+$btn-primary-bg: $petal-pink;
 $btn-info-bg: $header_red;
 
 $jumbotron-padding: 10px;
