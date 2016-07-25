@@ -9,8 +9,11 @@ function makeGif() {
 
 $(document).on('page:load', makeGif);
 
-
 $(document).ready(function() {
+	if (window.outerWidth > 979) {
+		$('.nav > li.dropdown > a').removeAttr('data-toggle');
+		$('.nav > li.dropdown > a').addClass('sth');
+	}
 
 	function removeAlert() {
 		$('.alert').addClass('fade-out');
