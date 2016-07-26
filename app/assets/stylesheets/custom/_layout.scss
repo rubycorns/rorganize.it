@@ -18,28 +18,24 @@ body {
  * overall Layout
  */
 
-
-h1, h2, h3 {
-  font-size: 25px;
-}
-
-h1, h2 {
-  font-weight: 700;
-}
-
 h1 {
+  font-size: 2.1em;
   color: $ochre-yellow;
-  border-bottom: solid 1px;
+  border-bottom: solid 1px $ochre-yellow;
 }
 
 h2 {
+  font-size: 1.7em;
   color: $limestone-grey;
 }
 
+// TODO:h1+h2 interfere with BS .page-header
+// => solve when 2nd level nav is implemented
+
 h3 {
-  font-weight: 400;
+  font-size: 1.4em;
+  font-weight: 700;
   color: $onyx-grey;
-  border-bottom: solid 1px;
 }
 
 // Header + Navigation
@@ -80,8 +76,8 @@ h3 {
 // Dropdown for people menu item
 // buggy-hacky, but just temporary
 .dropdown-menu {
-  top: 10%;
-  left: 99%;
+  top: 10%; //TODO: adjust
+  left: 99%; //TODO: adjust
   border: 2px solid black; //for debugging
 }
 
@@ -98,7 +94,7 @@ h3 {
 
 // GH sign in button
 .navbar-right > li:last-child > a {
-  margin-top: 0.9em;
+
   padding: 0.5em 0.7em;
   background-color: $limestone-grey;
   border: 2px solid $limestone-grey;
@@ -119,22 +115,21 @@ h3 {
 
 
 .profile-header {
+  margin-top: 0.9em;
+
   &.navbar-nav.navbar-right:last-child {
     margin-right: 0; // overwrite bootstrap
   }
   .fa {
-    color: white;
+    color: $body-color;
   }
   button:hover {
     .fa {
-      color: $rg_red;
+      color: $header_red;
     }
   }
   img {
-    margin-left: -0.2em;
-  }
-  a {
-    color: white;
+    margin: -0.05em 0.2em;
   }
   .media-heading {
     line-height: 1.3;
