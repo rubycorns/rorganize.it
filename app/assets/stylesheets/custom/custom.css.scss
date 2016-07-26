@@ -53,19 +53,24 @@
 // flash messages
 .alert {
   position: fixed;
-  left: 10%;
+  left: 7%;
   right: 10%;
-  top: 4em;
+  top: 4.5em;
   width: 80%;
   z-index: 1031; // bootstrap sets the navbar to 1030
   opacity: 1;
   transform: translate(0);
-  padding: 4px 30px;
+  padding: 4px 30px 6px;
   &.fade-out {
     transition: all 300ms ease;
     transform: translateY(-50%) scale(.8);
     opacity: 0;
   }
+}
+
+.alert-dismissable .close {
+  top: 2px;
+  opacity: 1;
 }
 
 // remove default button styles
