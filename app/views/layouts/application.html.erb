@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RoRganize.it | Find a Rails Girls Study Group</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%=  stylesheet_link_tag (params[:redesign] ?  'redesign' :  'application'), media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
