@@ -116,7 +116,7 @@ before merging.
 ### Deploy
 
 We are hosted by [Uberspace](https://uberspace.de/). The app runs at
-(https://rorganize.it)[https://rorganize.it].
+https://rorganize.it
 
 To deploy, run:
 
@@ -136,5 +136,5 @@ Then in your local repository, add a git remote for production:
 
     git remote add production ror@rorganize.it:html/rorganize.it
 
-That should be it. The scripts that are run after a push are in the `deploy`
+That should be it. The scripts that are run after a push are in the [deploy](https://github.com/rubycorns/rorganize.it/tree/master/deploy)
 directory. See also https://github.com/mislav/git-deploy for more info.
