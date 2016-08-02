@@ -115,16 +115,26 @@ before merging.
 
 ### Deploy
 
-We are hosted by [Uberspace](https://uberspace.de/).
+We are hosted by [Uberspace](https://uberspace.de/). The app runs at
+https://rorganize.it
 
-Here's the current sophisticated manualistrano deploy process:
+To deploy, run:
 
-1. ssh to production
-1. `$ cd html/rorganize.it`
-1. `$ git pull`
-1. `$ bundle`
-1. `$ bundle exec rake assets:precompile`
-1. `$ bundle exec rake db:migrate`
-1. `$ bundle exec thin -a 127.0.0.1 -p 34567 restart`
+    git push production master
 
-App runs at: https://rorganize.it
+this will push the current version of the master branch from your
+local repository to production, run bundler and precompile the assets
+if necessary, and restart the server.
+
+To set this up, first make that you have ssh access to the production
+server. If this command works, then you have ssh access. If not, ask
+someone of the Rubycorns to give you access.
+
+    ssh ror@rorganize.it echo itworks
+
+Then in your local repository, add a git remote for production:
+
+    git remote add production ror@rorganize.it:html/rorganize.it
+
+That should be it. The scripts that are run after a push are in the [deploy](https://github.com/rubycorns/rorganize.it/tree/master/deploy)
+directory. See also https://github.com/mislav/git-deploy for more info.
