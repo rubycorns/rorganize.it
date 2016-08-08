@@ -20,13 +20,58 @@ $header_red: rgb(177, 34, 0); //#b12200
 $link-color: $dodger-light;
 $link-color-hover: $dodger-blue;
 
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html,
 body {
-  margin: 0;
   height: 100%;
   overflow-x: hidden;
   font-family: $font-stack;
@@ -55,6 +100,7 @@ h3 {
   font-size: 1.4em;
   font-weight: 700;
   color: $onyx-grey;
+  margin: 0;
 }
 
 a {
@@ -71,6 +117,7 @@ a:focus {
 ul {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 // Buttons
@@ -179,7 +226,6 @@ nav.navbar {
 
 // Sub navigation
 .sub-nav {
-  padding: 0;
   display: flex;
   justify-content: flex-start;
 
@@ -222,6 +268,32 @@ body.ghosticorn {
   background: image-url("ghosticorn.gif");
 }
 
+// List items for groups, people, coaches
+.list-group-item {
+  display: flex;
+  margin-bottom: 1rem;
+
+  & > * {
+    // border: 1px solid teal;
+  }
+}
+
+.list-group-item-pic {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+  }
+}
+.list-group-item-info {
+  flex: 3;
+}
+
 // Index/Home page
 .hero {
   text-align: center;
@@ -250,6 +322,16 @@ body.ghosticorn {
   background-color: $daisy-yellow;
   border-radius: 10px;
 }
+
+// Group pages
+.tag {
+  padding: 0.2em 1em 0.3em;
+  border: 2px solid $petal-pink;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: $petal-pink;
+}
+
 
 /* Left will inherit from right (so we don't need to duplicate code) */
 .github-fork-ribbon {

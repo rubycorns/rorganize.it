@@ -1,28 +1,25 @@
-%li{class: "list-group-item clearfix"}
-  .row
-    .col-md-3
-      = render partial: 'shared/group_picture', locals: { group: group}
+%li{class: "list-group-item"}
+  .list-group-item-pic
+    = render partial: 'shared/group_picture', locals: { group: group}
+    %p
       - if group.full?
-        %span.label.label-danger
+        %span.tag.tag-full
           Full
       - if group.inactive?
-        %span.label.label-warning
+        %span.tag.tag-inactive
           Inactive
-    .col-md-9
-      %h3= link_to group.name, group
+  .list-group-item-info
+    %h3= link_to group.name, group
+    - if group.allow_male_students?
       %p
-        - if group.allow_male_students?
-          %span.label.label-info
-            Mixed group
-        - if group.allow_male_students?
-          %span.label.label-info
-            Mixed group
-      %p
-        %strong When:
-        = group.time
-      %p
-        %strong Where:
-        = group.address
-      %p
-        %strong Address:
-        = group_location(group)
+        %span.tag.tag-mixed
+          Mixed group
+    %p
+      %strong When:
+      = group.time
+    %p
+      %strong Where:
+      = group.address
+    %p
+      %strong Address:
+      = group_location(group)

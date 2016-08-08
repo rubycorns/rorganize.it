@@ -31,6 +31,9 @@
                 = profile_link(coach)
               - if logged_in?(current_person) && coach_location?(coach)
                 %p #{coach.city} #{coach.country_name}
+                -# %p
+                -#   %strong Where:
+                -#   = coach.city, coach.country_name
 
   %aside.flex-page-sidebar
     = render partial: 'shared/filter', locals: { path: coaches_path }
