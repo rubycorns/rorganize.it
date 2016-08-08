@@ -59,13 +59,13 @@ h3 {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: $dodger-blue; //temp
 }
 
 a:hover,
 a:active,
 a:focus {
-  // color: darken($onyx-grey, 20%);
+  color: $dodger-light; //temp
 }
 
 ul {
@@ -104,7 +104,7 @@ ul {
 
 
 // Header + Navigation
-header {
+header nav {
   width: 100vw;
   border-bottom: 2px solid $limestone-grey;
 }
@@ -150,11 +150,17 @@ nav.navbar {
   color: $body-color;
   border-top: 3px solid white;
   margin-right: 1.2rem;
+  text-align: center;
   &:hover,
   &:focus,
-  & .active {
+  &:active {
     border-top: 3px solid $header_red;
   }
+}
+
+// Q: DRYer way to combine with hover state?
+.main-nav li.active a {
+  border-top: 3px solid $header_red;
 }
 
 // profile-header
@@ -171,11 +177,45 @@ nav.navbar {
   color: white;
 }
 
+// Sub navigation
+.sub-nav {
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+
+  & > li {
+    display: flex;
+  }
+  & > li > a {
+    padding: 0.5rem 1rem 0.7rem;
+    border-top: 3px solid white;
+  }
+  & > li:hover > a,
+  & > li:active > a,
+  & > li:focus > a,
+  & > li > a.active {
+    border-top: 3px solid $ochre-yellow;
+  }
+}
+
 // Main Container
 .main-container {
-  margin: $navbar-height 3rem $navbar-height;
+  margin:0 3rem 3rem;
   display: flex;
   flex-direction: column;
+}
+
+.flex-page {
+  display: flex;
+}
+
+.flex-page-main {
+  flex: 2;
+  margin-right: 2rem;
+}
+
+.flex-page-sidebar {
+  flex: 1;
 }
 
 body.ghosticorn {

@@ -1,22 +1,18 @@
-.sub-nav
-  %ul{role: "navigation"}
-    %li = link_to "All", people_path
-    %li = link_to "Workshop Coaches", coaches_path
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "All people", people_path, class: 'active'
+  %li= link_to "Workshop coaches", coaches_path
+  -# Implement filters for sub-navigation + .active class
 
-.container.student-list
-  %h1.page-header People overview
-  .row
-    .col-md-8
-      %ul.list-group
-        - @people.each do |person|
-          %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
-            .row
-              .col-md-2
-                = person_avatar(person)
-              .col-md-8
-                %h3
-                  = profile_link(person)
-                = render partial: "shared/groups", locals: { object: person }
+.flex-page
+  .flex-page-main
+    %h1.page-header People overview
+    %ul.list-group
+      - @people.each do |person|
+        %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
+          = person_avatar(person)
+          %h3
+            = profile_link(person)
+            = render partial: "shared/groups", locals: { object: person }
 
-    %aside.sidebar.col-md-4
-      = render partial: 'shared/filter', locals: { path: people_path }
+  %aside.flex-page-sidebar
+    = render partial: 'shared/filter', locals: { path: people_path }

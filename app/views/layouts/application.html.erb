@@ -18,7 +18,7 @@
           <%= link_to "Groups", groups_path %>
         </li>
         <li class="<%= 'active' if params[:controller].in? ['people', 'coaches'] %>">
-          <a href="<%= people_path %>" title="All people" class="">People <b class="caret"></b></a>
+          <a href="<%= people_path %>" title="All people">People</b></a>
         </li>
         <li class="<%= 'active' if params[:controller] == 'posts' %>">
           <%= link_to 'Blog', posts_path %>
