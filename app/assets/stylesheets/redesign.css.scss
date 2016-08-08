@@ -103,19 +103,17 @@ nav.navbar {
   display: flex;
 }
 
-// Info: Padding used, since the a selectors are not flex items of nav
+// INFO: Padding used, since the a selectors are not flex items of nav
+// and thus don't stretch
 .header-logo,
-.main-nav li a,
-.profile-header li a {
+.main-nav li a {
   padding-top: 1rem;
+  font-size: 1.3rem;
 }
 
 .main-nav li a,
 .profile-header li a {
-  display: block;
-  // width: 100%;
   color: $body-color;
-  font-size: 1.3em;
   border-top: 3px solid white;
   margin-right: 1.2rem;
   &:hover,
@@ -125,7 +123,19 @@ nav.navbar {
   }
 }
 
+// profile-header
+.profile-header li a {
+  font-size: 1rem;
+  padding-top: 1.3rem
+}
+
 // GH sign in button
+.not-logged-in > li:last-child > a > span {
+  padding: 0.2em 0.7em 0.3em;
+  background-color: $onyx-grey;
+  border-radius: 5px;
+  color: white;
+}
 
 /*
  * Flex Layout: Wrapper

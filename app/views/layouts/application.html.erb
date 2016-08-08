@@ -46,10 +46,10 @@
         </ul>
       </div>
       <% else %>
-      <ul class="profile-header">
+        <ul class="profile-header not-logged-in">
         <li><%= link_to 'Sign in', new_person_session_path %></li>
         <li><%= link_to 'Sign up', new_person_registration_path %></li>
-        <li><%= link_to "Sign in with GitHub", person_omniauth_authorize_path(:github) %></li>
+        <li><%= link_to(content_tag(:span, "Sign in with GitHub"), person_omniauth_authorize_path(:github))  %></li>
       </ul>
       <% end %>
     </nav>
