@@ -8,6 +8,8 @@ $onyx-grey: #606161;
 $limestone-grey: #a09f9f;
 $dodger-blue: #0287FF;
 $dodger-light: #78bfff;
+$teal: #008080;
+$teal-light: #00b3b3;
 $header_white: rgb(255,255, 255);
 $body-color: #484748;
 $navbar-default-link-active-bg: white;
@@ -63,13 +65,43 @@ a {
 a:hover,
 a:active,
 a:focus {
-  color: darken($onyx-grey, 20%);
+  // color: darken($onyx-grey, 20%);
 }
 
 ul {
   list-style: none;
   margin: 0;
 }
+
+// Buttons
+.btn {
+  padding: 0.3em 0.8em 0.4em;
+  border-radius: 5px;
+  color: white;
+
+}
+
+.btn-pink {
+  background-color: $salmon-pink;
+  &:hover {
+    background-color: $petal-pink;
+  }
+}
+
+.btn-teal {
+  background-color: $teal;
+  &:hover {
+    background-color: $teal-light;
+  }
+}
+
+.btn-grey {
+  background-color: $limestone-grey;
+  &:hover {
+    background-color: $onyx-grey;
+  }
+}
+
 
 // Header + Navigation
 header {
@@ -134,7 +166,7 @@ nav.navbar {
 // GH sign in button
 .not-logged-in > li:last-child > a > span {
   padding: 0.2em 0.7em 0.3em;
-  background-color: $onyx-grey;
+  background-color: $limestone-grey;
   border-radius: 5px;
   color: white;
 }
@@ -159,15 +191,19 @@ body.ghosticorn {
   font-size: 3rem;
 }
 
-.index-find {
+.home-find {
   margin: 4em 0;
   display: flex;
-
-  text-align: center;
+  justify-content: space-around;
 }
 
-.index-find > * {
-  flex: 1 1 auto;
+.home-find-groups,
+.home-find-people {
+  text-align: center;
+  flex-basis: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .stats {
