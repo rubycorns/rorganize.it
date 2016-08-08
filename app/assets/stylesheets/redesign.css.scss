@@ -15,6 +15,8 @@ $navbar-default-link-active-bg: white;
 $font-stack: 'Lato', Helvetica, sans-serif;
 $navbar-height: 80px;
 $header_red: rgb(177, 34, 0); //#b12200
+$link-color: $dodger-light;
+$link-color-hover: $dodger-blue;
 
 * {
   box-sizing: border-box;
@@ -55,18 +57,19 @@ h3 {
 
 a {
   text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: darken($onyx-grey, 20%);
 }
 
 ul {
   list-style: none;
   margin: 0;
 }
-
-.btn {
-  font-size: 1em;
-}
-
-
 
 // Header + Navigation
 header {
@@ -76,7 +79,7 @@ header {
 
 nav.navbar {
   height: $navbar-height;
-  display: flex;
+  display: flex; // container for whole header
   justify-content: space-around;
 }
 
@@ -95,16 +98,15 @@ nav.navbar {
 
 .main-nav,
 .profile-header {
-  display: flex;
+  display: flex; // containers for respective list items
 }
 
 .main-nav li,
 .profile-header li {
-  display: flex;
+  display: flex; // container for a tags, to achieve stretching of items
 }
 
-// INFO: Padding used, since the a selectors are not flex items of nav
-// and thus don't stretch
+// INFO: Padding used to keep hover-border at the very top
 .header-logo,
 .main-nav li a {
   padding-top: 1rem;
@@ -137,25 +139,40 @@ nav.navbar {
   color: white;
 }
 
-/*
- * Flex Layout: Wrapper
- */
-
-.wrapper {
-
-}
-
-.wrapper > * {
-
-}
-
 // Main Container
 .main-container {
-  padding: $navbar-height*2 0 $navbar-height*2;
+  margin: $navbar-height 3rem $navbar-height;
+  display: flex;
+  flex-direction: column;
 }
 
 body.ghosticorn {
   background: image-url("ghosticorn.gif");
+}
+
+// Index/Home page
+.hero {
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.index-find {
+  margin: 4em 0;
+  display: flex;
+
+  text-align: center;
+}
+
+.index-find > * {
+  flex: 1 1 auto;
+}
+
+.stats {
+  background-color: $daisy-yellow;
+  border-radius: 10px;
 }
 
 /* Left will inherit from right (so we don't need to duplicate code) */

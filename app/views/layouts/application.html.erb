@@ -54,20 +54,18 @@
       <% end %>
     </nav>
   </header>
-  <div class="wrapper">
-    <div class="main-container">
-      <% [:notice, :error, :alert, :success].each do |level| %>
-        <% unless flash[level].blank? %>
-          <p class="container alert alert-dismissable alert-<%= flash_class(level) %>">
-            <%= flash[level] %>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          </p>
-        <% end %>
+  <div class="main-container">
+    <% [:notice, :error, :alert, :success].each do |level| %>
+      <% unless flash[level].blank? %>
+        <p class="container alert alert-dismissable alert-<%= flash_class(level) %>">
+          <%= flash[level] %>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        </p>
       <% end %>
+    <% end %>
 
-      <%= yield %>
+    <%= yield %>
 
-    </div>
   </div>
 </body>
 </html>
