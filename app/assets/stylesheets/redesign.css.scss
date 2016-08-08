@@ -1,3 +1,232 @@
+// Variables
+// Colors (darker->lighter)
+$salmon-pink: #e2635a;
+$petal-pink: #f2bbae;
+$ochre-yellow: #ffc842;
+$daisy-yellow: #ffe6b2;
+$onyx-grey: #606161;
+$limestone-grey: #a09f9f;
+$dodger-blue: #0287FF;
+$dodger-light: #78bfff;
+$header_white: rgb(255,255, 255);
+$body-color: #484748;
+$navbar-default-link-active-bg: white;
+
+$font-stack: 'Lato', Helvetica, sans-serif;
+$navbar-height: 80px;
+$header_red: rgb(177, 34, 0); //#b12200
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
-  background-color: purple;
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: $font-stack;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $body-color;
+}
+
+/*
+ * Basic Styles
+ */
+
+h1 {
+  font-size: 2.1em;
+  color: $ochre-yellow;
+  border-bottom: solid 1px $ochre-yellow;
+}
+
+h2 {
+  font-size: 1.7em;
+  color: $limestone-grey;
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: $onyx-grey;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+.btn {
+  font-size: 1em;
+}
+
+
+
+// Header + Navigation
+header {
+  width: 100vw;
+  border-bottom: 2px solid $limestone-grey;
+}
+
+nav.navbar {
+  height: $navbar-height;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-logo {
+  flex: 1;
+  margin-left: 3rem;
+}
+
+.main-nav {
+  flex: 3;
+}
+
+.profile-header {
+  flex: 2;
+}
+
+.main-nav,
+.profile-header {
+  display: flex;
+}
+
+.main-nav li,
+.profile-header li {
+  display: flex;
+}
+
+// Info: Padding used, since the a selectors are not flex items of nav
+.header-logo,
+.main-nav li a,
+.profile-header li a {
+  padding-top: 1rem;
+}
+
+.main-nav li a,
+.profile-header li a {
+  display: block;
+  // width: 100%;
+  color: $body-color;
+  font-size: 1.3em;
+  border-top: 3px solid white;
+  margin-right: 1.2rem;
+  &:hover,
+  &:focus,
+  & .active {
+    border-top: 3px solid $header_red;
+  }
+}
+
+// GH sign in button
+
+/*
+ * Flex Layout: Wrapper
+ */
+
+.wrapper {
+
+}
+
+.wrapper > * {
+
+}
+
+// Main Container
+.main-container {
+  padding: $navbar-height*2 0 $navbar-height*2;
+}
+
+body.ghosticorn {
+  background: image-url("ghosticorn.gif");
+}
+
+/* Left will inherit from right (so we don't need to duplicate code) */
+.github-fork-ribbon {
+  /* The right and left classes determine the side we attach our banner to */
+  position: absolute;
+
+  /* Add a bit of padding to give some substance outside the "stitching" */
+  padding: 2px 0;
+
+  /* Set the base colour */
+  background-color: #a00;
+
+  /* Set a gradient: transparent black at the top to almost-transparent black at the bottom */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+
+  /* Add a drop shadow */
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+
+  /* Set the font */
+  font: 700 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.github-fork-ribbon a,
+.github-fork-ribbon a:hover {
+  /* Set the text properties */
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+
+  /* Set the geometry. If you fiddle with these you'll also need
+     to tweak the top and right values in .github-fork-ribbon. */
+  width: 200px;
+  line-height: 20px;
+
+  /* Set the layout properties */
+  display: inline-block;
+  padding: 2px 0;
+
+  /* Add "stitching" effect */
+  border-width: 1px 0;
+  border-style: dotted;
+  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.github-fork-ribbon-wrapper {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.github-fork-ribbon-wrapper.left-bottom {
+  position: fixed;
+  top: inherit;
+  bottom: 0;
+  left: 0;
+}
+
+.github-fork-ribbon-wrapper.left-bottom .github-fork-ribbon {
+  top: 80px;
+  left: -43px;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
