@@ -1,0 +1,33 @@
+.hero
+  %h1 RoRganize.it
+  %h2 Find other Rails Girls students, coaches and project groups!
+  - unless person_signed_in?
+    %p
+      If you are a student or a coach and not signed up - feel free to register!
+    %p
+      = link_to "Sign up", new_person_registration_path, class: 'btn btn-pink', id: 'signup-button'
+.home-find
+  .home-find-groups
+    = image_tag "groups.png", class: 'landing-image'
+    %h3= link_to "Find a project group", groups_path
+    %p
+      Find project and study groups from all over the world, both for total beginners and advanced learners.
+    %p= link_to "All The Groups", groups_path, class: 'btn btn-teal'
+  .home-find-people
+    = image_tag "people.png", class: 'landing-image'
+    %h3= link_to "Find fellow rubyists", people_path
+    %p
+      Find learners and coaches who are participating in study groups as well as people who coach at Rails Girls workshops. 
+    %p= link_to "All The Rubyists", people_path, class: 'btn btn-teal'
+.hero.stats
+  %h2 Discover and meet
+  %p
+    = pluralize(@students.size, 'student')
+    and
+    = pluralize(@coaches.size, 'coach')
+    in
+    = pluralize(@groups.size, 'group')
+
+.github-fork-ribbon-wrapper.left-bottom
+  .github-fork-ribbon
+    %a{ href: "https://github.com/rubycorns/rorganize.it"} Fork me on GitHub

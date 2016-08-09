@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoRganize.it | Find a Rails Girls Study Group</title>
+  <%=  stylesheet_link_tag (params[:redesign] ?  'redesign' :  'application'), media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+</head>
+<body class="<%= controller.controller_name %>">
+  <header>
+    <nav class="navbar" role="navigation">
+      <%= link_to(image_tag("rorganize_logo_new.png", alt: "RoRganize.it Logo", title: "Home"), root_path, {class: "header-logo"}) %>
+      <ul class="main-nav">
+        <li class="<%= 'active' if params[:controller] == 'groups' %>">
+          <%= link_to "Groups", groups_path %>
+        </li>
+        <li class="<%= 'active' if params[:controller].in? ['people', 'coaches'] %>">
+          <a href="<%= people_path %>" title="All people">People</b></a>
+        </li>
+        <li class="<%= 'active' if params[:controller] == 'posts' %>">
+          <%= link_to 'Blog', posts_path %>
+        </li>
+        <li class="<%= 'active' if params[:controller] == 'pages' && params[:action] == 'about' %>">
+          <%= link_to 'About', about_path %>
+        </li>
+      </ul>
+      <% if person_signed_in? %>
+        <ul class="profile-header">
+            <% if current_person.picture.present? %>
+            <!-- TODO: larger image size + combine pic/name -->
+              <!-- <li><%= image_tag(current_person.picture_url(:thumb), size: "40x40" ) %></li> -->
+              <li><%= link_to(image_tag(current_person.picture_url(:thumb), size: "40x40", alt: current_person.full_name, title: current_person.full_name), current_person) %></li>
+            <% else %>
+              <!-- <li><%= image_tag('/avatar.png', size: "40x40" ) %></li> -->
+              <li><%= link_to(image_tag('/avatar.png', size: "40x40", alt: current_person.full_name, title: current_person.full_name), current_person) %></li>
+            <% end %>
+            <li><%= link_to current_person.full_name, current_person %></li>
+            <li><%= link_to "logout", destroy_person_session_path, method: :delete %></li>
+            <% if current_person.admin? %>
+              <li role="presentation" class="divider"></li>
+              <li><%= link_to 'Admin dashboard', dashboard_path %></li>
+            <% end %>
+        </ul>
+      </div>
+      <% else %>
+        <ul class="profile-header not-logged-in">
+        <li><%= link_to 'Sign in', new_person_session_path %></li>
+        <li><%= link_to 'Sign up', new_person_registration_path %></li>
+        <li><%= link_to(content_tag(:span, "Sign in with GitHub"), person_omniauth_authorize_path(:github))  %></li>
+      </ul>
+      <% end %>
+    </nav>
+  </header>
+  <div class="main-container">
+    <% [:notice, :error, :alert, :success].each do |level| %>
+      <% unless flash[level].blank? %>
+        <p class="container alert alert-dismissable alert-<%= flash_class(level) %>">
+          <%= flash[level] %>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        </p>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+
+  </div>
+</body>
+</html>
