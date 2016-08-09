@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :redesign_variant
 
   protected
 
@@ -32,5 +33,9 @@ class ApplicationController < ActionController::Base
 
   def render_403
     render file: Rails.root.join('public/403.html'), status: 403
+  end
+
+  def redesign_variant
+    request.variant = :redesign if params[:redesign]
   end
 end
