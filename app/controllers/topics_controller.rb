@@ -1,9 +1,23 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:edit, :update, :destroy]
+  before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :validate_user_group_member
   before_action :authenticate_person!
 
   def edit
+  end
+
+  def index
+    topics = Topic.where(group_id: params[:group_id])
+    @covered_topics, @future_topics = topics.partition { |topic| topic.covered? }
+    @group = Group.where(id: params[:group_id]).first
+    @topic = Topic.new(group_id: params[:group_id], person_id: current_person.id)
+  end
+
+  def show
+    @group = @topic.group
+    @comments = Comment.where(topic: @topic.id)
+    @comment = Comment.new
+    @comment.person_id = current_person if current_person
   end
 
   def create

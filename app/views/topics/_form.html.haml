@@ -1,6 +1,6 @@
 %h4 Suggest a topic:
 
-= form_for([@topic.group, @topic],  html: { multipart: true}) do |f|
+= form_for @topic.group @topic do |f|
   = render 'shared/error_messages', object: f.object
 
   .form-group

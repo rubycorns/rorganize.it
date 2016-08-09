@@ -54,9 +54,6 @@ class GroupsController < ApplicationController
 
     @topic = Topic.new
     @topic.group = @group
-
-    @comment = Comment.new
-    @comment.person_id = current_person if current_person
   end
 
   def destroy
