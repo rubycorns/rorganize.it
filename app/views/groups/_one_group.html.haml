@@ -1,34 +1,25 @@
-%li{class: "list-group-item clearfix"}
-  .row
-    .col-md-2
-      = render partial: 'shared/group_picture', locals: { group: group}
-    .col-md-8
-      %h3= link_to group.name, group
-      %p
-        %strong When?
-        = group.time
-      %p
-        %strong Where?
-        = group.address
-      %p
-        %strong Where exactly?
-        = group_location(group)
-    - if group.full?
-      .col-md-2
-        %span.label.label-danger
-          full
-    - if group.inactive?
-      .col-md-2
-        %span.label.label-warning
-          inactive
+%li{class: "list-group-item"}
+  .list-group-item-pic
+    = render partial: 'shared/group_picture', locals: { group: group}
+    %p
+      - if group.full?
+        %span.tag.tag-full
+          Full
+      - if group.inactive?
+        %span.tag.tag-inactive
+          Inactive
+  .list-group-item-info
+    %h3= link_to group.name, group
     - if group.allow_male_students?
-      .col-md-2
-        %span.label.label-info
-          mixed group
-    .col-md-2
       %p
-        - if group.editable_by?(current_person)
-          = link_to edit_group_path(group) do
-            = fa_icon "edit", text: 'edit'
-        - if group.deletable_by?(current_person)
-          = link_to("delete", group_path(group), method: :delete, data: {confirm: 'Are you sure you want to delete this group?'}) if group.deletable_by?(current_person)
+        %span.tag.tag-mixed
+          Mixed group
+    %p
+      %strong When:
+      = group.time
+    %p
+      %strong Where:
+      = group.address
+    %p
+      %strong Address:
+      = group_location(group)

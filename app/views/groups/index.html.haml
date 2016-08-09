@@ -1,17 +1,21 @@
-.container
-  .row
-    .col-md-8
-      %h1.page-header Groups overview
-      %ul.list-group
-        = render partial: 'one_group', collection: @groups, as: :group
-        
-      %h2.page-group Inactive groups
-      %ul.list-group
-        = render partial: 'one_group', collection: @groups_inactive, as: :group
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "All groups", groups_path, class: 'active'
+  -# Implement filters for sub-navigation + .active class
+  %li= link_to "Open groups", groups_path
+  %li= link_to "Recently added", groups_path
 
-    %aside.sidebar.col-md-4
-      %h1.page-header Hey listen!
-      %p If you don't see your project group - feel free to add it!
-      = link_to "register new group", new_group_path, class: 'btn btn-primary'
-      = render partial: 'shared/filter', locals: { path: groups_path }
-                  
+.flex-page
+  .flex-page-main
+    %h1.page-header Groups overview
+    %ul.list-group
+      = render partial: 'one_group', collection: @groups, as: :group
+
+    %h2.page-group Inactive groups
+    %ul.list-group
+      = render partial: 'one_group', collection: @groups_inactive, as: :group
+
+  %aside.flex-page-sidebar
+    %h2.page-header New Groups
+    %p If you don't see your project group, feel free to add it!
+    = link_to "Register new group", new_group_path, class: 'btn btn-pink'
+    = render partial: 'shared/filter', locals: { path: groups_path }

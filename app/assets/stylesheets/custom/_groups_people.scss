@@ -21,9 +21,46 @@
   }
 }
 .list-group-item {
+  border: none;
+  padding: 10px 15px 40px;
+
   img {
-    width: 100%;
+    display: block;
+    margin: 0 auto;
+    width: 80%;
     height: auto;
+    border-radius: 50%;
+  }
+
+  span.label {
+    padding: .2em .6em .4em;
+    border-radius: 5px;
+    background: white;
+  }
+
+  span.label-danger,
+  span.label-warning {
+    display: block;
+    width: 60%;
+    margin: 0.4em auto;
+    border-width: 2px;
+    border-style: solid;
+  }
+  span.label-danger {
+    color: $salmon-pink;
+    border-color: $salmon-pink;
+  }
+  span.label-warning {
+    color: $rg_red;
+    border-color: $rg_red;
+  }
+  span.label-info {
+    margin-right: 1em;
+    color: $dodger-blue;
+    border: 1px solid $dodger-blue;
+  }
+  p {
+    margin: 0 0 5px;
   }
 }
 #map {

@@ -3,12 +3,12 @@
   .row.filter-option
     %label.col-md-3.control-label city
     .col-md-8
-      = select_tag 'city', options_for_select(@cities), include_blank: true, class: 'form-control'
+      = select_tag 'City', options_for_select(@cities), include_blank: true, class: 'form-control'
 
   .row.filter-option
     %label.col-md-3.control-label country
     .col-md-8
-      = select_tag 'country', options_for_select(country_names_for_select(@countries)), include_blank: true, class: 'form-control'
+      = select_tag 'Country', options_for_select(country_names_for_select(@countries)), include_blank: true, class: 'form-control'
 
   - if current_page?(coaches_path)
     .row.filter-option
@@ -17,7 +17,7 @@
         = check_box_tag 'willing_to_travel'
 
   %button{type: 'submit', class: 'btn btn-primary'}
-    filter
+    Filter
 
   - if %w(city country willing_to_travel).any? { |p| params[p] }
     = link_to "reset", path, class: 'btn reset-button'
