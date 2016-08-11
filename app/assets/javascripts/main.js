@@ -1,4 +1,3 @@
-
 function makeGif() {
 	if ($('#gifModal').length) {
 		randomGif.init();
@@ -6,11 +5,25 @@ function makeGif() {
 	}
 }
 
+// TEMP: appends redesign param to any href on a page
+var url = window.location;
+var urlString = url.toString();
+var substring = 'redesign';
+
+function appendRedesignParam() {
+	if (urlString.indexOf(substring) !== -1) {
+		$('a').each(function(){
+		 this.href += '?redesign=true';
+		})
+	}
+}
+$(document).on('page:load', appendRedesignParam);
 
 $(document).on('page:load', makeGif);
 
-
 $(document).ready(function() {
+// TEMP: appends redesign param to any href on a page
+	appendRedesignParam();
 
 	function removeAlert() {
 		$('.alert').addClass('fade-out');
