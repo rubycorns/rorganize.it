@@ -125,9 +125,11 @@ ul {
   padding: 0.3em 0.8em 0.4em;
   border-radius: 5px;
   color: white;
-
 }
 
+.btn-lrg {
+  padding: 0.5em 5em 0.7em;
+}
 .btn-pink {
   background-color: $salmon-pink;
   &:hover {
@@ -253,6 +255,7 @@ nav.navbar {
 
 .flex-page {
   display: flex;
+  margin-top: 4em;
 }
 
 .flex-page-main {
@@ -296,11 +299,15 @@ body.ghosticorn {
 
 // Index/Home page
 .hero {
+  margin: 2rem 0;
   text-align: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
+  h1 {
+    margin: 1em 0 0.7em;
+    font-size: 3rem;
+  }
+  .sign-in-cta {
+    margin-top: 1.5em;
+  }
 }
 
 .home-find {
@@ -314,11 +321,18 @@ body.ghosticorn {
   text-align: center;
   flex-basis: 35%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  //PROBLEM: when larger > 1440, h3 doesn't wrap
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  & .home-find-btn {
+    margin-top: 1.3em;
+    align-self: flex-end;
+  }
 }
 
 .stats {
+  padding: 2em 0 3em;
   background-color: $daisy-yellow;
   border-radius: 10px;
 }
@@ -332,7 +346,7 @@ body.ghosticorn {
   color: $petal-pink;
 }
 
-
+// GITHUB Fork me banderole
 /* Left will inherit from right (so we don't need to duplicate code) */
 .github-fork-ribbon {
   /* The right and left classes determine the side we attach our banner to */
