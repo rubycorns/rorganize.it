@@ -1,0 +1,36 @@
+// Joint CSS for both Groups and People + their single+edit views
+
+// List items for groups, people, coaches
+.list-group-item {
+  display: flex;
+  margin-bottom: 1rem;
+
+  & > * {
+    // border: 1px solid teal;
+  }
+}
+
+.list-group-item-pic {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+  }
+}
+.list-group-item-info {
+  flex: 3;
+}
+
+// Group pages
+.tag {
+  padding: 0.2em 1em 0.3em;
+  border: 2px solid $petal-pink;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: $petal-pink;
+}

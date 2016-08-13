@@ -1,0 +1,30 @@
+// Buttons
+.btn {
+  padding: 0.3em 0.8em 0.4em;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn-lrg {
+  padding: 0.5em 5em 0.7em;
+}
+.btn-pink {
+  background-color: $salmon-pink;
+  &:hover {
+    background-color: $petal-pink;
+  }
+}
+
+.btn-teal {
+  background-color: $teal;
+  &:hover {
+    background-color: $teal-light;
+  }
+}
+
+.btn-grey {
+  background-color: $limestone-grey;
+  &:hover {
+    background-color: $onyx-grey;
+  }
+}

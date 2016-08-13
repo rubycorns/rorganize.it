@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+}
+
+body.ghosticorn {
+  background: image-url("ghosticorn.gif");
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: $font-stack;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $body-color;
+}
+
+/*
+ * Basic Styles
+ */
+
+h1 {
+  font-size: 2.1em;
+  color: $ochre-yellow;
+  border-bottom: solid 1px $ochre-yellow;
+}
+
+h2 {
+  font-size: 1.7em;
+  color: $limestone-grey;
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: $onyx-grey;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $dodger-blue; //temp
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: $dodger-light; //temp
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Header + Navigation
+header nav {
+  width: 100vw;
+  border-bottom: 2px solid $limestone-grey;
+}
+
+nav.navbar {
+  height: $navbar-height;
+  display: flex; // container for whole header
+  justify-content: space-around;
+}
+
+.header-logo {
+  flex: 1;
+  margin-left: 3rem;
+}
+
+.main-nav {
+  flex: 3;
+}
+
+.profile-header {
+  flex: 2;
+}
+
+.main-nav,
+.profile-header {
+  display: flex; // containers for respective list items
+}
+
+.main-nav li,
+.profile-header li {
+  display: flex; // container for a tags, to achieve stretching of items
+}
+
+// INFO: Padding used to keep hover-border at the very top
+.header-logo,
+.main-nav li a {
+  padding-top: 1rem;
+  font-size: 1.3rem;
+}
+
+.main-nav li a,
+.profile-header li a {
+  color: $body-color;
+  border-top: 3px solid white;
+  margin-right: 1.2rem;
+  text-align: center;
+  &:hover,
+  &:focus,
+  &:active {
+    border-top: 3px solid $header_red;
+  }
+}
+// Q: DRYer way to combine with hover state?
+.main-nav li.active a {
+  border-top: 3px solid $header_red;
+}
+
+// profile-header
+.profile-header li a {
+  font-size: 1rem;
+  padding-top: 1.3rem
+}
+
+// GH sign in button
+.not-logged-in > li:last-child > a > span {
+  padding: 0.2em 0.7em 0.3em;
+  background-color: $limestone-grey;
+  border-radius: 5px;
+  color: white;
+}
+
+// Sub navigation
+.sub-nav {
+  display: flex;
+  justify-content: flex-start;
+
+  & > li {
+    display: flex;
+  }
+  & > li > a {
+    padding: 0.5rem 1rem 0.7rem;
+    border-top: 3px solid white;
+  }
+  & > li:hover > a,
+  & > li:active > a,
+  & > li:focus > a,
+  & > li > a.active {
+    border-top: 3px solid $ochre-yellow;
+  }
+}
+
+// Main Container
+.main-container {
+  margin:0 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-page {
+  display: flex;
+  margin-top: 4em;
+}
+
+.flex-page-main {
+  flex: 2;
+  margin-right: 2rem;
+}
+
+.flex-page-sidebar {
+  flex: 1;
+}
