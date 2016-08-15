@@ -41,4 +41,7 @@ input[type=submit] {
   border: 1px solid $limestone-grey;
   font-family: inherit;
   font-size: inherit;
+  &:hover {
+    border-color: $onyx-grey;
+  }
 }

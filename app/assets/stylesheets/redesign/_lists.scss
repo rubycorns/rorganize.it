@@ -55,6 +55,16 @@
   color: $onyx-grey;
   font-size: 14px;
   background: url(select-arrow.png) 96% / 5% no-repeat white;
+  &:focus, &:active {
+    outline: 0;
+    border-color: $petal-pink;
+    box-shadow: 0 0 1px $petal-pink;
+  }
+  // removes dotted focus border in FF
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow:0 0 0 $body-color;
+  }
   & option {
     font-family: $font-stack;
     padding: 2px 0 3px 9px;
