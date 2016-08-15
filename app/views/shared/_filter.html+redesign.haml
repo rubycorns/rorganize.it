@@ -1,12 +1,12 @@
 %h2.page-header Filter by
 = form_tag url_for, method: 'get', class: 'filter' do
-  %label
+  %label(for='city')
     City
-  = select_tag 'city', options_for_select(@cities), include_blank: true, class: 'filter-select'
+  = select_tag 'city', options_for_select(@cities), include_blank: 'Choose…', class: 'filter-select'
 
-  %label
+  %label(for='country')
     Country
-  = select_tag 'country', options_for_select(country_names_for_select(@countries)), include_blank: true, class: 'filter-select'
+  = select_tag 'country', options_for_select(country_names_for_select(@countries)), include_blank: 'Choose…', class: 'filter-select'
 
   - if current_page?(coaches_path)
     .checkbox-div

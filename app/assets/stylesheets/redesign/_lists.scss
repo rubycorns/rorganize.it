@@ -30,6 +30,7 @@
 
 // Filter section
 .filter {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   & > * {
@@ -42,15 +43,24 @@
 }
 
 .filter-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
   height: 35px;
   padding: 2px 6px;
+  background: transparent;
   border: 1px solid $limestone-grey;
   border-radius: 5px;
   color: $onyx-grey;
   font-size: 14px;
+  background: url(select-arrow.png) 96% / 5% no-repeat white;
   & option {
     font-family: $font-stack;
     padding: 2px 0 3px 9px;
+  }
+  & option:first-child {
+    border-bottom: 1px solid $limestone-grey;
   }
 }
 
@@ -58,6 +68,9 @@
   position: relative;
   input[type=checkbox] {
     visibility: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     margin: 0;
     width: 25px;
     height: 100%;
