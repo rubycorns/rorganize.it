@@ -50,9 +50,43 @@
   font-size: 14px;
   & option {
     font-family: $font-stack;
-
     padding: 2px 0 3px 9px;
   }
+}
+
+.checkbox-div {
+  position: relative;
+  input[type=checkbox] {
+    visibility: hidden;
+    margin: 0;
+    width: 25px;
+    height: 100%;
+  }  & .checkbox-el {
+    position: absolute;
+    top: 5px;
+    left: 135px;
+    cursor: pointer;
+    width: 25px;
+    height: 100%;
+    margin-left: 0.5em;
+    border: 1px solid $limestone-grey;
+  }
+  & .checkbox-el::after {
+    position: absolute;
+    opacity: 0;
+    content: '\2714';
+    font-size: 1.5em;
+    color: $body-color;
+    background: transparent;
+    top: -10px;
+    left: 5px;
+  }
+   & .checkbox-el:hover::after {
+    opacity: 0.3;
+   }
+   & input[type=checkbox]:checked + .checkbox-el:after {
+    opacity: 1;
+   }
 }
 
 // Group pages

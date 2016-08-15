@@ -9,9 +9,12 @@
   = select_tag 'country', options_for_select(country_names_for_select(@countries)), include_blank: true, class: 'filter-select'
 
   - if current_page?(coaches_path)
-    %label
-      Willing to travel?
-      = check_box_tag 'willing_to_travel'
+    .checkbox-div
+      %label(for="willing_to_travel")
+        Willing to travel?
+        = check_box_tag 'willing_to_travel'
+        %span.checkbox-el
+
   .filter-buttons
     -# %button{type: 'submit', class: 'btn btn-grey'}
       Filter
