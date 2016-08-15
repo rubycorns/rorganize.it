@@ -1,6 +1,6 @@
 // Joint CSS for both Groups and People + their single+edit views
 
-// List items for groups, people, coaches
+// Lists for groups, people, coaches
 .list-group-item {
   display: flex;
   margin: 2rem 0;
@@ -28,6 +28,33 @@
   flex: 4;
 }
 
+// Filter section
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  & > * {
+    flex: 1 1 100%;
+    margin: 0.5em 0;
+  }
+  & > .btn {
+    flex-basis: 50%;
+  }
+}
+
+.filter-select {
+  height: 35px;
+  padding: 2px 6px;
+  border: 1px solid $limestone-grey;
+  border-radius: 5px;
+  color: $onyx-grey;
+  font-size: 14px;
+  & option {
+    font-family: $font-stack;
+
+    padding: 2px 0 3px 9px;
+  }
+}
+
 // Group pages
 .tag {
   padding: 0.1em 0.7em 0.15em;
@@ -36,4 +63,11 @@
   font-size: 0.8em;
   text-transform: uppercase;
   color: $petal-pink;
+}
+
+.tag-mixed {
+  background-color: $salmon-pink;
+  border: none;
+  color: white;
+  text-transform: capitalize;
 }

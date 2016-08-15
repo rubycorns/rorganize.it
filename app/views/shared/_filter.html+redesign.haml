@@ -1,23 +1,20 @@
 %h2.page-header Filter by
-= form_tag url_for, method: 'get' do
-  .row.filter-option
-    %label.col-md-3.control-label city
-    .col-md-8
-      = select_tag 'City', options_for_select(@cities), include_blank: true, class: 'form-control'
+= form_tag url_for, method: 'get', class: 'filter' do
+  %label
+    City
+  = select_tag 'city', options_for_select(@cities), include_blank: true, class: 'filter-select'
 
-  .row.filter-option
-    %label.col-md-3.control-label country
-    .col-md-8
-      = select_tag 'Country', options_for_select(country_names_for_select(@countries)), include_blank: true, class: 'form-control'
+  %label
+    Country
+  = select_tag 'country', options_for_select(country_names_for_select(@countries)), include_blank: true, class: 'filter-select'
 
   - if current_page?(coaches_path)
-    .row.filter-option
-      %label.col-md-9.control-lable willing to travel
-      .col-md-2
-        = check_box_tag 'willing_to_travel'
-
-  %button{type: 'submit', class: 'btn btn-grey'}
-    filter
-
-  - if %w(city country willing_to_travel).any? { |p| params[p] }
-    = link_to "reset", path, class: 'btn btn-reset'
+    %label
+      Willing to travel?
+      = check_box_tag 'willing_to_travel'
+  .filter-buttons
+    -# %button{type: 'submit', class: 'btn btn-grey'}
+      Filter
+    = submit_tag 'Filter', class: 'btn btn-grey'
+    - if %w(city country willing_to_travel).any? { |p| params[p] }
+      = link_to "Reset", path, class: 'btn btn-outline'
