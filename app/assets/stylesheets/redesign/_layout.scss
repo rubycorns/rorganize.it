@@ -157,6 +157,12 @@ nav.navbar {
   margin:0 3rem 3rem;
 }
 
+.about-page,
+.welcome-page,
+.conduct-page {
+  margin-top: 51.6px;
+}
+
 .flex-index {
   display: flex;
 }
@@ -176,4 +182,7 @@ nav.navbar {
 
 .page-header {
   margin-top: 1.5rem;
+}
+h1.page-header {
+  margin-bottom: 1.5rem;
 }

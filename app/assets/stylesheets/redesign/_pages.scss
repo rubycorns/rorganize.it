@@ -1,0 +1,61 @@
+// Welcome page
+.welcome-text {
+  margin: 1.5rem 0;
+  padding: 2em;
+  background-color: $petal-pink;
+  text-align: center;
+}
+
+.welcome-page section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  & .join-group-box,
+  & .create-group-box {
+    flex-basis: 40%;
+  }
+  & .or-box {
+    flex-basis: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & .join-group-box,
+  & .create-group-box,
+  & .tell-other-box {
+    padding: 1rem 2rem 1rem 3rem;
+  }
+  & .or-box p, & .then-box {
+    text-align: center;
+    font-family:cursive;
+    text-transform: uppercase;
+  }
+  & ol {
+    margin: 1em 0;
+  }
+  & ol li::before {
+    content: '✧';
+  }
+  & img {
+    width: 200px;
+    height: auto;
+    border: 1px solid $limestone-grey;
+  }
+}
+
+// CoC
+.conduct-page {
+  & *:nth-child(n+2) {
+    max-width: 700px;
+  }
+  & p {
+    margin-bottom: 0.5em;
+  }
+  ul {
+    list-style: disc outside;
+    margin: 1.2em;
+  }
+  & .coc-img {
+    margin-top: 1.5em;
+  }
+}
