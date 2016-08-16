@@ -5,8 +5,10 @@
   %li= link_to "Recently added", groups_path
   %li= link_to "Inactive groups", groups_path
 
-.flex-page
-  .flex-page-main
+// Q: Load several sub pages with if statements in this haml?
+
+.flex-index
+  .flex-index-main
     %h1.page-header Groups overview
     %ul.list-group
       = render partial: 'one_group', collection: @groups, as: :group
@@ -15,7 +17,7 @@
     %ul.list-group
       = render partial: 'one_group', collection: @groups_inactive, as: :group
 
-  %aside.flex-page-sidebar
+  %aside.flex-index-sidebar
     %h2.page-header New Groups
     %p If you don't see your project group, feel free to add it!
     %p.sign-in-cta

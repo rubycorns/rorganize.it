@@ -1,0 +1,126 @@
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "← All groups", groups_path
+
+.flex-show
+  %h1.page-header= @group.name
+
+  - if current_person.admin?
+    %button.btn.btn-default.admin-button
+      = link_to edit_group_path(@group) do
+        EDIT AS ADMIN &#9873;
+
+  .pull-right
+    .btn-group
+      = link_to groups_path, html_options = { class: 'btn btn-default'} do
+        %i.glyphicon.glyphicon-arrow-left
+        overview
+
+      - if show_member_buttons?(current_person, @group)
+
+        .btn-group
+          %button.btn.btn-default.dropdown-toggle{ type: "button", "data-toggle" => "dropdown"}
+            %span.glyphicon.glyphicon-cog
+            %span.caret
+          %ul.dropdown-menu.pull-right{ role: "menu", "aria-labelledby" => "dropdownMenu1"}
+            %li
+              = link_to edit_group_path(@group) do
+                %i.glyphicon.glyphicon-edit
+                edit group
+            %li.divider
+            %li
+              = render 'leave'
+
+      - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
+        = render 'join'
+
+      - if @group.inactive?
+        = link_to groups_path, html_options = { class: 'btn btn-error'} do
+          %i.glyphicon.glyphicon-remove-sign
+          GROUP CURRENTLY INACTIVE
+      - elsif @group.full?
+        = link_to groups_path, html_options = { class: 'btn btn-error'} do
+          %i.glyphicon.glyphicon-remove-sign
+          GROUP CURRENTLY FULL
+
+  .row.group-info
+    .col-md-4
+      .row
+        .col-md-10
+          = image_tag(@group.picture_url(:person_profile), class: 'profile-picture') if @group.picture?
+      .row
+        .col-md-12
+          %p
+            %strong
+              = fa_icon "map-marker"
+              = @group.address
+              %br
+              = group_location(@group)
+            %br
+            = fa_icon "clock-o"
+            %strong
+              = @group.time
+          - if @group.contact?
+            %p
+              %strong Contact us:
+              = auto_link @group.contact
+          - if @group.twitter?
+            %p
+              %strong Our Twitter:
+              = render partial: "shared/twitter", locals: { object: @group }
+          - if @group.level?
+            %p
+              %strong Level:
+              = @group.level
+          - if @group.founded_on?
+            %p
+              %strong Founded:
+              = @group.founded_on
+          - if @group.activities?
+            %p
+              = markdown(@group.activities)
+    .col-md-4
+      - if @group.allow_male_students?
+        .label.label-info mixed group
+        %p.help-block This group also welcomes men to join as students.
+      - if @group.full?
+        .label.label-danger full
+        %p.help-block This group does currently not accept new members.
+      - if @group.inactive?
+        .label.label-warning inactive
+        %p.help-block This group is currently not meeting.
+
+      %h4 Students
+      %p
+        This group currently has #{pluralize @group.students.length, "student"}.
+      %ul.list--people
+        - @group.students.each do |student|
+          %li
+            = link_to student.first_name, person_path(student)
+            - if admin?
+              = render partial: 'remove_from_group', locals: { object: student, group: @group }
+      %h4 Coaches
+      %p
+        This group currently has #{pluralize @group.coaches.length, "coach"}.
+      %ul.list--people
+        - @group.coaches.each do |coach|
+          %li
+            = link_to coach.first_name, person_path(coach)
+            - if admin?
+              = render partial: 'remove_from_group', locals: { object: coach, group: @group }
+
+    .col-md-4
+      #group-map
+        - if @group.address?
+          #map{data: {latitude: @group.latitude, longitude: @group.longitude}}
+        - else
+          = image_tag('follow_your_dreams.gif')
+
+      - if @group.learning_resources?
+        %br
+        %p
+          %strong Suggested learning resources:
+          = markdown(@group.learning_resources)
+
+
+  .row.topics
+    = render template: "topics/index"

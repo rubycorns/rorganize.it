@@ -28,15 +28,18 @@
   }
 }
 
+// Secondary button, e.g. filter reset
 .btn-outline {
   border: 2px solid $limestone-grey;
   color: $limestone-grey;
 }
 
+// used for register-buttons
 .sign-in-cta {
   margin-top: 1.5em;
 }
 
+// Filter submit button
 input[type=submit] {
   border: 1px solid $limestone-grey;
   font-family: inherit;
@@ -44,4 +47,9 @@ input[type=submit] {
   &:hover {
     border-color: $onyx-grey;
   }
+}
+
+// DIV for action buttons
+.action-buttons {
+  margin: 1rem 0;
 }

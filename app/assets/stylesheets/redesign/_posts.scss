@@ -1,0 +1,68 @@
+.post, .post-browsing, .blog-pagination, .post-edit {
+  max-width: 700px;
+  margin-top: 1.5rem;
+}
+
+.post {
+  .post-draft {
+    padding: 1em 2em;
+    background-color: $ochre-yellow;
+    font-size: 1.2em;
+  }
+  .post-meta {
+    color: $onyx-grey;
+    font-size: 0.7em;
+  }
+  .post-picture img {
+    width: 100%;
+  }
+}
+
+.blog-pagination {
+  text-align: center;
+  padding: 0.8em 0 1em;
+  background-color: $teal-light;
+}
+
+.post-browsing {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  & .post-newer {
+    text-align: left;
+  }
+  & .post-older {
+    text-align: right;
+  }
+  & .post-older:first-child {
+    width: 100%;
+  }
+}
+
+.post-edit {
+  display: flex;
+  flex-wrap: wrap;
+  & > * {
+    flex: 1 1 100%;
+  }
+  & label,
+  & .filter-buttons {
+    margin: 0.8em 0 0.2em;
+  }
+  & .post-edit-title,
+  & .post-edit-text {
+    font-family: $font-stack;
+    font-size: inherit;
+    padding: 0.3em;
+  }
+  & .post-edit-title {
+    font-size: 1.4em;
+  }
+}
+
+.twitter-feed {
+  width: 70%;
+  & iframe {
+    width: 35vw !important;
+  }
+}

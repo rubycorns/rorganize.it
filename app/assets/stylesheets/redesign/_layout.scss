@@ -155,25 +155,25 @@ nav.navbar {
 // Main Container
 .main-container {
   margin:0 3rem 3rem;
-  display: flex;
-  flex-direction: column;
 }
 
-.flex-page {
+.flex-index {
   display: flex;
 }
 
-.flex-page-main {
+.flex-index-main {
   flex: 2 0 65%;
   margin-right: 2rem;
 }
 
-.flex-page-sidebar {
+.flex-index-sidebar {
   flex: 1 0 35%;
   // rework for smaller screens
   padding-right: 10em;
 }
 
+// Other general styles used throughout several pages
+
 .page-header {
-  margin-top: 1.5em;
+  margin-top: 1.5rem;
 }
