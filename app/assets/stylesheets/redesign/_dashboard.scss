@@ -1,0 +1,17 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  & .dashboard-item {
+    flex: 1 1 33%;
+    padding: 0.5em 1em;
+  }
+  & .filter-select {
+    width: 60%;
+  }
+}
+
+.admin-box {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}

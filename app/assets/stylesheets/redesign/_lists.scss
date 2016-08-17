@@ -3,7 +3,7 @@
 // Lists for groups, people, coaches
 .list-group-item {
   display: flex;
-  margin: 2rem 0;
+  margin: 2em 0;
 
   & > * {
     // border: 1px solid teal;
@@ -19,8 +19,6 @@
     flex: 1;
   }
   & img {
-    // width: 70%;
-    // height: auto;
     border-radius: 50%;
   }
 }

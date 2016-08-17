@@ -1,12 +1,38 @@
+// Filter submit button
+input[type=submit] {
+  border: 1px solid $limestone-grey;
+  font-family: inherit;
+  font-size: inherit;
+  &.btn-small {
+    font-size: 0.7em;
+  }
+  &:hover {
+    border-color: $onyx-grey;
+  }
+}
+
+// DIV for action buttons
+.action-buttons {
+  margin: 1rem 0;
+}
+
+
+// Buttons
 .btn {
   padding: 0.3em 0.8em 0.4em;
   border-radius: 5px;
   color: white;
 }
 
+.btn-small {
+  padding: 0.1em 0.4em 0.2em;
+  font-size: 0.7em;
+}
+
 .btn-lrg {
   padding: 0.5em 5em 0.7em;
 }
+
 .btn-pink {
   background-color: $salmon-pink;
   &:hover {
@@ -34,22 +60,7 @@
   color: $limestone-grey;
 }
 
-// used on parents, who are block elements
+// used on parents, need to be block elements
 .sign-in-cta {
   margin-top: 1.5em;
-}
-
-// Filter submit button
-input[type=submit] {
-  border: 1px solid $limestone-grey;
-  font-family: inherit;
-  font-size: inherit;
-  &:hover {
-    border-color: $onyx-grey;
-  }
-}
-
-// DIV for action buttons
-.action-buttons {
-  margin: 1rem 0;
 }
