@@ -17,11 +17,11 @@ describe 'routing to topics' do
     expect(delete: '/groups/:id/topics/:topic_id').to be_routable
   end
 
-  it 'does not route show' do
-    expect(get: '/groups/:id/topics/:topic_id').to_not be_routable
+  it 'does route show' do
+    expect(get: '/groups/:id/topics/:topic_id').to be_routable
   end
 
-  it 'does not route index' do
-    expect(get: '/groups/:id/topics').to_not be_routable
+  it 'does route index' do
+    expect(get: '/groups/:id/topics').to be_routable
   end
 end

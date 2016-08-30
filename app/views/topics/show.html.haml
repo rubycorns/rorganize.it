@@ -5,29 +5,32 @@
   %h3
     back to
     = link_to 'topic overview', group_topics_path(@group.id)
-  %p= @topic.body
-  %p
-    opened by
-    =link_to  @topic.person, person_path(@topic.person)
-    on
-    = @topic.created_at.strftime("%d %B %Y")
-  -if @topic.covered_at
+
+  .topic-main
+    %p= @topic.body
     %p
-      covered on
-      = @topic.covered_at.strftime("%d %B %Y")
-
-  - if @comments.size > 0
-    %h4 Comments
-    - @comments.each do |comment|
-      %div
+      opened by
+      =link_to  @topic.person, person_path(@topic.person)
+      on
+      = @topic.created_at.strftime("%d %B %Y")
+      -if @topic.covered_at
         %p
-          = markdown comment.body
-        %p
-          by
-          = comment.person.name
-          on
-          = comment.created_at.strftime("%d %B %Y")
+          covered on
+          = @topic.covered_at.strftime("%d %B %Y")
 
-  - if show_member_buttons?(current_person, @group)
-    = render 'comments/form'
+  .topic-comments
+    - if @comments.size > 0
+      %h4 Comments
+      - @comments.each do |comment|
+        %div
+          %p
+            = markdown comment.body
+          %p
+            by
+            = comment.person.name
+            on
+            = comment.created_at.strftime("%d %B %Y")
+  .topic-comment-form
+    - if show_member_buttons?(current_person, @group)
+      = render 'comments/form'
 
