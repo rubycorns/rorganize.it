@@ -19,8 +19,15 @@
   - if @comments.size > 0
     %h4 Comments
     - @comments.each do |comment|
-      %p hello
+      %div
+        %p
+          = markdown comment.body
+        %p
+          by
+          = comment.person.name
+          on
+          = comment.created_at.strftime("%d %B %Y")
 
-  %h4 Leave a comment
-  //= render partial: 'comments/form'
+  - if show_member_buttons?(current_person, @group)
+    = render 'comments/form'
 

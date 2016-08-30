@@ -9,9 +9,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to @comment.topic.group, notice: 'Comment posted!'
+      redirect_to group_topic_path(@comment.topic.group, @comment.topic), notice: 'Comments and cake!'
     else
-      redirect_to @comment.topic.group, notice: 'Whoopsie!'
+      redirect_to group_topic_path(@comment.topic.group, @comment.topic), notice: 'Something is wrong, no cake yet!'
     end
   end
 
