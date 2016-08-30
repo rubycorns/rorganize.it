@@ -4,16 +4,8 @@
     = link_to @group.name, @group
 
   .row
-  //    - if show_member_buttons?(current_person, @group)
-  //      = render partial: 'form', object: @topic
-
-  - if @covered_topics.size > 0
-    .covered-topics
-      %h3 Past topics
-
-      %ul.topics
-        - @covered_topics.each do |topic|
-          = render partial: 'list_item', locals: { topic: topic}
+    - if show_member_buttons?(current_person, @group)
+      = render 'form'
 
   - if @future_topics.size > 0
     .future-topics
@@ -21,4 +13,12 @@
 
       %ul.topics
         - @future_topics.each do |topic|
+          = render partial: 'list_item', locals: { topic: topic}
+
+  - if @covered_topics.size > 0
+    .covered-topics
+      %h3 Past topics
+
+      %ul.topics
+        - @covered_topics.each do |topic|
           = render partial: 'list_item', locals: { topic: topic}

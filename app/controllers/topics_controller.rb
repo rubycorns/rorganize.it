@@ -25,7 +25,7 @@ class TopicsController < ApplicationController
     @topic.person = current_person
 
     if @topic.save
-      redirect_to @topic.group, notice: 'Topic was successfully created. If you bring cake, people
+      redirect_to group_topics_path(@topic.group.id), notice: 'Topic was successfully created. If you bring cake, people
       will be more willing to discuss it with you.'
     else
       render action: 'new'
@@ -35,9 +35,9 @@ class TopicsController < ApplicationController
   def update
     if topic_params['covered']
       @topic.touch(:covered_at)
-      redirect_to @topic.group, notice: 'Topic was covered. Time for cake!'
+      redirect_to group_topics_path(@topic.group.id), notice: 'Topic was covered. Time for cake!'
     elsif @topic.update(topic_params)
-      redirect_to @topic.group, notice: 'Topic was successfully updated. All efforts, nomatter how small, deserve cake.'
+      redirect_to group_topics_path(@topic.group.id), notice: 'Topic was successfully updated. All efforts, nomatter how small, deserve cake.'
     else
       render action: 'edit'
     end
@@ -46,7 +46,7 @@ class TopicsController < ApplicationController
   def destroy
     group = @topic.group
     @topic.destroy
-    redirect_to group_path(group)
+    redirect_to group_topics_path(group.id), notice: 'You deleted the topic. Cake will lessen the loss.'
   end
 
   private
