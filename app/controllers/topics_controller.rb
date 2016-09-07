@@ -7,15 +7,15 @@ class TopicsController < ApplicationController
   end
 
   def index
-    topics = Topic.where(group_id: params[:group_id])
+    topics = Topic.where(group: params[:group_id])
     @covered_topics, @future_topics = topics.partition { |topic| topic.covered? }
     @group = Group.where(id: params[:group_id]).first
-    @topic = Topic.new(group_id: params[:group_id], person_id: current_person.id)
+    @topic = Topic.new(group_id: params[:group_id], person_id: current_person)
   end
 
   def show
     @group = @topic.group
-    @comments = Comment.where(topic: @topic.id)
+    @comments = Comment.where(topic: @topic)
     @comment = Comment.new
   end
 

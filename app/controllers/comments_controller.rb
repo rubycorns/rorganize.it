@@ -2,9 +2,6 @@ class CommentsController < ApplicationController
 
   before_action :authenticate_person!
 
-  def edit
-  end
-
   def create
     @comment = Comment.new(comment_params)
 
@@ -13,12 +10,6 @@ class CommentsController < ApplicationController
     else
       redirect_to group_topic_path(@comment.topic.group, @comment.topic), notice: 'Something is wrong, no cake yet!'
     end
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

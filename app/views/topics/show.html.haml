@@ -19,7 +19,7 @@
           = @topic.covered_at.strftime("%d %B %Y")
 
   .topic-comments
-    - if @comments.size > 0
+    - if @comments.any?
       %h4 Comments
       - @comments.each do |comment|
         %div
