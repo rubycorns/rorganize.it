@@ -1,0 +1,12 @@
+= form_for(@comment, url: [@topic.group, @topic, @comment]) do |f|
+  = render 'shared/error_messages', object: f.object
+
+  .form-group
+    = f.label :body, 'Leave a comment'
+    = f.text_area :body, placeholder: 'leave a comment', class: 'form-control'
+
+  = f.hidden_field :topic_id, value: @topic.id
+  = f.hidden_field :person_id, value: current_person.id
+    
+  .actions
+    = f.submit class: "btn btn-primary"

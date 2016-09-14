@@ -1,9 +1,22 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:edit, :update, :destroy]
+  before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :validate_user_group_member
   before_action :authenticate_person!
 
   def edit
+  end
+
+  def index
+    topics = Topic.where(group: params[:group_id])
+    @covered_topics, @future_topics = topics.partition { |topic| topic.covered? }
+    @group = Group.where(id: params[:group_id]).first
+    @topic = Topic.new(group_id: params[:group_id], person_id: current_person)
+  end
+
+  def show
+    @group = @topic.group
+    @comments = Comment.where(topic: @topic)
+    @comment = Comment.new
   end
 
   def create
@@ -11,7 +24,7 @@ class TopicsController < ApplicationController
     @topic.person = current_person
 
     if @topic.save
-      redirect_to @topic.group, notice: 'Topic was successfully created. If you bring cake, people
+      redirect_to group_topics_path(@topic.group.id), notice: 'Topic was successfully created. If you bring cake, people
       will be more willing to discuss it with you.'
     else
       render action: 'new'
@@ -21,9 +34,9 @@ class TopicsController < ApplicationController
   def update
     if topic_params['covered']
       @topic.touch(:covered_at)
-      redirect_to @topic.group, notice: 'Topic was covered. Time for cake!'
+      redirect_to group_topics_path(@topic.group.id), notice: 'Topic was covered. Time for cake!'
     elsif @topic.update(topic_params)
-      redirect_to @topic.group, notice: 'Topic was successfully updated. All efforts, nomatter how small, deserve cake.'
+      redirect_to group_topics_path(@topic.group.id), notice: 'Topic was successfully updated. All efforts, nomatter how small, deserve cake.'
     else
       render action: 'edit'
     end
@@ -32,7 +45,7 @@ class TopicsController < ApplicationController
   def destroy
     group = @topic.group
     @topic.destroy
-    redirect_to group_path(group)
+    redirect_to group_topics_path(group.id), notice: 'You deleted the topic. Cake will lessen the loss.'
   end
 
   private

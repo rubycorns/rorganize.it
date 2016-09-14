@@ -14,7 +14,9 @@ RailsGirlsApp::Application.routes.draw do
 
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)
   resources :groups do
-    resources :topics, only: [:create, :edit, :update, :destroy]
+    resources :topics do
+      resources :comments, only: [:create]
+    end
   end
   resources :people
   resources :coaches

@@ -1,2 +1,36 @@
 .container
-  %h3= @topic.body
+  %h2
+    Topics by 
+    =link_to @group.name, group_path(@group)
+  %h3
+    back to
+    = link_to 'topic overview', group_topics_path(@group.id)
+
+  .topic-main
+    %p= @topic.body
+    %p
+      opened by
+      =link_to  @topic.person, person_path(@topic.person)
+      on
+      = @topic.created_at.strftime("%d %B %Y")
+      -if @topic.covered_at
+        %p
+          covered on
+          = @topic.covered_at.strftime("%d %B %Y")
+
+  .topic-comments
+    - if @comments.any?
+      %h4 Comments
+      - @comments.each do |comment|
+        %div
+          %p
+            = markdown comment.body
+          %p
+            by
+            = comment.person.name
+            on
+            = comment.created_at.strftime("%d %B %Y")
+  .topic-comment-form
+    - if show_member_buttons?(current_person, @group)
+      = render 'comments/form'
+
