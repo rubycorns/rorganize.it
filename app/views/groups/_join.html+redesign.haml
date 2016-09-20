@@ -6,11 +6,12 @@
     = form_for(current_person.memberships.build(group_id: @group.id), url: memberships_path) do |f|
       = f.hidden_field :group_id
       = f.hidden_field :type, value: 'StudentMembership'
-      = f.submit "Join as a student!", class: 'btn btn-pink btn-lrg'
+      = f.submit "Join as a student!", class: 'btn btn-teal'
+    %p or
     = form_for(current_person.memberships.build(group_id: @group.id), url: memberships_path) do |f|
       = f.hidden_field :group_id
       = f.hidden_field :type, value: 'CoachMembership'
-      = f.submit "Join as a coach!", class: 'btn btn-pink btn-lrg'
+      = f.submit "Join as a coach!", class: 'btn btn-teal'
   - else
     .sign-in-cta
       = link_to "Sign up to join!", new_person_registration_path, class: 'btn btn-pink btn-lrg', id: 'signup-button'

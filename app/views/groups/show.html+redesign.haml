@@ -36,9 +36,6 @@
       - else
         = image_tag('follow_your_dreams.gif')
 
-
-
-
   .group-main
     %h1.page-header= @group.name
 
@@ -55,6 +52,16 @@
             = link_to edit_group_path(@group) do
               Edit as admin &#9873;
 
+    %p
+      - if @group.full?
+        %span.tag.tag-full
+          Full
+      - if @group.inactive?
+        %span.tag.tag-inactive
+          Inactive
+      - if @group.allow_male_students?
+        %span.tag.tag-mixed
+          Mixed group
     - if @group.level?
       %p
         %strong Level:
@@ -64,25 +71,15 @@
         = markdown(@group.activities)
 
 
-      - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
-        .group-join-box
-          = render 'join'
+    - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
+      .group-join-box
+        = render 'join'
 
-
-
-
-
-
-    .col-md-4
-      - if @group.allow_male_students?
-        .label.label-info mixed group
-        %p.help-block This group also welcomes men to join as students.
-      - if @group.full?
-        .label.label-danger full
-        %p.help-block This group does currently not accept new members.
-      - if @group.inactive?
-        .label.label-warning inactive
-        %p.help-block This group is currently not meeting.
+    .group-tabs
+      - if @group.learning_resources?
+        %span.group-tab
+          Learning Resources
+      - if @group.
 
       %h4 Students
       %p
@@ -103,7 +100,7 @@
             - if admin?
               = render partial: 'remove_from_group', locals: { object: coach, group: @group }
 
-    - if @group.learning_resources?
+
       %br
       %p
         %strong Suggested learning resources:

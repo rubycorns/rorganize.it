@@ -27,12 +27,13 @@
 }
 
 .group-join-box {
-  margin: 0.5rem 2rem 0.5rem 0.5rem;
-  border: 1px solid $petal-pink;
-  padding: 1rem 2rem 2.3rem;
+  margin: 1.5rem 4rem 1rem 1rem;
+  border: 2px solid $petal-pink;
+  padding: 1rem 6rem 2.3rem;
   text-align: center;
   & .sign-in-cta {
     display: flex;
     justify-content: space-around;
+    align-items: baseline;
   }
 }
