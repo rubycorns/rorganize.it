@@ -79,6 +79,9 @@
           - if @group.activities?
             %p
               = markdown(@group.activities)
+
+          %p
+            = link_to 'Topics this group talks about', group_topics_path(@group.id)
     .col-md-4
       - if @group.allow_male_students?
         .label.label-info mixed group
@@ -121,7 +124,3 @@
         %p
           %strong Suggested learning resources:
           = markdown(@group.learning_resources)
-
-
-  .row.topics
-    = render template: "topics/index"

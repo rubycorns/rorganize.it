@@ -3,14 +3,14 @@ require 'spec_helper'
 feature 'Manage topics of a group', :vcr => {:cassette_name => "create_group" } do
 
   scenario 'Add topic' do
-    visit_group_page
+    visit_group_topics_page
     add_topic
     topic_is_in_list_of_future_topics
   end
 
   scenario 'Mark topic as covered' do
     group_has_future_topics
-    visit_group_page
+    visit_group_topics_page
     mark_one_topic_as_covered
     topic_is_in_list_of_covered_topics
   end
@@ -30,13 +30,13 @@ feature 'Manage topics of a group', :vcr => {:cassette_name => "create_group" } 
   end
 
   def mark_one_topic_as_covered
-    within('.future-topics .topics .row:first-child') do
+    within('.future-topics .topics > li:first-of-type') do
       click_link 'Done'
     end
   end
 
-  def visit_group_page
-    visit group_path(group.slug)
+  def visit_group_topics_page
+    visit group_topics_path(group.id)
   end
 
   def add_topic
