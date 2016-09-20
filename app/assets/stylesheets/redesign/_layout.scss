@@ -136,7 +136,7 @@ nav.navbar {
 .sub-nav {
   display: flex;
   justify-content: flex-start;
-
+  margin-bottom: 1.5rem;
   & > li {
     display: flex;
   }
@@ -180,9 +180,6 @@ nav.navbar {
 
 // Other general styles used throughout several pages
 
-.page-header {
-  margin-top: 1.5rem;
-}
 h1.page-header {
   margin-bottom: 1.5rem;
 }

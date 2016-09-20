@@ -1,19 +1,22 @@
 // Filter submit button
 input[type=submit] {
-  border: 1px solid $limestone-grey;
+  border: none;
   font-family: inherit;
   font-size: inherit;
   &.btn-small {
     font-size: 0.7em;
   }
   &:hover {
-    border-color: $onyx-grey;
+    cursor: pointer;
   }
 }
 
 // DIV for action buttons
 .action-buttons {
   margin: 1rem 0;
+  & > * {
+    margin-right: 0.5rem;
+  }
 }
 
 
@@ -22,6 +25,9 @@ input[type=submit] {
   padding: 0.3em 0.8em 0.4em;
   border-radius: 5px;
   color: white;
+  & a {
+    color: white;
+  }
 }
 
 .btn-small {
