@@ -17,5 +17,6 @@
 //= require bootstrap
 //= require randomGif
 //= require main
+//= require redesign-main
 //= require leaflet
 //= require_tree .
