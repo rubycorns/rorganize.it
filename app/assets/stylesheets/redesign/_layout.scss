@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-body.ghosticorn {
-  background: image-url("ghosticorn.gif");
-}
-
 html,
 body {
   height: 100%;
@@ -74,6 +70,7 @@ nav.navbar {
 .header-logo {
   flex: 1;
   margin-left: 3rem;
+  margin-right: 1rem;
 }
 
 .main-nav {
@@ -105,7 +102,9 @@ nav.navbar {
 .profile-header li a {
   color: $body-color;
   border-top: 3px solid white;
-  margin-right: 1.2rem;
+  margin-right: 0.2rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
   text-align: center;
   &:hover,
   &:focus,
@@ -113,15 +112,21 @@ nav.navbar {
     border-top: 3px solid $header_red;
   }
 }
+
 // Q: DRYer way to combine with hover state?
 .main-nav li.active a {
   border-top: 3px solid $header_red;
 }
 
 // profile-header
-.profile-header li a {
-  font-size: 1rem;
-  padding-top: 1.3rem
+.profile-header li {
+  & img {
+    align-self: center;
+  }
+  & a {
+    font-size: 1rem;
+    padding-top: 1.3rem
+  }
 }
 
 // GH sign in button
@@ -141,6 +146,7 @@ nav.navbar {
     display: flex;
   }
   & > li > a {
+    margin-right: 0.2rem;
     padding: 0.5rem 1rem 0.7rem;
     border-top: 3px solid white;
   }
