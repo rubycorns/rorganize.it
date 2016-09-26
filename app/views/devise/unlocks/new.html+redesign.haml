@@ -1,0 +1,12 @@
+.devise-page
+  %h1.page-header Resend unlock instructions
+  .form-box
+    = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.label :email
+        = f.email_field :email, placeholder: 'email@email.com', autofocus: true
+      .sign-in-cta
+        = f.submit "Resend unlock instructions", class: "btn btn-lrg btn-pink"
+    %ul.devise-options-list
+      = render "devise/shared/links"

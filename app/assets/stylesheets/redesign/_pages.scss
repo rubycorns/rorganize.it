@@ -97,6 +97,16 @@
   border-radius: 10px;
 }
 
+/* All devise pages (sign in/up, forgot password, etc.) */
+
+.devise-page {
+  margin: 3rem auto;
+  width: 60%;
+  & .devise-options-list {
+    margin-top: 1.5rem;
+  }
+}
+
 // GITHUB Fork me banderole
 /* Left will inherit from right (so we don't need to duplicate code) */
 .github-fork-ribbon {
