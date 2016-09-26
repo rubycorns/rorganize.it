@@ -1,18 +1,8 @@
 %ul.sub-nav{role: "navigation"}
   %li= link_to "← All people", people_path
 
-%h1.page-header= @person.full_name
-- if logged_in?(@person)
-  .action-buttons
-    = link_to "Edit profile", edit_person_path(@person), class: 'btn btn-teal'
-
-    - if @person.provider.present?
-      Account linked with GitHub
-    - else
-      = link_to "Link account with GitHub", person_omniauth_authorize_path(:github), id: 'github-button', class: 'btn btn-grey'
-
-.profile-details
-  .profile-picture
+.flex-profile
+  %aside.profile-contact
     = render partial: "shared/person_picture", locals: { person: @person }
     - if coach_location?(@person)
       %p
@@ -32,28 +22,38 @@
     - if @person.willing_to_travel?
       %p
         I am willing to travel to a Rails Girls Workshop
-    .working-on
-      - if @person.working_on?
-        %h3 Working on
-        %p= markdown(@person.working_on)
-      - elsif @person == current_person
-        %p Why not tell the world what you're working on?
-
-  .profile-groups-list
-    %h2 Project Groups:
-    - if @person.has_group?
-      - @person.groups.each do |group|
-        .profile-groups
-          = link_to group.name, group_path(group.id)
-          = render partial: 'shared/group_picture', locals: { group: group}
-          - if admin?
-            = render partial: 'groups/remove_from_group', locals: { object: @person, group: group }
-    - else
-      %p
-        = @person.first_name
-        is not in a group.
+    - if logged_in?(@person)
+      .action-buttons
+        = link_to "Delete account", person_registration_path(@person), method: :delete, data: { confirm: "Are you sure you want to delete your account?" }, class: 'btn btn-pink'
 
 
-- if logged_in?(@person)
-  .action-buttons
-    = link_to "Delete account", person_registration_path(@person), method: :delete, data: { confirm: "Are you sure you want to delete your account?" }, class: 'btn btn-pink'
+  .profile-main
+    %h1.page-header= @person.full_name
+    - if logged_in?(@person)
+      .action-buttons
+        = link_to "Edit profile", edit_person_path(@person), class: 'btn btn-teal'
+        - if @person.provider.present?
+          Account linked with GitHub
+        - else
+          = link_to "Link account with GitHub", person_omniauth_authorize_path(:github), id: 'github-button', class: 'btn btn-grey'
+
+      .working-on
+        - if @person.working_on?
+          %h2 Working on
+          %p= markdown(@person.working_on)
+        - elsif @person == current_person
+          %p Why not tell the world what you're working on?
+
+      .profile-groups-list
+        %h2 Project Groups:
+        - if @person.has_group?
+          - @person.groups.each do |group|
+            .profile-groups
+              = link_to group.name, group_path(group.id)
+              = render partial: 'shared/group_picture', locals: { group: group}
+              - if admin?
+                = render partial: 'groups/remove_from_group', locals: { object: @person, group: group }
+        - else
+          %p
+            = @person.first_name
+            is not in a group.
