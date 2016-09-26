@@ -28,8 +28,8 @@
   .dashboard-item
     %h2 Blog shortcuts
     %ul.dashboard-list
-      %li= link_to fa_icon('list', text: "all posts (#{@published_posts.count})"), posts_path
-      %li= link_to fa_icon('plus', text: 'create new post'), new_post_path
+      %li= link_to fa_icon('list', text: "All posts (#{@published_posts.count})"), posts_path
+      %li= link_to fa_icon('plus', text: 'Create new post'), new_post_path
     - if @published_posts.any?
       %h2
         %small Latest Published Posts:
