@@ -71,7 +71,17 @@
   flex-direction: column;
 }
 
-/* On form for person#edit */
+/* Group topics */
+.topics .action-buttons {
+  margin: 0 auto 1rem 0;
+}
+
+.topic-comments,
+.topic-comment-form h3 {
+  margin-top: 1rem;
+}
+
+/* Used in form for person#edit */
 
 .userprofile-coach-question {
   list-style-type: square;
