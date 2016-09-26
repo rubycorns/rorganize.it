@@ -320,6 +320,15 @@ input[type=checkbox] {
   font-size: 0.7rem;
 }
 
+.error_explanation {
+  width: 50%;
+  border: 2px solid $salmon-pink;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+  ul li {
+    font-size: 0.8em;
+  }
+}
 
 // Other general styles used throughout several pages
 
