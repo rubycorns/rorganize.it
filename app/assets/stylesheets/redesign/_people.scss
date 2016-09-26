@@ -1,0 +1,18 @@
+.profile-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  & > * {
+    flex-basis: 40%;
+  }
+}
+
+.working-on,
+.profile-groups {
+  margin-top: 1rem;
+}
+
+.profile-groups {
+  display: flex;
+  flex-direction: column;
+}
