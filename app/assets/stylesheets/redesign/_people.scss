@@ -16,3 +16,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.userprofile-coach-question {
+  list-style-type: square;
+  & li {
+    margin-left: 1rem;
+  }
+}

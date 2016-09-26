@@ -276,6 +276,9 @@ nav.navbar {
   & .filter-select {
     width: 50%;
   }
+  & p:not(.help-block) {
+    margin-top: 1rem;
+  }
 }
 
 legend {
