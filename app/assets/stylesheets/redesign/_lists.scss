@@ -3,10 +3,17 @@
 // Lists for groups, people, coaches
 .list-group-item {
   display: flex;
-  margin: 2em 0;
+  padding: 1.1em 0.9em 1.1em 0;
+}
 
-  & > * {
-    // border: 1px solid teal;
+.list-group-item-warning {
+  background-color: lighten($limestone-grey, 30%);
+  &:after {
+  content: "It's you";
+  border: 1px solid $limestone-grey;
+  border-radius: 5px;
+  padding: 0.5em 0.7em;
+  height: 25%;
   }
 }
 
@@ -20,12 +27,22 @@
   }
   & img {
     border-radius: 50%;
+    width: 60%;
   }
 }
 .list-group-item-info {
   flex: 4;
 }
 
+.people--groups {
+  display: flex;
+  & p {
+    margin-right: 0.3rem;
+  }
+  & .group-unspecified {
+    font-style: italic;
+  }
+}
 
 // Used on Group pages + Admin dashboard
 .tag {
