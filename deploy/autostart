@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# start thin as a process in the foreground
+# (when thin is down, deamontools will execute)
+bundle exec thin -a 127.0.0.1 -p 34567 start
+echo "autostarting thin app server"
