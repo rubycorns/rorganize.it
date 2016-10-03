@@ -1,0 +1,23 @@
+%h2.page-header Filter by
+= form_tag url_for, method: 'get', class: 'filter' do
+  %label{for: 'city'}
+    City
+  = select_tag 'city', options_for_select(@cities), include_blank: 'Choose…', class: 'filter-select'
+
+  %label{for: 'country'}
+    Country
+  = select_tag 'country', options_for_select(country_names_for_select(@countries)), include_blank: 'Choose…', class: 'filter-select'
+
+  - if current_page?(coaches_path)
+    .checkbox-div
+      %label{for: 'willing_to_travel'}
+        Willing to travel?
+        = check_box_tag 'willing_to_travel'
+        %span.checkbox-el
+
+  .filter-buttons
+    -# %button{type: 'submit', class: 'btn btn-grey'}
+      Filter
+    = submit_tag 'Filter', class: 'btn btn-grey'
+    - if %w(city country willing_to_travel).any? { |p| params[p] }
+      = link_to "Reset", path, class: 'btn btn-outline'

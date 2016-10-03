@@ -4,7 +4,7 @@ module PostsHelper
     if post.published_at.present?
       post.published_at.strftime("%d %b %Y")
     else
-      "draft created on #{post.created_at.strftime("%d %b %Y")}"
+      "Draft created on #{post.created_at.strftime("%d %b %Y")}"
     end
   end
 end

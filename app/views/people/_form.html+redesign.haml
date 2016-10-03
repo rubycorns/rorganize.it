@@ -1,0 +1,61 @@
+= form_for(@person, html: { multipart: true }) do |f|
+  = render 'shared/error_messages', object: f.object
+
+  %fieldset
+    %legend Personal information
+    .form-group
+      = f.label(:first_name, "Your first name *")
+      = f.text_field :first_name, placeholder: 'First name', class: 'form-control'
+    .form-group
+      = f.label(:last_name, "Your last name")
+      = f.text_field :last_name, placeholder: 'Last name', class: 'form-control'
+    .form-group
+      = f.label(:twitter, "Your twitter handle")
+      = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
+    .form-group
+      = f.label(:website, "Website")
+      = f.text_field :website, placeholder: 'http://example.me', class: 'form-control'
+    .form-group
+      = f.label(:picture, "Add your profile picture")
+      = f.file_field :picture, placeholder: 'picture'
+      %p.help-block Choose your profile picture
+    .form-group
+      = f.label(:working_on, "What are you working on? (you can use markdown!)")
+      = f.text_area :working_on, placeholder: 'tutorials? a cool app?', class: 'form-control', rows: 5, id: 'working-on'
+
+  %fieldset
+    %legend Community-related information
+    %h3 Are you willing to coach at a Rails Girls workshop?
+    %p
+      %strong What does this mean?
+    %ul.userprofile-coach-question
+      %li You may be contacted by Rails Girls organizers about coaching at various workshops
+      %li We will share your email address with trusted organizers
+      %li
+        Your name will be displayed on our
+        %a{ href: coaches_path } coaches index page.
+      %li Everyone will think you're really really awesome. And most importantly, you will be.
+
+    %p Convinced? That's great. We just need a few things from you,
+
+    .form-inline
+      = f.check_box(:workshop_coach)
+      = f.label(:person_workshop_coach, "I am willing to COACH at Rails Girls workshops")
+
+    .form-inlin
+      = f.check_box(:willing_to_travel)
+      = f.label(:willing_to_travel, "I am willing to TRAVEL to Rails Girls workshops")
+
+    .form-group
+      = f.label(:city, "City")
+      = f.text_field :city, placeholder: 'Rubycity', class: 'form-control'
+
+    .form-group
+      = f.label(:country, "Country")
+      = f.country_select(:country, {priority_countries: ["DE", "PL", "IN", "US"], include_blank: true}, {class: 'filter-select'})
+
+    %p.help-block (Knowing where you live will help organizers find the best coaches for their workshops)
+
+  .action-buttons
+    = f.submit "Save", class: 'btn btn-teal'
+    = link_to 'Cancel', @person, class: 'btn btn-outline'

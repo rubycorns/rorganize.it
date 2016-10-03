@@ -1,0 +1,91 @@
+// _profiles.scss is used both for groups and persons
+
+.flex-profile {
+  display: flex;
+  justify-content: space-between;
+  .profile-contact {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+  }
+  .profile-main {
+    flex-basis: 75%;
+  }
+}
+
+#map {
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.group-leave {
+  display: inline;
+}
+
+.group-description {
+  margin-top: 1rem;
+}
+
+.group-join-box {
+  margin: 1.5rem 4rem 1rem 1rem;
+  border: 2px solid $petal-pink;
+  padding: 1rem 6rem 2.3rem;
+  text-align: center;
+  & .sign-in-cta {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+}
+
+/* Tabs for Resources, Topics and Members */
+.group-tab {
+  display: inline-block;
+}
+
+.group-tab a {
+  display: block;
+}
+
+.group-tab a.active,
+.group-tab a:hover {
+  background-color: #ccc;
+}
+
+.tab.hidden {
+  display: none;
+}
+
+/* On person#show */
+
+.working-on,
+.profile-groups-list,
+.profile-groups, {
+  margin-top: 1rem;
+}
+
+.profile-groups {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Group topics */
+.topics .action-buttons {
+  margin: 0 auto 1rem 0;
+}
+
+.topic-comments,
+.topic-comment-form h3 {
+  margin-top: 1rem;
+}
+
+/* Used in form for person#edit */
+
+.userprofile-coach-question {
+  list-style-type: square;
+  & li {
+    margin-left: 1rem;
+  }
+}

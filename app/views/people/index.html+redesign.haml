@@ -3,16 +3,18 @@
   %li= link_to "Workshop coaches", coaches_path
   -# Implement filters for sub-navigation + .active class
 
-.flex-page
-  .flex-page-main
+.flex-index
+  .flex-index-main
     %h1.page-header People overview
     %ul.list-group
       - @people.each do |person|
-        %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
-          = person_avatar(person)
-          %h3
-            = profile_link(person)
+        %li{class: "list-group-item #{'list-group-item-warning' if logged_in?(person)}"}
+          .list-group-item-pic
+            = person_avatar(person)
+          .list-group-item-info
+            %h3
+              = profile_link(person)
             = render partial: "shared/groups", locals: { object: person }
 
-  %aside.flex-page-sidebar
+  %aside.flex-index-sidebar
     = render partial: 'shared/filter', locals: { path: people_path }

@@ -1,0 +1,35 @@
+.dashboard {
+  display: flex;
+  .dashboard-sub {
+    flex-basis: 60%;
+    padding: 0.5em 1em;
+  }
+  .dashboard-groups {
+    flex-basis: 40%;
+  }
+  & .filter-select {
+    width: 60%;
+  }
+}
+
+.dashboard-sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  & > * {
+    flex-basis: 50%;
+  }
+  .dashboard-gif {
+    margin-top: 1rem;
+  }
+}
+
+.dashboard-groups {
+  & .action-buttons {
+    margin: 0 auto 1rem 0;
+  }
+}
+
+.admin-delete-form {
+  display: inline;
+}

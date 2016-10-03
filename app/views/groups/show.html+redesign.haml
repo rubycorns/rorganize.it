@@ -1,0 +1,121 @@
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "← All groups", groups_path
+
+.flex-profile
+  %aside.profile-contact
+    - if @group.picture?
+      = image_tag(@group.picture_url(:person_profile), class: 'profile-picture')
+    - else
+      = image_tag('/group-avatar.png', size: "100x100")
+
+    %p
+      %strong When:
+      = @group.time
+    %p
+      %strong Where:
+      = @group.address
+    %p
+      %strong Address:
+      = group_location(@group)
+    - if @group.contact?
+      %p
+        %strong Contact us:
+        = auto_link @group.contact
+    - if @group.twitter?
+      %p
+        %strong Our Twitter:
+        = render partial: "shared/twitter", locals: { object: @group }
+    - if @group.founded_on?
+      %p
+        %strong Founded:
+        = @group.founded_on
+
+    #group-map
+      - if @group.address?
+        #map{data: {latitude: @group.latitude, longitude: @group.longitude}}
+      - else
+        = image_tag('follow_your_dreams.gif')
+
+  .profile-main
+    %h1.page-header= @group.name
+
+    - if show_member_buttons?(current_person, @group) || current_person.admin?
+      .action-buttons
+        - if show_member_buttons?(current_person, @group)
+          %span.btn.btn-teal
+            = link_to edit_group_path(@group) do
+              Edit group
+          = render 'leave'
+        - if current_person.admin?
+          %span.btn.btn-pink
+            = link_to edit_group_path(@group) do
+              Edit as admin &#9873;
+        - if @group.topics.any?
+          = link_to 'Topics this group talks about', group_topics_path(@group.id)
+
+    %p.tags
+      - if @group.full?
+        %span.tag.tag-full
+          Full
+      - if @group.inactive?
+        %span.tag.tag-inactive
+          Inactive
+      - if @group.allow_male_students?
+        %span.tag.tag-mixed
+          Mixed group
+    - if @group.level?
+      %p
+        %strong Level:
+        = @group.level
+    - if @group.activities?
+      %p.group-description
+        = markdown(@group.activities)
+
+
+    - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
+      .group-join-box
+        = render 'join'
+
+    // TODO: tabbed content, see redesign-main.js
+    -# %ul.group-tabs
+    -#   - if @group.learning_resources?
+    -#     %li.group-tab
+    -#       %a{:title => 'Resources', :href => '#resources', class: 'active'} Learning Resources
+    -#   - if @topic.group
+    -#     %li.group-tab
+    -#       %a{:title => 'Topics', :href => '#topics'} Topics
+    -#   %li.group-tab
+    -#     %a{:title => 'Members', :href => '#members'} Members
+
+    -# TODO: Once tabs are working, remove h3 and make group-tabs available again.
+    #resources.tab
+      %h3 Learning resources
+      %p
+        %strong Suggested learning resources:
+        = markdown(@group.learning_resources)
+    #topics.tab
+      %h3 Topics
+      %p
+        Show all the topics here.
+        -# .topics
+        -#   = render template: "topics/index"
+    #members.tab
+      %h3 Members of #{@group.name}
+      %h4 Students
+      %p
+        This group currently has #{pluralize @group.students.length, "student"}.
+      %ul.list--people
+        - @group.students.each do |student|
+          %li
+            = link_to student.first_name, person_path(student)
+            - if admin?
+              = render partial: 'remove_from_group', locals: { object: student, group: @group }
+      %h4 Coaches
+      %p
+        This group currently has #{pluralize @group.coaches.length, "coach"}.
+      %ul.list--people
+        - @group.coaches.each do |coach|
+          %li
+            = link_to coach.first_name, person_path(coach)
+            - if admin?
+              = render partial: 'remove_from_group', locals: { object: coach, group: @group }

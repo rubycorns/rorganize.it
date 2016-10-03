@@ -1,0 +1,72 @@
+// Filter submit button
+input[type=submit] {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  &.btn-small {
+    font-size: 0.7em;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// DIV for action buttons
+.action-buttons {
+  margin: 1rem 0;
+  & > * {
+    margin-right: 0.5rem;
+  }
+}
+
+
+// Buttons
+.btn {
+  padding: 0.3em 0.8em 0.4em;
+  border-radius: 5px;
+  color: white;
+  & a {
+    color: white;
+  }
+}
+
+.btn-small {
+  padding: 0.1em 0.6em 0.2em;
+  font-size: 0.7em;
+}
+
+.btn-lrg {
+  padding: 0.5em 5em 0.7em;
+}
+
+.btn-pink {
+  background-color: $salmon-pink;
+  &:hover {
+    background-color: $petal-pink;
+  }
+}
+
+.btn-teal {
+  background-color: $teal;
+  &:hover {
+    background-color: $teal-light;
+  }
+}
+
+.btn-grey {
+  background-color: $limestone-grey;
+  &:hover {
+    background-color: $onyx-grey;
+  }
+}
+
+// Secondary button, e.g. filter reset
+.btn-outline {
+  border: 2px solid $limestone-grey;
+  color: $limestone-grey;
+}
+
+// used on parents, need to be block elements
+.sign-in-cta {
+  margin-top: 1.5em;
+}

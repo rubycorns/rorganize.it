@@ -1,20 +1,24 @@
-%h1.page-header Questions? Comments?
-%p RoRganize is growing, and we're always adding new features.
-%p
-  If you need a group deleted, or want to suggest a new feature please <a href="mailto:roar@rorganize.it" class="btn btn-teal">send us an email</a>
-%h1.page-header About us and this App
-%p
-  We are the
-  = link_to("rubycorns", "https://twitter.com/rubycorns") + ','
-  a Rails Girls Project Group meeting once a week.
+.about-page
+  %h1.page-header About us and this App
+  %p
+    We are the
+    = link_to("rubycorns", "https://twitter.com/rubycorns") + ','
+    a Rails Girls Project Group meeting once a week.
 
-%p
-  We made this sh*t with
-  = fa_icon "heart"
+  %p
+    We made this sh*t with &hearts;.
 
-%p
-  The code is open source. Check it out and contribute on
-  = link_to(fa_icon("github", text: "GitHub"), "//github.com/rubycorns/rorganize.it")
-%p
-  Read about our
-  %a{ href: conduct_path } Code of Conduct
+  %p
+    The code is open source. Check it out and contribute on
+    = link_to("Github", "//github.com/rubycorns/rorganize.it") + '.'
+  %p
+    Read about our
+    %a{ href: conduct_path } Code of Conduct
+
+  %h2.page-header Questions? Comments?
+  %p
+    RoRganize is growing, and we're always adding new features.
+  %p
+    If you need a group deleted, or want to suggest a new feature please
+  %p.sign-in-cta
+    <a href="mailto:roar@rorganize.it" class="btn btn-teal">Send us an email</a>

@@ -1,0 +1,345 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: $font-stack;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $body-color;
+}
+
+/*
+ * Basic Styles
+ */
+h1, h2 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.1em;
+  color: $ochre-yellow;
+  border-bottom: solid 1px $ochre-yellow;
+}
+
+h2 {
+  font-size: 1.7em;
+  color: $limestone-grey;
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: $onyx-grey;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $dodger-blue; //temp
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: $dodger-light; //temp
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Header + Navigation
+header nav {
+  width: 100vw;
+  border-bottom: 2px solid $limestone-grey;
+}
+
+nav.navbar {
+  height: $navbar-height;
+  display: flex; // container for whole header
+  justify-content: space-around;
+}
+
+.header-logo {
+  flex: 1;
+  margin-left: 3rem;
+  margin-right: 1rem;
+}
+
+.main-nav {
+  flex: 3;
+}
+
+.profile-header {
+  flex: 2;
+}
+
+.main-nav,
+.profile-header {
+  display: flex; // containers for respective list items
+}
+
+.main-nav li,
+.profile-header li {
+  display: flex; // container for a tags, to achieve stretching of items
+}
+
+// INFO: Padding used to keep hover-border at the very top
+.header-logo,
+.main-nav li a {
+  padding-top: 1rem;
+  font-size: 1.3rem;
+}
+
+.main-nav li a,
+.profile-header li a {
+  color: $body-color;
+  border-top: 3px solid white;
+  margin-right: 0.2rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  text-align: center;
+  &:hover,
+  &:focus,
+  &:active {
+    border-top: 3px solid $header_red;
+  }
+}
+
+// Q: DRYer way to combine with hover state?
+.main-nav li.active a {
+  border-top: 3px solid $header_red;
+}
+
+// profile-header
+.profile-header li {
+  & img {
+    align-self: center;
+  }
+  & a {
+    font-size: 1rem;
+    padding-top: 1.3rem
+  }
+}
+
+// GH sign in button
+.not-logged-in > li:last-child > a > span {
+  padding: 0.2em 0.7em 0.3em;
+  background-color: $limestone-grey;
+  border-radius: 5px;
+  color: white;
+}
+
+// Sub navigation
+.sub-nav {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  & > li {
+    display: flex;
+  }
+  & > li > a {
+    margin-right: 0.2rem;
+    padding: 0.5rem 1rem 0.7rem;
+    border-top: 3px solid white;
+  }
+  & > li:hover > a,
+  & > li:active > a,
+  & > li:focus > a,
+  & > li > a.active {
+    border-top: 3px solid $ochre-yellow;
+  }
+}
+
+// Main Container
+.main-container {
+  margin:0 3rem 3rem;
+}
+
+.about-page,
+.welcome-page,
+.conduct-page,
+.dashboard-page {
+  margin-top: 51.6px;
+}
+
+.flex-index {
+  display: flex;
+}
+
+.flex-index-main {
+  flex: 2 0 65%;
+  margin-right: 2rem;
+}
+
+.flex-index-sidebar {
+  flex: 1 0 35%;
+  // rework for smaller screens
+  padding-right: 10em;
+}
+
+// Form styles
+
+// Filter section on groups#index and people#index
+.filter {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  & > * {
+    flex: 1 1 100%;
+    margin: 0.5em 0;
+  }
+  & > .btn {
+    flex-basis: 50%;
+  }
+}
+
+.filter-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 35px;
+  padding: 2px 6px;
+  background: transparent;
+  border: 1px solid $limestone-grey;
+  border-radius: 5px;
+  color: $onyx-grey;
+  font-size: 14px;
+  background: url(select-arrow.png) 96% / 5% no-repeat white;
+  &:focus, &:active {
+    outline: 0;
+    border-color: $petal-pink;
+    box-shadow: 0 0 1px $petal-pink;
+  }
+  // removes dotted focus border in FF
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow:0 0 0 $body-color;
+  }
+  & option {
+    font-family: $font-stack;
+    padding: 2px 0 3px 9px;
+  }
+  & option:first-child {
+    border-bottom: 1px solid $limestone-grey;
+  }
+}
+
+.checkbox-div {
+  position: relative;
+  input[type=checkbox] {
+    visibility: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    width: 25px;
+    height: 100%;
+  }  & .checkbox-el {
+    position: absolute;
+    top: 5px;
+    left: 135px;
+    cursor: pointer;
+    width: 25px;
+    height: 100%;
+    margin-left: 0.5em;
+    border: 1px solid $limestone-grey;
+  }
+  & .checkbox-el::after {
+    position: absolute;
+    opacity: 0;
+    content: '\2714';
+    font-size: 1.5em;
+    color: $body-color;
+    background: transparent;
+    top: -10px;
+    left: 5px;
+  }
+   & .checkbox-el:hover::after {
+    opacity: 0.3;
+   }
+   & input[type=checkbox]:checked + .checkbox-el:after {
+    opacity: 1;
+   }
+}
+
+/* Edit groups = forms */
+.form-box {
+  width: 60%;
+  & .filter-select {
+    width: 50%;
+  }
+  & p:not(.help-block) {
+    margin-top: 1rem;
+  }
+}
+
+.devise-page .form-box {
+  margin-top: 1.5rem;
+}
+
+legend {
+  margin-top: 1rem;
+  padding: 0.2em 5em 0 0;
+  font-size: 1.4rem;
+  color: $limestone-grey;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-group > * {
+  display: block;
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+
+input[type=text], textarea,
+input[type=file], input[type=email],
+input[type=password] {
+  width: 100%;
+  padding: 0.2rem;
+  font-size: 0.9em;
+  color: darken($teal-light, 10%);
+}
+
+textarea, input[type=file] {
+  font: inherit;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+
+.help-block {
+  font-size: 0.7rem;
+}
+
+.error_explanation {
+  width: 50%;
+  border: 2px solid $salmon-pink;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+  ul li {
+    font-size: 0.8em;
+  }
+}
+
+// Other general styles used throughout several pages
+
+h1.page-header {
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,8 @@
+%ul.sub-nav{role: "navigation"}
+  %li
+    = link_to(@person) do
+      ← Back to #{@person.name}
+
+%h1.page-header Edit details of #{@person.name}
+.form-box
+  = render 'form'

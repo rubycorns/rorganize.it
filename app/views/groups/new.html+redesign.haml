@@ -1,0 +1,8 @@
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "← Back to groups", groups_path
+
+%h1.page-header Register a new group
+%h4 Fields with * are required
+.form-box
+  = render 'form'
+  = link_to 'Cancel', groups_path, class: 'btn btn-outline'
