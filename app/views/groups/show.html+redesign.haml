@@ -76,27 +76,31 @@
       .group-join-box
         = render 'join'
 
-    // TODO: tabeed content, see redesign-main.js
-    %ul.group-tabs
-      - if @group.learning_resources?
-        %li.group-tab
-          %a{:title => 'Resources', :href => '#resources', class: 'active'} Learning Resources
-      - if @topic.group
-        %li.group-tab
-          %a{:title => 'Topics', :href => '#topics'} Topics
-      %li.group-tab
-        %a{:title => 'Members', :href => '#members'} Members
+    // TODO: tabbed content, see redesign-main.js
+    -# %ul.group-tabs
+    -#   - if @group.learning_resources?
+    -#     %li.group-tab
+    -#       %a{:title => 'Resources', :href => '#resources', class: 'active'} Learning Resources
+    -#   - if @topic.group
+    -#     %li.group-tab
+    -#       %a{:title => 'Topics', :href => '#topics'} Topics
+    -#   %li.group-tab
+    -#     %a{:title => 'Members', :href => '#members'} Members
 
+    -# TODO: Once tabs are working, remove h3 and make group-tabs available again.
     #resources.tab
+      %h3 Learning resources
       %p
         %strong Suggested learning resources:
         = markdown(@group.learning_resources)
     #topics.tab
+      %h3 Topics
       %p
-        Here are some topics.
+        Show all the topics here.
         -# .topics
         -#   = render template: "topics/index"
     #members.tab
+      %h3 Members of #{@group.name}
       %h4 Students
       %p
         This group currently has #{pluralize @group.students.length, "student"}.

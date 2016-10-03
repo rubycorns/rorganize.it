@@ -19,7 +19,7 @@ function appendRedesignParam() {
 }
 $(document).on('page:load', appendRedesignParam);
 
-// $(document).on('page:load', makeGif);
+$(document).on('page:load', makeGif);
 
 $(document).ready(function() {
 // TEMP: appends redesign param to any href on a page
