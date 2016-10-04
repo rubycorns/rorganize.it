@@ -1,3 +1,3 @@
 #!/bin/sh
-bundle exec thin -a 127.0.0.1 -p 34567 restart
-echo "restarting thin app server"
+echo "killing thin so deamontools can restart server"
+pkill -f thin
