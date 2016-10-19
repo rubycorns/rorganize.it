@@ -134,11 +134,11 @@ someone of the Rubycorns to give you access.
 
 Then in your local repository, add a git remote for production:
 
-    git remote add production ror@rorganize.it:html/rorganize.it
+    git remote add production ror@rorganize.it:rorganize.it
 
 That should be it. The scripts that are run after a push are in the [deploy](https://github.com/rubycorns/rorganize.it/tree/master/deploy)
 directory. See also https://github.com/mislav/git-deploy for more info.
 
-In case this doesn't work though, ssh into server, cd into application folder (in html folder), and try:
+In case this doesn't work though, ssh into server and try to restart deamontools:
 
-    bundle exec thin -a 127.0.0.1 -p 34567 -d start
+    svc -t /service/autostart
