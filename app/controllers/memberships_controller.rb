@@ -24,7 +24,7 @@ class MembershipsController < ApplicationController
   private
 
   def leave_message
-    if @membership.person_id == current_person.id
+    if @membership.person == current_person
       "You have left your group. No doubt they will miss you." +
       " Please consider buying everyone cake on your last day."
     else
