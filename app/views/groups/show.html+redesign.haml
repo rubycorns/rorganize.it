@@ -1,6 +1,7 @@
 %ul.sub-nav{role: "navigation"}
   %li= link_to "← All groups", groups_path
 
+%h1.page-header= @group.name
 .flex-profile
   %aside.profile-contact
     - if @group.picture?
@@ -37,8 +38,6 @@
         = image_tag('follow_your_dreams.gif')
 
   .profile-main
-    %h1.page-header= @group.name
-
     - if show_member_buttons?(current_person, @group) || current_person.admin?
       .action-buttons
         - if show_member_buttons?(current_person, @group)

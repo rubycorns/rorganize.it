@@ -1,6 +1,7 @@
 %ul.sub-nav{role: "navigation"}
   %li= link_to "← All people", people_path
 
+%h1.page-header= @person.full_name
 .flex-profile
   %aside.profile-contact
     = render partial: "shared/person_picture", locals: { person: @person }
@@ -25,7 +26,6 @@
 
 
   .profile-main
-    %h1.page-header= @person.full_name
     - if logged_in?(@person)
       .action-buttons
         = link_to "Edit profile", edit_person_path(@person), class: 'btn btn-teal'

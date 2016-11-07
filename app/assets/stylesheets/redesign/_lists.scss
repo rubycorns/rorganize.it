@@ -29,6 +29,7 @@
   & img {
     border-radius: 50%;
     width: 60%;
+    height: auto;
   }
 }
 .list-group-item-info {
@@ -47,8 +48,8 @@
 
 // Used on Group pages + Admin dashboard
 .tag {
-  padding: 0.1em 0.7em 0.15em;
-  border: 2px solid $petal-pink;
+  padding: 0.05em 0.4em 0.1em;
+  border: 1px solid $petal-pink;
   border-radius: 5px;
   font-size: 0.8em;
   text-transform: uppercase;
