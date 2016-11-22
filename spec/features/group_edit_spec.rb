@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 feature 'edit a group', :vcr => {:cassette_name => "create_group" } do
-  before { visit new_person_session_path }
-  before { sign_in person }
+  before do
+    visit new_person_session_path
+    sign_in person
+  end
 
   context 'as a member of a group' do
     let(:person) { create(:person) }
