@@ -16,10 +16,18 @@
           Mixed group
     %p
       %strong When:
-      = group.time
+      - if group.time?
+        = group.time
+      - else
+        %span.info-not-given
+          not specified
     %p
       %strong Where:
-      = group.address
+      - if group.address?
+        = group.address
+      - else
+        %span.info-not-given
+          not specified
     %p
       %strong Address:
       = group_location(group)
