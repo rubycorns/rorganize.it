@@ -34,19 +34,25 @@ h2 {
 h3 {
   font-size: 1.4em;
   font-weight: 700;
-  color: $onyx-grey;
   margin: 0;
 }
 
 a {
   text-decoration: none;
-  color: $dodger-blue; //temp
+  color: $link-color;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: $dodger-light; //temp
+  color: $link-color-hover;
+}
+
+h3 a {
+  color: $limestone-grey;
+  &:hover {
+    color: darken($limestone-grey, 20%);
+  }
 }
 
 ul {
@@ -149,12 +155,14 @@ nav.navbar {
     margin-right: 0.2rem;
     padding: 0.5rem 1rem 0.7rem;
     border-top: 3px solid white;
+    color: $onyx-grey;
   }
   & > li:hover > a,
   & > li:active > a,
   & > li:focus > a,
   & > li > a.active {
     border-top: 3px solid $ochre-yellow;
+    color: $link-color-hover;
   }
 }
 
