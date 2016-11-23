@@ -30,7 +30,7 @@
       .action-buttons
         = link_to "Edit profile", edit_person_path(@person), class: 'btn btn-teal'
         // TODO: set correct path
-        = link_to "Change password", @person, class: 'btn btn-teal'
+        = link_to "Change password", edit_person_registration_path, class: 'btn btn-teal'
         - if logged_in?(@person)
           = link_to "Delete account", person_registration_path(@person), method: :delete, data: { confirm: "Are you sure you want to delete your account?" }, class: 'btn btn-pink'
         - if @person.provider.present?
