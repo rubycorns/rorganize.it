@@ -31,9 +31,9 @@
 
       .dashboard-posts
         %h2 Blog shortcuts
-        %ul
+        %ul.dashboard-posts-items
           %li= link_to "All posts (#{@published_posts.count})", posts_path
-          %li= link_to "Create new post", new_post_path, class: 'btn btn-small btn-pink-full'
+          = link_to "Create new post", new_post_path, class: 'btn btn-small btn-pink-full'
         - if @published_posts.any?
           %h3
             %small Latest Published Posts:

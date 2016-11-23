@@ -1,4 +1,4 @@
-%ul
+%ul.dashboard-posts-items
   - posts.each do |post|
     %li= link_to post.title, post_path(post.id)
     = link_to "Edit", edit_post_path(post.id), class: 'btn btn-small btn-teal'

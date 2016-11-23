@@ -27,6 +27,7 @@ h1 {
 }
 
 h2 {
+  margin-top: 1rem;
   font-size: 1.7em;
   color: $limestone-grey;
 }
@@ -183,12 +184,12 @@ nav.navbar {
 }
 
 .flex-index-main {
-  flex: 2 0 65%;
-  margin-right: 2rem;
+  flex: 2 0 60%;
+  margin-right: 4rem;
 }
 
 .flex-index-sidebar {
-  flex: 1 0 35%;
+  flex: 1 0 30%;
   // TODO: rework for smaller screens
   padding-right: 10em;
 }
@@ -312,6 +313,10 @@ legend {
 .form-inline {
   display: flex;
   align-items: center;
+}
+form.inline {
+  display: inline;
+  margin-left: 0.5em;
 }
 
 input[type=text], textarea,

@@ -13,6 +13,11 @@
   }
 }
 
+.profile-contact img {
+  width: 90%;
+  height: auto;
+}
+
 #map {
   height: 200px;
   width: 200px;
@@ -33,9 +38,12 @@
   border: 2px solid $petal-pink;
   padding: 1rem 4rem 2.3rem;
   text-align: center;
+  & .divider {
+    margin: 0 1rem;
+  }
   & .sign-in-cta {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: baseline;
   }
 }
