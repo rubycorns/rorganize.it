@@ -19,21 +19,17 @@
 }
 
 .list-group-item-pic {
-  flex: 1;
+  width: 20%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  & > * {
-    flex: 1;
-  }
   & img {
     border-radius: 50%;
-    width: 60%;
+    width: 80%;
     height: auto;
   }
 }
 .list-group-item-info {
-  flex: 4;
+  width: 80%;
 }
 
 .people--groups {
@@ -46,19 +42,13 @@
   }
 }
 
-// Used on Group pages + Admin dashboard
+// Tags used on groups
 .tag {
-  padding: 0.05em 0.4em 0.1em;
-  border: 1px solid $petal-pink;
+  margin-right: 0.5em;
+  padding: 0.1em 0.4em 0.15em;
+  border: 1px solid $salmon-pink;
   border-radius: 5px;
   font-size: 0.8em;
   text-transform: uppercase;
-  color: $petal-pink;
-}
-
-.tag-mixed {
-  background-color: $salmon-pink;
-  border: none;
-  color: white;
-  text-transform: capitalize;
+  color: $salmon-pink;
 }

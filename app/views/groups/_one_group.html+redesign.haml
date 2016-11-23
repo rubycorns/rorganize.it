@@ -1,6 +1,9 @@
 %li{class: "list-group-item"}
   .list-group-item-pic
     = render partial: 'shared/group_picture', locals: { group: group}
+
+  .list-group-item-info
+    %h3= link_to group.name, group
     %p
       - if group.full?
         %span.tag.tag-full
@@ -8,11 +11,8 @@
       - if group.inactive?
         %span.tag.tag-inactive
           Inactive
-  .list-group-item-info
-    %h3= link_to group.name, group
-    - if group.allow_male_students?
-      %p
-        %span.tag.tag-mixed
+      - if group.allow_male_students?
+        %span.tag
           Mixed group
     %p
       %strong When:

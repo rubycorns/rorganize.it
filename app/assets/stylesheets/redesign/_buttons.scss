@@ -1,14 +1,4 @@
-// Filter submit button
-input[type=submit] {
-  font-family: inherit;
-  font-size: inherit;
-  &.btn-small {
-    font-size: 0.7em;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-}
+
 
 // DIV for action buttons
 .action-buttons {
@@ -49,27 +39,15 @@ input[type=submit] {
 }
 
 .btn-pink {
-  border-color: $salmon-pink;
-  color: $salmon-pink;
-  &:hover {
-    background-color: $salmon-pink;
-  }
+  @include button($salmon-pink);
 }
 
 .btn-teal {
-  border-color: $teal;
-  color: $teal;
-  &:hover {
-    background-color: $teal-light;
-  }
+  @include button($teal);
 }
 
 .btn-grey {
-  border-color: $limestone-grey;
-  color: $limestone-grey;
-  &:hover {
-    background-color: $onyx-grey;
-  }
+  @include button($limestone-grey);
 }
 
 .btn-pink-full {
@@ -84,7 +62,7 @@ input[type=submit] {
   background-color: $limestone-grey;
   color: white;
   &:hover {
-    background-color: $onyx-grey;
+    background-color: darken($limestone-grey, 20%);
   }
 }
 
@@ -94,6 +72,19 @@ input[type=submit] {
   border-color: $limestone-grey;
   color: white;
   &:hover {
-    background-color: $onyx-grey;
+    border-color: darken($limestone-grey, 20%);
+    background-color: darken($limestone-grey, 20%);
+  }
+}
+
+// Filter submit button
+input[type=submit] {
+  font-family: inherit;
+  font-size: inherit;
+  &.btn-small {
+    font-size: 0.7em;
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
