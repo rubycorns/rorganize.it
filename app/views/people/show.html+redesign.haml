@@ -36,7 +36,7 @@
         - if @person.provider.present?
           Account linked with GitHub
         - else
-          = link_to "Link account with GitHub", person_omniauth_authorize_path(:github), id: 'github-button', class: 'btn btn-grey'
+          = link_to "Link account with GitHub", person_omniauth_authorize_path(:github), id: 'github-button', class: 'btn btn-grey-full'
 
       .working-on
         - if @person.working_on?

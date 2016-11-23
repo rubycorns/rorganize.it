@@ -11,7 +11,7 @@
         = f.label :password_confirmation, "Confirm new password"
         = f.password_field :password_confirmation
       .sign-in-cta
-        = f.submit "Change password", class: 'btn btn-lrg btn-pink'
-        = link_to "Cancel", class: 'btn btn-lrg btn-outline'
+        = f.submit "Change password", class: 'btn btn-lrg btn-pink-full'
+        = link_to "Cancel", class: 'btn btn-lrg btn-grey'
     %ul.devise-options-list
       = render "devise/shared/links"

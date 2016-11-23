@@ -41,13 +41,13 @@
     - if show_member_buttons?(current_person, @group) || current_person.admin?
       .action-buttons
         - if show_member_buttons?(current_person, @group)
-          %span.btn.btn-teal
-            = link_to edit_group_path(@group) do
+          %span
+            = link_to edit_group_path(@group), class: 'btn btn-teal' do
               Edit group
           = render 'leave'
         - if current_person.admin?
-          %span.btn.btn-pink
-            = link_to edit_group_path(@group) do
+          %span
+            = link_to edit_group_path(@group), class: 'btn btn-pink' do
               Edit as admin &#9873;
         - if @group.topics.any?
           = link_to 'Topics this group talks about', group_topics_path(@group.id)

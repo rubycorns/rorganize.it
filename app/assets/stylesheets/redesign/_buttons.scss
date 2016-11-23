@@ -1,6 +1,5 @@
 // Filter submit button
 input[type=submit] {
-  border: none;
   font-family: inherit;
   font-size: inherit;
   &.btn-small {
@@ -19,20 +18,30 @@ input[type=submit] {
   }
 }
 
+// DIV for sign in buttons
+.sign-in-cta {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
 
 // Buttons
 .btn {
   padding: 0.3em 0.8em 0.4em;
+  border-width: 2px;
+  border-style: solid;
   border-radius: 5px;
-  color: white;
-  & a {
+  letter-spacing: 0.009em;
+  &:hover {
     color: white;
   }
 }
 
 .btn-small {
+  border-width: 1px;
   padding: 0.1em 0.6em 0.2em;
   font-size: 0.7em;
+  font-weight: 300;
 }
 
 .btn-lrg {
@@ -40,33 +49,51 @@ input[type=submit] {
 }
 
 .btn-pink {
-  background-color: $salmon-pink;
+  border-color: $salmon-pink;
+  color: $salmon-pink;
   &:hover {
-    background-color: $petal-pink;
+    background-color: $salmon-pink;
   }
 }
 
 .btn-teal {
-  background-color: $teal;
+  border-color: $teal;
+  color: $teal;
   &:hover {
     background-color: $teal-light;
   }
 }
 
 .btn-grey {
-  background-color: $limestone-grey;
+  border-color: $limestone-grey;
+  color: $limestone-grey;
   &:hover {
     background-color: $onyx-grey;
   }
 }
 
-// Secondary button, e.g. filter reset
-.btn-outline {
-  border: 2px solid $limestone-grey;
-  color: $limestone-grey;
+.btn-pink-full {
+  background-color: $salmon-pink;
+  color: white;
+  &:hover {
+    background-color: darken($salmon-pink, 20%);
+  }
 }
 
-// used on parents, need to be block elements
-.sign-in-cta {
-  margin-top: 1.5em;
+.btn-grey-full {
+  background-color: $limestone-grey;
+  color: white;
+  &:hover {
+    background-color: $onyx-grey;
+  }
+}
+
+// Secondary button, e.g. filter reset, cancel
+.btn-secondary {
+  background-color: $limestone-grey;
+  border-color: $limestone-grey;
+  color: white;
+  &:hover {
+    background-color: $onyx-grey;
+  }
 }
