@@ -77,14 +77,29 @@
   }
 }
 
+// Override browser input style
+.btn-pink, .btn-teal, .btn-grey {
+  background-color: transparent;
+}
+
 // Filter submit button
-input[type=submit] {
+input[value=Filter] {
   font-family: inherit;
   font-size: inherit;
+  border-color: $limestone-grey;
   &.btn-small {
     font-size: 0.7em;
   }
   &:hover {
     cursor: pointer;
+    border-color: darken($limestone-grey, 20%);
+  }
+}
+
+input[type=submit] {
+  font-family: inherit;
+  font-size: inherit;
+  &.btn-small {
+    font-size: 0.7em;
   }
 }

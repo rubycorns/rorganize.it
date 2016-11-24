@@ -8,14 +8,7 @@
 }
 
 .list-group-item-warning {
-  background-color: lighten($limestone-grey, 30%);
-  &:after {
-  content: "It's you";
-  border: 1px solid $limestone-grey;
-  border-radius: 5px;
-  padding: 0.5em 0.7em;
-  height: 25%;
-  }
+  background-color: lighten($daisy-yellow, 10%);
 }
 
 .list-group-item-pic {
@@ -29,7 +22,7 @@
   }
 }
 .list-group-item-info {
-  width: 80%;
+  width: 70%;
 }
 
 .people--groups {
