@@ -31,9 +31,9 @@
 
       .dashboard-posts
         %h2 Blog shortcuts
-        %ul
+        %ul.dashboard-posts-items
           %li= link_to "All posts (#{@published_posts.count})", posts_path
-          %li= link_to "Create new post", new_post_path, class: 'btn btn-small btn-pink'
+          = link_to "Create new post", new_post_path, class: 'btn btn-small btn-pink-full'
         - if @published_posts.any?
           %h3
             %small Latest Published Posts:
@@ -51,7 +51,7 @@
         #js-randomGif.panel-body
           %img.hidden{src: "#"}/
 
-          / Modal
+          // Modal
           #gifModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "gif choosing modal", role: "dialog", tabindex: "-1"}
 
             %button.close{"data-dismiss" => "modal", type: "button"}
@@ -98,11 +98,11 @@
             .list-group-item-info
               = link_to group.name, group_path(group)
               .action-buttons
-                = mail_to group.email, "Contact", class: 'btn btn-small btn-outline'
+                = mail_to group.email, "Contact", class: 'btn btn-small btn-grey'
                 = link_to "Edit", edit_group_path(group), class: 'btn btn-small btn-teal'
                 = form_for(group,
                             html: { method: :delete, class: 'admin-delete-form' },
                             data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" },
                             ) do |f|
                   = f.hidden_field :admin_id, value: group.id
-                  = f.submit "Delete", class: 'btn btn-small btn-grey'
+                  = f.submit "Delete", class: 'btn btn-small btn-pink'

@@ -27,6 +27,7 @@ h1 {
 }
 
 h2 {
+  margin-top: 1rem;
   font-size: 1.7em;
   color: $limestone-grey;
 }
@@ -34,19 +35,25 @@ h2 {
 h3 {
   font-size: 1.4em;
   font-weight: 700;
-  color: $onyx-grey;
   margin: 0;
 }
 
 a {
   text-decoration: none;
-  color: $dodger-blue; //temp
+  color: $link-color;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: $dodger-light; //temp
+  color: $link-color-hover;
+}
+
+h3 a {
+  color: $limestone-grey;
+  &:hover {
+    color: darken($limestone-grey, 20%);
+  }
 }
 
 ul {
@@ -149,12 +156,14 @@ nav.navbar {
     margin-right: 0.2rem;
     padding: 0.5rem 1rem 0.7rem;
     border-top: 3px solid white;
+    color: $onyx-grey;
   }
   & > li:hover > a,
   & > li:active > a,
   & > li:focus > a,
   & > li > a.active {
     border-top: 3px solid $ochre-yellow;
+    color: $link-color-hover;
   }
 }
 
@@ -175,13 +184,13 @@ nav.navbar {
 }
 
 .flex-index-main {
-  flex: 2 0 65%;
-  margin-right: 2rem;
+  flex: 2 0 60%;
+  margin-right: 4rem;
 }
 
 .flex-index-sidebar {
-  flex: 1 0 35%;
-  // rework for smaller screens
+  flex: 1 0 30%;
+  // TODO: rework for smaller screens
   padding-right: 10em;
 }
 
@@ -305,6 +314,10 @@ legend {
   display: flex;
   align-items: center;
 }
+form.inline {
+  display: inline;
+  margin-left: 0.5em;
+}
 
 input[type=text], textarea,
 input[type=file], input[type=email],
@@ -320,8 +333,8 @@ textarea, input[type=file] {
 }
 
 input[type=checkbox] {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
 
 .help-block {

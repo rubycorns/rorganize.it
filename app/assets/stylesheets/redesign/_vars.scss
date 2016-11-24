@@ -15,9 +15,14 @@ $teal-light: #00b3b3;
 $font-stack: 'Lato', Helvetica, sans-serif;
 $body-color: #484748;
 
-$link-color: $dodger-light;
-$link-color-hover: $dodger-blue;
+$link-color: $salmon-pink;
+$link-color-hover: darken($salmon-pink, 20%);
 
 $navbar-height: 80px;
 $header_red: rgb(177, 34, 0); //#b12200
 $header_white: rgb(255,255, 255);
+
+$mq-small : 24em;
+$mq-med : 40em;
+$mq-large : 64em;
+$mq-xl : 75em;

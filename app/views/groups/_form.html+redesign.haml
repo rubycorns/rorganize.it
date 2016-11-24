@@ -63,19 +63,27 @@
     %legend Group meta infos
     - if @group.new_record?
       .form-inline
-        = f.check_box :join_as_coach
-        = f.label(:join_as_coach, "Join group as coach")
+        = f.label(:join_as_coach) do
+          = f.check_box :join_as_coach
+          Join group as coach
+
     - if !@group.new_record?
       .form-inline
-        = f.check_box :full
-        = f.label(:full, "Is your group full?")
+        = f.label(:full) do
+          = f.check_box :full
+          Is your group full?
+
       .form-inline
-        = f.check_box :inactive
-        = f.label(:inactive, "Is your group inactive?")
+        = f.label(:inactive) do
+          = f.check_box :inactive
+          Is your group inactive?
+
       .form-inline
-        = f.check_box :allow_male_students
-        = f.label(:allow_male_students, "Do you welcome male students?")
-        %p.help-block Many groups prefer to only have students who identify as women. Please indicate if you also welcome students who identify as men.
+        = f.label(:allow_male_students) do
+          = f.check_box :allow_male_students
+          Do you welcome male students?
+
+      %p.help-block Many groups prefer to only have students who identify as women. Please indicate if you also welcome students who identify as men.
   .action-buttons
     = f.submit class: "btn btn-teal"
-    = link_to 'Cancel', @group, class: 'btn btn-outline'
+    = link_to 'Cancel', @group, class: 'btn btn-grey'

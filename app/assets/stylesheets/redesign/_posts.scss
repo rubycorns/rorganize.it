@@ -3,14 +3,16 @@
 }
 
 .post {
+  margin: 2em 0;
   .post-draft {
     padding: 1em 2em;
     background-color: $ochre-yellow;
     font-size: 1.2em;
   }
   .post-meta {
+    margin: 0.5em 0;
     color: $onyx-grey;
-    font-size: 0.7em;
+    font-size: 0.8em;
   }
   .post-picture img {
     width: 100%;
@@ -18,9 +20,20 @@
 }
 
 .blog-pagination {
-  text-align: center;
+  margin-top: 1rem;
   padding: 0.8em 0 1em;
-  background-color: $teal-light;
+  background-color: lighten($dodger-light, 20%);
+  text-align: center;
+  & > * {
+    margin: 0 0.2em;
+  }
+  .current {
+    font-style: inherit;
+  }
+  .previous_page.disabled,
+  .next_page.disabled {
+    display: none;
+  }
 }
 
 .post-browsing {

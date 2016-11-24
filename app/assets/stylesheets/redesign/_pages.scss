@@ -85,6 +85,9 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+  & > h3 {
+    flex-basis: 100%;
+  }
   & .home-find-btn {
     margin-top: 1.3em;
     align-self: flex-end;

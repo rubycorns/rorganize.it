@@ -8,31 +8,21 @@
 }
 
 .list-group-item-warning {
-  background-color: lighten($limestone-grey, 30%);
-  &:after {
-  content: "It's you";
-  border: 1px solid $limestone-grey;
-  border-radius: 5px;
-  padding: 0.5em 0.7em;
-  height: 25%;
-  }
+  background-color: lighten($daisy-yellow, 10%);
 }
 
 .list-group-item-pic {
-  flex: 1;
+  width: 20%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  & > * {
-    flex: 1;
-  }
   & img {
     border-radius: 50%;
-    width: 60%;
+    width: 80%;
+    height: auto;
   }
 }
 .list-group-item-info {
-  flex: 4;
+  width: 70%;
 }
 
 .people--groups {
@@ -40,24 +30,24 @@
   & p {
     margin-right: 0.3rem;
   }
-  & .group-unspecified {
-    font-style: italic;
-  }
 }
 
-// Used on Group pages + Admin dashboard
+.list--people-name {
+  font-size: 1.15em;
+}
+
+.info-not-given {
+  color: $limestone-grey;
+  font-style: italic;
+}
+
+// Tags used on groups
 .tag {
-  padding: 0.1em 0.7em 0.15em;
-  border: 2px solid $petal-pink;
+  margin-right: 0.5em;
+  padding: 0.1em 0.4em 0.15em;
+  border: 1px solid $salmon-pink;
   border-radius: 5px;
   font-size: 0.8em;
   text-transform: uppercase;
-  color: $petal-pink;
-}
-
-.tag-mixed {
-  background-color: $salmon-pink;
-  border: none;
-  color: white;
-  text-transform: capitalize;
+  color: $salmon-pink;
 }

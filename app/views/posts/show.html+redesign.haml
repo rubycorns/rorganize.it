@@ -4,8 +4,8 @@
 %h1.page-header Rubycorns Blog
 .action-buttons
   - if current_person.admin?
-    = link_to 'Edit', edit_post_path(@post), class: 'btn btn-pink'
-    = link_to 'Delete', @post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-grey'
+    = link_to 'Edit post', edit_post_path(@post), class: 'btn btn-teal'
+    = link_to 'Delete post', @post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-pink'
 = render partial: 'post', object: @post
 .post-browsing
   - if @post.newer_post

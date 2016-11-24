@@ -1,5 +1,5 @@
-%ul
+%ul.dashboard-posts-items
   - posts.each do |post|
     %li= link_to post.title, post_path(post.id)
-    = link_to "Edit", edit_post_path(post.id), class: 'btn btn-small btn-pink'
-    = link_to "Delete", post_path(post.id), method: :delete, data: { confirm: "You really want to trash that?" }, class: ' btn btn-small btn-grey'
+    = link_to "Edit", edit_post_path(post.id), class: 'btn btn-small btn-teal'
+    = link_to "Delete", post_path(post.id), method: :delete, data: { confirm: "You really want to trash that?" }, class: ' btn btn-small btn-pink'

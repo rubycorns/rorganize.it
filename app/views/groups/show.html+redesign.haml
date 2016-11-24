@@ -1,6 +1,7 @@
 %ul.sub-nav{role: "navigation"}
   %li= link_to "← All groups", groups_path
 
+%h1.page-header= @group.name
 .flex-profile
   %aside.profile-contact
     - if @group.picture?
@@ -37,21 +38,17 @@
         = image_tag('follow_your_dreams.gif')
 
   .profile-main
-    %h1.page-header= @group.name
-
     - if show_member_buttons?(current_person, @group) || current_person.admin?
       .action-buttons
         - if show_member_buttons?(current_person, @group)
-          %span.btn.btn-teal
-            = link_to edit_group_path(@group) do
+          %span
+            = link_to edit_group_path(@group), class: 'btn btn-teal' do
               Edit group
           = render 'leave'
         - if current_person.admin?
-          %span.btn.btn-pink
-            = link_to edit_group_path(@group) do
+          %span
+            = link_to edit_group_path(@group), class: 'btn btn-pink' do
               Edit as admin &#9873;
-        - if @group.topics.any?
-          = link_to 'Topics this group talks about', group_topics_path(@group.id)
 
     %p.tags
       - if @group.full?
@@ -88,34 +85,38 @@
     -#     %a{:title => 'Members', :href => '#members'} Members
 
     -# TODO: Once tabs are working, remove h3 and make group-tabs available again.
-    #resources.tab
-      %h3 Learning resources
-      %p
-        %strong Suggested learning resources:
-        = markdown(@group.learning_resources)
-    #topics.tab
-      %h3 Topics
-      %p
-        Show all the topics here.
-        -# .topics
-        -#   = render template: "topics/index"
+    - if @group.learning_resources?
+      #resources.tab
+        %h2 Learning resources
+        %p
+          %strong Suggested learning resources:
+          = markdown(@group.learning_resources)
+    - if @group.topics.any?
+      #topics.tab
+        %h2 Topics
+        %p
+          // TODO: decide how and where topics are shown
+          Show all the topics here. OR
+          = link_to 'Topics this group talks about', group_topics_path(@group.id)
+          -# .topics
+          -#   = render template: "topics/index"
     #members.tab
-      %h3 Members of #{@group.name}
-      %h4 Students
+      %h2 Members of #{@group.name}
+      %h3 Students
       %p
         This group currently has #{pluralize @group.students.length, "student"}.
       %ul.list--people
         - @group.students.each do |student|
           %li
-            = link_to student.first_name, person_path(student)
+            = link_to student.first_name, person_path(student), class: 'list--people-name'
             - if admin?
               = render partial: 'remove_from_group', locals: { object: student, group: @group }
-      %h4 Coaches
+      %h3 Coaches
       %p
         This group currently has #{pluralize @group.coaches.length, "coach"}.
       %ul.list--people
         - @group.coaches.each do |coach|
           %li
-            = link_to coach.first_name, person_path(coach)
+            = link_to coach.first_name, person_path(coach), class: 'list--people-name'
             - if admin?
               = render partial: 'remove_from_group', locals: { object: coach, group: @group }

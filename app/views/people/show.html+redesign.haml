@@ -1,6 +1,7 @@
 %ul.sub-nav{role: "navigation"}
   %li= link_to "← All people", people_path
 
+%h1.page-header= @person.full_name
 .flex-profile
   %aside.profile-contact
     = render partial: "shared/person_picture", locals: { person: @person }
@@ -25,7 +26,6 @@
 
 
   .profile-main
-    %h1.page-header= @person.full_name
     - if logged_in?(@person)
       .action-buttons
         = link_to "Edit profile", edit_person_path(@person), class: 'btn btn-teal'
@@ -36,7 +36,7 @@
         - if @person.provider.present?
           Account linked with GitHub
         - else
-          = link_to "Link account with GitHub", person_omniauth_authorize_path(:github), id: 'github-button', class: 'btn btn-grey'
+          = link_to "Link account with GitHub", person_omniauth_authorize_path(:github), id: 'github-button', class: 'btn btn-grey-full'
 
       .working-on
         - if @person.working_on?

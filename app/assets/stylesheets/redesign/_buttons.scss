@@ -1,15 +1,4 @@
-// Filter submit button
-input[type=submit] {
-  border: none;
-  font-family: inherit;
-  font-size: inherit;
-  &.btn-small {
-    font-size: 0.7em;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-}
+
 
 // DIV for action buttons
 .action-buttons {
@@ -19,20 +8,30 @@ input[type=submit] {
   }
 }
 
+// DIV for sign in buttons
+.sign-in-cta {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
 
 // Buttons
 .btn {
   padding: 0.3em 0.8em 0.4em;
+  border-width: 2px;
+  border-style: solid;
   border-radius: 5px;
-  color: white;
-  & a {
+  letter-spacing: 0.009em;
+  &:hover {
     color: white;
   }
 }
 
 .btn-small {
+  border-width: 1px;
   padding: 0.1em 0.6em 0.2em;
   font-size: 0.7em;
+  font-weight: 300;
 }
 
 .btn-lrg {
@@ -40,33 +39,67 @@ input[type=submit] {
 }
 
 .btn-pink {
-  background-color: $salmon-pink;
-  &:hover {
-    background-color: $petal-pink;
-  }
+  @include button($salmon-pink);
 }
 
 .btn-teal {
-  background-color: $teal;
-  &:hover {
-    background-color: $teal-light;
-  }
+  @include button($teal);
 }
 
 .btn-grey {
-  background-color: $limestone-grey;
+  @include button($limestone-grey);
+}
+
+.btn-pink-full {
+  background-color: $salmon-pink;
+  color: white;
   &:hover {
-    background-color: $onyx-grey;
+    background-color: darken($salmon-pink, 20%);
   }
 }
 
-// Secondary button, e.g. filter reset
-.btn-outline {
-  border: 2px solid $limestone-grey;
-  color: $limestone-grey;
+.btn-grey-full {
+  background-color: $limestone-grey;
+  color: white;
+  &:hover {
+    background-color: darken($limestone-grey, 20%);
+  }
 }
 
-// used on parents, need to be block elements
-.sign-in-cta {
-  margin-top: 1.5em;
+// Secondary button, e.g. filter reset, cancel
+.btn-secondary {
+  background-color: $limestone-grey;
+  border-color: $limestone-grey;
+  color: white;
+  &:hover {
+    border-color: darken($limestone-grey, 20%);
+    background-color: darken($limestone-grey, 20%);
+  }
+}
+
+// Override browser input style
+.btn-pink, .btn-teal, .btn-grey {
+  background-color: transparent;
+}
+
+// Filter submit button
+input[value=Filter] {
+  font-family: inherit;
+  font-size: inherit;
+  border-color: $limestone-grey;
+  &.btn-small {
+    font-size: 0.7em;
+  }
+  &:hover {
+    cursor: pointer;
+    border-color: darken($limestone-grey, 20%);
+  }
+}
+
+input[type=submit] {
+  font-family: inherit;
+  font-size: inherit;
+  &.btn-small {
+    font-size: 0.7em;
+  }
 }

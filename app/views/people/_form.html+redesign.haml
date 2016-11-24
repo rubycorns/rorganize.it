@@ -39,12 +39,14 @@
     %p Convinced? That's great. We just need a few things from you,
 
     .form-inline
-      = f.check_box(:workshop_coach)
-      = f.label(:person_workshop_coach, "I am willing to COACH at Rails Girls workshops")
+      = f.label(:workshop_coach) do
+        = f.check_box(:workshop_coach)
+        I am willing to COACH at Rails Girls workshops
 
-    .form-inlin
-      = f.check_box(:willing_to_travel)
-      = f.label(:willing_to_travel, "I am willing to TRAVEL to Rails Girls workshops")
+    .form-inline
+      = f.label(:willing_to_travel) do
+        = f.check_box(:willing_to_travel)
+        I am willing to TRAVEL to Rails Girls workshops
 
     .form-group
       = f.label(:city, "City")
@@ -58,4 +60,4 @@
 
   .action-buttons
     = f.submit "Save", class: 'btn btn-teal'
-    = link_to 'Cancel', @person, class: 'btn btn-outline'
+    = link_to 'Cancel', @person, class: 'btn btn-grey'
