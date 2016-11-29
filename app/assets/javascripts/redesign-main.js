@@ -3,9 +3,10 @@
 // => outcommented for now
 
 $( document ).ready(function() {
-  setTimeout(function () {
-    $(".alert").addClass("fade-out")
-  }, 8000);
+  function removeAlert() {
+		$('.alert').addClass('fade-out')
+	}
+	window.setTimeout(removeAlert, 8000)
 
 
   // Tabs
