@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
-  before_action :validate_user_group_member
-  before_action :authenticate_person!
+  before_action :authenticate_person!, only: [:edit, :update, :destroy]
 
   def edit
   end
