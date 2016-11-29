@@ -108,11 +108,14 @@ nav.navbar {
 .main-nav li a,
 .profile-header li a {
   color: $body-color;
-  border-top: 3px solid white;
   margin-right: 0.2rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
   text-align: center;
+}
+
+.main-nav li a {
+  border-top: 3px solid white;
   &:hover,
   &:focus,
   &:active {
@@ -120,28 +123,50 @@ nav.navbar {
   }
 }
 
-// Q: DRYer way to combine with hover state?
 .main-nav li.active a {
   border-top: 3px solid $header_red;
 }
 
 // profile-header
+
+
 .profile-header li {
+  align-items: center;
   & img {
     align-self: center;
   }
-  & a {
-    font-size: 1rem;
-    padding-top: 1.3rem
-  }
 }
 
-// GH sign in button
-.not-logged-in > li:last-child > a > span {
+// .profile-header .sign-in {
+//   border: 1px solid $salmon-pink;
+//   color: $salmon-pink;
+//   border-radius: 5px;
+// }
+// .profile-header .sign-up {
+//   background-color: $salmon-pink;
+//   border-radius: 5px;
+//   color: white;
+// }
+
+.sign-in:hover,
+.sign-in:focus,
+.sign-in:active {
+  padding: 0.1em 0.7em 0.2em;
+  background-color: $salmon-pink;
+  border-radius: 5px;
+  color: white;
+}
+
+.gh-sign-in {
   padding: 0.2em 0.7em 0.3em;
   background-color: $limestone-grey;
   border-radius: 5px;
   color: white;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($limestone-grey, 20%);
+  }
 }
 
 // Sub navigation
@@ -350,6 +375,57 @@ input[type=checkbox] {
     font-size: 0.8em;
   }
 }
+
+// Alert messages
+.alert {
+  position: fixed;
+  left: 15%;
+  right: 15%;
+  top: 5.7em;
+  width: 70%;
+  z-index: 1;
+  opacity: 1;
+  transform: translate(0);
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  &.fade-out {
+    transition: all 700ms ease;
+    transform: translateY(-50%) scale(.8);
+    opacity: 0;
+  }
+}
+
+.alert-success {
+  border: 1px solid $teal-light;
+  background-color: lighten($teal-light, 20%);
+}
+.alert-notice, .alert-info {
+  border: 1px solid $dodger-light;
+  background-color: lighten($dodger-light, 20%);
+}
+.alert-error {
+  border: 1px solid $salmon-pink;
+  background-color: lighten($salmon-pink, 20%);
+}
+.alert-alert, .alert-warning {
+  border: 1px solid $ochre-yellow;
+  background-color: lighten($ochre-yellow, 20%);
+}
+.alert-close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1;
+  color: inherit;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
 
 // Other general styles used throughout several pages
 

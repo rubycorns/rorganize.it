@@ -46,9 +46,9 @@
       </div>
       <% else %>
         <ul class="profile-header not-logged-in">
-        <li><%= link_to 'Sign in', new_person_session_path %></li>
-        <li><%= link_to 'Sign up', new_person_registration_path %></li>
-        <li><%= link_to(content_tag(:span, "Sign in with GitHub"), person_omniauth_authorize_path(:github))  %></li>
+        <li><%= link_to 'Sign in', new_person_session_path, class: 'sign-in' %></li>
+        <li><%= link_to 'Sign up', new_person_registration_path, class: 'sign-in' %></li>
+        <li><%= link_to(content_tag(:span, "Sign in with GitHub", class: 'gh-sign-in'), person_omniauth_authorize_path(:github))  %></li>
       </ul>
       <% end %>
     </nav>
@@ -56,10 +56,12 @@
   <div class="main-container">
     <% [:notice, :error, :alert, :success].each do |level| %>
       <% unless flash[level].blank? %>
-        <p class="container alert alert-dismissable alert-<%= flash_class(level) %>">
-          <%= flash[level] %>
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        </p>
+        <div class="alert alert-<%= flash_class(level) %>">
+          <p>
+            <%= flash[level] %>
+          </p>
+          <button type="button" class="alert-close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        </div>
       <% end %>
     <% end %>
 
