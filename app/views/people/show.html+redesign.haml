@@ -1,4 +1,9 @@
 %ul.sub-nav{role: "navigation"}
+  -# TODO: if the referring URI is http://rorganize.it/coaches =>
+  -# then show the path back to all coaches
+  -# - if request.request_uri == '/coaches'
+  -#   %li= link_to "← All coaches", coaches_path
+  -# - else
   %li= link_to "← All people", people_path
 
 %h1.page-header= @person.full_name
