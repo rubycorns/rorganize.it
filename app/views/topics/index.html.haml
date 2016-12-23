@@ -14,6 +14,8 @@
       %ul.topics
         - @future_topics.each do |topic|
           = render partial: 'list_item', locals: { topic: topic}
+  - else
+    %p.note No topics yet. Come back later!
 
   - if @covered_topics.size > 0
     .covered-topics
