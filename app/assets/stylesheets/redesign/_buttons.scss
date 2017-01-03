@@ -77,13 +77,21 @@
   }
 }
 
-// Override browser input style
+// Override browser input styles
+input[type=submit] {
+  font-family: inherit;
+  font-size: inherit;
+  &.btn-small {
+    font-size: 0.7em;
+  }
+}
+
+
 .btn-pink, .btn-teal, .btn-grey {
   background-color: transparent;
 }
 
-// Filter submit button
-input[value=Filter] {
+input.btn[value=Filter] {
   font-family: inherit;
   font-size: inherit;
   border-color: $limestone-grey;
@@ -96,10 +104,6 @@ input[value=Filter] {
   }
 }
 
-input[type=submit] {
-  font-family: inherit;
-  font-size: inherit;
-  &.btn-small {
-    font-size: 0.7em;
-  }
+.devise-page input.btn[type=submit] {
+  border-color: $salmon-pink;
 }

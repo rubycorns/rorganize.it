@@ -76,7 +76,9 @@
 
 .profile-groups {
   display: flex;
-  flex-direction: column;
+  & > * {
+    margin-right: 0.5rem;
+  }
 }
 
 /* Group topics */

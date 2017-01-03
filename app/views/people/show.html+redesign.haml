@@ -1,4 +1,9 @@
 %ul.sub-nav{role: "navigation"}
+  -# TODO: if the referring URI is http://rorganize.it/coaches =>
+  -# then show the path back to all coaches
+  -# - if request.request_uri == '/coaches'
+  -#   %li= link_to "← All coaches", coaches_path
+  -# - else
   %li= link_to "← All people", people_path
 
 %h1.page-header= @person.full_name
@@ -29,7 +34,6 @@
     - if logged_in?(@person)
       .action-buttons
         = link_to "Edit profile", edit_person_path(@person), class: 'btn btn-teal'
-        // TODO: set correct path
         = link_to "Change password", edit_person_registration_path, class: 'btn btn-teal'
         - if logged_in?(@person)
           = link_to "Delete account", person_registration_path(@person), method: :delete, data: { confirm: "Are you sure you want to delete your account?" }, class: 'btn btn-pink'
@@ -38,23 +42,23 @@
         - else
           = link_to "Link account with GitHub", person_omniauth_authorize_path(:github), id: 'github-button', class: 'btn btn-grey-full'
 
-      .working-on
-        - if @person.working_on?
-          %h2 Working on
-          %p= markdown(@person.working_on)
-        - elsif @person == current_person
-          %p Why not tell the world what you're working on?
+    .working-on
+      - if @person.working_on?
+        %h2 Working on
+        %p= markdown(@person.working_on)
+      - elsif @person == current_person
+        %p Why not tell the world what you're working on?
 
-      .profile-groups-list
-        %h2 Project Groups:
-        - if @person.has_group?
-          - @person.groups.each do |group|
-            .profile-groups
-              = link_to group.name, group_path(group.id)
-              = render partial: 'shared/group_picture', locals: { group: group}
-              - if admin?
-                = render partial: 'groups/remove_from_group', locals: { object: @person, group: group }
-        - else
-          %p
-            = @person.first_name
-            is not in a group.
+    .profile-groups-list
+      %h2 Project Groups
+      - if @person.has_group?
+        - @person.groups.each do |group|
+          .profile-groups
+            = render partial: 'shared/group_picture', locals: { group: group}
+            = link_to group.name, group_path(group.id)
+            - if admin?
+              = render partial: 'groups/remove_from_group', locals: { object: @person, group: group }
+      - else
+        %p
+          = @person.first_name
+          is not in a group.
