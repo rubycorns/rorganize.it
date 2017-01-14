@@ -1,10 +1,10 @@
 module PeopleHelper
   def logged_in?(person)
-    current_person && current_person == person
+    current_person.is_a?(Person) && current_person == person
   end
 
   def admin?
-     person_signed_in? && current_person.admin?
+    current_person.admin?
   end
 
   def person_avatar(person)
@@ -16,7 +16,7 @@ module PeopleHelper
   end
 
   def profile_link(person)
-    if person_signed_in?
+    if logged_in?(current_person)
       link_to person.full_name, person_path(person)
     else
       person.full_name
