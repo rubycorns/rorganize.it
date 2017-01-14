@@ -37,7 +37,7 @@
       - if @person.willing_to_travel?
         %p
           I am willing to travel to a Rails Girls Workshop
-      - if coach_location?(@person)
+      - if location_for?(@person)
         %p
           %strong Based in:
           #{@person.city} #{@person.country_name}

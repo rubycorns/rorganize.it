@@ -9,7 +9,7 @@ module PeopleHelper
 
   def person_avatar(person)
     if person.picture?
-      image_tag(person.picture_url(:person_profile), :width => 300)
+      image_tag(person.picture_url(:person_profile), width: 300)
     else
       image_tag('/avatar.png', size: "40x40")
     end
@@ -23,10 +23,9 @@ module PeopleHelper
     end
   end
 
-  def coach_location?(person)
+  def location_for?(person)
     if person.city? || person.country?
       true
     end
   end
-
 end
