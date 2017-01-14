@@ -8,4 +8,8 @@ class NullPerson
     false
   end
 
+  def member_of?(group)
+    false
+  end
+
 end
