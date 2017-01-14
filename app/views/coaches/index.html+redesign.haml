@@ -23,7 +23,7 @@
     %hr
     %ul.list-group
       - @coaches.each do |coach|
-        %li{class: "list-group-item #{'list-group-item-warning' if logged_in?(current_person)}"}
+        %li{class: "list-group-item #{'list-group-item-warning' if logged_in?(coach)}"}
           .list-group-item-pic
             = person_avatar(coach)
           .list-group-item-info
@@ -31,7 +31,7 @@
               = profile_link(coach)
             - if logged_in?(current_person) && coach_location?(coach)
               %p #{coach.city}, #{coach.country_name}
-          - if logged_in?(current_person)
+          - if logged_in?(coach)
             .list-group-item-person
               It's you
 
