@@ -8,7 +8,7 @@
         %a{ href: "mailto:roar@rorganize.it" } contact us,
         and we will send you a list.
 
-      - if logged_in?(current_person)
+      - if logged_in?
         %p
           If you are interested in becoming a Rails Girls coach fill in the relevant info on your
           %a{ href: edit_person_path(current_person) } profile page.
@@ -31,7 +31,7 @@
               .col-md-8
                 %h3
                   = profile_link(coach)
-                - if logged_in?(current_person) && location_for?(coach)
+                - if logged_in? && location_for?(coach)
                   %p #{coach.city} #{coach.country_name}
 
     %aside.sidebar.col-md-4

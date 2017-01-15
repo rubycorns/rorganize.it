@@ -3,10 +3,10 @@
     .col-sm-6
       %header
         %h1.text-center.welcome
-          Welcome to rorganize! 
+          Welcome to rorganize!
 
         %p.text-center.text-box
-          This is a website that helps connect learners with project groups. 
+          This is a website that helps connect learners with project groups.
           You're probably here because you recently went to a workshop of some kind and want to keep learning. Here's a short tutorial to get you started!
 
         %section
@@ -14,9 +14,9 @@
             .col-sm-offset-3.col-sm-7
               %h3 Looking for a group?
               %ol
-                %li 
+                %li
                   %a{ href: groups_path } Head over to the groups page
-                %li 
+                %li
                   Click on a group
                 %li Join one!
 
@@ -38,9 +38,9 @@
       %ol
         %li
           %a{ href: groups_path } Head over to the groups page
-        %li 
+        %li
           Make a group!
-          
+
   .row.or-box
     .col-sm-offset-4.col-sm-7
       %p
@@ -51,11 +51,11 @@
       %h3 Tell others about you!
       %ol
         %li
-          - if logged_in?(current_person)
+          - if logged_in?
             %a{ href: edit_person_registration_path(current_person.id) } Head over to your profile
           - else
             %a{ href: new_person_session_path } Log in and head over to your profile
-        %li 
+        %li
           Upload a picture so your new project group knows what you look like!
         %li
           Tell us what you are working on
@@ -80,11 +80,11 @@
               %a{ href: posts_path } blog
               for updates
             %li
-              fork it on 
+              fork it on
               %a{ href: 'https://github.com/rubycorns/rorganize.it' } github
             %li
-              open 
-              %a{ href: 'https://github.com/rubycorns/rorganize.it/issues' } an issue 
+              open
+              %a{ href: 'https://github.com/rubycorns/rorganize.it/issues' } an issue
               if you have suggestions
             %li
               and most important of all, make us some cake
@@ -93,7 +93,7 @@
                   = markdown(":cake:")
 
           = link_to "Go To Groups!", groups_path, class: 'btn btn-custom'
-          
+
 
 
 

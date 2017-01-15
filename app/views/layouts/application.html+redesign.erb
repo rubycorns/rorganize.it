@@ -27,7 +27,7 @@
           <a href="<%= about_path %>" title="About us">About</b></a>
         </li>
       </ul>
-      <% if logged_in?(current_person) %>
+      <% if logged_in? %>
         <ul class="profile-header">
           <li>
             <% if current_person.picture.present? %>

@@ -4,16 +4,21 @@ describe PeopleHelper do
   let(:null_person) { NullPerson.new }
   let(:person) { build_stubbed :person }
 
-
   describe '#logged_in?(person)' do
     before { allow(helper).to receive(:current_person).and_return person }
+
+    specify 'checks if current person is logged in by default' do
+      expect(helper.logged_in?).to be true
+    end
 
     specify "current person is the comparable person" do
       expect(helper.logged_in?(person)).to be true
     end
 
-    specify "no one is logged in" do
-      expect(helper.logged_in?(null_person)).to be false
+    context "no one is logged in" do
+      before { expect(helper).to receive(:current_person).and_return null_person }
+
+      specify { expect(helper.logged_in?).to be false }
     end
 
     context "current person is not the comparable person" do
