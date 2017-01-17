@@ -58,33 +58,58 @@ group_list = [
   }
 ]
 
-group_list.each do |group|
+groups = group_list.map do |group|
   Group.create!(group)
 end
 
 user_list = [
   {
-    first_name: 'Student',
+    first_name: 'Til',
     last_name: 'Example',
     email: 'student@example.org',
     password: 'testtest',
     twitter: '@studenttwitter',
     country: 'CA',
-    city: 'Toronto'
+    city: 'Toronto',
+    membership: 'Student'
   },
   {
-    first_name: 'Coach',
+    first_name: 'Toby',
+    last_name: 'Another Example',
+    email: 'another.student@example.org',
+    password: 'testtest',
+    twitter: '@anotherstudenttwitter',
+    country: 'CA',
+    city: 'Toronto',
+    membership: 'Student'
+  },
+  {
+    first_name: 'Sara',
     last_name: 'Example',
     email: 'coach@example.org',
     password: 'testtest',
     twitter: '@coachtwitter',
     admin: true,
     country: 'US',
-    city: 'New York'
+    city: 'New York',
+    membership: 'Coach'
+  },
+  {
+    first_name: 'Lisa',
+    last_name: 'Another Coach Example',
+    email: 'another.coach@example.org',
+    password: 'testtest',
+    twitter: '@anothercoachtwitter',
+    admin: false,
+    country: 'US',
+    city: 'New York',
+    membership: 'Coach'
   }
 ]
-user_list.each do |user|
-  Person.create!(user)
+user_list.map do |user|
+  membership = user.delete(:membership)
+  member = Person.create!(user)
+  member.join!(groups.second, membership.concat('Membership'))
 end
 
 posts_list = [
