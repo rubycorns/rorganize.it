@@ -38,6 +38,7 @@ FactoryGirl.define do
     country 'DE'
     email
     password 'testtest'
+    picture { File.new("#{Rails.root}/spec/fixtures/images/avatar.png") }
   end
 
   factory :second_person, class: Person do

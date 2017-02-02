@@ -2,7 +2,7 @@
   .container.center.section
     %h1 RoRganize.it
     %h2 Find other Rails Girls students, coaches and project groups!
-    - unless person_signed_in?
+    - unless logged_in?
       %p
         If you are a student or a coach and not signed up - feel free to register!
         = link_to "Sign up", new_person_registration_path, class: 'btn btn-primary', id: 'signup-button'

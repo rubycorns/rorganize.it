@@ -1,12 +1,12 @@
 module GroupsHelper
 
   def show_join_group_button?(person, group)
-    return true unless person_signed_in?
+    return true unless logged_in?(person)
     !person.member_of?(group)
   end
 
   def show_member_buttons?(person, group)
-    if !person_signed_in?
+    if !logged_in?(person)
       false
     else
       person.member_of?(group)

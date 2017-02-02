@@ -1,7 +1,7 @@
 .hero
   %h1 RoRganize.it
   %h2 Find other Rails Girls students, coaches and project groups
-  - unless person_signed_in?
+  - unless logged_in?
     %p.sign-in-cta
       If you are a student or a coach and not signed up - feel free to register!
     %p.sign-in-cta
