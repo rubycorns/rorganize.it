@@ -6,8 +6,8 @@ class PeopleController < ApplicationController
     ordered_people = Person.order(:first_name).order(:last_name)
     @people = ordered_people.filtered_by_params(params, signed_in?)
 
-    @cities = Person.cities
-    @countries = Person.countries
+    @cities = Person.visible_locations_for(:cities, signed_in?)
+    @countries = Person.visible_locations_for(:countries, signed_in?)
   end
 
   def show

@@ -152,7 +152,7 @@ describe Person, :vcr => {:cassette_name => "create_group" } do
       expect(subject).to contain_exactly workshop_coach
     end
   end
- 
+
   describe '.order_by_name' do
     let!(:person) { create :person }
     let!(:second_person) { create :second_person }
@@ -179,10 +179,25 @@ describe Person, :vcr => {:cassette_name => "create_group" } do
     subject { described_class.admin }
 
     let!(:admin) { create(:admin) }
-    let!(:user) { create(:person) }
+    let!(:user)  { create(:person) }
 
     it 'lists all the admins' do
       expect(subject).to contain_exactly(admin)
+    end
+  end
+
+  describe '.visible_locations_for' do
+    let!(:non_public_person) { create :person, country: 'DE', city: 'Berlin', non_public: true }
+    let!(:public_person)     { create :person, country: 'CA', city: 'Vancouver', non_public: false }
+
+    it 'displays the locations for all users when someone is logged in' do
+      expect(Person.visible_locations_for(:countries, true)).to eql ['DE', 'CA']
+      expect(Person.visible_locations_for(:cities, true)).to eql ['Berlin', 'Vancouver']
+    end
+
+    it 'displays only the locations of public users when no one is logged in' do
+      expect(Person.visible_locations_for(:countries, false)).to eql ['CA']
+      expect(Person.visible_locations_for(:cities, false)).to eql ['Vancouver']
     end
   end
 
