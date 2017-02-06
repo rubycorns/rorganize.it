@@ -27,7 +27,7 @@
 
 class Group < ActiveRecord::Base
   include TwitterHandle
-  include LocationFilter
+  include SearchFilter
 
   FORMAT = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
