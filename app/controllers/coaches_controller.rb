@@ -7,5 +7,8 @@ class CoachesController < ApplicationController
     @coaches = @coaches.willing_to_travel if params[:willing_to_travel] == '1'
     @cities  = Person.workshop_coach.cities
     @countries = Person.workshop_coach.countries
+
+    @grouped_coaches = @coaches.group_by{|person| person.first_name.first.capitalize }
+    @alphabetical_list = @grouped_coaches.keys.sort
   end
 end

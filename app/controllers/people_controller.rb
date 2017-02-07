@@ -7,9 +7,11 @@ class PeopleController < ApplicationController
     @people = @people.public_profile unless signed_in?
     @people = @people.by_country(params[:country]) if params[:country].present?
     @people = @people.by_city(params[:city]) if params[:city].present?
-
     @cities = Person.cities
     @countries = Person.countries
+
+    @grouped_people = @people.group_by{|person| person.first_name.first.capitalize }
+    @alphabetical_list = @grouped_people.keys.sort
   end
 
   def show
