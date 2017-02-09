@@ -10,8 +10,8 @@ class GroupsController < ApplicationController
     ordered_groups = Group.where(inactive: false).order(:name)
     ordered_inactive_groups = Group.where(inactive: true).order(:name)
 
-    @groups = ordered_groups.filtered_by_params(params)
-    @inactive_groups = ordered_inactive_groups.filtered_by_params(params)
+    @groups = ordered_groups.filtered_by_region(params)
+    @inactive_groups = ordered_inactive_groups.filtered_by_region(params)
     @cities = Group.cities
     @countries = Group.countries
   end

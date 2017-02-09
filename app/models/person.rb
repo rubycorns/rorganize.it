@@ -26,7 +26,7 @@
 
 class Person < ActiveRecord::Base
   include TwitterHandle
-  include SearchFilter
+  include LocationFilter
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
