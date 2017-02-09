@@ -8,10 +8,10 @@ class GroupsController < ApplicationController
 
   def index
     ordered_groups = Group.where(inactive: false).order(:name)
-    ordered_groups_inactive = Group.where(inactive: true).order(:name)
+    ordered_inactive_groups = Group.where(inactive: true).order(:name)
 
     @groups = ordered_groups.filtered_by_params(params)
-    @groups_inactive = ordered_groups_inactive.filtered_by_params(params)
+    @inactive_groups = ordered_inactive_groups.filtered_by_params(params)
     @cities = Group.cities
     @countries = Group.countries
   end
