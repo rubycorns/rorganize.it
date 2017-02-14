@@ -10,11 +10,15 @@ module LocationFilter
 
     def self.filtered_by_region(params, signed_in = nil)
       collection = (signed_in || !self.respond_to?(:public_profile)) ? all : all.public_profile
-      if params[:country] || params[:city]
-        collection = collection.by_country(params[:country]) if params[:country].present?
-        collection = collection.by_city(params[:city]) if params[:city].present?
+      if params[:country] && params[:city]
+        collection.by_country(params[:country]).by_city(params[:city])
+      elsif params[:country]
+        collection.by_country(params[:country])
+      elsif params[:city]
+        collection.by_city(params[:city])
+      else
+        collection
       end
-      collection
     end
   end
 
