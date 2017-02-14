@@ -26,6 +26,11 @@
       = f.label(:non_public) do
         = f.check_box(:non_public)
         Make my account not public
+      %p.help-block Your account will only be visible to other registered users
+    .form-inline
+      = f.check_box(:searching_group)
+      = f.label(:searching_group, "I'm searching for a group")
+      %p.help-block Check this box if you are looking for a group to join and start learning!
 
   %fieldset
     %legend Community-related information

@@ -79,4 +79,8 @@ class Group < ActiveRecord::Base
   def capitalize_fields
     self.city = city.titleize
   end
+
+  def searching?
+    searching_coaches || searching_students || searching_location
+  end
 end

@@ -17,4 +17,18 @@ module GroupsHelper
     [group.street, group.zip, group.city, group.country_name].select {|x| x.present? }.join(', ')
   end
 
+  def group_searching_fors(group)
+    fors = []
+    if group.searching_coaches?
+      fors.push('coaches')
+    end
+    if group.searching_students?
+      fors.push('students')
+    end
+    if group.searching_coaches?
+      fors.push('place to meet')
+    end
+    fors
+  end
+
 end
