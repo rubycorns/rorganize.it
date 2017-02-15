@@ -52,6 +52,25 @@ RSpec.describe LocationFilter, vcr: {cassette_name: "create_group" } do
     end
   end
 
+  describe '.limit_to_public_profile?' do
+    context 'when dealing with people' do
+      it 'allows one to see the public profile if they are logged in' do
+        expect(Person.limit_to_public_profile?(true)).to be false
+      end
+
+      it 'limits results to the public profile if no one is logged in' do
+        expect(Person.limit_to_public_profile?(false)).to be true
+      end
+    end
+
+    context 'when dealing with groups' do
+      it 'does not worry about public profiles' do
+        expect(Group.limit_to_public_profile?(true)).to be false
+        expect(Group.limit_to_public_profile?(false)).to be false
+      end
+    end
+  end
+
   describe '#country_name' do
     let(:group) { build_stubbed :group, country: 'DE' }
     let(:group_empty) { build_stubbed :group, country: nil }
