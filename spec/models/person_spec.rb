@@ -26,7 +26,7 @@
 
 require 'spec_helper'
 
-describe Person, :vcr => {:cassette_name => "create_group" } do
+describe Person, vcr: {cassette_name: 'create_group'} do
 
   it { is_expected.to have_many(:groups) }
   it { is_expected.to have_many(:memberships) }

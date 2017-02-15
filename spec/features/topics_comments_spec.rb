@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Comments on topics', :vcr => {:cassette_name => "create_group" } do
+feature 'Comments on topics', vcr: {cassette_name: 'create_group'} do
 
   scenario 'Add a comment to a topic' do
     visit_group_topic_page
