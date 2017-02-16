@@ -4,7 +4,9 @@ class PeopleController < ApplicationController
 
   def index
     ordered_people = Person.order(:first_name).order(:last_name)
-    @people = ordered_people.filtered_by_region(params, signed_in?)
+    @people = ordered_people
+                .filtered_by_region(params)
+                .filtered_by_visibility(signed_in?)
 
     @cities = Person.visible_locations_for(:cities, signed_in?)
     @countries = Person.visible_locations_for(:countries, signed_in?)

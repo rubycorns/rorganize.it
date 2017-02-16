@@ -186,18 +186,30 @@ describe Person, vcr: {cassette_name: 'create_group'} do
     end
   end
 
-  describe '.visible_locations_for' do
+  describe '.visible_locations_for & .filtered_by_visibility' do
     let!(:non_public_person) { create :person, country: 'DE', city: 'Berlin', non_public: true }
     let!(:public_person)     { create :person, country: 'CA', city: 'Vancouver', non_public: false }
 
-    it 'displays the locations for all users when someone is logged in' do
-      expect(Person.visible_locations_for(:countries, true)).to eql ['DE', 'CA']
-      expect(Person.visible_locations_for(:cities, true)).to eql ['Berlin', 'Vancouver']
+    context '.visible_locations_for' do
+      it 'displays the locations for all users when someone is logged in' do
+        expect(Person.visible_locations_for(:countries, true)).to eql ['DE', 'CA']
+        expect(Person.visible_locations_for(:cities, true)).to eql ['Berlin', 'Vancouver']
+      end
+
+      it 'displays only the locations of public users when no one is logged in' do
+        expect(Person.visible_locations_for(:countries, false)).to eql ['CA']
+        expect(Person.visible_locations_for(:cities, false)).to eql ['Vancouver']
+      end
     end
 
-    it 'displays only the locations of public users when no one is logged in' do
-      expect(Person.visible_locations_for(:countries, false)).to eql ['CA']
-      expect(Person.visible_locations_for(:cities, false)).to eql ['Vancouver']
+    context '.filtered_by_visibility' do
+      it 'displays all people when someone is logged in' do
+        expect(Person.filtered_by_visibility(true)).to match_array [non_public_person, public_person]
+      end
+
+      it 'only displays public people when no one is logged in' do
+        expect(Person.filtered_by_visibility(false)).to match_array [public_person]
+      end
     end
   end
 

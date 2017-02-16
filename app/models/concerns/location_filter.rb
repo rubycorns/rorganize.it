@@ -8,16 +8,11 @@ module LocationFilter
     scope :countries, -> { pluck(:country).uniq.compact.reject(&:blank?) }
     scope :by_country, -> (country) { where(country: country) }
 
-    def self.filtered_by_region(params, signed_in = nil)
+    def self.filtered_by_region(params)
       collection = all
-      collection = all.public_profile if limit_to_public_profile?(signed_in)
       collection = collection.by_country(params[:country]) if params[:country].present?
       collection = collection.by_city(params[:city]) if params[:city].present?
       collection
-    end
-
-    def self.limit_to_public_profile?(signed_in)
-      !signed_in && self.respond_to?(:public_profile)
     end
   end
 
