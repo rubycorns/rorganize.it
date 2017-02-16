@@ -12,7 +12,7 @@
 
 require 'spec_helper'
 
-describe Membership, :vcr => {:cassette_name => "create_group" } do
+describe Membership, vcr: {cassette_name: 'create_group'} do
   let(:person) { create(:person) }
   let!(:group) { create(:group) }
 

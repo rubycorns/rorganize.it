@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Remove a person from a group', :vcr => {:cassette_name => "create_group" } do
+feature 'Remove a person from a group', vcr: {cassette_name: 'create_group'} do
 
   let(:person) { create(:person) }
   let(:group) { create(:group) }
