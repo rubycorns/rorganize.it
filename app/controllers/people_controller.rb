@@ -3,12 +3,13 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    @people = Person.order(:first_name).order(:last_name)
-    @people = @people.public_profile unless signed_in?
-    @people = @people.by_country(params[:country]) if params[:country].present?
-    @people = @people.by_city(params[:city]) if params[:city].present?
-    @cities = Person.cities
-    @countries = Person.countries
+    ordered_people = Person.order(:first_name).order(:last_name)
+    @people = ordered_people
+                .filtered_by_region(params)
+                .filtered_by_visibility(signed_in?)
+
+    @cities = Person.visible_locations_for(:cities, signed_in?)
+    @countries = Person.visible_locations_for(:countries, signed_in?)
 
     @grouped_people = @people.group_by{|person| person.first_name.first.capitalize }
     @alphabetical_list = @grouped_people.keys.sort

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GroupsController, :vcr => {:cassette_name => "create_group" } do
+describe GroupsController, vcr: {cassette_name: 'create_group'} do
 
   describe 'create' do
     let(:person) { create(:person) }
@@ -40,7 +40,7 @@ describe GroupsController, :vcr => {:cassette_name => "create_group" } do
   end
 
   describe 'update' do
-    let(:group) { create(:group) }
+    let(:group) { create(:group, name: 'Awesome Group') }
     let(:person) { create(:person) }
     let(:params) { {group: { name: 'Changed group name'},
                 id: group.id} }
@@ -82,7 +82,7 @@ describe GroupsController, :vcr => {:cassette_name => "create_group" } do
 
       it 'does not update the name of the group' do
         put :update, params
-        expect(group.name).to eq 'Test Group'
+        expect(group.name).to eq 'Awesome Group'
       end
 
       it 'redirects to the groups overview' do

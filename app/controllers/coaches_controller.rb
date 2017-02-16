@@ -1,12 +1,14 @@
 class CoachesController < ApplicationController
   def index
-    @coaches = Person.workshop_coach.order_by_name
-    @coaches = @coaches.public_profile unless signed_in?
-    @coaches = @coaches.by_country(params[:country]) if params[:country].present?
-    @coaches = @coaches.by_city(params[:city]) if params[:city].present?
-    @coaches = @coaches.willing_to_travel if params[:willing_to_travel] == '1'
-    @cities  = Person.workshop_coach.cities
-    @countries = Person.workshop_coach.countries
+    ordered_coaches = Person.workshop_coach.order_by_name
+    coaches_by_region = ordered_coaches
+                          .filtered_by_region(params)
+                          .filtered_by_visibility(signed_in?)
+
+    @willing_to_travel = params[:willing_to_travel] == '1'
+    @coaches = @willing_to_travel ? coaches_by_region.willing_to_travel : coaches_by_region
+    @cities  = Person.workshop_coach.visible_locations_for(:cities, signed_in?)
+    @countries = Person.workshop_coach.visible_locations_for(:countries, signed_in?)
 
     @grouped_coaches = @coaches.group_by{|person| person.first_name.first.capitalize }
     @alphabetical_list = @grouped_coaches.keys.sort
