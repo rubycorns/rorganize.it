@@ -9,5 +9,8 @@ class CoachesController < ApplicationController
     @coaches = @willing_to_travel ? coaches_by_region.willing_to_travel : coaches_by_region
     @cities  = Person.workshop_coach.visible_locations_for(:cities, signed_in?)
     @countries = Person.workshop_coach.visible_locations_for(:countries, signed_in?)
+
+    @grouped_coaches = @coaches.group_by{|person| person.first_name.first.capitalize }
+    @alphabetical_list = @grouped_coaches.keys.sort
   end
 end

@@ -10,6 +10,9 @@ class PeopleController < ApplicationController
 
     @cities = Person.visible_locations_for(:cities, signed_in?)
     @countries = Person.visible_locations_for(:countries, signed_in?)
+
+    @grouped_people = @people.group_by{|person| person.first_name.first.capitalize }
+    @alphabetical_list = @grouped_people.keys.sort
   end
 
   def show
