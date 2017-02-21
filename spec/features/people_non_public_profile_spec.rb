@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-feature 'person profle visibility' do
+feature 'person profile visibility' do
 
   let(:person) { create(:person) }
-  let(:person2) { create(:person)}
+  let(:person2) { create(:person) }
 
   scenario 'non public profile setting' do
     visit new_person_session_path
