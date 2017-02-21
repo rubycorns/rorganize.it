@@ -3,16 +3,19 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    ordered_people = Person.order(:first_name).order(:last_name)
-    @people = ordered_people
-                .filtered_by_region(params)
-                .filtered_by_visibility(signed_in?)
+    filtered_people = Person.order_by_name.filtered_by_region(params)
+                        .filtered_by_visibility(signed_in?)
 
     @cities = Person.visible_locations_for(:cities, signed_in?)
     @countries = Person.visible_locations_for(:countries, signed_in?)
 
-    @grouped_people = @people.group_by{|person| person.first_name.first.capitalize }
-    @alphabetical_list = @grouped_people.keys.sort
+    page = (params[:page] || 1).to_i
+
+    @paginated_people = filtered_people.paginate(page: page, per_page: 30)
+    @alphabetically_grouped_people = @paginated_people.grouped_alphabetically
+
+    @paginated_alphabetical_list = @alphabetically_grouped_people.keys
+    @total_alphabetical_list = filtered_people.grouped_alphabetically.keys
   end
 
   def show

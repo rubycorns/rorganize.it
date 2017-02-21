@@ -263,4 +263,15 @@ describe Person, vcr: {cassette_name: 'create_group'} do
       end
     end
   end
+
+  describe '.grouped_alphabetically' do
+    let!(:person)  { create :person, first_name: 'Zed' }
+    let!(:person2) { create :person, first_name: 'Betty'}
+    let!(:person3) { create :person, first_name: 'Mary'}
+
+    it 'returns people grouped by the first letter of their name' do
+      expect(Person.grouped_alphabetically.keys).to eql ['B', 'M', 'Z']
+      expect(Person.grouped_alphabetically.values.flatten).to match_array [person2, person3, person]
+    end
+  end
 end

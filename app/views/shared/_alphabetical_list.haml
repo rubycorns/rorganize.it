@@ -1,4 +1,6 @@
 .alphabetical-list
-  - alphabetical_list.map do |letter|
+  = '...' unless total_alphabetical_list[0] == paginated_alphabetical_list.first
+  - paginated_alphabetical_list.map do |letter|
     %a{href: "##{letter}"}
       = letter
+  = '...' unless total_alphabetical_list[-1] == paginated_alphabetical_list.last

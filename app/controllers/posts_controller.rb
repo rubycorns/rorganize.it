@@ -4,8 +4,6 @@ class PostsController < ApplicationController
   before_action :authenticate_person!, except: [:index, :show]
   before_action :check_role, except: [:index, :show]
 
-  require 'will_paginate/array'
-
   def index
     @published_posts = Post.published_descending_order
     page = (params[:page] || 1).to_i

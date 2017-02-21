@@ -20,9 +20,12 @@
           and then fill in the relevant info on your profile page.
 
   %hr
-  = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
+  = render partial: 'shared/alphabetical_list', locals: { paginated_alphabetical_list: @paginated_alphabetical_list, total_alphabetical_list: @total_alphabetical_list }
 
+  = will_paginate @paginated_coaches
   .row
-    = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_coaches, coach_page: true }
+    = render partial: 'shared/grouped_people', locals: { grouped_people: @alphabetically_grouped_coaches, coach_page: true }
     %aside.sidebar.col-md-4
       = render partial: 'shared/filter', locals: { path: coaches_path }
+
+  = will_paginate @paginated_coaches

@@ -1,8 +1,11 @@
 .container.student-list
   %h1.page-header People overview
-  = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
+  = render partial: 'shared/alphabetical_list', locals: { paginated_alphabetical_list: @paginated_alphabetical_list, total_alphabetical_list: @total_alphabetical_list }
 
+  = will_paginate @paginated_people
   .row
-    = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_people, coach_page: false }
+    = render partial: 'shared/grouped_people', locals: { grouped_people: @alphabetically_grouped_people, coach_page: false }
     %aside.sidebar.col-md-4
       = render partial: 'shared/filter', locals: { path: people_path }
+
+  = will_paginate @paginated_people
