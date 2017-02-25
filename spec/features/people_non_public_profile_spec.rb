@@ -11,21 +11,22 @@ feature 'person profile visibility' do
     visit person_path(person)
     expect(page).to_not have_content('Your account is not public')
 
-    click_link 'edit'
+    click_link 'Edit profile'
     check "Make my account not public"
     click_button 'Save'
     expect(page).to have_content('Your account is not public')
 
-    click_link 'All'
+    save_and_open_page
+    click_link 'All people'
     expect(page).to have_content('Ruby Corn')
 
     click_link 'logout'
-    click_link 'All'
+    click_link 'People'
     expect(page).to_not have_content('Ruby Corn')
 
     visit new_person_session_path
     sign_in person2
-    click_link 'All'
+    click_link 'People'
     expect(page).to have_content('Ruby Corn')
 
     person2.update_attribute(:admin, true)

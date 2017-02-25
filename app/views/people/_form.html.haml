@@ -22,6 +22,10 @@
     .form-group
       = f.label(:working_on, "What are you working on? (you can use markdown!)")
       = f.text_area :working_on, placeholder: 'tutorials? a cool app?', class: 'form-control', rows: 5, id: 'working-on'
+    .form-inline
+      = f.label(:non_public) do
+        = f.check_box(:non_public)
+        Make my account not public
 
   %fieldset
     %legend Community-related information

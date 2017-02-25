@@ -15,16 +15,16 @@
       <%= link_to(image_tag("rorganizeit-logo.svg", alt: "RoRganize.it Logo", title: "Home"), root_path, {class: "header-logo"}) %>
       <ul class="main-nav">
         <li class="<%= 'active' if params[:controller] == 'groups' %>">
-          <a href="<%= groups_path %>" title="Groups">Groups</b></a>
+          <a href="<%= groups_path %>">Groups</a>
         </li>
         <li class="<%= 'active' if params[:controller].in? ['people', 'coaches'] %>">
-          <a href="<%= people_path %>" title="All people">People</b></a>
+          <a href="<%= people_path %>">People</a>
         </li>
         <li class="<%= 'active' if params[:controller] == 'posts' %>">
-          <a href="<%= posts_path %>" title="Blog">Blog</b></a>
+          <a href="<%= posts_path %>">Blog</a>
         </li>
         <li class="<%= 'active' if params[:controller] == 'pages' && params[:action] == 'about' %>">
-          <a href="<%= about_path %>" title="About us">About</b></a>
+          <a href="<%= about_path %>">About</a>
         </li>
       </ul>
       <% if logged_in? %>

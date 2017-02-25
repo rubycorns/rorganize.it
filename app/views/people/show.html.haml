@@ -28,6 +28,10 @@
     - if @person.willing_to_travel?
       %p
         I am willing to travel to a Rails Girls Workshop
+    - if logged_in?(@person) && @person.non_public?
+      %p
+        Your account is not public
+        %small (only registered users can see your profile)
 
 
   .profile-main
