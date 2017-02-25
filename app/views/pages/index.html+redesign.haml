@@ -1,5 +1,6 @@
 .hero
-  %h1 RoRganize.it
+  %h1
+    = image_tag "rorganizeit-logo.svg", class: "logo-ror"
   %h2 Find other Rails Girls students, coaches and project groups
   - unless person_signed_in?
     %p.sign-in-cta
