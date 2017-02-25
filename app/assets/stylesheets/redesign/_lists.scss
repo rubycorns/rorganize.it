@@ -41,6 +41,19 @@
   font-style: italic;
 }
 
+.letter-header {
+  font-size: 2em;
+  padding: 0.2em;
+}
+
+.alphabetical-list {
+  a {
+    font-size: 1.3em;
+    padding: 0.5em;
+  }
+  margin: 1em 0 1em 0;
+}
+
 // Tags used on groups
 .tag {
   margin-right: 0.5em;

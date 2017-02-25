@@ -6,18 +6,8 @@
 .flex-index
   .flex-index-main
     %h1.page-header People overview
-    %ul.list-group
-      - @people.each do |person|
-        %li{class: "list-group-item #{'list-group-item-warning' if logged_in?(person)}"}
-          .list-group-item-pic
-            = person_avatar(person)
-          .list-group-item-info
-            %h3
-              = profile_link(person)
-            = render partial: "shared/groups", locals: { object: person }
-          - if logged_in?(person)
-            .list-group-item-person
-              It's you
+    = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
+    = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_people }
 
   %aside.flex-index-sidebar
     = render partial: 'shared/filter', locals: { path: people_path }
