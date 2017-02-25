@@ -1,6 +1,6 @@
-.container
-  %h1 Editing post
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "← All posts", posts_path
+
+%h1 Editing post
+.form-box
   = render 'form'
-  = link_to 'Show', @post
-  |
-  \#{link_to 'Back', posts_path}

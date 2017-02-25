@@ -1,95 +1,83 @@
-.container.welcome-page
-  .row.join-group-section
-    .col-sm-6
-      %header
-        %h1.text-center.welcome
-          Welcome to rorganize!
+.welcome-page
+  %h1.page-header
+    Welcome to rorganize!
 
-        %p.text-center.text-box
-          This is a website that helps connect learners with project groups.
-          You're probably here because you recently went to a workshop of some kind and want to keep learning. Here's a short tutorial to get you started!
+  .welcome-text
+    %p
+      This is a website that helps connect learners with project groups.
+    %p
+      You're probably here because you recently went to a workshop of some kind and want to keep learning.
+    %p
+      Here's a short tutorial to get you started!
 
-        %section
-          .row.join-group-box
-            .col-sm-offset-3.col-sm-7
-              %h3 Looking for a group?
-              %ol
-                %li
-                  %a{ href: groups_path } Head over to the groups page
-                %li
-                  Click on a group
-                %li Join one!
-
-    .col-sm-6
+  %section.one
+    .join-group-box
+      %h3 Looking for a group?
+      %ol
+        %li
+          %a{ href: groups_path } Head over to the groups page
+        %li
+          Pick a group and join it!
       %figure.picture-box
+        // TODO: new screenshot
         = image_tag asset_path('join.png')
 
-  .row.or-box
-    .col-sm-offset-5.col-sm-6
+    .or-box
       %p
-        OR
+        or
 
-  .row
-    .col-sm-6
-      %figure.picture-box
-        = image_tag asset_path('make.png')
-    .col-sm-6.make-group
+    .create-group-box
       %h3 Don't see a group for you?
       %ol
         %li
           %a{ href: groups_path } Head over to the groups page
         %li
-          Make a group!
-
-  .row.or-box
-    .col-sm-offset-4.col-sm-7
-      %p
-        THEN
-
-  .row
-    .col-sm-6.make-group
-      %h3 Tell others about you!
-      %ol
-        %li
-          - if logged_in?
-            %a{ href: edit_person_registration_path(current_person.id) } Head over to your profile
-          - else
-            %a{ href: new_person_session_path } Log in and head over to your profile
-        %li
-          Upload a picture so your new project group knows what you look like!
-        %li
-          Tell us what you are working on
-        %li
-          Fill in your twitter handle (if you want)
-
-    .col-sm-6
+          Register a new group!
       %figure.picture-box
-        = image_tag asset_path('make_profile.png')
+        // TODO: new screenshot
+        = image_tag asset_path('make.png')
 
-  .row.make-cake-section
-    .col-sm-6.picture-box.img-circle
+    .then-flex-item
+      %p.then-box
+        then
+
+      .tell-other-box
+        %h3 Tell others about you!
+        %ol
+          %li
+            - if logged_in?
+              %a{ href: edit_person_registration_path(current_person.id) } Head over to your profile
+            - else
+              %a{ href: new_person_session_path } Log in and head over to your profile
+          %li
+            Upload a picture so your new project group knows what you look like!
+          %li
+            Tell us what you are working on
+          %li
+            Fill in your twitter handle (if you want)
+
+        %figure.picture-box
+          // TODO: new screenshot
+          = image_tag asset_path('make_profile.png')
+
+  .section.two
+    .picture-box.img-circle
       = image_tag asset_path('cake.gif'), class: 'img-circle'
-    .col-sm-6.additional-suggestions
-      .row
-        .col-sm-offset-3.col-sm-7
-          %h2
-            Then
-          %ul
-            %li
-              read our
-              %a{ href: posts_path } blog
-              for updates
-            %li
-              fork it on
-              %a{ href: 'https://github.com/rubycorns/rorganize.it' } github
-            %li
-              open
-              %a{ href: 'https://github.com/rubycorns/rorganize.it/issues' } an issue
-              if you have suggestions
-            %li
-              and most important of all, make us some cake
-              .row
-                .col-sm-offset-2.col-sm-5.hidden-sm
-                  = markdown(":cake:")
-
-          = link_to "Go To Groups!", groups_path, class: 'btn btn-custom'
+    .additional-suggestions
+      %h2
+        More possibilities
+      %ul
+        %li
+          Read our
+          %a{ href: posts_path } blog
+          for updates
+        %li
+          Fork the app on
+          %a{ href: 'https://github.com/rubycorns/rorganize.it' } Github
+        %li
+          Open
+          %a{ href: 'https://github.com/rubycorns/rorganize.it/issues' } an issue
+          if you have suggestions
+        %li
+          and most important of all, make us some cake
+          = markdown(":cake:")

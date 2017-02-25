@@ -1,13 +1,12 @@
-.container
-  .row
-    .col-md-4
-      %h2 Forgot your password?
-      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-        %form{ role: "form"}
-          = devise_error_messages!
-          .form-group
-            = f.label :email
-            = f.email_field :email, autofocus: true, class: 'form-group'
-          .form-group
-            = f.submit "Send me reset password instructions", class: 'btn btn-primary'
+.devise-page
+  %h1.page-header Forgot your password?
+  .form-box
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.label :email
+        = f.email_field :email, placeholder: 'email@email.com', autofocus: true
+      .sign-in-cta
+        = f.submit "Send reset instructions", class: 'btn btn-lrg btn-pink-full'
+    %ul.devise-options-list
       = render "devise/shared/links"

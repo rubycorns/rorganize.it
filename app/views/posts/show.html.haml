@@ -1,15 +1,16 @@
-.container
-  .row
-    %article.col-sm-8.col-sm-offset-2
-      %h1.page-header Corporate Blog
-      = render partial: 'post', object: @post
-      - if @post.newer_post
-        = link_to "< more recent post", post_path(@post.newer_post)
-      - if @post.older_post
-        = link_to "older post >", post_path(@post.older_post)
-      #post-edit-delete-buttons
-        - if current_person.admin?
-          = link_to 'edit', edit_post_path(@post)
-          |
-          \#{link_to 'delete', @post, method: :delete, data: {confirm: 'Are you sure?'}}
-      = link_to 'Back', posts_path
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "← All posts", posts_path
+
+%h1.page-header Rubycorns Blog
+.action-buttons
+  - if current_person.admin?
+    = link_to 'Edit post', edit_post_path(@post), class: 'btn btn-teal'
+    = link_to 'Delete post', @post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-pink'
+= render partial: 'post', object: @post
+.post-browsing
+  - if @post.newer_post
+    %p.post-newer
+      = link_to "< More recent post", post_path(@post.newer_post)
+  - if @post.older_post
+    %p.post-older
+      = link_to "Older post >", post_path(@post.older_post)

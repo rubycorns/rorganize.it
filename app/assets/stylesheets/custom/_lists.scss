@@ -1,0 +1,53 @@
+// Joint CSS for both Groups and People + their single+edit views
+// Also used on admin dashboard
+
+// Lists for groups, people, coaches
+.list-group-item {
+  display: flex;
+  padding: 1.1em 0.9em 1.1em 0;
+}
+
+.list-group-item-warning {
+  background-color: lighten($daisy-yellow, 10%);
+}
+
+.list-group-item-pic {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  & img {
+    border-radius: 50%;
+    width: 80%;
+    height: auto;
+  }
+}
+.list-group-item-info {
+  width: 70%;
+}
+
+.people--groups {
+  display: flex;
+  & p {
+    margin-right: 0.3rem;
+  }
+}
+
+.list--people-name {
+  font-size: 1.15em;
+}
+
+.info-not-given {
+  color: $limestone-grey;
+  font-style: italic;
+}
+
+// Tags used on groups
+.tag {
+  margin-right: 0.5em;
+  padding: 0.1em 0.4em 0.15em;
+  border: 1px solid $salmon-pink;
+  border-radius: 5px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: $salmon-pink;
+}
