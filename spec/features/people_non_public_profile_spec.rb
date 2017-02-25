@@ -15,8 +15,7 @@ feature 'person profile visibility' do
     check "Make my account not public"
     click_button 'Save'
     expect(page).to have_content('Your account is not public')
-
-    save_and_open_page
+    
     click_link 'All people'
     expect(page).to have_content('Ruby Corn')
 
