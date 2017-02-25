@@ -16,8 +16,6 @@
         %span.checkbox-el
 
   .filter-buttons
-    -# %button{type: 'submit', class: 'btn btn-grey'}
-      Filter
     = submit_tag 'Filter', class: 'btn btn-grey-full'
     - if %w(city country willing_to_travel).any? { |p| params[p] }
       = link_to "Reset", path, class: 'btn btn-grey'

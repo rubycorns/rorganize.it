@@ -99,15 +99,11 @@
         %p
           %strong Suggested learning resources:
           = markdown(@group.learning_resources)
-    - if @group.topics.any?
+    - if @group.topics.any? || show_member_buttons?(current_person, @group)
       #topics.tab
         %h2 Topics
         %p
-          // TODO: decide how and where topics are shown
-          Show all the topics here. OR
           = link_to 'Topics this group talks about', group_topics_path(@group.id)
-          -# .topics
-          -#   = render template: "topics/index"
     #members.tab
       %h2 Members of #{@group.name}
       %h3 Students

@@ -9,7 +9,7 @@ $( document ).ready(function() {
 	window.setTimeout(removeAlert, 8000)
 
 
-  // Tabs
+  // Tabs (see groups#show)
   // 1. Hide all tabs except first one when page loads
   // $(".tab").addClass('hidden');
   // $(".tab:first").show();

@@ -62,7 +62,7 @@
 
   .section.two
     .picture-box.img-circle
-      -# = image_tag asset_path('cake.gif'), class: 'img-circle'
+      = image_tag asset_path('cake.gif'), class: 'img-circle'
     .additional-suggestions
       %h2
         More possibilities
@@ -78,6 +78,6 @@
           Open
           %a{ href: 'https://github.com/rubycorns/rorganize.it/issues' } an issue
           if you have suggestions
-        -# %li
-        -#   and most important of all, make us some cake
-        -#   = markdown(":cake:")
+        %li
+          and most important of all, make us some cake
+          = markdown(":cake:")
