@@ -1,11 +1,8 @@
 source 'https://rubygems.org'
-
-gem 'devise'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 
-# Use sqlite3 as the database for Active Record
+gem 'devise'
 
 gem 'friendly_id', '~> 5.1.0'
 
@@ -22,7 +19,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'shelly-dependencies'
 end
 
 gem 'carrierwave'
@@ -38,14 +34,9 @@ gem 'country_select', github: 'stefanpenner/country_select'
 gem 'sass-rails', '~> 4.0.0'
 # Use Compass to supercharge SCSS
 gem "compass", "~> 0.12.2"
-# Use Twitter's finest Bootstap, for SCSS of course
-gem "bootstrap-sass", '~> 3.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
