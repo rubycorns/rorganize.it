@@ -15,12 +15,12 @@ describe 'deleting a user as a signed in user', :type => :feature do
     end
 
     it "displays a delete button on the current_user's profile page" do
-      expect(page).to have_content 'delete'
+      expect(page).to have_content 'Delete account'
     end
 
     context 'deleting the current_user' do
       before do
-        click_link 'delete'
+        click_link 'Delete account'
       end
 
       it "allows a user to delete themselves" do
@@ -45,7 +45,7 @@ describe 'deleting a user as a signed in user', :type => :feature do
     end
 
     it "a display button is not be present" do
-      expect(page).not_to have_content 'delete'
+      expect(page).not_to have_content 'Delete account'
     end
   end
 end
