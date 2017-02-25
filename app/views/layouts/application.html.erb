@@ -6,77 +6,62 @@
   <%=  stylesheet_link_tag (params[:redesign] ?  'redesign' :  'application'), media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </head>
 <body class="<%= controller.controller_name %>">
-  <header class="header-container">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <%= link_to("RoRganize.it", root_path, {class: "navbar-brand"}) %>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <% if logged_in? %>
-            <div class="dropdown navbar-nav navbar-right profile-header">
-              <button class="dropdown-toggle no-btn" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                <% if current_person.picture.present? %>
-                  <%= image_tag(current_person.picture_url(:thumb), size: "40x40" ) %>
-                <% else %>
-                  <%= image_tag('/avatar.png', size: "40x40" ) %>
-                <% end %>
-                <%= fa_icon "caret-down" %>
-              </button>
-              <ul class="dropdown-menu " role="menu">
-                <li><%= link_to current_person.full_name, current_person %></li>
-                <li><%= link_to "logout", destroy_person_session_path, method: :delete %></li>
-                <% if current_person.admin? %>
-                  <li role="presentation" class="divider"></li>
-                  <li><%= link_to 'Admin dashboard', dashboard_path %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% else %>
-          <ul class="nav navbar-nav navbar-right profile-header">
-            <li><%= link_to 'Sign in', new_person_session_path %></li>
-            <li><%= link_to 'Sign up', new_person_registration_path %></li>
-            <li><%= link_to "Sign in with GitHub", person_omniauth_authorize_path(:github) %></li>
-          </ul>
-          <% end %>
-          <ul class="nav navbar-nav">
-            <li class="<%= 'active' if params[:controller] == 'groups' %>">
-              <%= link_to "Groups", groups_path %>
-            </li>
-            <li class="<%= 'active' if params[:controller].in? ['people', 'coaches'] %>">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle">People <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><%= link_to "All", people_path %></li>
-                <li><%= link_to "Workshop Coaches", coaches_path %> </li>
-              </ul>
-            </li>
-            <li class="<%= 'active' if params[:controller] == 'posts' %>">
-              <%= link_to 'Blog', posts_path %>
-            </li>
-            <li class="<%= 'active' if params[:controller] == 'pages' && params[:action] == 'about' %>">
-              <%= link_to 'About', about_path %>
-            </li>
-          </ul>
-        </div>
+  <header>
+    <nav class="navbar" role="navigation">
+      <%= link_to(image_tag("rorganizeit-logo.svg", alt: "RoRganize.it Logo", title: "Home"), root_path, {class: "header-logo"}) %>
+      <ul class="main-nav">
+        <li class="<%= 'active' if params[:controller] == 'groups' %>">
+          <a href="<%= groups_path %>">Groups</a>
+        </li>
+        <li class="<%= 'active' if params[:controller].in? ['people', 'coaches'] %>">
+          <a href="<%= people_path %>">People</a>
+        </li>
+        <li class="<%= 'active' if params[:controller] == 'posts' %>">
+          <a href="<%= posts_path %>">Blog</a>
+        </li>
+        <li class="<%= 'active' if params[:controller] == 'pages' && params[:action] == 'about' %>">
+          <a href="<%= about_path %>">About</a>
+        </li>
+      </ul>
+      <% if logged_in? %>
+        <ul class="profile-header">
+          <li>
+            <% if current_person.picture.present? %>
+              <%= link_to(image_tag(current_person.picture_url(:thumb), size: "40x40", alt: current_person.full_name, title: current_person.full_name), current_person) %>
+            <% else %>
+              <%= image_tag('/avatar.png', size: "40x40", alt: current_person.full_name, title: current_person.full_name) %>
+            <% end %>
+            <%= link_to current_person.full_name, current_person %>
+          </li>
+            <li><%= link_to "logout", destroy_person_session_path, method: :delete %></li>
+            <% if current_person.admin? %>
+              <li role="presentation" class="divider"></li>
+              <li><%= link_to 'Admin dashboard', dashboard_path %></li>
+            <% end %>
+        </ul>
       </div>
+      <% else %>
+        <ul class="profile-header not-logged-in">
+        <li><%= link_to 'Sign in', new_person_session_path, class: 'sign-in' %></li>
+        <li><%= link_to 'Sign up', new_person_registration_path, class: 'sign-in' %></li>
+        <li><%= link_to(content_tag(:span, "Sign in with GitHub", class: 'gh-sign-in'), person_omniauth_authorize_path(:github))  %></li>
+      </ul>
+      <% end %>
     </nav>
   </header>
   <div class="main-container">
     <% [:notice, :error, :alert, :success].each do |level| %>
       <% unless flash[level].blank? %>
-        <p class="container alert alert-dismissable alert-<%= flash_class(level) %>">
-          <%= flash[level] %>
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        </p>
+        <div class="alert alert-<%= flash_class(level) %>">
+          <p>
+            <%= flash[level] %>
+          </p>
+          <button type="button" class="alert-close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        </div>
       <% end %>
     <% end %>
 

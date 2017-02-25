@@ -43,7 +43,7 @@ describe 'Signing in', :type => :feature do
       # https://github.com/intridea/omniauth/wiki/Integration-Testing#omniauthconfigadd_mock
       OmniAuth.config.test_mode = true
 
-      OmniAuth.config.add_mock(:github, 
+      OmniAuth.config.add_mock(:github,
         provider: "github",
         uid: "1234567",
         info: {
@@ -71,7 +71,7 @@ describe 'Signing in', :type => :feature do
     before(:each) do
       OmniAuth.config.test_mode = true
 
-      OmniAuth.config.add_mock(:github, 
+      OmniAuth.config.add_mock(:github,
         provider: "github",
         uid: "7654321",
         info: {
@@ -90,8 +90,7 @@ describe 'Signing in', :type => :feature do
 
       expect(page).to have_content("Successfully authenticated from GitHub account")
       expect(page).to_not have_content("Link account with GitHub")
-      expect(page).to have_content("Linked with GitHub")
+      expect(page).to have_content("Account linked with GitHub")
     end
-
   end
 end

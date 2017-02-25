@@ -1,17 +1,22 @@
-.container
-  .row
-    %h1.col-sm-12.page-header Corporate Blog
-    .col-sm-8
-      - if @published_posts.any?
-        - @published_posts.each do |post|
-          = render partial: 'post', object: post
-        = will_paginate @published_posts, class: 'pull-middle'
-      - else
-        .latest-post-overview
-          Oops, no blogposts here
-      = link_to 'New Post', new_post_path if current_person.admin?
-    %aside.col-sm-4
-      .twitter-feed
-        %a.twitter-timeline{"data-widget-id" => "467588755692322816", href: "https://twitter.com/rubycorns"} Tweets by @rubycorns
-        :javascript
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "Blog posts", posts_path, class: 'active'
+
+.flex-index
+  .flex-index-main
+    %h1.page-header Rubycorns Blog
+    - if current_person.admin?
+      .action-buttons
+        = link_to 'Create new post', new_post_path, class: 'btn btn-pink-full'
+    - if @published_posts.any?
+      - @published_posts.each do |post|
+        = render partial: 'post', object: post
+      = will_paginate @published_posts, class: 'blog-pagination'
+    - else
+      %div
+        Oops, no blogposts here
+
+  %aside.flex-index-sidebar
+    .twitter-feed.page-header
+      %a.twitter-timeline{"data-widget-id" => "467588755692322816", href: "https://twitter.com/rubycorns"} Tweets by @rubycorns
+      :javascript
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

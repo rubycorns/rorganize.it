@@ -14,9 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap
 //= require randomGif
 //= require main
-//= require redesign-main
 //= require leaflet
-//= require_tree .
+//= require groupsMap

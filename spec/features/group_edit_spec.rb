@@ -13,7 +13,7 @@ feature 'edit a group', vcr: {cassette_name: 'create_group'} do
     before { person.join!(group, 'StudentMembership') }
 
     scenario 'edit the name of an existing group' do
-      visit_group_edit_page
+      visit_group_edit_page_as_a_member
       expect(page).to_not have_content('Join group as coach')
       fill_in 'Group name', with: 'Testgroup'
       click_button 'Update Group'
@@ -36,34 +36,39 @@ feature 'edit a group', vcr: {cassette_name: 'create_group'} do
       visit_group_edit_page_as_a_member
       check 'Is your group inactive?'
       click_button 'Update Group'
-      expect(page).to have_content('GROUP CURRENTLY INACTIVE')
+      expect(page).to have_content('Inactive')
       visit_group_edit_page_as_a_member
       check 'Is your group full?'
       click_button 'Update Group'
-      expect(page).to have_content('GROUP CURRENTLY INACTIVE')
+      expect(page).to have_content('Inactive')
     end
 
     scenario 'allow male students' do
-      visit_group_edit_page
+      visit_group_edit_page_as_a_member
       check 'Do you welcome male students?'
       click_button 'Update Group'
-      expect(page).to have_content('mixed group')
+      expect(page).to have_content('Mixed group')
     end
 
     def visit_group_edit_page_as_a_member
       visit root_path
       click_link 'Groups'
-      expect(page).to have_content('edit')
-      click_link 'edit'
+      click_link group.name
+      expect(page).to have_content('Edit')
+      click_link 'Edit group'
       expect(page).to have_content('Group name')
     end
+  end
 
-    def visit_group_edit_page
+  context 'as a non member of a group' do
+    let(:person) { create :person }
+    let!(:group) { create(:group) }
+
+    scenario 'edit the name of an existing group' do
       visit root_path
       click_link 'Groups'
-      expect(page).to have_content('edit')
-      click_link 'edit'
-      expect(page).to have_content('Group name')
+      click_link group.name
+      expect(page).to_not have_content 'Edit group'
     end
   end
 
@@ -78,8 +83,8 @@ feature 'edit a group', vcr: {cassette_name: 'create_group'} do
     def visit_group_edit_page_as_admin
       visit groups_path
       click_link 'AWESOME GROUP'
-      expect(page).to have_content('EDIT AS ADMIN')
-      click_link 'EDIT AS ADMIN'
+      expect(page).to have_content('Edit as admin')
+      click_link 'Edit as admin'
       expect(page).to have_content('Group name')
     end
   end

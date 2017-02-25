@@ -1,9 +1,7 @@
-.container
-  .row
-    .col-md-12.page-header
-      %h2 Register a new group
-      %h5 Fields with * are required
-  .row
-    = render 'form'
-    .col-md-4
-      = link_to 'Back', groups_path, class: 'pull-right'
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "← Back to groups", groups_path
+
+%h1.page-header Register a new group
+%h4 Fields with * are required
+.form-box
+  = render 'form'

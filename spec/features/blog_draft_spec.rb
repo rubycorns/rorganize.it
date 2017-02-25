@@ -22,7 +22,7 @@ feature 'Blog drafts' do
   end
 
   def create_new_post_as_draft
-    click_link 'New Post'
+    click_link 'Create new post'
     fill_in 'Blogpost title', with: 'Hello World'
     fill_in 'Text', with: 'Hello again'
     click_button 'Save as Draft'

@@ -1,6 +1,9 @@
-.container
-  %h1 Editing topic
-  = render 'form'
+%ul.sub-nav{role: "navigation"}
+  %li
+    = link_to "← Back to topic overview", group_topics_path
 
-  = link_to 'Show', group_topic_path(@topic.group, @topic) |
-  = link_to 'Back', group_path(@topic.group)
+%h1.page-header Editing topic
+%h2
+  %small Edit the content of this topic:
+.form-box
+  = render 'form'

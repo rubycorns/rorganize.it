@@ -12,7 +12,7 @@ describe 'User is not logged in', :type => :feature do
     end
 
     it 'has the greeting' do
-      expect(page).to have_content 'Find other Rails Girls students, coaches and project groups!'
+      expect(page).to have_content 'Find other Rails Girls students, coaches and project groups'
     end
   end
 
@@ -47,7 +47,7 @@ describe 'User is not logged in', :type => :feature do
 
     before do
       visit root_path
-      click_link 'All'
+      click_link 'People'
     end
 
     it 'shows a list of people' do
@@ -76,7 +76,7 @@ describe 'User is not logged in', :type => :feature do
     end
 
     it 'shows the blog header' do
-      expect(page).to have_content 'Corporate Blog'
+      expect(page).to have_content 'Blog'
     end
   end
 
