@@ -1,3 +1,4 @@
+
 %h2.page-header Filter by
 = form_tag url_for, method: 'get' do
   .row.filter-option
@@ -14,7 +15,7 @@
     .row.filter-option
       %label.col-md-9.control-lable willing to travel
       .col-md-2
-        = check_box_tag 'willing_to_travel'
+        = check_box_tag 'willing_to_travel', 1, @willing_to_travel
 
   %button{type: 'submit', class: 'btn btn-primary'}
     filter

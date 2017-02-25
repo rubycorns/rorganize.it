@@ -12,7 +12,7 @@ describe GroupsHelper do
 
     context 'person is signed in' do
       before do
-        allow(helper).to receive_messages(person_signed_in?: true)
+        allow(helper).to receive(:logged_in?).with(person).and_return true
       end
 
       context 'person is not a member of the group' do
@@ -34,7 +34,7 @@ describe GroupsHelper do
 
     context 'person is not signed in' do
       before do
-        allow(helper).to receive_messages(person_signed_in?: false)
+        allow(helper).to receive(:logged_in?).with(person).and_return false
       end
 
       let(:person) { nil }
@@ -56,7 +56,7 @@ describe GroupsHelper do
     context 'person is not signed in' do
 
       before do
-        allow(helper).to receive_messages(person_signed_in?: false)
+        allow(helper).to receive(:logged_in?).with(person).and_return false
       end
 
       let(:person) { nil }
@@ -69,7 +69,7 @@ describe GroupsHelper do
     context 'person is signed in' do
 
       before do
-        allow(helper).to receive_messages(person_signed_in?: true)
+        allow(helper).to receive(:logged_in?).with(person).and_return true
       end
 
       let(:person) { double }

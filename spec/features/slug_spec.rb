@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'slugs', :vcr => {:cassette_name => "create_group" } do
+feature 'slugs', vcr: {cassette_name: 'create_group'} do
 
   before { visit new_person_session_path }
 

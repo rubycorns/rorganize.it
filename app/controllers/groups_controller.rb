@@ -7,15 +7,11 @@ class GroupsController < ApplicationController
   before_action :ensure_member_powers, except: [:index, :show, :new, :create, :destroy]
 
   def index
-    @groups = Group.where(inactive: false).order(:name)
-    @groups_inactive = Group.where(inactive: true).order(:name)
+    ordered_groups = Group.where(inactive: false).order(:name)
+    ordered_inactive_groups = Group.where(inactive: true).order(:name)
 
-    @groups = @groups.by_country(params[:country]) if params[:country].present?
-    @groups = @groups.by_city(params[:city]) if params[:city].present?
-
-    @groups_inactive = @groups_inactive.by_country(params[:country]) if params[:country].present?
-    @groups_inactive = @groups_inactive.by_city(params[:city]) if params[:city].present?
-
+    @groups = ordered_groups.filtered_by_region(params)
+    @inactive_groups = ordered_inactive_groups.filtered_by_region(params)
     @cities = Group.cities
     @countries = Group.countries
   end
@@ -54,6 +50,9 @@ class GroupsController < ApplicationController
 
     @topic = Topic.new
     @topic.group = @group
+
+    @students = signed_in? ? @group.students : @group.students.public_profile
+    @coaches = signed_in? ? @group.coaches : @group.coaches.public_profile
   end
 
   def destroy

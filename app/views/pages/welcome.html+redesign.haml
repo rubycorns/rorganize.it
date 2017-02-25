@@ -45,7 +45,7 @@
         %h3 Tell others about you!
         %ol
           %li
-            - if logged_in?(current_person)
+            - if logged_in?
               %a{ href: edit_person_registration_path(current_person.id) } Head over to your profile
             - else
               %a{ href: new_person_session_path } Log in and head over to your profile

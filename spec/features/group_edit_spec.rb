@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'edit a group', :vcr => {:cassette_name => "create_group" } do
+feature 'edit a group', vcr: {cassette_name: 'create_group'} do
   before do
     visit new_person_session_path
     sign_in person

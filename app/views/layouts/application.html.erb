@@ -22,7 +22,7 @@
           <%= link_to("RoRganize.it", root_path, {class: "navbar-brand"}) %>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <% if person_signed_in? %>
+          <% if logged_in? %>
             <div class="dropdown navbar-nav navbar-right profile-header">
               <button class="dropdown-toggle no-btn" type="button" id="dropdownMenu1" data-toggle="dropdown">
                 <% if current_person.picture.present? %>

@@ -48,6 +48,14 @@ class Person < ActiveRecord::Base
   scope :willing_to_travel, -> { where(willing_to_travel: true) }
   scope :order_by_name, -> { order("lower(first_name) ASC, lower(last_name) ASC") }
   scope :workshop_coach, -> { where(workshop_coach: true)}
+  scope :public_profile, -> { where(non_public: false) }
+
+  scope :visible_locations_for, -> (location_type, signed_in) {
+    signed_in ? send("#{location_type}") : public_profile.send("#{location_type}")
+  }
+  scope :filtered_by_visibility, -> (signed_in) {
+    signed_in ? all : public_profile
+  }
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |person|

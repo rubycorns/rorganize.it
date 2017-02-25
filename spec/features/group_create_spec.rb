@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'create a group', :vcr => {:cassette_name => "create_group" } do
+feature 'create a group', vcr: {cassette_name: 'create_group'} do
 
   before do
     visit new_person_session_path
@@ -35,7 +35,7 @@ feature 'create a group', :vcr => {:cassette_name => "create_group" } do
     expect(page).to have_content('This group currently has 0 students.')
     expect(page).to have_content('This group currently has 1 coach.')
   end
-  
+
 
   scenario 'create a group and don\'t become a member of it' do
     visit root_path

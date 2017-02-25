@@ -10,7 +10,7 @@
 .flex-profile
   %aside.profile-contact
     = render partial: "shared/person_picture", locals: { person: @person }
-    - if coach_location?(@person)
+    - if location_for?(@person)
       %p
         %strong Based in:
         #{@person.city} #{@person.country_name}

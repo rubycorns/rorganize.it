@@ -27,20 +27,18 @@
 
 FactoryGirl.define do
   factory :group do
-    name 'Test Group'
+    sequence(:name) {|n| "Test Group #{n}"}
     email 'testgroup@email.com'
     contact 'some googlegroup'
     city 'Berlin'
     country 'DE'
-    slug 'test-group'
   end
 
   factory :second_group, class: Group do
-    name 'Second Group'
+    sequence(:name) {|n| "Second Group #{n}"}
     email 'secondgroup@email.com'
     contact 'some other googlegroup'
     city 'Hamburg'
     country 'DE'
-    slug 'second-group'
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Manage topics of a group', :vcr => {:cassette_name => "create_group" } do
+feature 'Manage topics of a group', vcr: {cassette_name: 'create_group'} do
 
   scenario 'Add topic' do
     sign_in_user

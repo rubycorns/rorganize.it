@@ -95,18 +95,24 @@
 
       %h4 Students
       %p
-        This group currently has #{pluralize @group.students.length, "student"}.
+      - if signed_in?
+        This group currently has #{pluralize @students.length, "student"}.
+      - else
+        This group may have more students than currently shown. Log in to see all of them.
       %ul.list--people
-        - @group.students.each do |student|
+        - @students.each do |student|
           %li
             = link_to student.first_name, person_path(student)
             - if admin?
               = render partial: 'remove_from_group', locals: { object: student, group: @group }
       %h4 Coaches
       %p
-        This group currently has #{pluralize @group.coaches.length, "coach"}.
+      - if signed_in?
+        This group currently has #{pluralize @coaches.length, "coach"}.
+      - else
+        This group may have more coaches than currently shown. Log in to see all of them.
       %ul.list--people
-        - @group.coaches.each do |coach|
+        - @coaches.each do |coach|
           %li
             = link_to coach.first_name, person_path(coach)
             - if admin?
