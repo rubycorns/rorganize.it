@@ -136,9 +136,36 @@ Then in your local repository, add a git remote for production:
 
     git remote add production ror@rorganize.it:rorganize.it
 
-That should be it. The scripts that are run after a push are in the [deploy](https://github.com/rubycorns/rorganize.it/tree/master/deploy)
-directory. See also https://github.com/mislav/git-deploy for more info.
+That should be it.
 
-In case this doesn't work though, ssh into server and try to restart deamontools:
+#### Troubleshooting deploy
 
-    svc -t /service/autostart
+The scripts that are run after a push are in the
+[deploy](https://github.com/rubycorns/rorganize.it/tree/master/deploy)
+directory. See also https://github.com/mislav/git-deploy for more
+info.
+
+In case this doesn't work though, ssh into server and try to restart
+the daemontools service:
+
+    svc -t ~/service/autostart
+
+If the app is not working, there might be an error on startup (e.g. a
+missing gem), and daemontools tries to start it again and again. Check
+with e.g. `ps fuxwww` if the pid of the thin server constantly
+changes. If that is the case, try to stop the service with
+
+    svc -u ~/service/autostart
+
+then start it manually to see the errors on the console, with
+
+    ~/service/autostart/run
+
+or follow the contents of that file to see what it is actually doing.
+Once fixed, run
+
+    svc -u ~/service/autostart
+
+to start the service in regular mode again. See
+https://wiki.uberspace.de/system:daemontools for more info (in
+german).
