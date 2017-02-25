@@ -25,11 +25,11 @@
 .hero.stats
   %h2 Discover and meet
   %p
-    = pluralize(@students.size, 'student')
+    = pluralize(@students_count, 'student')
     and
-    = pluralize(@coaches.size, 'coach')
+    = pluralize(@coaches_count, 'coach')
     in
-    = pluralize(@groups.size, 'group')
+    = pluralize(@groups_count, 'group')
 
 .github-fork-ribbon-wrapper.left-bottom
   .github-fork-ribbon
