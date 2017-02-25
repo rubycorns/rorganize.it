@@ -12,7 +12,7 @@ feature 'create a group', vcr: {cassette_name: 'create_group'} do
   scenario 'create a group and be a member of it' do
     visit root_path
     click_link 'Groups'
-    click_link 'register new group'
+    click_link 'Register new group'
     fill_in 'Group name', with: 'Testgroup'
     fill_in 'Where we\'ll send automated emails to *', with: 'test@email.com'
     fill_in 'Group contact info', with: 'this googlegroup'
@@ -28,7 +28,7 @@ feature 'create a group', vcr: {cassette_name: 'create_group'} do
     within('.page-header') do
       expect(page).to have_content('Testgroup')
     end
-    within('.group-info') do
+    within('#members') do
       expect(page).to have_content(person.first_name)
     end
 
@@ -40,7 +40,7 @@ feature 'create a group', vcr: {cassette_name: 'create_group'} do
   scenario 'create a group and don\'t become a member of it' do
     visit root_path
     click_link 'Groups'
-    click_link 'register new group'
+    click_link 'Register new group'
     fill_in 'Group name', with: 'Testgroup'
     fill_in 'Where we\'ll send automated emails to *', with: 'test@email.com'
     fill_in 'Group contact info', with: 'this googlegroup'
@@ -54,7 +54,7 @@ feature 'create a group', vcr: {cassette_name: 'create_group'} do
     within('.page-header') do
       expect(page).to have_content('Testgroup')
     end
-    within('.group-info') do
+    within('#members') do
       expect(page).to_not have_content(person.first_name)
     end
 

@@ -1,14 +1,15 @@
-= form_for(@post, html: { multipart: true }) do |f|
+= form_for(@post, html: { multipart: true, class: 'post-edit' }) do |f|
   = render 'shared/error_messages', object: f.object
-  .form-group
-    = f.label(:title, "Blogpost title")
-    = f.text_field :title, placeholder: "What's this blogpost about?", class: 'form-control'
-  .form-group
-    = f.label(:description, "Text")
-    = f.text_area :description, placeholder: "Tell the world what's happening with our app!", class: 'form-control', rows: '10'
-  .form-group
-    = f.label(:picture, "Add a pic")
-    = f.file_field :picture
-  .actions
-    = f.submit 'Publish', class: 'btn btn-primary'
-    = f.submit 'Save as Draft', class: 'btn btn-warning'
+
+  = f.label(:title, "Blogpost title")
+  = f.text_field :title, placeholder: "What's this blogpost about?", class: 'post-edit-title'
+  = f.label(:description, "Text")
+  // use https://rubygems.org/gems/autosize-rails for adjusting height
+  = f.text_area :description, placeholder: "Tell the world what's happening with our app!", class: 'post-edit-text', rows: '10'
+  = f.label(:picture, "Add a pic")
+  = f.file_field :picture
+
+  .filter-buttons
+    = f.submit 'Publish', class: 'btn btn-teal'
+    = f.submit 'Save as Draft', class: 'btn btn-secondary'
+    = link_to "Cancel", posts_path, class: 'btn btn-grey'

@@ -4,7 +4,7 @@ describe 'Admin dashboard', :type => :feature do
   subject { page }
 
   context 'the user is not logged in' do
-    
+
     it 'is not accessible' do
       visit '/dashboard'
       expect(page).to have_content 'You need to sign in'
@@ -42,11 +42,11 @@ describe 'Admin dashboard', :type => :feature do
     it 'allows to add another admin' do
       visit '/dashboard'
 
-      within '.admin-list' do
+      within '.dashboard-admins' do
         select 'Person 2'
         click_button 'adminify'
       end
-      within '.admin-list' do
+      within '.dashboard-admins' do
         expect(page).to have_selector 'li a', text: 'Person 2'
       end
       expect(page).to have_content 'Successfully adminified Person 2'
@@ -55,7 +55,7 @@ describe 'Admin dashboard', :type => :feature do
     it 'allows to remove another admin' do
 
       visit '/dashboard'
-      within '.admin-list' do
+      within '.dashboard-admins' do
         select 'Person 2'
         click_button 'adminify'
       end
@@ -64,7 +64,7 @@ describe 'Admin dashboard', :type => :feature do
         click_button 'un-adminify'
       end
 
-      within '.admin-list' do
+      within '.dashboard-admins' do
         expect(page).to_not have_selector 'li a', text: 'Person 2'
       end
       expect(page).to have_content 'Successfully un-adminified Person 2'

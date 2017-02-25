@@ -1,24 +1,21 @@
-
 %h2.page-header Filter by
-= form_tag url_for, method: 'get' do
-  .row.filter-option
-    %label.col-md-3.control-label city
-    .col-md-8
-      = select_tag 'city', options_for_select(@cities), include_blank: true, class: 'form-control'
+= form_tag url_for, method: 'get', class: 'filter' do
+  %label{for: 'city'}
+    City
+  = select_tag 'city', options_for_select(@cities), include_blank: 'Choose…', class: 'filter-select'
 
-  .row.filter-option
-    %label.col-md-3.control-label country
-    .col-md-8
-      = select_tag 'country', options_for_select(country_names_for_select(@countries)), include_blank: true, class: 'form-control'
+  %label{for: 'country'}
+    Country
+  = select_tag 'country', options_for_select(country_names_for_select(@countries)), include_blank: 'Choose…', class: 'filter-select'
 
   - if current_page?(coaches_path)
-    .row.filter-option
-      %label.col-md-9.control-lable willing to travel
-      .col-md-2
-        = check_box_tag 'willing_to_travel', 1, @willing_to_travel
+    .checkbox-div
+      %label{for: 'willing_to_travel'}
+        Willing to travel?
+        = check_box_tag 'willing_to_travel'
+        %span.checkbox-el
 
-  %button{type: 'submit', class: 'btn btn-primary'}
-    filter
-
-  - if %w(city country willing_to_travel).any? { |p| params[p] }
-    = link_to "reset", path, class: 'btn reset-button'
+  .filter-buttons
+    = submit_tag 'Filter', class: 'btn btn-grey-full'
+    - if %w(city country willing_to_travel).any? { |p| params[p] }
+      = link_to "Reset", path, class: 'btn btn-grey'

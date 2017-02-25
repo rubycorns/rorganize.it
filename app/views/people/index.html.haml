@@ -1,8 +1,13 @@
-.container.student-list
-  %h1.page-header People overview
-  = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "All people", people_path, class: 'active'
+  %li= link_to "Workshop coaches", coaches_path
+  -# Implement filters for sub-navigation + .active class
 
-  .row
-    = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_people, coach_page: false }
-    %aside.sidebar.col-md-4
-      = render partial: 'shared/filter', locals: { path: people_path }
+.flex-index
+  .flex-index-main
+    %h1.page-header People overview
+    = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
+    = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_people }
+
+  %aside.flex-index-sidebar
+    = render partial: 'shared/filter', locals: { path: people_path }

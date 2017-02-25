@@ -13,9 +13,9 @@ feature 'update password' do
     visit person_path(person, redesign: true)
     click_on 'Change password'
     fill_in 'Current password', with: 'password'
-    fill_in 'Password', with: 'test1234'
-    fill_in 'Password confirmation', with: 'test1234'
-    click_on 'Update'
+    fill_in 'New password', with: 'test1234'
+    fill_in 'Confirm new password', with: 'test1234'
+    click_on 'Change password'
 
     expect(page).to have_content 'You updated your account successfully'
     click_on 'logout'

@@ -1,4 +1,6 @@
-.container
-  %h2 Sign up
-  = render 'form'
-  = render "devise/shared/links"
+.devise-page
+  %h1.page-header Sign up
+  .form-box
+    = render 'form'
+  %ul.devise-options-list
+    = render "devise/shared/links"

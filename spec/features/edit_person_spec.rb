@@ -11,7 +11,7 @@ feature 'edit a person' do
 
   before do
     visit person_path(person)
-    click_link 'edit'
+    click_link 'Edit profile'
     expect(page).to have_content('Your first name')
   end
 
@@ -31,7 +31,7 @@ feature 'edit a person' do
     end
 
     scenario 'updates the correct information' do
-      within('#working-on') do
+      within('.working-on') do
         expect(page).to have_content 'capybara, rspec, css'
       end
     end

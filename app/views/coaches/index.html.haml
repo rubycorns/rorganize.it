@@ -1,28 +1,28 @@
-.container
-  .row
-    .col-sm-12
-      %h1
-        This is a coach list
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "All people", people_path
+  %li= link_to "Workshop coaches", coaches_path, class: 'active'
+
+.flex-index
+  .flex-index-main
+    %h1.page-header This is a coach list
+    %p
+      More specifically, it is a list of people who are willing to coach at Rails Girls workshops. If you are a Rails Girls organizer in need of coaches, please
+      %a{ href: "mailto:roar@rorganize.it" } contact us,
+      and we will send you a list.
+
+    - if logged_in?
       %p
-        More specifically, it is a list of people who are willing to coach at Rails Girls workshops. If you are a Rails Girls organizer in need of coaches, please
-        %a{ href: "mailto:roar@rorganize.it" } contact us,
-        and we will send you a list.
+        If you are interested in becoming a Rails Girls coach fill in the relevant info on your
+        %a{ href: edit_person_path(current_person) } profile page.
+        The world will love you for it!
+    - else
+      %p
+        If you are interested in becoming a Rails Girls coach
+        %a{ href: new_person_registration_path } sign up to the app,
+        and then fill in the relevant info on your profile page.
+    %hr
+    = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
+    = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_coaches }
 
-      - if logged_in?
-        %p
-          If you are interested in becoming a Rails Girls coach fill in the relevant info on your
-          %a{ href: edit_person_path(current_person) } profile page.
-          The world will love you for it!
-      - else
-        %p
-          If you are interested in becoming a Rails Girls coach
-          %a{ href: new_person_registration_path } sign up to the app,
-          and then fill in the relevant info on your profile page.
-
-  %hr
-  = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
-
-  .row
-    = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_coaches, coach_page: true }
-    %aside.sidebar.col-md-4
-      = render partial: 'shared/filter', locals: { path: coaches_path }
+  %aside.flex-index-sidebar
+    = render partial: 'shared/filter', locals: { path: coaches_path }

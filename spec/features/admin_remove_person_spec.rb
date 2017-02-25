@@ -21,7 +21,6 @@ feature 'Remove a person from a group', vcr: {cassette_name: 'create_group'} do
   end
 
   context 'the admin' do
-
     before do
       person.update_attribute(:admin, true)
       person.join!(group, 'StudentMembership')
@@ -29,17 +28,13 @@ feature 'Remove a person from a group', vcr: {cassette_name: 'create_group'} do
     end
 
     it 'can see the remove form' do
-      expect(page).to have_selector('.remove-from-group')
+      expect(page).to have_content "Remove from group"
     end
 
     it 'can remove the person' do
-      within '.group-info' do
-        find(".remove-from-group").click
-      end
-
+      click_button "Remove from group"
       expect(current_path).to eq('/groups')
       go_to_group_page
-      expect(page).to_not have_selector('.remove-from-group')
     end
 
   end

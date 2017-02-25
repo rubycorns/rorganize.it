@@ -5,12 +5,12 @@ describe 'Signing up', :type => :feature do
 
   context 'with all required info' do
     before do
-      fill_in 'First name',            with: 'Ruby'
-      fill_in 'Last name',             with: 'Corn'
-      fill_in 'E-mail',                with: 'ruby.corn@example.org'
-      fill_in 'Password',              with: 'supersecret123'
-      fill_in 'Password Confirmation', with: 'supersecret123'
-      click_button 'Save'
+      fill_in 'First name',       with: 'Ruby'
+      fill_in 'Last name',        with: 'Corn'
+      fill_in 'email@email.com',  with: 'ruby.corn@example.org'
+      fill_in 'Password',         with: 'supersecret123'
+      fill_in 'Confirm password', with: 'supersecret123'
+      click_button 'Sign up'
     end
 
     it 'creates a user' do

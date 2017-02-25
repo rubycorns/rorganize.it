@@ -1,7 +1,8 @@
 = form_for(@group, html: {multipart: true}) do |f|
   = render 'shared/error_messages', object: f.object
 
-  .col-md-4
+  %fieldset
+    %legend Basics
     .form-group
       = f.label(:name, "Group name *")
       = f.text_field :name, placeholder: 'Name of the group', class: 'form-control'
@@ -10,25 +11,9 @@
       = f.text_field :email, placeholder: "email@address.com", class: 'form-control'
       %p.help-block We will send notification emails (eg when someone wants to join your group) to this address. It is only visible to us.
       %p.help-block Please don't use a googlegroup because emails from us won't go through.
-    .form-group
-      = f.label(:contact, "Group contact info *")
-      = f.text_area :contact, placeholder: 'How to contact your group', class: 'form-control'
-      %p.help-block This is visible to everyone. Please describe how people can get in touch with your group.
-    .form-group
-      = f.label(:twitter, "Twitter handle")
-      = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
-    .form-group
-      = f.label(:founded_on, "Founded on")
-      = f.text_field :founded_on, placeholder: 'When was your group founded?', class: 'form-control'
-    .form-group
-      = f.label(:level, "Level of group")
-      = f.text_area :level, placeholder: 'Beginner, intermediate, advanced, all of the above?', class: 'form-control'
-    .form-group
-      = f.label(:picture, "Group picture")
-      = f.file_field :picture, placeholder: 'What you look like'
-      %p.help-block Choose a picture representing your group
 
-  .col-md-4
+  %fieldset
+    %legend Meeting details and contact
     .form-group
       = f.label(:time, "Meeting time")
       = f.text_field :time, placeholder: 'When you meet', class: 'form-control'
@@ -46,29 +31,59 @@
       = f.text_field :city, class: 'form-control'
     .form-group
       = f.label(:country, "Country *")
-      = f.country_select(:country, {priority_countries: ["DE", "PL", "IN", "US"], include_blank: true}, {class: 'form-control'})
+      = f.country_select(:country, {priority_countries: ["DE", "PL", "IN", "US"], include_blank: true}, {class: 'filter-select'})
+    .form-group
+      = f.label(:contact, "Group contact info *")
+      = f.text_area :contact, placeholder: 'How to contact your group', rows: 6, class: 'form-control'
+      %p.help-block This is visible to everyone. Please describe how people can get in touch with your group. This can also be an email.
+    .form-group
+      = f.label(:twitter, "Twitter handle")
+      = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
+    .form-group
+      = f.label(:founded_on, "Founded on")
+      = f.text_field :founded_on, placeholder: 'When was your group founded?', class: 'form-control'
 
-  .col-md-4
+  %fieldset
+    %legend Group description
+    .form-group
+      = f.label(:level, "Level of group")
+      = f.text_area :level, placeholder: 'Beginner, intermediate, advanced, all of the above?', rows: 6, class: 'form-control'
+    .form-group
+      = f.label(:picture, "Group picture")
+      = f.file_field :picture, placeholder: 'What you look like'
+      %p.help-block Choose a picture representing your group
     .form-group
       = label_tag(:activities, "Description (you can use markdown!)")
-      = f.text_area :activities, placeholder: 'Your activities, topics, projects', class: 'form-control'
+      = f.text_area :activities, placeholder: 'Your activities, topics, projects', rows: 6, class: 'form-control'
     .form-group
       = f.label(:learning_resources, "Learning resources you find helpful, and which might interest others. Share the love!")
-      = f.text_area :learning_resources, placeholder: 'Hartl tutorial, codecademy, etc...', class: 'form-control'
+      = f.text_area :learning_resources, placeholder: 'Hartl tutorial, codecademy, etc...', rows: 6, class: 'form-control'
+
+  %fieldset
+    %legend Group meta infos
     - if @group.new_record?
-      .form-group
-        = f.check_box :join_as_coach
-        = f.label(:join_as_coach, "Join group as coach")
+      .form-inline
+        = f.label(:join_as_coach) do
+          = f.check_box :join_as_coach
+          Join group as coach
+
     - if !@group.new_record?
-      .form-group
-        = f.check_box :full
-        = f.label(:full, "Is your group full?")
-      .form-group
-        = f.check_box :inactive
-        = f.label(:inactive, "Is your group inactive?")
-      .form-group
-        = f.check_box :allow_male_students
-        = f.label(:allow_male_students, "Do you welcome male students?")
-        %p.help-block Many groups prefer to only have students who identify as women. Please indicate if you also welcome students who identify as men.
-    .actions.pull-right
-      = f.submit class: "btn btn-primary"
+      .form-inline
+        = f.label(:full) do
+          = f.check_box :full
+          Is your group full?
+
+      .form-inline
+        = f.label(:inactive) do
+          = f.check_box :inactive
+          Is your group inactive?
+
+      .form-inline
+        = f.label(:allow_male_students) do
+          = f.check_box :allow_male_students
+          Do you welcome male students?
+
+      %p.help-block Many groups prefer to only have students who identify as women. Please indicate if you also welcome students who identify as men.
+  .action-buttons
+    = f.submit class: "btn btn-teal"
+    = link_to 'Cancel', @group, class: 'btn btn-grey'

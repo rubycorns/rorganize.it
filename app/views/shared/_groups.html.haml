@@ -1,3 +1,9 @@
-%ul
-  - object.groups.each do |group|
-    %li= link_to group.name, group
+.people--groups
+  %p
+    %strong Groups:
+  %ul
+    - if object.groups.any?
+      - object.groups.each do |group|
+        %li= link_to group.name, group
+    - else
+      %li.info-not-given not specified
