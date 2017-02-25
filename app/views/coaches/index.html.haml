@@ -21,19 +21,8 @@
         %a{ href: new_person_registration_path } sign up to the app,
         and then fill in the relevant info on your profile page.
     %hr
-    %ul.list-group
-      - @coaches.each do |coach|
-        %li{class: "list-group-item #{'list-group-item-warning' if logged_in?(coach)}"}
-          .list-group-item-pic
-            = person_avatar(coach)
-          .list-group-item-info
-            %h3
-              = profile_link(coach)
-            - if logged_in? && location_for?(coach)
-              %p #{coach.city}, #{coach.country_name}
-          - if logged_in?(coach)
-            .list-group-item-person
-              It's you
+    = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
+    = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_coaches }
 
   %aside.flex-index-sidebar
     = render partial: 'shared/filter', locals: { path: coaches_path }

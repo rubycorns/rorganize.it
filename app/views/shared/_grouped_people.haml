@@ -1,17 +1,17 @@
-.col-md-8
-  %ul.list-group
-    - grouped_people.sort.each do |letter, people|
-      .letter-header{id: "#{letter}"}
-        = letter
-      - people.each do |person|
-        %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
-          .row
-            .col-md-2
-              = person_avatar(person)
-            .col-md-8
-              %h3
-                = profile_link(person)
-              - if !coach_page
-                = render partial: "shared/groups", locals: { object: person }
-              - elsif logged_in? && location_for?(person)
-                %p #{person.city} #{person.country_name}
+%ul.list-group
+  - grouped_people.sort.each do |letter, people|
+    .letter-header{id: "#{letter}"}
+      = letter
+    - people.each do |person|
+      %li{class: "list-group-item clearfix #{'list-group-item-warning' if logged_in?(person)}"}
+        .list-group-item-pic
+          = person_avatar(person)
+        .list-group-item-info
+          %h3
+            = profile_link(person)
+          = render partial: "shared/groups", locals: { object: person }
+          - if logged_in?(person)
+            .list-group-item-person
+              It's you
+            - if location_for?(person)
+              %p #{person.city} #{person.country_name}
