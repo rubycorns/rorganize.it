@@ -12,7 +12,7 @@
 <body class="<%= controller.controller_name %>">
   <header>
     <nav class="navbar" role="navigation">
-      <%= link_to(image_tag("rorganize_logo_new.png", alt: "RoRganize.it Logo", title: "Home"), root_path, {class: "header-logo"}) %>
+      <%= link_to(image_tag("rorganizeit-logo.svg", alt: "RoRganize.it Logo", title: "Home"), root_path, {class: "header-logo"}) %>
       <ul class="main-nav">
         <li class="<%= 'active' if params[:controller] == 'groups' %>">
           <a href="<%= groups_path %>" title="Groups">Groups</b></a>
