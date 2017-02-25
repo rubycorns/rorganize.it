@@ -6,7 +6,7 @@
     %h1.page-header Rubycorns Blog
     - if current_person.admin?
       .action-buttons
-        = link_to 'Create new Post', new_post_path, class: 'btn btn-pink-full'
+        = link_to 'Create new post', new_post_path, class: 'btn btn-pink-full'
     - if @published_posts.any?
       - @published_posts.each do |post|
         = render partial: 'post', object: post
