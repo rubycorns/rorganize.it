@@ -121,6 +121,12 @@ class Person < ActiveRecord::Base
     true
   end
 
+  def self.grouped_alphabetically
+    all.order_by_name.group_by do |person|
+      person.first_name ? person.first_name.first.capitalize : '*'
+    end
+  end
+
   private
     def prepend_http
       if website.present?

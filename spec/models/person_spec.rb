@@ -263,4 +263,17 @@ describe Person, vcr: {cassette_name: 'create_group'} do
       end
     end
   end
+
+  describe '.grouped_alphabetically' do
+    let!(:person)  { create :person, first_name: 'Zed' }
+    let!(:person2) { create :person, first_name: 'Betty'}
+    let!(:person3) { create :person, first_name: 'Mary' }
+    let!(:person4) { create :person, first_name: '123'}
+
+    before { person3.update_attribute(:first_name, nil) } # in the unlikely case that a user doesn't have a first name
+
+    it 'returns people grouped by the first letter of their name' do
+      expect(Person.grouped_alphabetically).to eql({'*'=>[person3], '1'=>[person4], 'B'=>[person2], 'Z'=>[person]})
+    end
+  end
 end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PeopleController do
 
   describe 'index' do
-    let!(:person) { create(:person) }
+    let!(:person) { create :person, first_name: 'Ruby' }
 
     before :each do
       get :index
@@ -14,7 +14,19 @@ describe PeopleController do
     end
 
     it 'has a list of people' do
-      expect(assigns(:people)).to include person
+      expect(assigns(:paginated_people)).to include person
+    end
+
+    it 'has a list of people grouped alphabetically' do
+      expect(assigns(:alphabetically_grouped_people)).to eql({'R' => [person] })
+    end
+
+    it 'has a paginated list of alphabet keys' do
+      expect(assigns(:paginated_alphabetical_list)).to eql ['R']
+    end
+
+    it 'has a list of all alphabet keys for all people' do
+      expect(assigns(:total_alphabetical_list)).to eql ['R']
     end
   end
 

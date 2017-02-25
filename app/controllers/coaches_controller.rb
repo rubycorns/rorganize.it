@@ -1,16 +1,20 @@
 class CoachesController < ApplicationController
   def index
-    ordered_coaches = Person.workshop_coach.order_by_name
-    coaches_by_region = ordered_coaches
-                          .filtered_by_region(params)
-                          .filtered_by_visibility(signed_in?)
+    coaches = Person.workshop_coach.order_by_name
+                .filtered_by_region(params)
+                .filtered_by_visibility(signed_in?)
 
     @willing_to_travel = params[:willing_to_travel] == '1'
-    @coaches = @willing_to_travel ? coaches_by_region.willing_to_travel : coaches_by_region
+    @coaches = @willing_to_travel ? coaches.willing_to_travel : coaches
     @cities  = Person.workshop_coach.visible_locations_for(:cities, signed_in?)
     @countries = Person.workshop_coach.visible_locations_for(:countries, signed_in?)
 
-    @grouped_coaches = @coaches.group_by{|person| person.first_name.first.capitalize }
-    @alphabetical_list = @grouped_coaches.keys.sort
+    page = (params[:page] || 1).to_i
+
+    @paginated_coaches = @coaches.paginate(page: page, per_page: 30)
+    @alphabetically_grouped_coaches = @paginated_coaches.grouped_alphabetically
+
+    @paginated_alphabetical_list = @alphabetically_grouped_coaches.keys
+    @total_alphabetical_list = coaches.grouped_alphabetically.keys
   end
 end
