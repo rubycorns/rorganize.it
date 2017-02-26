@@ -1,7 +1,7 @@
 .people--groups
   %p
     %strong Groups:
-  %ul.people--groups__groups
+  %ul.people--groups-groups
     - if object.groups.any?
       - object.groups.each do |group|
         %li= link_to group.name, group
