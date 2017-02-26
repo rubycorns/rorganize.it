@@ -37,7 +37,7 @@ feature 'Manage topics of a group', vcr: {cassette_name: 'create_group'} do
   end
 
   def mark_one_topic_as_covered
-    within('.future-topics .topics > li:first-of-type') do
+    within('.future-topics .topics-list > li:first-of-type') do
       click_link 'Done'
     end
   end
