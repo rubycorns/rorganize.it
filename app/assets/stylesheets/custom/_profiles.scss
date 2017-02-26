@@ -67,21 +67,45 @@
 }
 
 /* Tabs for Resources, Topics and Members */
+.group-tabs {
+  margin: 3rem 0 1rem 0;
+  border-bottom: 1px solid $ochre-yellow;
+}
+
 .group-tab {
   display: inline-block;
+  margin-right: 1rem;
 }
 
 .group-tab a {
   display: block;
+  padding: 0.4em 1em;
+  border: 1px solid $ochre-yellow;
+  border-bottom-width: 0;
+  font-size: 1.2rem;
+  color: $onyx-grey;
 }
 
 .group-tab a.active,
 .group-tab a:hover {
-  background-color: #ccc;
+  background-color: lighten($ochre-yellow, 30%);
+  border-top-width: 3px;
+  color: inherit;
 }
 
-.tab.hidden {
+.tab {
   display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.member-students,
+.member-coaches {
+  display: inline-block;
+  vertical-align: top;
+  width: 40%;
 }
 
 /* On person#show */
