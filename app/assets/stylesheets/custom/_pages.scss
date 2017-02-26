@@ -1,6 +1,7 @@
 // Welcome
 // CoC
 // Home page
+// All devise pages (sign in/up, forgot password, etc.)
 // GH Fork me banderole
 
 
@@ -58,7 +59,6 @@
     margin-bottom: 0.5em;
   }
   ul {
-    list-style: disc outside;
     margin: 1.2em;
   }
   & .coc-img {
@@ -116,9 +116,12 @@
 .devise-page {
   margin: 3rem auto;
   width: 60%;
-  & .devise-options-list {
-    margin-top: 1.5rem;
-  }
+}
+
+.devise-options-list {
+  list-style: none;
+  margin-left: 0;
+  margin-top: 1.5rem;
 }
 
 // GITHUB Fork me banderole

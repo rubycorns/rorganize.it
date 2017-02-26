@@ -82,7 +82,14 @@
 }
 
 /* Group topics */
-.topics .action-buttons {
+.topics-list {
+  margin-bottom: 1rem;
+}
+
+.topic-description {
+  font-size: 1.1rem;
+}
+.topics-list .action-buttons {
   margin: 0 auto 1rem 0;
 }
 
