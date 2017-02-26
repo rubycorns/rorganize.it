@@ -6,9 +6,10 @@
 
 .topic-main
   %h2 Topic
-  %p= @topic.body
+  %p.topic-description
+    = @topic.body
   %p.help-block
-    opened by
+    Opened by
     =link_to  @topic.person, person_path(@topic.person)
     on
     = @topic.created_at.strftime("%d %B %Y")
@@ -29,6 +30,7 @@
           = comment.person.name
           on
           = comment.created_at.strftime("%d %B %Y")
+
 .topic-comment-form
   - if show_member_buttons?(current_person, @group)
     .form-box

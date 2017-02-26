@@ -24,6 +24,7 @@
   }
 }
 
+.dashboard-posts,
 .dashboard-groups {
   & .action-buttons {
     margin: 0 auto 1rem 0;
@@ -36,6 +37,11 @@
 
 .dashboard-posts h3 {
   margin-top: 0.7rem;
+}
+
+.dashboard-posts-items {
+  list-style: none;
+  margin-left: 0;
 }
 
 .dashboard-posts-items li {

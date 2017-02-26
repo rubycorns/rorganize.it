@@ -10,14 +10,14 @@
     - if @future_topics.size > 0
       .future-topics
         %h2 Future topics
-        %ul.topics
+        %ul.topics-list
           - @future_topics.each do |topic|
             = render partial: 'list_item', locals: { topic: topic}
 
     - if @covered_topics.size > 0
       .covered-topics
         %h2 Past topics
-        %ul.topics
+        %ul.topics-list
           - @covered_topics.each do |topic|
             = render partial: 'list_item', locals: { topic: topic}
 
