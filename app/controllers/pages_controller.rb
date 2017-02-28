@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     students, coaches = Membership.all.partition { |membership| membership.name == 'Student' }
     @students_count = students.count
     @coaches_count = coaches.count
+    @groups_count = @groups.count
   end
 
   def about
