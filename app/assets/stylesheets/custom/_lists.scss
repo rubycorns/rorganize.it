@@ -2,9 +2,18 @@
 // Also used on admin dashboard
 
 // Lists for groups, people, coaches
+.list-group {
+  margin-left: 0;
+}
+
 .list-group-item {
   display: flex;
-  padding: 1.1em 0.9em 1.1em 0;
+  flex-direction: column;
+  padding: 1.1em 0;
+  @media (min-width: $mq-med) {
+    flex-direction: row;
+    padding: 1.1em 0.9em 1.1em 0;
+  }
 }
 
 .list-group-item-warning {
@@ -12,17 +21,28 @@
 }
 
 .list-group-item-pic {
-  width: 20%;
+  width: 50%;
   display: flex;
   align-items: center;
+  margin: auto;
+  flex-direction: column;
+  @media (min-width: $mq-med) {
+    width: 20%;
+  }
   & img {
     border-radius: 50%;
-    width: 80%;
+    width: 60%;
     height: auto;
+    @media (min-width: $mq-med) {
+      width: 100%;
+    }
   }
 }
 .list-group-item-info {
-  width: 70%;
+  width: 100%;
+  @media (min-width: $mq-med) {
+    width: 70%;
+  }
 }
 
 .people--groups {
