@@ -193,7 +193,7 @@ nav.navbar {
 
 // Main Container
 .main-container {
-  margin:0 3rem 3rem;
+  margin:0 2rem 3rem;
 }
 
 .about-page,
@@ -205,11 +205,17 @@ nav.navbar {
 
 .flex-index {
   display: flex;
+  flex-direction: column-reverse;
+  @media (min-width: $mq-med) {
+    flex-direction: row;
+  }
 }
 
 .flex-index-main {
   flex: 2 0 60%;
-  margin-right: 4rem;
+  @media (min-width: $mq-med) {
+    margin-right: 4rem;
+  }
 }
 
 .flex-index-sidebar {
@@ -221,7 +227,6 @@ nav.navbar {
 // Filter section on groups#index and people#index
 .filter {
   position: relative;
-  padding-right: 10em;
   display: flex;
   flex-wrap: wrap;
   & > * {
