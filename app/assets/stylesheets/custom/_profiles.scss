@@ -3,6 +3,7 @@
 .flex-profile {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   .profile-contact {
     flex-basis: 20%;
     display: flex;
@@ -11,11 +12,21 @@
   .profile-main {
     flex-basis: 75%;
   }
+
+  @media (min-width: $mq-med) {
+    flex-direction: row;
+  }
+
 }
 
 .profile-contact img {
-  width: 90%;
+  width: 50%;
   height: auto;
+  margin: 0 auto;
+
+  @media (min-width: $mq-med) {
+    width: 90%;
+  }
 }
 
 #map {
@@ -23,6 +34,13 @@
   width: 200px;
   overflow: hidden;
   margin-top: 1rem;
+}
+
+#group-map {
+  margin: 0 auto;
+  @media (min-width: $mq-med) {
+    margin: 0;
+  }
 }
 
 .group-leave {
