@@ -8,8 +8,8 @@ class PeopleController < ApplicationController
                 .filtered_by_region(params)
                 .filtered_by_visibility(signed_in?)
 
-    @cities = Person.visible_locations_for(:cities, signed_in?)
-    @countries = Person.visible_locations_for(:countries, signed_in?)
+    @cities = Person.order(:city).visible_locations_for(:cities, signed_in?)
+    @countries = Person.order(:country).visible_locations_for(:countries, signed_in?)
 
     @grouped_people = @people.group_by{|person| person.first_name.first.capitalize }
     @alphabetical_list = @grouped_people.keys.sort
