@@ -12,8 +12,8 @@ class GroupsController < ApplicationController
 
     @groups = ordered_groups.filtered_by_region(params)
     @inactive_groups = ordered_inactive_groups.filtered_by_region(params)
-    @cities = Group.cities
-    @countries = Group.countries
+    @cities = Group.order(:city).cities
+    @countries = Group.order(:country).countries
   end
 
   def new
