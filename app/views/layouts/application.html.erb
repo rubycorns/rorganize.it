@@ -29,7 +29,7 @@
       </ul>
       <% if logged_in? %>
         <ul class="profile-header">
-          <li>
+          <li class="person-profile">
             <% if current_person.picture.present? %>
               <%= link_to(image_tag(current_person.picture_url(:thumb), size: "40x40", alt: current_person.full_name, title: current_person.full_name), current_person) %>
             <% else %>

@@ -86,6 +86,10 @@ nav.navbar {
   flex: 1;
   margin-left: 3rem;
   margin-right: 1rem;
+  display: none;
+  @media (min-width: $mq-med) {
+    display: block;
+  }
   img {
     height: 62%;
     width: auto;
@@ -144,6 +148,12 @@ nav.navbar {
   align-items: center;
   & img {
     align-self: center;
+  }
+  &.person-profile {
+    display: none;
+    @media (min-width: $mq-med) {
+      display: block;
+    }
   }
 }
 
