@@ -3,11 +3,11 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RoRganize.it | Find a Rails Girls Study Group</title>
-  <%=  stylesheet_link_tag (params[:redesign] ?  'redesign' :  'application'), media: "all", "data-turbolinks-track" => true %>
+  <%=  stylesheet_link_tag (params[:redesign] ?  'redesign' :  'application'), media: "all" %>
   <%= csrf_meta_tags %>
   <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application" %>
 </head>
 <body class="<%= controller.controller_name %>">
   <header>

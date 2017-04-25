@@ -13,7 +13,6 @@
 //= require modernizr
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require randomGif
 //= require main
 //= require leaflet
