@@ -1,0 +1,16 @@
+.main-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 3rem 2rem 3rem;
+  border-top: 2px solid $limestone-grey;
+
+  div {
+    @media (min-width: $mq-med) {
+      flex: 0 0 50%;
+    }
+    @media (min-width: $mq-large) {
+      flex: 0 0 20%;
+    }
+  }
+}
