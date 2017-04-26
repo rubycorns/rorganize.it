@@ -72,6 +72,5 @@ class GroupsController < ApplicationController
     :picture, :twitter, :contact, :activities, :email, :level,
     :founded_on, :join_as_coach, :full, :city, :country, :street, :zip,
     :learning_resources, :inactive, :allow_male_students)
-  end
-
+  end 
 end

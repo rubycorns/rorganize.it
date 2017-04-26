@@ -49,6 +49,8 @@ class Group < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
 
+  before_save :capitalize_fields
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -72,5 +74,9 @@ class Group < ActiveRecord::Base
 
   def location
     [address, street, zip, city, country].join(' ')
+  end
+
+  def capitalize_fields
+    self.city = city.titleize
   end
 end
