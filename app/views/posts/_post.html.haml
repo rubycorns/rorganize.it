@@ -8,8 +8,7 @@
       = post.person.first_name if post.person
       |
       \#{show_date(post)}
-  %main
-    .post-body
-      = markdown(post.description)
-    .post-picture
-      = image_tag(post.picture_url) if post.picture.present?
+  .post-body
+    = markdown(post.description)
+  .post-picture
+    = image_tag(post.picture_url) if post.picture.present?
