@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
   def update
     if @group.update_attributes group_params
       redirect_to group_path(@group), notice: 'Group was successfully updated. ' \
-      'All efforts, nomatter how small, deserve cake.'
+                                              'All efforts, nomatter how small, deserve cake.'
     else
       render action: 'edit'
     end
@@ -58,7 +58,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     redirect_to groups_path, notice: 'Group was successfully deleted. ' \
-    'May we suggest drowning your sorrows in some cake?'
+                                     'May we suggest drowning your sorrows in some cake?'
   end
 
   private
@@ -68,9 +68,29 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:id, :name, :address, :time,
-    :picture, :twitter, :contact, :activities, :email, :level,
-    :founded_on, :join_as_coach, :full, :city, :country, :street, :zip,
-    :learning_resources, :inactive, :allow_male_students)
-  end 
+    params.require(:group).permit(
+      :id,
+      :name,
+      :address,
+      :time,
+      :picture,
+      :twitter,
+      :contact,
+      :activities,
+      :email,
+      :level,
+      :founded_on,
+      :join_as_coach,
+      :full,
+      :city,
+      :country,
+      :street,
+      :zip,
+      :learning_resources,
+      :inactive,
+      :allow_male_students,
+      :searching_coaches,
+      :searching_students,
+      :searching_location)
+  end
 end

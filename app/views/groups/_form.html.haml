@@ -82,8 +82,23 @@
         = f.label(:allow_male_students) do
           = f.check_box :allow_male_students
           Do you welcome male students?
+        %p.help-block Many groups prefer to only have students who identify as women. Please indicate if you also welcome students who identify as men.
 
-      %p.help-block Many groups prefer to only have students who identify as women. Please indicate if you also welcome students who identify as men.
+      .form-inline
+        = f.label(:searching_coaches) do
+          = f.check_box :searching_coaches
+          This group is searching for coaches
+
+      .form-inline
+        = f.label(:searching_students) do
+          = f.check_box :searching_students
+          This group is searching for students
+
+      .form-inline
+        = f.label(:searching_location) do
+          = f.check_box :searching_location
+          This group needs a meeting place
+
   .action-buttons
     = f.submit class: "btn btn-teal"
     = link_to 'Cancel', @group, class: 'btn btn-grey'

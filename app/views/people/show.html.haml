@@ -32,7 +32,9 @@
       %p
         Your account is not public
         %small (only registered users can see your profile)
-
+    - if @person.searching_group?
+      %p
+        %span.tag Searching for a group!
 
   .profile-main
     - if logged_in?(@person)
