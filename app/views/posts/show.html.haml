@@ -6,7 +6,24 @@
   - if current_person.admin?
     = link_to 'Edit post', edit_post_path(@post), class: 'btn btn-teal'
     = link_to 'Delete post', @post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-pink'
-= render partial: 'post', object: @post
+
+%article.post.post-single
+  %header
+    - if current_person.admin? && @post.draft?
+      %p.post-draft
+        It's a draft!
+    %h2.post-title= link_to "#{@post.try(:title)}", post_path(@post)
+    %p.post-meta
+      = @post.person.first_name if @post.person
+      |
+      \#{show_date(@post)}
+  .post-body
+    = markdown(@post.description)
+
+  .post-picture
+    = image_tag(@post.preview_picture)
+
+
 .post-browsing
   - if @post.newer_post
     %p.post-newer

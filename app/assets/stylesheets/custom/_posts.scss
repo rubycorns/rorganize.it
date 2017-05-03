@@ -6,10 +6,24 @@
   display: flex;
   list-style: none;
   margin: 0;
+  flex-flow: row wrap;
 
   li {
-    flex: 0 0 33%;
-    padding: 0 2rem 2rem;
+    flex: 1 0 100%;
+    @media (min-width: $mq-large) {
+      flex: 0 0 50%;
+      padding: 0 1rem 0;
+    }
+    @media (min-width: $mq-xl) {
+      flex: 0 0 33.3%;
+    }
+  }
+  article {
+    min-height:560px;
+    border: 2px solid $limestone-grey;
+  }
+  header {
+    padding: 0 1rem 1.5rem;
   }
 }
 
@@ -25,8 +39,19 @@
     color: $onyx-grey;
     font-size: 0.8em;
   }
-  .post-picture img {
-    width: 100%;
+  .post-picture {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.post-single {
+  .post-meta {
+    margin: 2rem 0
+  }
+  .post-picture {
+    margin-top: 5rem;
   }
 }
 
@@ -84,8 +109,11 @@
 }
 
 .twitter-feed {
-  width: 70%;
-  & iframe {
-    width: 35vw !important;
+  @media (min-width: $mq-large) {
+    width: 70%;
+    & iframe {
+      width: 35vw !important;
+    }
   }
+
 }
