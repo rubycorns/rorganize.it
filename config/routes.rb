@@ -17,10 +17,14 @@ RailsGirlsApp::Application.routes.draw do
     resources :topics do
       resources :comments, only: [:create]
     end
+
+    member do
+      get :manage_members
+    end
   end
   resources :people
   resources :coaches
-  resources :memberships, only: [:create, :destroy]
+  resources :memberships, only: [:create, :destroy, :update]
   resources :posts
   resource :dashboard, only: [:show] do
     resources :admins, only: [:create, :destroy]

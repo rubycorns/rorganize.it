@@ -6,11 +6,11 @@ feature 'edit a group', vcr: {cassette_name: 'create_group'} do
     sign_in person
   end
 
-  context 'as a member of a group' do
+  context 'as an admin member of a group' do
     let(:person) { create(:person) }
     let(:group) { create(:group) }
 
-    before { person.join!(group, 'StudentMembership') }
+    before { person.join!(group, {admin: true}) }
 
     scenario 'edit the name of an existing group' do
       visit_group_edit_page_as_a_member

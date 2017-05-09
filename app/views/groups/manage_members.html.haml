@@ -1,0 +1,21 @@
+=render 'subnav'
+
+%h1.page-header
+  Member management for
+  = @group.name
+
+%ul
+  - @group.memberships.each do |m|
+    %li
+      = m.person
+      - if m.person.admin_member_of? @group
+        %small (Group admin)
+
+      = form_for(m, html: { method: :patch }, url: membership_path(m)) do |f|
+        - if m.person.admin_member_of? @group
+          = f.submit "remove admin status", class: "btn btn-small btn-grey"
+        - else
+          = f.submit "make admin", class: "btn btn-small btn-grey"
+
+      = form_for(m, html: { method: :delete, data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" } }, url: membership_path(m)) do |f|
+        = f.submit "remove person from group", class: "btn btn-small btn-pink"

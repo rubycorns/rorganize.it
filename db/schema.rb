@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214202206) do
+ActiveRecord::Schema.define(version: 20170509182902) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "person_id",  null: false
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20170214202206) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.boolean  "admin",      default: false, null: false
   end
 
   add_index "memberships", ["group_id", "person_id"], name: "index_memberships_on_group_id_and_person_id", unique: true

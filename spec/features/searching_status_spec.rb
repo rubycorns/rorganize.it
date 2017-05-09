@@ -21,7 +21,7 @@ feature 'Searching', vcr: {cassette_name: 'create_group'} do
     let(:person) { create(:person) }
     let(:group) { create(:group) }
 
-    before { person.join!(group, 'StudentMembership') }
+    before { person.join!(group, admin: true) }
 
     it 'add searching flags via settings' do
       does_not_display_searching_for_coaches
@@ -67,7 +67,7 @@ feature 'Searching', vcr: {cassette_name: 'create_group'} do
   end
 
   def go_to_group_settings
-    click_link 'Edit group'
+    click_on 'Edit group'
   end
 
   def check_searching_for_coaches_and_save

@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+# This file should coNtaincus all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
@@ -113,7 +113,7 @@ user_list = [
 user_list.map do |user|
   membership = user.delete(:membership)
   member = Person.create!(user)
-  member.join!(groups.second, membership.concat('Membership'))
+  member.join!(groups.second, type: membership.concat('Membership'))
 end
 
 posts_list = [

@@ -21,7 +21,7 @@ feature 'Comments on topics', vcr: {cassette_name: 'create_group'} do
   before do
     visit new_person_session_path
     sign_in person
-    person.join!(group, 'StudentMembership')
+    person.join!(group, {})
   end
 
   def visit_group_topic_page

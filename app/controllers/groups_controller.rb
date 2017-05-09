@@ -1,10 +1,11 @@
 class GroupsController < ApplicationController
   respond_to :html
 
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :manage_members]
   before_action :authenticate_person!, except: [:index, :show]
-  before_action :ensure_admin_powers, only: [:destroy]
-  before_action :ensure_member_powers, except: [:index, :show, :new, :create, :destroy]
+  before_action :ensure_can_destroy, only: [:destroy]
+  before_action :ensure_member_powers, except: [:index, :show, :new, :create]
+  before_action :ensure_group_admin_powers, only: [:edit, :update, :manage_members]
 
   def index
     ordered_groups = Group.where(inactive: false).order(:name)
@@ -24,9 +25,11 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       if @group.join_as_coach == '1'
-        current_person.join!(@group, 'CoachMembership')
+        current_person.join!(@group, {type: 'CoachMembership', admin: true})
+      else
+        current_person.join!(@group, admin: true)
       end
-      redirect_to group_path(@group), notice: 'Group was successfully created. This calls for cake!'
+      redirect_to group_path(@group), notice: 'Group was successfully created. You are the admin now. This calls for cake!'
     else
       render action: 'new'
     end
@@ -61,7 +64,14 @@ class GroupsController < ApplicationController
                                      'May we suggest drowning your sorrows in some cake?'
   end
 
+  def manage_members
+  end
+
   private
+
+  def ensure_can_destroy
+    render_403 unless current_person.admin? || current_person.admin_member_of?(@group)
+  end
 
   def set_group
     @group = Group.friendly.find(params[:id])

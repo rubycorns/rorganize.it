@@ -28,7 +28,7 @@ feature 'Manage topics of a group', vcr: {cassette_name: 'create_group'} do
   def sign_in_user
     visit new_person_session_path
     sign_in person
-    person.join!(group, 'StudentMembership')
+    person.join!(group)
   end
 
   def group_has_future_topics

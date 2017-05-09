@@ -65,7 +65,7 @@ describe Person, vcr: {cassette_name: 'create_group'} do
     end
 
     describe 'joining a group' do
-      before { subject.join!(group) }
+      before { subject.join!(group, {}) }
 
       it 'makes a person a member of that group' do
         expect(subject.has_group?).to be_truthy
@@ -105,14 +105,14 @@ describe Person, vcr: {cassette_name: 'create_group'} do
   end
 
   describe '#join!' do
-    before { subject.join!(group) }
+    before { subject.join!(group, {}) }
 
     it 'puts the person in the correct group' do
       expect(subject.memberships.first.group_id).to eq group.id
     end
 
     describe 'joining a second group' do
-      before { subject.join!(second_group) }
+      before { subject.join!(second_group, {}) }
 
       it 'allows the person to also be a member of the second group' do
         expect(subject.member_of?(second_group)).to be_truthy
@@ -125,7 +125,7 @@ describe Person, vcr: {cassette_name: 'create_group'} do
   end
 
   describe '#member_of?' do
-    before { subject.join!(group) }
+    before { subject.join!(group, {}) }
 
     it 'checks to see if they are a member of a group' do
       expect(subject.member_of?(group)).to be_truthy

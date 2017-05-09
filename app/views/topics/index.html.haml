@@ -1,7 +1,4 @@
-%ul.sub-nav{role: "navigation"}
-  %li
-    = link_to(@group) do
-      ← Back to #{@group.name}
+= render 'groups/subnav'
 
 %h1.page-header Topics by #{@group.name}
 

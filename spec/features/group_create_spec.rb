@@ -9,7 +9,7 @@ feature 'create a group', vcr: {cassette_name: 'create_group'} do
 
   let(:person) { create(:person) }
 
-  scenario 'create a group and be a member of it' do
+  scenario 'create a group and be a coach member of it' do
     visit root_path
     click_link 'Groups'
     click_link 'Register new group'
@@ -37,7 +37,7 @@ feature 'create a group', vcr: {cassette_name: 'create_group'} do
   end
 
 
-  scenario 'create a group and don\'t become a member of it' do
+  scenario 'create a group and be a coach member of it' do
     visit root_path
     click_link 'Groups'
     click_link 'Register new group'
@@ -46,7 +46,6 @@ feature 'create a group', vcr: {cassette_name: 'create_group'} do
     fill_in 'Group contact info', with: 'this googlegroup'
     fill_in 'City', with: 'Berlin'
     select('Germany', from: 'Country', match: :first)
-    expect(page).to have_content('Join group as coach')
     click_button 'Create Group'
 
     expect(page).to have_content('Group was successfully created.')
@@ -55,10 +54,10 @@ feature 'create a group', vcr: {cassette_name: 'create_group'} do
       expect(page).to have_content('Testgroup')
     end
     within('#members') do
-      expect(page).to_not have_content(person.first_name)
+      expect(page).to have_content(person.first_name)
     end
 
-    expect(page).to have_content('This group currently has 0 students.')
+    expect(page).to have_content('This group currently has 1 student.')
     expect(page).to have_content('This group currently has 0 coaches.')
   end
 
