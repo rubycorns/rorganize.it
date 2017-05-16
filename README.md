@@ -27,11 +27,11 @@ In Terminal run (OS&nbsp;X):
 
     brew install imagemagick
 
-Or for Linux run (or with the package manager of your choice):
+On Ubuntu/Debian, you can run (or with the package manager of your choice):
 
     sudo apt-get install imagemagick
 
-You also need to install postgres tools on Linux:
+You also need to install postgres tools on Ubuntu/Debian:
 
     sudo apt-get install libpq-dev
 
