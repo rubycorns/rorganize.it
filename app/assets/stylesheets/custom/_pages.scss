@@ -85,23 +85,37 @@
   margin: 4em 0;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: $mq-med) {
+    flex-direction: row;
+  }
 }
 
 .home-find-groups,
 .home-find-people {
   text-align: center;
-  flex-basis: 35%;
-  display: flex;
-  //PROBLEM: when larger > 1440, h3 doesn't wrap
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  margin-bottom: 30px;
+  padding: 5px;
+  width: 80%;
+  @media (min-width: $mq-med) {
+    width: 50%;
+  }
   & > h3 {
     flex-basis: 100%;
   }
   & .home-find-btn {
     margin-top: 1.3em;
     align-self: flex-end;
+  }
+}
+
+.landing-image {
+  width: 80%;
+  @media (min-width: $mq-med) {
+    height: 220px;
+    width: auto;
   }
 }
 
