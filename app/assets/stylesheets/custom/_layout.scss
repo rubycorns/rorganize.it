@@ -151,7 +151,7 @@ nav.navbar {
   }
   &.person-profile {
     display: none;
-    @media (min-width: $mq-med) {
+    @media (min-width: $mq-large) {
       display: block;
     }
   }
