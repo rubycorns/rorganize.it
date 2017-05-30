@@ -1,4 +1,6 @@
 %article.post
+  .post-picture
+    = image_tag(post.preview_picture)
   %header
     - if current_person.admin? && post.draft?
       %p.post-draft
@@ -8,8 +10,7 @@
       = post.person.first_name if post.person
       |
       \#{show_date(post)}
-  %main
-    .post-body
-      = markdown(post.description)
-    .post-picture
-      = image_tag(post.picture_url) if post.picture.present?
+    %p
+      =truncate(post.description, length: 130)
+    %p.post-cta
+      = link_to "Read more", post_path(post), title: "Read the post #{post.title}"

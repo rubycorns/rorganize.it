@@ -8,8 +8,9 @@
       .action-buttons
         = link_to 'Create new post', new_post_path, class: 'btn btn-pink-full'
     - if @published_posts.any?
-      - @published_posts.each do |post|
-        = render partial: 'post', object: post
+      %ul.post-list
+        - @published_posts.each do |post|
+          %li= render partial: 'post', object: post
       = will_paginate @published_posts, class: 'blog-pagination'
     - else
       %div

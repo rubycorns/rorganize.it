@@ -43,4 +43,12 @@ class Post < ActiveRecord::Base
   def newer_post
     Post.published_ascending_order.newer(published_at).last
   end
+
+  def preview_picture
+    if picture.present?
+      picture_url
+    else
+      ActionController::Base.helpers.asset_path("rubycorn.gif")
+    end
+  end
 end
