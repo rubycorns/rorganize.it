@@ -91,16 +91,16 @@ describe Person, vcr: {cassette_name: 'create_group'} do
       subject.name = 'Ruby Fabulous Rubycorn'
 
       expect(subject.name).to eq 'Ruby Fabulous Rubycorn'
-      expect(subject.first_name).to eq 'Ruby Fabulous'
-      expect(subject.last_name).to eq 'Rubycorn'
+      expect(subject.first_name).to eq 'Ruby'
+      expect(subject.last_name).to eq 'Fabulous Rubycorn'
     end
 
     it 'allows for many many names' do
       subject.name = 'Ruby Fabulous Rubycorn What Does It Even Mean'
 
       expect(subject.name).to eq 'Ruby Fabulous Rubycorn What Does It Even Mean'
-      expect(subject.first_name).to eq 'Ruby Fabulous Rubycorn What Does It Even'
-      expect(subject.last_name).to eq 'Mean'
+      expect(subject.first_name).to eq 'Ruby'
+      expect(subject.last_name).to eq 'Fabulous Rubycorn What Does It Even Mean'
     end
   end
 
