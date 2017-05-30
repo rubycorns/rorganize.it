@@ -12,11 +12,12 @@
     - if current_person.admin? && @post.draft?
       %p.post-draft
         It's a draft!
-    %h2.post-title= link_to "#{@post.try(:title)}", post_path(@post)
+    %h2.post-title
+      = link_to @post.title, post_path(@post)
     %p.post-meta
       = @post.person.first_name if @post.person
       |
-      \#{show_date(@post)}
+      = show_date(@post)
   .post-body
     = markdown(@post.description)
 
