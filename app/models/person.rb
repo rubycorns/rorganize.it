@@ -93,8 +93,8 @@ class Person < ActiveRecord::Base
     names = string.split(' ')
 
     if names.count > 1
-      self.first_name = names.take(names.size - 1).join(' ')
-      self.last_name = names.last
+      self.first_name = names.first
+      self.last_name = names.drop(1).join(' ')
     else
       self.first_name = names.first
       self.last_name = nil
