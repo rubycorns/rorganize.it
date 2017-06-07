@@ -1,0 +1,9 @@
+#!/bin/sh
+cd ~/rorganize.it/
+export HOME=/home/ror
+export USER=ror
+export RAILS_ENV=production
+export PGHOST=/home/ror/tmp
+echo "autostarting thin app server"
+. $HOME/.bash_profile
+bundle exec thin -a 127.0.0.1 -p 34567 start

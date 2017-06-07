@@ -1,4 +1,3 @@
-
 ## Rorganize.it [![Build Status](https://travis-ci.org/rubycorns/rorganize.it.svg?branch=master)](https://travis-ci.org/rubycorns/rorganize.it)
 
 You visited a Rails Girls Workshop and now want to join a project group to really learn the way of the code? Or maybe you recently coached at a workshop and now want to do it on a regular basis! If that's the case, this little app is just the one for you!
@@ -152,24 +151,32 @@ info.
 In case this doesn't work though, ssh into server and try to restart
 the daemontools service:
 
-    svc -t ~/service/autostart
+    svc -t ~/service/ror
 
 If the app is not working, there might be an error on startup (e.g. a
 missing gem), and daemontools tries to start it again and again. Check
 with e.g. `ps fuxwww` if the pid of the thin server constantly
 changes. If that is the case, try to stop the service with
 
-    svc -u ~/service/autostart
+    svc -d ~/service/ror
 
 then start it manually to see the errors on the console, with
 
-    ~/service/autostart/run
+    ~/service/ror/run
 
 or follow the contents of that file to see what it is actually doing.
 Once fixed, run
 
-    svc -u ~/service/autostart
+    svc -u ~/service/ror
 
 to start the service in regular mode again. See
 https://wiki.uberspace.de/system:daemontools for more info (in
 german).
+
+Other useful things and places to look at:
+
+- use `$ pgrep -fl thin` to check if only one thin process is running.
+If there are two kill the one with the constant pid `$ kill pid` so the new
+thin can start
+- check the service log for weirdness
+`$ tail -n 100 -f /home/ror/etc/run-ror/log/main/current`
