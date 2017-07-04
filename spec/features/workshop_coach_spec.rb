@@ -35,9 +35,9 @@ feature 'workshop coach' do
   end
 
   def visit_profile_of_normal_person
-    person = create(:person, first_name: 'Foobar', workshop_coach: false)
+    person = create(:person, first_name: 'Foobar', last_name: "Roo", workshop_coach: false)
     click_link 'People'
-    click_link 'Foobar'
+    click_link 'Foobar Roo'
   end
 
 end
