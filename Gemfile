@@ -84,7 +84,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
-  gem 'capybara', '2.3.0'
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'minitest'

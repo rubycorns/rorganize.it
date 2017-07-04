@@ -58,10 +58,12 @@
 
 .list--people {
   list-style: none;
-  margin-left: 0;
+  margin: 1rem 0 0;
 }
 
 .list--people-name {
+  display: inline-block;
+  margin: 0.3rem 0;
   font-size: 1.15em;
 }
 

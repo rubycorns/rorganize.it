@@ -353,7 +353,8 @@ legend {
   align-items: center;
 }
 form.inline {
-  display: inline;
+  display: inline-block;
+  vertical-align: text-bottom;
   margin-left: 0.5em;
 }
 

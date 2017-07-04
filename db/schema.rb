@@ -56,11 +56,11 @@ ActiveRecord::Schema.define(version: 20170214202206) do
     t.string   "street"
     t.string   "slug"
     t.text     "learning_resources"
-    t.boolean  "inactive",                        default: false
-    t.boolean  "allow_male_students",             default: false
-    t.boolean  "searching_coaches",               default: false, null: false
-    t.boolean  "searching_students",              default: false, null: false
-    t.boolean  "searching_location",              default: false, null: false
+    t.boolean  "inactive",            default: false
+    t.boolean  "allow_male_students", default: false
+    t.boolean  "searching_coaches",   default: false, null: false
+    t.boolean  "searching_students",  default: false, null: false
+    t.boolean  "searching_location",  default: false, null: false
   end
 
   add_index "groups", ["slug"], name: "index_groups_on_slug", unique: true
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20170214202206) do
     t.string   "provider"
     t.string   "uid"
     t.boolean  "non_public",             default: false, null: false
-    t.boolean  "searching_group",                    default: false, null: false
+    t.boolean  "searching_group",        default: false, null: false
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
