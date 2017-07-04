@@ -48,7 +48,7 @@ feature 'Searching', vcr: {cassette_name: 'create_group'} do
   end
 
   def go_to_person_settings
-    click_link 'Edit'
+    click_link 'Edit profile'
   end
 
   def check_searching_for_group_and_save
