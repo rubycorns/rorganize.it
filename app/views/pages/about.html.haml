@@ -1,29 +1,88 @@
 .about-page
   %h1.page-header About us and this App
-  %p
-    We are the
-    = link_to("rubycorns", "https://twitter.com/rubycorns") + ','
-    a Rails Girls Project Group meeting once a week.
 
-  %p
-    We made this sh*t with &hearts;.
+  .flex-index
+    %section.flex-index-main
 
-  %p
-    Our app was designed by the wonderful
-    = link_to("Justine", "https://twitter.com/ctrlaltjustine") + '.'
-    Thank you!!!!
+      %h2 FAQ
 
-  %p
-    The code is open source. Check it out and contribute on
-    = link_to("Github", "//github.com/rubycorns/rorganize.it") + '.'
-  %p
-    Read about our
-    %a{ href: conduct_path } Code of Conduct
+      %h3 What are the Rubycorns?
 
-  %h2.page-header Questions? Comments?
-  %p
-    RoRganize is growing, and we're always adding new features.
-  %p
-    If you need a group deleted, or want to suggest a new feature please
-  %p.sign-in-cta
-    <a href="mailto:roar@rorganize.it" class="btn btn-teal">Send us an email</a>
+      %p
+        The
+        = link_to("Rubycorns", "https://twitter.com/rubycorns")
+        are a Berlin based RailsGirls study group meeting every Tuesday.
+
+      %p RoRganize.it is an app that we developed to learn Ruby and Rails.
+      %p We wrote this code with &hearts;.
+
+      %p
+        The app's design and logo was created by the wonderful
+        = link_to("Justine", "https://twitter.com/ctrlaltjustine") + '.'
+        Thank you!!!!
+
+      %p
+        RoRganize.it is published under the open source AGP License. You can find the source code on
+        = link_to("Github", "//github.com/rubycorns/rorganize.it") + '.'
+
+      %p
+        Read about our
+        %a{ href: conduct_path } Code of Conduct
+
+      %h3 What is RoRganize.it?
+
+      %p RoRganize.it is an app to find local study groups.
+      %p You can find groups or start your own,  or find other students or coaches.
+
+      %h3 Do you offer courses? Can I subscribe?
+
+      %p
+        We
+        %strong do not
+        offer courses of any sort.
+
+      %h3 What are study groups?
+
+      %p Study groups are self organized and volunteer run groups of people who want to learn to code.
+      %p They usually meet weekly but that can vary from group to group.
+      %p
+        The concept of study groups can to be after a
+        =link_to('RailsGirls Berlin', '//railsgirlsberlin.de')
+        workshop. The attendees wanted to keep learning together.
+      %p This is also how the Rubycorns met.
+      %p This is why most study groups focus on attendees who identify as women. But also this varies froom group to group.
+      %p We have no insight or influence in what groups do, how they're run and how they organize themselves.
+      %p You need to find this out for yourself.
+
+
+      %h3 How do I find a group?
+
+      %p
+        Had over to the
+        = link_to('groups page', groups_path)
+        and use the filter to search for study groups meeting near you.
+      %p You can also start your own!
+
+      %h3 How can I join a group?
+
+      %p On a group's detail page you can find information on where and when a group meets.
+      %p It's nice to drop the group a line to announce your coming so that they can prepare for new people.
+      %p If you plan on joining the group permanently consider clicking the 'Join group' button.
+
+    %section.flex-index-sidebar
+      %h2.page-header Questions? Comments?
+
+      %p
+        RoRganize is growing, and we're always adding new features.
+
+      %p
+        Do you have an idea on how to improve RoRganize.it?
+      %p
+        Open a ticket in
+        = link_to("our issue tracker", "https://github.com/rubycorns/rorganize.it/issues/")
+        on GitHub.
+
+      %p
+        If you need a group deleted or other administrative actions just send us an email!
+      %p
+        = link_to("Send us an email", "mailto:roar@rorganize.it", class: "btn btn-teal")
