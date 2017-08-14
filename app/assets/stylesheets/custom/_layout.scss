@@ -150,10 +150,7 @@ nav.navbar {
     align-self: center;
   }
   &.person-profile {
-    display: none;
-    @media (min-width: $mq-large) {
-      display: block;
-    }
+    @media (min-width: $mq-large) { }
   }
 }
 
