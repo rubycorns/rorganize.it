@@ -103,6 +103,9 @@ GEM
       html2haml
     erubis (2.7.0)
     eventmachine (1.0.8)
+    exception_notification (4.2.1)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
     execjs (2.6.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -156,6 +159,8 @@ GEM
     launchy (2.4.2)
       addressable (~> 2.3)
     leaflet-rails (0.7.7)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     listen (2.7.5)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -360,6 +365,7 @@ DEPENDENCIES
   devise
   emoji (~> 1.0.1)
   erb2haml
+  exception_notification
   factory_girl_rails
   font-awesome-rails
   friendly_id (~> 5.1.0)
@@ -370,6 +376,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   leaflet-rails
+  letter_opener
   md_emoji
   mini_magick (~> 3.7.0)
   minitest
@@ -396,4 +403,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

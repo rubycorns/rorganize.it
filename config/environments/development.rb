@@ -28,6 +28,14 @@ RailsGirlsApp::Application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :letter_opener
+
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+      :email_prefix => "[ERROR] ",
+      :sender_address => %{"Rubycorns" <roar@rorganize.it>},
+      :exception_recipients => %w{regan.sara@gmail.com}
+    }
 
 end
