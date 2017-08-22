@@ -87,6 +87,7 @@ class Person < ActiveRecord::Base
 
   def name
     full_name
+
   end
 
   def name=(string)
@@ -105,13 +106,19 @@ class Person < ActiveRecord::Base
     full_name
   end
 
-  def join!(group, type = 'StudentMembership')
-    memberships.create!(group_id: group.id, type: type)
+  def join!(group, type: 'StudentMembership', admin: false)
+    memberships.create!(group_id: group.id, type: type, admin: admin)
   end
 
   def member_of?(group)
     # double !! makes it return a boolean
-    !!memberships.find_by(group_id: group.id)
+    !!memberships.find_by(group_id: group)
+  end
+
+  def admin_member_of?(group)
+    if member_of?(group)
+      memberships.find_by(group_id: group, person_id: self).admin
+    end
   end
 
   def <=>(other)

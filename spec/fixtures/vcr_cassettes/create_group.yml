@@ -520,4 +520,89 @@ http_interactions:
         }
     http_version: 
   recorded_at: Tue, 25 Apr 2017 18:13:50 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Berlin%20AU&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 04 Jul 2017 19:18:40 GMT
+      Expires:
+      - Wed, 05 Jul 2017 19:18:40 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '518'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAicmVzdWx0cyIgOiBbCiAgICAgIHsKICAgICAgICAgImFkZHJlc3Nf
+        Y29tcG9uZW50cyIgOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAg
+        ImxvbmdfbmFtZSIgOiAiOCIsCiAgICAgICAgICAgICAgICJzaG9ydF9uYW1l
+        IiA6ICI4IiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgInN0cmVldF9u
+        dW1iZXIiIF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAg
+        ICAgICAgICAibG9uZ19uYW1lIiA6ICJSeWtlc3RyYcOfZSIsCiAgICAgICAg
+        ICAgICAgICJzaG9ydF9uYW1lIiA6ICJSeWtlc3RyYcOfZSIsCiAgICAgICAg
+        ICAgICAgICJ0eXBlcyIgOiBbICJyb3V0ZSIgXQogICAgICAgICAgICB9LAog
+        ICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIkJl
+        emlyayBQYW5rb3ciLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAi
+        QmV6aXJrIFBhbmtvdyIsCiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBbICJw
+        b2xpdGljYWwiLCAic3VibG9jYWxpdHkiLCAic3VibG9jYWxpdHlfbGV2ZWxf
+        MSIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAg
+        ICAgICJsb25nX25hbWUiIDogIkJlcmxpbiIsCiAgICAgICAgICAgICAgICJz
+        aG9ydF9uYW1lIiA6ICJCZXJsaW4iLAogICAgICAgICAgICAgICAidHlwZXMi
+        IDogWyAibG9jYWxpdHkiLCAicG9saXRpY2FsIiBdCiAgICAgICAgICAgIH0s
+        CiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAi
+        QmVybGluIiwKICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIkJlcmxp
+        biIsCiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBbICJhZG1pbmlzdHJhdGl2
+        ZV9hcmVhX2xldmVsXzEiLCAicG9saXRpY2FsIiBdCiAgICAgICAgICAgIH0s
+        CiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAi
+        R2VybWFueSIsCiAgICAgICAgICAgICAgICJzaG9ydF9uYW1lIiA6ICJERSIs
+        CiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBbICJjb3VudHJ5IiwgInBvbGl0
+        aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAg
+        ICAgICAgICJsb25nX25hbWUiIDogIjEwNDA1IiwKICAgICAgICAgICAgICAg
+        InNob3J0X25hbWUiIDogIjEwNDA1IiwKICAgICAgICAgICAgICAgInR5cGVz
+        IiA6IFsgInBvc3RhbF9jb2RlIiBdCiAgICAgICAgICAgIH0KICAgICAgICAg
+        XSwKICAgICAgICAgImZvcm1hdHRlZF9hZGRyZXNzIiA6ICJSeWtlc3RyYcOf
+        ZSA4LCAxMDQwNSBCZXJsaW4sIEdlcm1hbnkiLAogICAgICAgICAiZ2VvbWV0
+        cnkiIDogewogICAgICAgICAgICAibG9jYXRpb24iIDogewogICAgICAgICAg
+        ICAgICAibGF0IiA6IDUyLjUzNTU2LAogICAgICAgICAgICAgICAibG5nIiA6
+        IDEzLjQyMDI2CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJsb2NhdGlv
+        bl90eXBlIiA6ICJST09GVE9QIiwKICAgICAgICAgICAgInZpZXdwb3J0IiA6
+        IHsKICAgICAgICAgICAgICAgIm5vcnRoZWFzdCIgOiB7CiAgICAgICAgICAg
+        ICAgICAgICJsYXQiIDogNTIuNTM2OTA4OTgwMjkxNDksCiAgICAgICAgICAg
+        ICAgICAgICJsbmciIDogMTMuNDIxNjA4OTgwMjkxNQogICAgICAgICAgICAg
+        ICB9LAogICAgICAgICAgICAgICAic291dGh3ZXN0IiA6IHsKICAgICAgICAg
+        ICAgICAgICAgImxhdCIgOiA1Mi41MzQyMTEwMTk3MDg0OSwKICAgICAgICAg
+        ICAgICAgICAgImxuZyIgOiAxMy40MTg5MTEwMTk3MDg1CiAgICAgICAgICAg
+        ICAgIH0KICAgICAgICAgICAgfQogICAgICAgICB9LAogICAgICAgICAicGxh
+        Y2VfaWQiIDogIkNoSUpyeWxSNFFOT3FFY1JfQXpONnNxNm9zTSIsCiAgICAg
+        ICAgICJ0eXBlcyIgOiBbICJlc3RhYmxpc2htZW50IiwgInBvaW50X29mX2lu
+        dGVyZXN0IiwgInN0b3JlIiBdCiAgICAgIH0KICAgXSwKICAgInN0YXR1cyIg
+        OiAiT0siCn0K
+    http_version: 
+  recorded_at: Tue, 04 Jul 2017 19:18:41 GMT
 recorded_with: VCR 3.0.1

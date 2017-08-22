@@ -1,19 +1,10 @@
-%ul.sub-nav{role: "navigation"}
-  %li= link_to "← All groups", groups_path
-
-- if show_member_buttons?(current_person, @group) || current_person.admin?
-  .action-buttons
-    - if show_member_buttons?(current_person, @group)
-      %span
-        = link_to edit_group_path(@group), class: 'btn btn-teal' do
-          Edit group
-      = render 'leave'
-    - if current_person.admin?
-      %span
-        = link_to edit_group_path(@group), class: 'btn btn-pink' do
-          Edit as admin &#9873;
+= render 'subnav'
 
 %h1.page-header= @group.name
+
+.action-buttons
+  = render 'leave'
+
 .flex-profile
   %aside.profile-contact
     - if @group.picture?
@@ -121,7 +112,7 @@
               searching for
               = searching_for
 
-    - if show_member_buttons?(current_person, @group) || @group.topics.any?
+    - if @group.topics.any?
       #topics.tab
         %p
           = link_to 'Topics this group talks about', group_topics_path(@group.id)

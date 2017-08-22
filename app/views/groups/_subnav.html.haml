@@ -1,0 +1,10 @@
+%ul.sub-nav{role: "navigation"}
+  %li= link_to "← All groups", groups_path
+  %li= link_to @group.name, group_path(@group)
+  - if show_member_buttons?(current_person, @group) || current_person.admin?
+    %li= link_to 'Topics', group_topics_path(@group.id)
+    - if current_person.admin_member_of?(@group)
+      %li= link_to 'Edit group', edit_group_path(@group)
+      %li= link_to 'Manage members', manage_members_group_path(@group)
+    - if current_person.admin? && !current_person.admin_member_of?(@group)
+      %li= link_to 'Edit as admin', edit_group_path(@group)

@@ -1,3 +1,3 @@
-= form_tag membership_path(current_person.memberships.find_by(group_id: @group.id)), method: :delete, class: 'group-leave' do
-  %button.btn.btn-pink
-    Leave group
+- if current_person && current_person.member_of?(@group)
+  = form_tag membership_path(current_person.memberships.find_by(group_id: @group.id)), method: :delete, class: 'group-leave' do
+    %button.btn.btn-pink Leave group
