@@ -77,6 +77,10 @@
   padding: 0.2em;
 }
 
+.letter-header {
+  display: block;
+}
+
 .alphabetical-list {
   a {
     font-size: 1.3em;
@@ -94,4 +98,16 @@
   font-size: 0.8em;
   text-transform: uppercase;
   color: $salmon-pink;
+}
+
+.person-group {
+  display: none;
+}
+
+.person-group:target ~ .person-group:last-of-type {
+  display: none;
+}
+
+.person-group:last-of-type, .person-group:target {
+  display: block;
 }
