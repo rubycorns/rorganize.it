@@ -9,42 +9,77 @@
 .welcome-text {
   margin: 1.5rem 0;
   padding: 2em;
-  background-color: $petal-pink;
-  text-align: center;
+  background-color: $daisy-yellow;;
+}
+
+.welcome-page {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .welcome-page section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  & .join-group-box,
-  & .create-group-box {
-    flex-basis: 40%;
+  .or-flex-item {
+    @media (min-width: $mq-large)  {
+      display: flex;
+    }
   }
-  & .or-box {
+
+  .then-flex-item {
+    margin-top: 8rem;
+  }
+
+  &.one {
+    @media (max-width: $mq-large) {
+      text-align: center;
+    }
+  }
+
+  &.two {
+    margin-top: 8rem;
+    @media (min-width: $mq-med)  {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      margin-top: 8rem;
+    }
+  }
+
+  .tell-other-box {
+    margin-top: 5rem;
+    @media (min-width: $mq-med) {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+
+  .join-group-box,
+  .create-group-box {
+    flex: 1 0 40%;
+  }
+  .or-box {
     flex-basis: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 5rem 0;
   }
-  & .join-group-box,
-  & .create-group-box,
-  & .tell-other-box {
-    padding: 1rem 2rem 1rem 3rem;
-  }
-  & .or-box p, & .then-box {
+  .or-box p,
+  .then-box {
+    font-size: 1.8rem;
     text-align: center;
-    font-family:cursive;
     text-transform: uppercase;
   }
-  & ol {
+  ol {
+    list-style: none;
     margin: 1em 0;
   }
-  & ol li::before {
+  ol li::before {
     content: '✧';
   }
-  & img {
-    width: 200px;
+  img:not(.emoji) {
+    width: 400px;
     height: auto;
     border: 1px solid $limestone-grey;
   }
