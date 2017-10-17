@@ -11,6 +11,10 @@ module RailsGirlsApp
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
       "<div class=\"field_with_errors has-error\">#{html_tag}</div>".html_safe
     end
+
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
