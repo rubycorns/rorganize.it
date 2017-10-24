@@ -12,8 +12,7 @@ module RailsGirlsApp
       "<div class=\"field_with_errors has-error\">#{html_tag}</div>".html_safe
     end
 
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
+    config.api_only = false
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
