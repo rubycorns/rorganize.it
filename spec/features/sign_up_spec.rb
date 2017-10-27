@@ -3,6 +3,10 @@ require 'spec_helper'
 describe 'Signing up', :type => :feature do
   before { visit new_person_registration_path }
 
+  it 'initially focuses first form input field' do
+    expect(first('input[type="text"]')['autofocus']).to eql 'autofocus'
+  end
+
   context 'with all required info' do
     before do
       fill_in 'First name',       with: 'Ruby'
