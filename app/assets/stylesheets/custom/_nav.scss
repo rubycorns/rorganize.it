@@ -1,6 +1,6 @@
 // Header + Navigation
 
-$navbar-height-reduced: 78px;
+$navbar-height-reduced: 78px; // some weirdness on smaller screens
 
 nav.navbar {
   display: flex; // container for whole header
@@ -42,10 +42,21 @@ nav.navbar {
 
 .main-nav {
   margin-left: 2rem;
-}
-
-.main-nav {
   flex: 3;
+
+  li {
+    a {
+      border-top: 3px solid white;
+      &:hover,
+      &:focus,
+      &:active {
+        border-top: 3px solid $header_red;
+      }
+    }
+    &.active a {
+      border-top: 3px solid $header_red;
+    }
+  }
 }
 
 .profile-header {
@@ -56,6 +67,14 @@ nav.navbar {
     flex: 2;
     justify-content: flex-end;
   }
+
+  li {
+    align-items: center;
+    & img {
+      align-self: center;
+      border-radius: 2px;
+    }
+  }
 }
 
 .main-nav,
@@ -63,11 +82,19 @@ nav.navbar {
   display: flex; // containers for respective list items
   align-items: center;
   height: $navbar-height-reduced;
-}
 
-.main-nav li,
-.profile-header li {
-  display: flex; // container for a tags, to achieve stretching of items
+  li {
+    display: flex; // container for a tags, to achieve stretching of items
+  }
+
+  a {
+    color: $body-color;
+    margin-right: 0.2rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    text-align: center;
+    white-space: nowrap;
+  }
 }
 
 // INFO: Padding used to keep hover-border at the very top
@@ -76,38 +103,6 @@ nav.navbar {
   padding-top: 1.3rem;
   padding-bottom: 1.4rem;
   font-size: 1.3rem;
-}
-
-.main-nav li a,
-.profile-header li a {
-  color: $body-color;
-  margin-right: 0.2rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.main-nav li a {
-  border-top: 3px solid white;
-  &:hover,
-  &:focus,
-  &:active {
-    border-top: 3px solid $header_red;
-  }
-}
-
-.main-nav li.active a {
-  border-top: 3px solid $header_red;
-}
-
-// profile-header
-.profile-header li {
-  align-items: center;
-  & img {
-    align-self: center;
-    border-radius: 2px;
-  }
 }
 
 .sign-in {
