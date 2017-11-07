@@ -1,0 +1,159 @@
+// Header + Navigation
+
+$navbar-height-reduced: 78px;
+
+nav.navbar {
+  display: flex; // container for whole header
+  justify-content: space-around;
+  flex-flow: row wrap;
+  border-bottom: 2px solid $limestone-grey;
+
+  .header-logo {
+    order: 1;
+  }
+  .profile-header {
+    order: 2;
+  }
+  .main-nav {
+    order: 3;
+  }
+
+  @media (min-width: $mq-large) {
+    height: $navbar-height;
+    .profile-header {
+      order: 3;
+    }
+    .main-nav {
+      order: 2;
+    }
+  }
+}
+
+.header-logo {
+  flex: 1;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  height: $navbar-height-reduced;
+  img {
+    height: auto;
+    width: 175px;
+  }
+}
+
+.main-nav {
+  margin-left: 2rem;
+}
+
+.main-nav {
+  flex: 3;
+}
+
+.profile-header {
+  @media (max-width: $mq-large) {
+    padding: 1em 0;
+  }
+  @media (min-width: $mq-large) {
+    flex: 2;
+    justify-content: flex-end;
+  }
+}
+
+.main-nav,
+.profile-header {
+  display: flex; // containers for respective list items
+  align-items: center;
+  height: $navbar-height-reduced;
+}
+
+.main-nav li,
+.profile-header li {
+  display: flex; // container for a tags, to achieve stretching of items
+}
+
+// INFO: Padding used to keep hover-border at the very top
+.header-logo,
+.main-nav li a {
+  padding-top: 1.3rem;
+  padding-bottom: 1.4rem;
+  font-size: 1.3rem;
+}
+
+.main-nav li a,
+.profile-header li a {
+  color: $body-color;
+  margin-right: 0.2rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.main-nav li a {
+  border-top: 3px solid white;
+  &:hover,
+  &:focus,
+  &:active {
+    border-top: 3px solid $header_red;
+  }
+}
+
+.main-nav li.active a {
+  border-top: 3px solid $header_red;
+}
+
+// profile-header
+.profile-header li {
+  align-items: center;
+  & img {
+    align-self: center;
+    border-radius: 2px;
+  }
+}
+
+.sign-in {
+  padding: 0.1em 0.7em 0.2em;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $salmon-pink;
+    border-radius: 2px;
+    color: white;
+  }
+}
+
+.gh-sign-in {
+  display: inline-block;
+  padding: 0.2em 0.7em 0.3em;
+  background-color: $limestone-grey;
+  border-radius: 2px;
+  color: white;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($limestone-grey, 20%);
+  }
+}
+
+// Sub navigation
+.sub-nav {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  margin-left: 0;
+  & > li {
+    display: flex;
+  }
+  & > li > a {
+    margin-right: 0.2rem;
+    padding: 0.5rem 1rem 0.7rem;
+    border-top: 3px solid white;
+    color: $onyx-grey;
+  }
+  & > li:hover > a,
+  & > li:active > a,
+  & > li:focus > a,
+  & > li > a.active {
+    border-top: 3px solid $ochre-yellow;
+    color: $link-color-hover;
+  }
+}
