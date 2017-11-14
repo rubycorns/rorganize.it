@@ -11,3 +11,10 @@
 
   %aside.flex-index-sidebar
     = render partial: 'shared/filter', locals: { path: people_path }
+
+
+%script
+  :plain
+  if (window.location.hash === '') {
+    window.location.hash = "#{@alphabetical_list.first}";
+  }
