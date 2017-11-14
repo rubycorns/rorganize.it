@@ -15,3 +15,10 @@ notifications:
   email:
     recipients:
       - rubycorns@googlegroups.com
+
+deploy:
+  provider: script
+  script: scripts/travis.sh
+  skip_cleanup: true
+  on:
+    branch: master
