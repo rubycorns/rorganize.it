@@ -13,8 +13,8 @@
     = render partial: 'shared/filter', locals: { path: people_path }
 
 
-%script
-  :plain
+:javascript
   if (window.location.hash === '') {
     window.location.hash = "#{@alphabetical_list.first}";
   }
+  
