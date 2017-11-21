@@ -4,19 +4,29 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  .profile-contact {
-    flex-basis: 20%;
-    display: flex;
-    flex-direction: column;
-  }
+
   .profile-main {
     flex-basis: 75%;
   }
 
-  @media (min-width: $mq-med) {
+  @media (min-width: $mq-large) {
     flex-direction: row;
   }
+}
 
+.profile-contact {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 20%;
+  @media (min-width: $mq-med) and (max-width: $mq-large) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.profile-contact-sub {
+  flex-grow: 1;
 }
 
 .profile-contact img {
@@ -25,21 +35,12 @@
   margin: 0 auto;
 
   @media (min-width: $mq-med) {
-    width: 90%;
+    width: 30%;
+    margin-right: 2em;
   }
-}
 
-#map {
-  height: 200px;
-  width: 200px;
-  overflow: hidden;
-  margin-top: 1rem;
-}
-
-#group-map {
-  margin: 0 auto;
-  @media (min-width: $mq-med) {
-    margin: 0;
+  @media (min-width: $mq-large) {
+    width: 90%;
   }
 }
 
@@ -52,9 +53,9 @@
 }
 
 .group-join-box {
-  margin: 1.5rem 4rem 1rem 1rem;
+  margin: 1rem 0 1rem;
   border: 2px solid $petal-pink;
-  padding: 1rem 4rem 2.3rem;
+  padding: 0rem 4rem 1rem;
   text-align: center;
   & .divider {
     margin: 0 1rem;
@@ -63,6 +64,7 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
+    margin: 0.5em 0 0;
   }
 }
 
