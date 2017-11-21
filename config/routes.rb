@@ -18,6 +18,10 @@ RailsGirlsApp::Application.routes.draw do
       resources :comments, only: [:create]
     end
 
+    collection do
+      get 'inactive' => :inactive_groups
+    end
+
     member do
       get :manage_members
     end

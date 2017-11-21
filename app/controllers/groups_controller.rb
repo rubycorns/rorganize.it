@@ -2,17 +2,14 @@ class GroupsController < ApplicationController
   respond_to :html
 
   before_action :set_group, only: [:show, :edit, :update, :destroy, :manage_members]
-  before_action :authenticate_person!, except: [:index, :show]
+  before_action :authenticate_person!, except: [:index, :show, :inactive_groups]
   before_action :ensure_can_destroy, only: [:destroy]
-  before_action :ensure_member_powers, except: [:index, :show, :new, :create]
+  before_action :ensure_member_powers, except: [:index, :show, :new, :create, :inactive_groups]
   before_action :ensure_group_admin_powers, only: [:edit, :update, :manage_members]
 
   def index
     ordered_groups = Group.where(inactive: false).order(:name)
-    ordered_inactive_groups = Group.where(inactive: true).order(:name)
-
     @groups = ordered_groups.filtered_by_region(params)
-    @inactive_groups = ordered_inactive_groups.filtered_by_region(params)
     @cities = Group.order(:city).cities
     @countries = Group.order(:country).countries
   end
@@ -56,6 +53,8 @@ class GroupsController < ApplicationController
 
     @students = signed_in? ? @group.students : @group.students.public_profile
     @coaches = signed_in? ? @group.coaches : @group.coaches.public_profile
+
+    @single_page = true
   end
 
   def destroy
@@ -65,6 +64,10 @@ class GroupsController < ApplicationController
   end
 
   def manage_members
+  end
+
+  def inactive_groups
+    @groups = Group.where(inactive: true).order(:name)
   end
 
   private
