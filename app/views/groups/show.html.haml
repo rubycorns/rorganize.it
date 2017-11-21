@@ -49,6 +49,10 @@
         = image_tag('follow_your_dreams.gif')
 
   .profile-main
+    - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
+      .group-join-box
+        = render 'join'
+
     %p.tags
       - if @group.full?
         %span.tag.tag-full
@@ -66,11 +70,6 @@
     - if @group.activities?
       %p.group-description
         = markdown(@group.activities)
-
-
-    - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
-      .group-join-box
-        = render 'join'
 
     %ul.group-tabs
       %li.group-tab
