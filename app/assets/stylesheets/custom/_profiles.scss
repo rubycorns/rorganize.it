@@ -4,19 +4,30 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  .profile-contact {
-    flex-basis: 20%;
-    display: flex;
-    flex-direction: column;
-  }
+
   .profile-main {
     flex-basis: 75%;
   }
 
-  @media (min-width: $mq-med) {
+  @media (min-width: $mq-large) {
     flex-direction: row;
   }
+}
 
+
+.profile-contact {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 20%;
+  @media (min-width: $mq-med) and (max-width: $mq-large) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.profile-contact-sub {
+  flex-grow: 1;
 }
 
 .profile-contact img {
@@ -25,21 +36,12 @@
   margin: 0 auto;
 
   @media (min-width: $mq-med) {
-    width: 90%;
+    width: 30%;
+    margin-right: 2em;
   }
-}
 
-#map {
-  height: 200px;
-  width: 200px;
-  overflow: hidden;
-  margin-top: 1rem;
-}
-
-#group-map {
-  margin: 0 auto;
-  @media (min-width: $mq-med) {
-    margin: 0;
+  @media (min-width: $mq-large) {
+    width: 90%;
   }
 }
 
