@@ -32,7 +32,6 @@ describe Group, vcr: {cassette_name: 'create_group'} do
   let!(:group) { create(:group) }
   let!(:person) { create(:person) }
 
-
   it 'is valid with a name and email' do
     expect(group.valid?).to be_truthy
   end

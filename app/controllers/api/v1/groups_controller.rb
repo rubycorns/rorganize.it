@@ -1,4 +1,5 @@
 class Api::V1::GroupsController < Api::V1::BaseController
+
   def index
     groups = Group.all
     render json: groups, each_serializer: Api::V1::GroupSerializer
