@@ -1,8 +1,8 @@
 %ul.sub-nav{role: "navigation"}
   %li= link_to "All groups", groups_path
-  %li= link_to "Inactive groups", inactive_groups_path
   -# %li= link_to "Open groups", groups_path
   -# %li= link_to "Recently added", groups_path
+  %li= link_to "Inactive groups", inactive_groups_path
 
   - if @single_page.present?
     %li= link_to @group.name, group_path(@group)
