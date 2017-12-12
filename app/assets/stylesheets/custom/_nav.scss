@@ -7,15 +7,18 @@ nav.navbar {
   justify-content: space-around;
   flex-flow: row wrap;
   border-bottom: 2px solid $limestone-grey;
+  padding: 0 2rem;
 
-  .header-logo {
-    order: 1;
-  }
-  .profile-header {
-    order: 2;
-  }
-  .main-nav {
-    order: 3;
+  @media (max-width: $mq-large) {
+    .header-logo {
+      order: 1;
+    }
+    .profile-header {
+      order: 2;
+    }
+    .main-nav {
+      order: 3;
+    }
   }
 
   @media (min-width: $mq-large) {
@@ -31,7 +34,6 @@ nav.navbar {
 
 .header-logo {
   flex: 1;
-  margin-left: 2rem;
   margin-right: 1rem;
   height: $navbar-height-reduced;
   img {
@@ -41,7 +43,6 @@ nav.navbar {
 }
 
 .main-nav {
-  margin-left: 2rem;
   flex: 3;
 
   li {
@@ -52,6 +53,9 @@ nav.navbar {
       &:active {
         border-top: 3px solid $header_red;
       }
+      &:first-of-type {
+        padding-left: 0;
+      }
     }
     &.active a {
       border-top: 3px solid $header_red;
@@ -60,8 +64,12 @@ nav.navbar {
 }
 
 .profile-header {
+  @media (max-width: $mq-med) {
+    width: 100%;
+  }
   @media (max-width: $mq-large) {
     padding: 1em 0;
+
   }
   @media (min-width: $mq-large) {
     flex: 2;
@@ -70,11 +78,16 @@ nav.navbar {
 
   li {
     align-items: center;
-    & img {
-      align-self: center;
-      border-radius: 2px;
-    }
   }
+  a {
+    font-size: 0.9rem;
+  }
+}
+
+.person-profile img {
+  align-self: center;
+  border-radius: 2px;
+  border: 1px solid $limestone-grey;
 }
 
 .main-nav,
@@ -82,6 +95,7 @@ nav.navbar {
   display: flex; // containers for respective list items
   align-items: center;
   height: $navbar-height-reduced;
+  margin: 0;
 
   li {
     display: flex; // container for a tags, to achieve stretching of items
@@ -102,7 +116,8 @@ nav.navbar {
 .main-nav li a {
   padding-top: 1.3rem;
   padding-bottom: 1.4rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .sign-in {
@@ -125,7 +140,7 @@ nav.navbar {
   &:hover,
   &:focus,
   &:active {
-    background-color: darken($limestone-grey, 20%);
+    background-color: $salmon-pink;
   }
 }
 

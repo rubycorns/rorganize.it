@@ -12,7 +12,7 @@ describe 'User is not logged in', :type => :feature do
     end
 
     it 'has the greeting' do
-      expect(page).to have_content 'Find other Rails Girls students, coaches and project groups'
+      expect(page).to have_content 'Find other learners, coaches and groups and learn how to code!'
     end
   end
 
