@@ -18,11 +18,9 @@
   }
 }
 
+.alert-notice,
+.alert-info,
 .alert-success {
-  border: 1px solid $teal-light;
-  background-color: lighten($teal-light, 20%);
-}
-.alert-notice, .alert-info {
   border: 1px solid $dodger-light;
   background-color: lighten($dodger-light, 20%);
 }

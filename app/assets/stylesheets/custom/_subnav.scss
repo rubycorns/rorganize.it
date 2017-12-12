@@ -1,0 +1,34 @@
+.sub-nav {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  margin-left: 0;
+  padding: 0 2rem; // gutter
+  background-color: $lighter-grey;
+  & > li {
+    display: flex;
+  }
+  & > li > a {
+    position: relative;
+    margin-right: 0.2rem;
+    padding: 0.7rem 1rem;
+    color: $onyx-grey;
+  }
+  & > li:hover > a,
+  & > li:active > a,
+  & > li:focus > a,
+  & > li > a.active {
+    color: $salmon-pink;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -2px;
+      left: 0;
+      right: 0;
+      height: 5px;
+      width: 100%;
+      background-color: $ochre-yellow;
+    }
+  }
+}

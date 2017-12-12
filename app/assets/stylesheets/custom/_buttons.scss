@@ -7,20 +7,13 @@
   }
 }
 
-// DIV for sign in buttons
-.sign-in-cta {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-  text-align: center;
-}
-
 
 // Buttons
 .btn {
   padding: 0.3em 0.8em 0.4em;
   border-width: 2px;
   border-style: solid;
-  border-radius: 5px;
+  border-radius: 4px;
   letter-spacing: 0.009em;
   &:hover {
     color: white;
@@ -35,7 +28,7 @@
 }
 
 .btn-lrg {
-  padding: 0.5em 5em 0.7em;
+  padding: 0.5em 5em 0.5em;
 }
 
 .btn-pink {
@@ -52,9 +45,11 @@
 
 .btn-pink-full {
   background-color: $salmon-pink;
+  border-color: $salmon-pink;
   color: white;
   &:hover {
     background-color: darken($salmon-pink, 20%);
+    border-color: darken($salmon-pink, 20%);
   }
 }
 
@@ -102,8 +97,4 @@ input.btn[value=Filter] {
     cursor: pointer;
     border-color: darken($limestone-grey, 20%);
   }
-}
-
-.devise-page input.btn[type=submit] {
-  border-color: $salmon-pink;
 }

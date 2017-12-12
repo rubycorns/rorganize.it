@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.1em 0;
+  border-bottom: 1px solid $light-grey;
   @media (min-width: $mq-med) {
     flex-direction: row;
     padding: 1.1em 0.9em 1.1em 0;
@@ -21,27 +22,26 @@
 }
 
 .list-group-item-pic {
-  width: 50%;
   display: flex;
   align-items: center;
   margin: auto;
   flex-direction: column;
-  @media (min-width: $mq-med) {
-    width: 20%;
-  }
   & img {
     border-radius: 50%;
+    border: 1px solid $light-grey;
     width: 60%;
     height: auto;
     @media (min-width: $mq-med) {
       width: 100%;
+      max-width: 120px;
+      margin-right: 2rem;
     }
   }
 }
 .list-group-item-info {
-  width: 100%;
-  @media (min-width: $mq-med) {
-    width: 70%;
+  flex-grow: 1;
+  p {
+    margin: 0 0 0.3em;
   }
 }
 

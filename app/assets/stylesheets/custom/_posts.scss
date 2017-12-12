@@ -47,12 +47,17 @@
 }
 
 .post-single {
+  margin: 0 2rem; // gutter
   .post-meta {
     margin: 2rem 0
   }
   .post-picture {
     margin-top: 5rem;
   }
+}
+
+.post-title {
+  border: none;
 }
 
 .blog-pagination {
