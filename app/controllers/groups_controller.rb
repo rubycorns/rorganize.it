@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
     @groups = ordered_groups.filtered_by_region(params)
     @cities = Group.order(:city).cities
     @countries = Group.order(:country).countries
+    @subnav_active = 'index'
   end
 
   def new
@@ -55,6 +56,7 @@ class GroupsController < ApplicationController
     @coaches = signed_in? ? @group.coaches : @group.coaches.public_profile
 
     @single_page = true
+    @subnav_active = 'show'
   end
 
   def destroy
@@ -68,6 +70,7 @@ class GroupsController < ApplicationController
 
   def inactive_groups
     @groups = Group.where(inactive: true).order(:name)
+    @subnav_active = "inactive"
   end
 
   private

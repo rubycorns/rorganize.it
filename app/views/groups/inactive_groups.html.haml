@@ -4,8 +4,11 @@
   .flex-index-main
     %h1.page-header Inactive groups
 
-    %ul.list-group
-      = render partial: 'one_group', collection: @groups, as: :group
+    - if @groups.present?
+      %ul.list-group
+        = render partial: 'one_group', collection: @groups, as: :group
+    - else
+      %p Nothing here yet
 
   %aside.flex-index-sidebar
     %h2.page-header New Groups
