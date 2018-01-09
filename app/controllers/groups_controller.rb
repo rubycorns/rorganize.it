@@ -55,7 +55,6 @@ class GroupsController < ApplicationController
     @students = signed_in? ? @group.students : @group.students.public_profile
     @coaches = signed_in? ? @group.coaches : @group.coaches.public_profile
 
-    @single_page = true
     @subnav_active = 'show'
   end
 
