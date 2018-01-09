@@ -19,6 +19,9 @@ RailsGirlsApp::Application.routes.draw do
     end
 
     collection do
+      get 'open' => :open_groups
+      get 'searching' => :searching_groups
+      get 'recent' => :recently_added_groups
       get 'inactive' => :inactive_groups
     end
 
