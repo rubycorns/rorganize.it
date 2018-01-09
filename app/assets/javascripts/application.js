@@ -17,3 +17,4 @@
 //= require main
 //= require leaflet
 //= require groupsMap
+//= require indexMap
