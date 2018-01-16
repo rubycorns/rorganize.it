@@ -3,7 +3,8 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   padding: 3rem 2rem 3rem;
-  border-top: 2px solid $limestone-grey;
+  border-top: 2px solid $light-grey;
+  background-color: $lighter-grey;
 
   div {
     @media (min-width: $mq-med) {

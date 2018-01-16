@@ -1,5 +1,37 @@
 // Form styles
 
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=file],
+select,
+textarea {
+  width: 100%;
+  padding: 0.5em 0.5em 0.4em;
+  border-radius: 4px;
+  border: 2px solid $light-grey;
+  background-color: $lighter-grey;
+  line-height: 1.5;
+  font-size: 0.9em;
+  font-family: inherit;
+  color: darken($teal-light, 10%);
+  &:focus {
+    outline: 2px dotted $teal-light;
+  }
+}
+
+input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+}
+
+input[type=checkbox],
+inout[type=radio] {
+  vertical-align: middle;
+  margin-right: .3em;
+}
+
+
 // Filter section on groups#index and people#index
 .filter {
   position: relative;
@@ -18,19 +50,12 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 100%;
-  height: 35px;
-  padding: 2px 6px;
-  background: transparent;
-  border: 1px solid $limestone-grey;
-  border-radius: 5px;
-  color: $onyx-grey;
-  font-size: 14px;
-  background: url(select-arrow.png) 96% / 5% no-repeat white;
-  &:focus, &:active {
-    outline: 0;
-    border-color: $petal-pink;
-    box-shadow: 0 0 1px $petal-pink;
+  border: 2px solid $light-grey;
+  border-radius: 4px;
+  background: url(select-arrow-flipped.png) 98% 25% no-repeat, url(select-arrow.png) 98% 75% no-repeat #f1f1f1;
+  &:focus,
+  &:active {
+    outline: 2px dotted $teal-light;
   }
   // removes dotted focus border in FF
   &:-moz-focusring {
@@ -96,18 +121,24 @@
 }
 
 .devise-page .form-box {
-  margin-top: 1.5rem;
+  margin-top: 1.3rem;
 }
 
 legend {
-  margin-top: 1rem;
-  padding: 0.2em 5em 0 0;
-  font-size: 1.4rem;
+  padding: 0 1rem;
+  font-size: 1.3rem;
   color: $limestone-grey;
 }
 
+fieldset {
+  margin-bottom: 3rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid $light-grey;
+  border-radius: 2px;
+}
+
 .form-group {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group > * {
@@ -117,29 +148,12 @@ legend {
 .form-inline {
   display: flex;
   align-items: center;
+  margin-bottom: 1.3rem;
 }
 form.inline {
   display: inline-block;
   vertical-align: text-bottom;
   margin-left: 0.5em;
-}
-
-input[type=text], textarea,
-input[type=file], input[type=email],
-input[type=password] {
-  width: 100%;
-  padding: 0.2rem;
-  font-size: 0.9em;
-  color: darken($teal-light, 10%);
-}
-
-textarea, input[type=file] {
-  font: inherit;
-}
-
-input[type=checkbox] {
-  width: 15px;
-  height: 15px;
 }
 
 .help-block {

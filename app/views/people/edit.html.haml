@@ -3,6 +3,7 @@
     = link_to(@person) do
       ← Back to #{@person.name}
 
-%h1.page-header Edit details of #{@person.name}
-.form-box
-  = render 'form'
+.no-flex-index
+  %h1.page-header Edit details of #{@person.name}
+  .form-box
+    = render 'form'

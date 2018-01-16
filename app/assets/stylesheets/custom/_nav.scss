@@ -6,8 +6,9 @@ nav.navbar {
   display: flex; // container for whole header
   justify-content: space-around;
   flex-flow: row wrap;
-  border-bottom: 2px solid $limestone-grey;
   padding: 0 2rem;
+  border-bottom: 2px solid $light-grey;
+
 
   @media (max-width: $mq-large) {
     .header-logo {
@@ -47,18 +48,20 @@ nav.navbar {
 
   li {
     a {
-      border-top: 3px solid white;
+      border-top: 4px solid transparent;
       &:hover,
       &:focus,
       &:active {
-        border-top: 3px solid $header_red;
+        color: $salmon-pink;
+        border-color: $salmon-pink;
       }
       &:first-of-type {
         padding-left: 0;
       }
     }
     &.active a {
-      border-top: 3px solid $header_red;
+      color: $salmon-pink;
+      border-color: $salmon-pink;
     }
   }
 }
@@ -141,29 +144,5 @@ nav.navbar {
   &:focus,
   &:active {
     background-color: $salmon-pink;
-  }
-}
-
-// Sub navigation
-.sub-nav {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 1.5rem;
-  margin-left: 0;
-  & > li {
-    display: flex;
-  }
-  & > li > a {
-    margin-right: 0.2rem;
-    padding: 0.5rem 1rem 0.7rem;
-    border-top: 3px solid white;
-    color: $onyx-grey;
-  }
-  & > li:hover > a,
-  & > li:active > a,
-  & > li:focus > a,
-  & > li > a.active {
-    border-top: 3px solid $ochre-yellow;
-    color: $link-color-hover;
   }
 }

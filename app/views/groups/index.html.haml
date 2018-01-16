@@ -20,6 +20,6 @@
   %aside.flex-index-sidebar
     %h2.page-header New Groups
     %p If you don't see your project group, feel free to add it!
-    %p.sign-in-cta
+    %p.sign-in-cta.m-t-m.m-b-l
       = link_to "Register new group", new_group_path, class: 'btn btn-pink-full'
     = render partial: 'shared/filter', locals: { path: groups_path }
