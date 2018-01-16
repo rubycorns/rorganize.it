@@ -1,108 +1,110 @@
-.dashboard-page
-  %h1.page-header Admin dashboard
+.no-flex-index
 
-  .dashboard
-    .dashboard-sub
-      .dashboard-admins
-        %h2= "All admins (#{@admins.count})"
+  .dashboard-page
+    %h1.page-header Admin dashboard
+
+    .dashboard
+      .dashboard-sub
+        .dashboard-admins
+          %h2= "All admins (#{@admins.count})"
+          %ul.list-group
+            - @admins.each do |admin|
+              %li.list-group-item
+                .list-group-item-pic
+                  - if admin.picture.present?
+                    = image_tag(admin.picture_url(:thumb), size: "40x40" )
+                  - else
+                    = image_tag('/avatar.png', size: "40x40" )
+                .list-group-item-info
+                  = link_to admin, person_path(admin)
+                  = form_for(admin, html: { method: :delete, class: 'un-adminify-button' }, data: { confirm: "You really want to work that magic?" }, url: dashboard_admin_path(admin.id)) do |f|
+                    = f.hidden_field :admin_id, value: admin.id
+                    = f.submit "un-adminify", class: 'btn btn-small btn-teal'
+
+          %h3
+            %small Adminify more people:
+          - if @non_admins.length > 0
+            = form_tag dashboard_admins_path, method: 'create' do
+              = select_tag 'id', options_from_collection_for_select(@non_admins, :id, :name, '1'), include_blank: 'Choose person…', class: 'filter-select'
+              .action-buttons
+                = submit_tag "adminify", class: 'btn btn-teal'
+          - else
+            %p No one left to adminify #sadpanda
+
+        .dashboard-posts
+          %h2 Blog shortcuts
+          %ul.dashboard-posts-items
+            %li= link_to "All posts (#{@published_posts.count})", posts_path
+            = link_to "Create new post", new_post_path, class: 'btn btn-small btn-pink-full'
+          - if @published_posts.any?
+            %h3
+              %small Latest Published Posts:
+              %br/
+            = render partial: 'posts', locals: { posts: @published_posts.limit(2) }
+
+          - if @unpublished_posts.any?
+            %h3
+              %small Unpublished posts:
+              %br/
+            = render partial: 'posts', locals: { posts: @unpublished_posts }
+
+        .dashboard-gif
+          %h2 Gif content
+          #js-randomGif.panel-body
+            %img.hidden{src: "#"}/
+
+            // Modal
+            #gifModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "gif choosing modal", role: "dialog", tabindex: "-1"}
+
+              %button.close{"data-dismiss" => "modal", type: "button"}
+                %span{"aria-hidden" => "true"} &times;
+                %span Close
+              %h4#myModalLabel.modal-title Choose a different gif category
+              %label
+                %input#gifOpt1{checked: "", name: "gifOpt", type: "radio", value: "adventure+time"}/
+                Adventure Time
+
+                %label{title: "SPOILER ALERT!!1!elf!"}
+                  %input#gifOpt2{name: "gifOpt", type: "radio", value: "game+of+thrones"}/
+                  Game of Thrones
+
+                %label
+                  %input#gifOpt3{name: "gifOpt", type: "radio", value: "sloth"}/
+                  Sloths
+
+                %label
+                  %input#gifOpt4{name: "gifOpt", type: "radio", value: "cats"}/
+                  Cats
+
+                %label
+                  %input#gifOpt5{name: "gifOpt", type: "radio", value: "custom"}/
+                  or choose your own!
+
+                %input#customGifString{type: "text"}/
+
+              %button#gifCloseModal.btn.btn-grey{"data-dismiss" => "modal", type: "button"} Close
+              %button#gifSaveChange.btn.btn-teal{type: "button"} Save changes
+            / / Modal
+
+
+      .dashboard-groups
+        %h2= "Groups (#{@groups.count})"
         %ul.list-group
-          - @admins.each do |admin|
+          - @groups.each do |group|
             %li.list-group-item
               .list-group-item-pic
-                - if admin.picture.present?
-                  = image_tag(admin.picture_url(:thumb), size: "40x40" )
+                - if group.picture.present?
+                  = image_tag(group.picture_url(:thumb), size: "40x40" )
                 - else
-                  = image_tag('/avatar.png', size: "40x40" )
+                  = image_tag('/group-avatar.png', size: "40x40" )
               .list-group-item-info
-                = link_to admin, person_path(admin)
-                = form_for(admin, html: { method: :delete, class: 'un-adminify-button' }, data: { confirm: "You really want to work that magic?" }, url: dashboard_admin_path(admin.id)) do |f|
-                  = f.hidden_field :admin_id, value: admin.id
-                  = f.submit "un-adminify", class: 'btn btn-small btn-teal'
-
-        %h3
-          %small Adminify more people:
-        - if @non_admins.length > 0
-          = form_tag dashboard_admins_path, method: 'create' do
-            = select_tag 'id', options_from_collection_for_select(@non_admins, :id, :name, '1'), include_blank: 'Choose person…', class: 'filter-select'
-            .action-buttons
-              = submit_tag "adminify", class: 'btn btn-teal'
-        - else
-          %p No one left to adminify #sadpanda
-
-      .dashboard-posts
-        %h2 Blog shortcuts
-        %ul.dashboard-posts-items
-          %li= link_to "All posts (#{@published_posts.count})", posts_path
-          = link_to "Create new post", new_post_path, class: 'btn btn-small btn-pink-full'
-        - if @published_posts.any?
-          %h3
-            %small Latest Published Posts:
-            %br/
-          = render partial: 'posts', locals: { posts: @published_posts.limit(2) }
-
-        - if @unpublished_posts.any?
-          %h3
-            %small Unpublished posts:
-            %br/
-          = render partial: 'posts', locals: { posts: @unpublished_posts }
-
-      .dashboard-gif
-        %h2 Gif content
-        #js-randomGif.panel-body
-          %img.hidden{src: "#"}/
-
-          // Modal
-          #gifModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "gif choosing modal", role: "dialog", tabindex: "-1"}
-
-            %button.close{"data-dismiss" => "modal", type: "button"}
-              %span{"aria-hidden" => "true"} &times;
-              %span Close
-            %h4#myModalLabel.modal-title Choose a different gif category
-            %label
-              %input#gifOpt1{checked: "", name: "gifOpt", type: "radio", value: "adventure+time"}/
-              Adventure Time
-
-              %label{title: "SPOILER ALERT!!1!elf!"}
-                %input#gifOpt2{name: "gifOpt", type: "radio", value: "game+of+thrones"}/
-                Game of Thrones
-
-              %label
-                %input#gifOpt3{name: "gifOpt", type: "radio", value: "sloth"}/
-                Sloths
-
-              %label
-                %input#gifOpt4{name: "gifOpt", type: "radio", value: "cats"}/
-                Cats
-
-              %label
-                %input#gifOpt5{name: "gifOpt", type: "radio", value: "custom"}/
-                or choose your own!
-
-              %input#customGifString{type: "text"}/
-
-            %button#gifCloseModal.btn.btn-grey{"data-dismiss" => "modal", type: "button"} Close
-            %button#gifSaveChange.btn.btn-teal{type: "button"} Save changes
-          / / Modal
-
-
-    .dashboard-groups
-      %h2= "Groups (#{@groups.count})"
-      %ul.list-group
-        - @groups.each do |group|
-          %li.list-group-item
-            .list-group-item-pic
-              - if group.picture.present?
-                = image_tag(group.picture_url(:thumb), size: "40x40" )
-              - else
-                = image_tag('/group-avatar.png', size: "40x40" )
-            .list-group-item-info
-              = link_to group.name, group_path(group)
-              .action-buttons
-                = mail_to group.email, "Contact", class: 'btn btn-small btn-grey'
-                = link_to "Edit", edit_group_path(group), class: 'btn btn-small btn-teal'
-                = form_for(group,
-                            html: { method: :delete, class: 'admin-delete-form' },
-                            data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" },
-                            ) do |f|
-                  = f.hidden_field :admin_id, value: group.id
-                  = f.submit "Delete", class: 'btn btn-small btn-pink'
+                = link_to group.name, group_path(group)
+                .action-buttons
+                  = mail_to group.email, "Contact", class: 'btn btn-small btn-grey'
+                  = link_to "Edit", edit_group_path(group), class: 'btn btn-small btn-teal'
+                  = form_for(group,
+                              html: { method: :delete, class: 'admin-delete-form' },
+                              data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" },
+                              ) do |f|
+                    = f.hidden_field :admin_id, value: group.id
+                    = f.submit "Delete", class: 'btn btn-small btn-pink'

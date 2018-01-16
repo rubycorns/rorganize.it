@@ -9,7 +9,6 @@ nav.navbar {
   padding: 0 2rem;
   border-bottom: 2px solid $light-grey;
 
-
   @media (max-width: $mq-large) {
     .header-logo {
       order: 1;
@@ -47,6 +46,15 @@ nav.navbar {
   flex: 3;
 
   li {
+    @media (min-width: $mq-large) {
+      &:first-of-type a {
+        margin-left: 20px;
+      }
+    }
+    &.active a {
+      color: $salmon-pink;
+      border-color: $salmon-pink;
+    }
     a {
       border-top: 4px solid transparent;
       &:hover,
@@ -55,13 +63,6 @@ nav.navbar {
         color: $salmon-pink;
         border-color: $salmon-pink;
       }
-      &:first-of-type {
-        margin-left: 20px;
-      }
-    }
-    &.active a {
-      color: $salmon-pink;
-      border-color: $salmon-pink;
     }
   }
 }
@@ -117,10 +118,10 @@ nav.navbar {
 // INFO: Padding used to keep hover-border at the very top
 .header-logo,
 .main-nav li a {
-  padding-top: 1.3rem;
-  padding-bottom: 1.4rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
   font-size: 1.1rem;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 .sign-in {
