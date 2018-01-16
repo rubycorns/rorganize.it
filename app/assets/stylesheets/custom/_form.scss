@@ -1,0 +1,157 @@
+// Form styles
+
+// Filter section on groups#index and people#index
+.filter {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  & > * {
+    flex: 1 1 100%;
+    margin: 0.5em 0;
+  }
+  & > .btn {
+    flex-basis: 50%;
+  }
+}
+
+.filter-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 35px;
+  padding: 2px 6px;
+  background: transparent;
+  border: 1px solid $limestone-grey;
+  border-radius: 5px;
+  color: $onyx-grey;
+  font-size: 14px;
+  background: url(select-arrow.png) 96% / 5% no-repeat white;
+  &:focus, &:active {
+    outline: 0;
+    border-color: $petal-pink;
+    box-shadow: 0 0 1px $petal-pink;
+  }
+  // removes dotted focus border in FF
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow:0 0 0 $body-color;
+  }
+  & option {
+    font-family: $font-stack;
+    padding: 2px 0 3px 9px;
+  }
+  & option:first-child {
+    border-bottom: 1px solid $limestone-grey;
+  }
+}
+
+.checkbox-div {
+  position: relative;
+  input[type=checkbox] {
+    visibility: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    width: 25px;
+    height: 100%;
+  }  & .checkbox-el {
+    position: absolute;
+    top: 5px;
+    left: 135px;
+    cursor: pointer;
+    width: 25px;
+    height: 100%;
+    margin-left: 0.5em;
+    border: 1px solid $limestone-grey;
+  }
+  & .checkbox-el::after {
+    position: absolute;
+    opacity: 0;
+    content: '\2714';
+    font-size: 1.5em;
+    color: $body-color;
+    background: transparent;
+    top: -10px;
+    left: 5px;
+  }
+   & .checkbox-el:hover::after {
+    opacity: 0.3;
+   }
+   & input[type=checkbox]:checked + .checkbox-el:after {
+    opacity: 1;
+   }
+}
+
+/* Edit groups = forms */
+.form-box {
+  width: 60%;
+  & .filter-select {
+    width: 50%;
+  }
+  & p:not(.help-block) {
+    margin-top: 1rem;
+  }
+}
+
+.devise-page .form-box {
+  margin-top: 1.5rem;
+}
+
+legend {
+  margin-top: 1rem;
+  padding: 0.2em 5em 0 0;
+  font-size: 1.4rem;
+  color: $limestone-grey;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-group > * {
+  display: block;
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+form.inline {
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-left: 0.5em;
+}
+
+input[type=text], textarea,
+input[type=file], input[type=email],
+input[type=password] {
+  width: 100%;
+  padding: 0.2rem;
+  font-size: 0.9em;
+  color: darken($teal-light, 10%);
+}
+
+textarea, input[type=file] {
+  font: inherit;
+}
+
+input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+}
+
+.help-block {
+  font-size: 0.7rem;
+}
+
+.error_explanation {
+  width: 50%;
+  border: 2px solid $salmon-pink;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+  ul li {
+    font-size: 0.8em;
+  }
+}

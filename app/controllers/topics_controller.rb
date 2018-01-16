@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
   before_action :validate_user_group_member, only: [:edit, :update, :destroy]
 
   def edit
+    @group = Group.find(params[:group_id])
   end
 
   def index
@@ -21,6 +22,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @group = @topic.group
     @topic.person = current_person
 
     if @topic.save

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe MembershipsController, vcr: {cassette_name: 'create_group'} do
   let!(:person) { create(:person) }
   let(:group) { create(:group) }
-  let(:params) { { membership: { group_id: group.id, type: 'StudentMembership' }}}
+  let(:params) { { membership: { group_id: group.id, type: 'StudentMembership', admin: false }}}
 
   before do
     allow(controller).to receive :authenticate_person!
@@ -41,7 +41,7 @@ describe MembershipsController, vcr: {cassette_name: 'create_group'} do
       let(:membership) { person.memberships.first}
 
       before do
-        person.join!(group)
+        person.join!(group, {})
       end
 
       it 'redirects to the groups path after leaving a group' do
@@ -66,7 +66,7 @@ describe MembershipsController, vcr: {cassette_name: 'create_group'} do
       let(:membership) { another_person.memberships.first}
 
       before do
-        another_person.join!(group)
+        another_person.join!(group, {})
       end
 
       it 'deletes the membership' do
@@ -77,7 +77,7 @@ describe MembershipsController, vcr: {cassette_name: 'create_group'} do
 
       it 'displays the correct notice' do
         delete :destroy, id: membership.id
-        expect(flash[:success]).to have_content "You have successfully deleted a person. That was a very tough decision. Cake will make it all better."
+        expect(flash[:success]).to have_content "You have successfully deleted a person from the group. That was a very tough decision. Cake will make it all better."
       end
     end
   end

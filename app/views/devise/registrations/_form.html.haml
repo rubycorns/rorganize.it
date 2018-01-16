@@ -2,13 +2,13 @@
   = devise_error_messages!
   .form-group
     = label_tag(:first_name, "Your first name *")
-    = f.text_field :first_name, placeholder: 'First name'
+    = f.text_field :first_name, placeholder: 'First name', autofocus: true
   .form-group
     = label_tag(:last_name, "Your last name")
     = f.text_field :last_name, placeholder: 'Last name'
   .form-group
     = label_tag(:email, "Your email address *")
-    = f.email_field :email, autofocus: true, placeholder: 'email@email.com'
+    = f.email_field :email, placeholder: 'email@email.com'
     %p.help-block (don't worry, your email won't be displayed publicly)
   .form-group
     = label_tag(:password, "Enter your password *")

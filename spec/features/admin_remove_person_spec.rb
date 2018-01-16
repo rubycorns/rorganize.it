@@ -13,7 +13,7 @@ feature 'Remove a person from a group', vcr: {cassette_name: 'create_group'} do
   context 'the non-admin' do
 
     it 'cannot see the remove form' do
-      person.join!(group, 'StudentMembership')
+      person.join!(group, {})
       go_to_group_page
       expect(page).to_not have_selector('.remove-from-group')
     end
@@ -23,7 +23,7 @@ feature 'Remove a person from a group', vcr: {cassette_name: 'create_group'} do
   context 'the admin' do
     before do
       person.update_attribute(:admin, true)
-      person.join!(group, 'StudentMembership')
+      person.join!(group, {})
       go_to_group_page
     end
 

@@ -40,7 +40,7 @@ describe Group, vcr: {cassette_name: 'create_group'} do
   describe '#editable_by?' do
 
     it 'is editable by people in the group' do
-      person.join!(group)
+      person.join!(group, {})
       expect(group.editable_by?(person)).to be_truthy
     end
 
@@ -52,7 +52,7 @@ describe Group, vcr: {cassette_name: 'create_group'} do
   describe '#deletable_by?' do
 
     it 'is not deletable by a person that just joined' do
-      person.join!(group)
+      person.join!(group, {})
       expect(group).not_to be_deletable_by person
     end
 

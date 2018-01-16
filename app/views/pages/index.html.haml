@@ -1,10 +1,10 @@
 .hero
   %h1
     = image_tag "rorganizeit-logo.svg", class: "logo-ror"
-  %h2 Find other Rails Girls students, coaches and project groups
+  %h2 Find other learners, coaches and groups <br>and learn how to code!
   - unless logged_in?
     %p.sign-in-cta
-      If you are a student or a coach and not signed up - feel free to register!
+      Don't have an account yet? Sign up and find a group near you!
     %p.sign-in-cta
       = link_to "Sign up", new_person_registration_path, class: 'btn btn-lrg btn-pink-full', id: 'signup-button'
 .home-find
@@ -12,17 +12,17 @@
     = image_tag "groups.png", class: 'landing-image'
     %h3= link_to "Find a project group", groups_path
     %p
-      Find project and study groups from all over the world, both for total beginners and advanced learners.
+      Find project and study groups from all over the world, both for total beginners and advanced learners. Not only for Ruby!
     %p.home-find-btn
-      = link_to "All The Groups", groups_path, class: 'btn btn-teal'
+      = link_to "All groups", groups_path, class: 'btn btn-teal'
   .home-find-people
     = image_tag "people.png", class: 'landing-image'
-    %h3= link_to "Find fellow rubyists", people_path
+    %h3= link_to "Find fellow learners", people_path
     %p
-      Find learners and coaches who are participating in study groups as well as people who coach at Rails Girls workshops.
+      Find learners and coaches who are sharing knowledge in study groups as well as people who coach at Rails Girls workshops.
     %p.home-find-btn
-      = link_to "All The Rubyists", people_path, class: 'btn btn-teal'
-.hero.stats
+      = link_to "All people", people_path, class: 'btn btn-teal'
+.hero
   %h2 Discover and meet
   %p
     = pluralize(@students_count, 'student')
@@ -31,6 +31,9 @@
     in
     = pluralize(@groups_count, 'group')
 
-.github-fork-ribbon-wrapper.left-bottom
-  .github-fork-ribbon
-    %a{ href: "https://github.com/rubycorns/rorganize.it"} Fork me on GitHub
+  #map.index-map
+
+    %ul.hidden
+      - @groups.each do |group|
+        - if group.address?
+          %li{data: {long: group.longitude, lat: group.latitude }}

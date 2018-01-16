@@ -33,6 +33,10 @@ class ApplicationController < ActionController::Base
     render_403 unless current_person.member_of?(@group) || current_person.admin?
   end
 
+  def ensure_group_admin_powers
+    render_403 unless current_person.admin? || current_person.admin_member_of?(@group)
+  end
+
   def render_403
     render file: Rails.root.join('public/403.html'), status: 403
   end

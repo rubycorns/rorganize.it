@@ -17,7 +17,7 @@ describe Membership, vcr: {cassette_name: 'create_group'} do
   let!(:group) { create(:group) }
 
   before do
-    person.join!(group)
+    person.join!(group, {})
   end
 
   subject { person.memberships.first }

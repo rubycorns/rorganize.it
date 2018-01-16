@@ -10,6 +10,7 @@ describe GroupsController, vcr: {cassette_name: 'create_group'} do
 
       before do
         allow(controller).to receive :authenticate_person!
+        allow(controller).to receive(:current_person).and_return(person)
       end
 
       it 'creates a new group' do
@@ -51,9 +52,9 @@ describe GroupsController, vcr: {cassette_name: 'create_group'} do
       allow(Group).to receive(:find).and_return(group)
     end
 
-    context 'as a member of the group' do
+    context 'as an admin member of the group' do
       before do
-        person.join!(group)
+        person.join!(group, admin: true)
       end
 
       it 'updates the group' do

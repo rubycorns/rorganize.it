@@ -20,4 +20,8 @@ class Membership < ActiveRecord::Base
   def name
     type.gsub('Membership', '')
   end
+
+  def coach?
+    false
+  end
 end
