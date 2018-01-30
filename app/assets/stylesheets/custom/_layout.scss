@@ -25,19 +25,22 @@ h1, h2 {
   font-weight: 400;
 }
 
-h1 {
+h1,
+.h1 {
   font-size: 2.1em;
   color: $ochre-yellow;
   border-bottom: solid 1px $ochre-yellow;
 }
 
-h2 {
+h2,
+.h2 {
   margin-top: 1rem;
   font-size: 1.7em;
   color: $limestone-grey;
 }
 
-h3 {
+h3,
+.h3 {
   font-size: 1.4em;
   font-weight: 700;
   margin: 0;
@@ -69,7 +72,7 @@ ul, ol {
 
 // Main Container
 .main-container {
-  margin:0 2rem 3rem;
+  margin-bottom: 3rem;
 }
 
 .about-page,
@@ -79,9 +82,16 @@ ul, ol {
   margin-top: 51.6px;
 }
 
+.no-flex-index {
+  margin-top: 3rem;
+  padding: 0 2rem; // gutter
+}
+
 .flex-index {
   display: flex;
   flex-direction: column-reverse;
+  margin-top: 3rem;
+  padding: 0 2rem; // gutter
   @media (min-width: $mq-med) {
     flex-direction: row;
   }
@@ -96,10 +106,21 @@ ul, ol {
 
 .flex-index-sidebar {
   flex: 1 0 30%;
+
+  .page-header {
+    border-bottom: 1px solid $light-grey;
+  }
 }
 
 // Other general styles used throughout several pages
 
-h1.page-header {
+.page-header {
   margin-bottom: 1.5rem;
+}
+h1.page-header {
+  margin-top: 0.25em;
+  line-height: 1.55;
+}
+h2.page-header {
+  line-height: 1.65;
 }

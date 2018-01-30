@@ -18,8 +18,8 @@ $(function() {
   var groupCoords = document.querySelectorAll('.index-map ul li');
 
   groupCoords.forEach(function(i) {
-    let lat = i.getAttribute('data-lat');
-    let long = i.getAttribute('data-long');
+    var lat = i.getAttribute('data-lat');
+    var long = i.getAttribute('data-long');
     if (lat !== null && long !== null) {
       L.marker([lat, long]).addTo(map);
     }

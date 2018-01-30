@@ -1,123 +1,124 @@
 = render 'subnav'
 
-%h1.page-header= @group.name
+.no-flex-index
+  %h1.page-header= @group.name
 
-.action-buttons
-  = render 'leave'
+  .action-buttons
+    = render 'leave'
 
-.flex-profile
-  %aside.profile-contact
-    - if @group.picture?
-      = image_tag(@group.picture_url(:person_profile), class: 'profile-picture')
-    - else
-      = image_tag('/group-avatar.png', size: "100x100")
-    .profile-contact-sub
-      %p
-        %strong When:
-        - if @group.time?
-          = @group.time
-        - else
-          %span.info-not-given
-            not specified
-      %p
-        %strong Where:
-        - if @group.address?
-          = @group.address
-        - else
-          %span.info-not-given
-            not specified
-      %p
-        %strong Address:
-        = group_location(@group)
-      - if @group.contact?
-        %p
-          %strong Contact us:
-          = auto_link @group.contact
-      - if @group.twitter?
-        %p
-          %strong Our Twitter:
-          = render partial: "shared/twitter", locals: { object: @group }
-      - if @group.founded_on?
-        %p
-          %strong Founded:
-          = @group.founded_on
-
-    #group-map.group-map
-      - if @group.address?
-        #map.map{data: {latitude: @group.latitude, longitude: @group.longitude}}
+  .flex-profile
+    %aside.profile-contact
+      - if @group.picture?
+        = image_tag(@group.picture_url(:person_profile), class: 'profile-picture')
       - else
-        = image_tag('follow_your_dreams.gif')
+        = image_tag('/group-avatar.png', size: "100x100")
+      .profile-contact-sub
+        %p
+          %strong When:
+          - if @group.time?
+            = @group.time
+          - else
+            %span.info-not-given
+              not specified
+        %p
+          %strong Where:
+          - if @group.address?
+            = @group.address
+          - else
+            %span.info-not-given
+              not specified
+        %p
+          %strong Address:
+          = group_location(@group)
+        - if @group.contact?
+          %p
+            %strong Contact us:
+            = auto_link @group.contact
+        - if @group.twitter?
+          %p
+            %strong Our Twitter:
+            = render partial: "shared/twitter", locals: { object: @group }
+        - if @group.founded_on?
+          %p
+            %strong Founded:
+            = @group.founded_on
 
-  .profile-main
-    - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
-      .group-join-box
-        = render 'join'
+      #group-map.group-map
+        - if @group.address?
+          #map.map{data: {latitude: @group.latitude, longitude: @group.longitude}}
+        - else
+          = image_tag('follow_your_dreams.gif')
 
-    %p.tags
-      - if @group.full?
-        %span.tag.tag-full
-          Full
-      - if @group.inactive?
-        %span.tag.tag-inactive
-          Inactive
-      - if @group.allow_male_students?
-        %span.tag.tag-mixed
-          Mixed group
-    - if @group.level?
-      %p
-        %strong Level:
-        = @group.level
-    - if @group.activities?
-      %p.group-description
-        = markdown(@group.activities)
+    .profile-main
+      - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
+        .group-join-box
+          = render 'join'
 
-    %ul.group-tabs
-      %li.group-tab
-        %a.active{title: 'Members', href: '#members'} Members
-      - if @group.topics.any?
+      %p.tags
+        - if @group.full?
+          %span.tag.tag-full
+            Full
+        - if @group.inactive?
+          %span.tag.tag-inactive
+            Inactive
+        - if @group.allow_male_students?
+          %span.tag.tag-mixed
+            Mixed group
+      - if @group.level?
+        %p
+          %strong Level:
+          = @group.level
+      - if @group.activities?
+        %p.group-description
+          = markdown(@group.activities)
+
+      %ul.group-tabs
         %li.group-tab
-          %a{title: 'Topics', href: '#topics'} Topics
-      - if @group.learning_resources?
-        %li.group-tab
-          %a{title: 'Resources', href: '#resources'} Learning Resources
+          %a.active{title: 'Members', href: '#members'} Members
+        - if @group.topics.any?
+          %li.group-tab
+            %a{title: 'Topics', href: '#topics'} Topics
+        - if @group.learning_resources?
+          %li.group-tab
+            %a{title: 'Resources', href: '#resources'} Learning Resources
 
-    #members.tab.active
-      %h2 Members of #{@group.name}
-      %h3 Students
-      %p
-        This group currently has #{pluralize @group.students.length, "student"}.
+      #members.tab.active
+        %h2 Members of #{@group.name}
+        %h3 Students
+        %p
+          This group currently has #{pluralize @group.students.length, "student"}.
+          %ul.list--people
+            - @group.students.each do |student|
+              %li
+                = link_to student.first_name, person_path(student), class: 'list--people-name'
+                - if admin?
+                  = render partial: 'remove_from_group', locals: { object: student, group: @group }
+
+        %h3 Coaches
+        %p
+          This group currently has #{pluralize @group.coaches.length, "coach"}.
         %ul.list--people
-          - @group.students.each do |student|
+          - @group.coaches.each do |coach|
             %li
-              = link_to student.first_name, person_path(student), class: 'list--people-name'
+              = link_to coach.first_name, person_path(coach), class: 'list--people-name'
               - if admin?
-                = render partial: 'remove_from_group', locals: { object: student, group: @group }
+                = render partial: 'remove_from_group', locals: { object: coach, group: @group }
 
-      %h3 Coaches
-      %p
-        This group currently has #{pluralize @group.coaches.length, "coach"}.
-      %ul.list--people
-        - @group.coaches.each do |coach|
-          %li
-            = link_to coach.first_name, person_path(coach), class: 'list--people-name'
-            - if admin?
-              = render partial: 'remove_from_group', locals: { object: coach, group: @group }
+        - if group_searching_fors(@group).any?
+          %h3 This group is
+          %p
+            - group_searching_fors(@group).each do |searching_for|
+              %span.tag
+                searching for
+                = searching_for
 
-      - if group_searching_fors(@group).any?
-        %h3 This group is
-        %p
-          - group_searching_fors(@group).each do |searching_for|
-            %span.tag
-              searching for
-              = searching_for
+      - if @group.topics.any?
+        #topics.tab
+          %p
+            = link_to 'Topics this group talks about', group_topics_path(@group.id)
 
-    - if @group.topics.any?
-      #topics.tab
-        %p
-          = link_to 'Topics this group talks about', group_topics_path(@group.id)
-
-    - if @group.learning_resources?
-      #resources.tab
-        %p
-          %strong Suggested learning resources:
-          = markdown(@group.learning_resources)
+      - if @group.learning_resources?
+        #resources.tab
+          %p
+            %strong Suggested learning resources:
+            = markdown(@group.learning_resources)

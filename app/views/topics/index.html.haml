@@ -1,9 +1,8 @@
 = render 'groups/subnav'
 
-%h1.page-header Topics by #{@group.name}
-
 .flex-index
   .flex-index-main
+    %h1.page-header Topics by #{@group.name}
     - if @future_topics.size > 0
       .future-topics
         %h2 Future topics

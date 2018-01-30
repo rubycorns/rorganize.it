@@ -1,36 +1,36 @@
 = render "groups/subnav"
 
-%h1.page-header Topic
-
-.topic-main
-  %h2 Topic
-  %p.topic-description
-    = @topic.body
-  %p.help-block
-    Opened by
-    =link_to  @topic.person, person_path(@topic.person)
-    on
-    = @topic.created_at.strftime("%d %B %Y")
-    -if @topic.covered_at
-      %p
-        covered on
-        = @topic.covered_at.strftime("%d %B %Y")
-
-.topic-comments
-  - if @comments.any?
-    %h2 Comments
-    - @comments.each do |comment|
-      %div
+.no-flex-index
+  %h1.page-header Topic
+  .topic-main
+    %h2 Topic
+    %p.topic-description
+      = @topic.body
+    %p.help-block
+      Opened by
+      =link_to  @topic.person, person_path(@topic.person)
+      on
+      = @topic.created_at.strftime("%d %B %Y")
+      -if @topic.covered_at
         %p
-          = markdown comment.body
-        %p.help-block
-          by
-          = comment.person.name
-          on
-          = comment.created_at.strftime("%d %B %Y")
+          covered on
+          = @topic.covered_at.strftime("%d %B %Y")
 
-.topic-comment-form
-  - if show_member_buttons?(current_person, @group)
-    .form-box
-      %h3 Leave a comment
-      = render 'comments/form'
+  .topic-comments
+    - if @comments.any?
+      %h2 Comments
+      - @comments.each do |comment|
+        %div
+          %p
+            = markdown comment.body
+          %p.help-block
+            by
+            = comment.person.name
+            on
+            = comment.created_at.strftime("%d %B %Y")
+
+  .topic-comment-form
+    - if show_member_buttons?(current_person, @group)
+      .form-box
+        %h3 Leave a comment
+        = render 'comments/form'
