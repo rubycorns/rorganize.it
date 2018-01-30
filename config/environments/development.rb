@@ -36,5 +36,4 @@ RailsGirlsApp::Application.configure do
       sender_address: %{"Rubycorns" <roar@rorganize.it>},
       exception_recipients: %w[regan.sara@gmail.com]
     }
-
 end
