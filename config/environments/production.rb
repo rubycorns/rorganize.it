@@ -76,7 +76,6 @@ RailsGirlsApp::Application.configure do
 
   config.middleware.use ExceptionNotification::Rack,
     email: {
-      deliver_with: deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
       email_prefix: "[RORGANIZE ERROR]",
       sender_address: %{"Roar" <ror@schedar.uberspace.de>},
       exception_recipients: %w[roar@rorganize.it]
