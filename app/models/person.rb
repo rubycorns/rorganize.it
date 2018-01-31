@@ -64,6 +64,7 @@ class Person < ActiveRecord::Base
       person.password = Devise.friendly_token[0,20]
       person.name = auth.info.name   # assuming the user model has a name
       person.remote_picture_url = auth.info.image # assuming the user model has an image
+      person.github_handle = auth.info.nickname
     end
   end
 

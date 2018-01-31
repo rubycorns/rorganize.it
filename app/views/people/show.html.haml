@@ -19,6 +19,12 @@
         %p
           %strong Twitter:
           = render partial: "shared/twitter", locals: { object: @person }
+
+      - if @person.github_handle?
+        %p
+          %strong Github:
+          = render partial: "shared/github", locals: { object: @person }
+        
       - if @person.website?
         %p
           %strong Website:

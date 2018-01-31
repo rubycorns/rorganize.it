@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509182902) do
+ActiveRecord::Schema.define(version: 20180130234037) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "person_id",  null: false
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20170509182902) do
     t.string   "uid"
     t.boolean  "non_public",             default: false, null: false
     t.boolean  "searching_group",        default: false, null: false
+    t.string   "github_handle"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true

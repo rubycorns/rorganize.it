@@ -50,6 +50,7 @@ class PeopleController < ApplicationController
       :country,
       :willing_to_travel,
       :non_public,
-      :searching_group)
+      :searching_group,
+      :github_handle)
   end
 end

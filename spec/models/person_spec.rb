@@ -22,6 +22,7 @@
 #  twitter                :string(255)
 #  working_on             :text
 #  workshop_coach         :boolean
+#  github_handle          :string
 #
 
 require 'spec_helper'
@@ -215,7 +216,7 @@ describe Person, vcr: {cassette_name: 'create_group'} do
 
   describe '.from_omniauth' do
     let(:auth)        { double "auth", provider: 'github', uid: '123456', info: auth_info }
-    let(:auth_info)   { double "auth_info", email: 'buffy.summers@example.com', name: 'Buffy Summers', image: nil }
+    let(:auth_info)   { double "auth_info", email: 'buffy.summers@example.com', name: 'Buffy Summers', image: nil, nickname: 'seunadex' }
     let(:auth_person) { Person.from_omniauth(auth) }
 
     context 'where a does not already exist' do
@@ -224,6 +225,7 @@ describe Person, vcr: {cassette_name: 'create_group'} do
         expect(auth_person.name).to eq 'Buffy Summers'
         expect(auth_person.uid).to eq '123456'
         expect(auth_person.provider).to eq 'github'
+        expect(auth_person.github_handle).to eq 'seunadex'
       end
     end
 
