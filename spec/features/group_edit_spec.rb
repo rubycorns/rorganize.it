@@ -37,10 +37,13 @@ feature 'edit a group', vcr: {cassette_name: 'create_group'} do
       check 'Is your group inactive?'
       click_button 'Update Group'
       expect(page).to have_content('Inactive')
+    end
+
+    scenario 'mark group as full' do
       visit_group_edit_page_as_a_member
       check 'Is your group full?'
       click_button 'Update Group'
-      expect(page).to have_content('Inactive')
+      expect(page).to have_content('Full')
     end
 
     scenario 'allow male students' do
