@@ -104,10 +104,21 @@
 // Index/Home page
 .hero {
   margin: 2rem 0;
+  padding: 0 2rem;
   text-align: center;
   h1 {
     margin: 1em 0 0.7em;
     font-size: 3rem;
+    border: none;
+  }
+  h2 {
+    font-size: 2.7rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  .sign-in-cta:nth-of-type(2) {
+    margin-top: 3rem;
   }
 }
 
@@ -117,11 +128,18 @@
 }
 
 .home-find {
-  margin: 4em 0;
+  margin: 10em 0;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
+  h3 {
+    font-size: 2.2rem;
+    font-weight: 400;
+  }
+  p {
+    font-size: 1.2rem;
+  }
   @media (min-width: $mq-med) {
     flex-direction: row;
   }
@@ -133,10 +151,7 @@
   justify-content: center;
   margin-bottom: 30px;
   padding: 5px;
-  width: 80%;
-  @media (min-width: $mq-med) {
-    width: 50%;
-  }
+  flex-basis: 33%;
   & > h3 {
     flex-basis: 100%;
   }
