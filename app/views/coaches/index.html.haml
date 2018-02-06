@@ -4,7 +4,7 @@
 
 .flex-index
   .flex-index-main
-    %h1.page-header This is a coach list
+    %h1.page-header List of workshop coaches
     %p
       More specifically, it is a list of people who are willing to coach at Rails Girls workshops. If you are a Rails Girls organizer in need of coaches, please
       %a{ href: "mailto:roar@rorganize.it" } contact us,
@@ -20,7 +20,7 @@
         If you are interested in becoming a Rails Girls coach
         %a{ href: new_person_registration_path } sign up to the app,
         and then fill in the relevant info on your profile page.
-    %hr
+
     = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
     = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_coaches }
 
