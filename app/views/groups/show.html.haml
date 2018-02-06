@@ -72,13 +72,13 @@
         %p.group-description
           = markdown(@group.activities)
 
-    %ul.group-tabs
-      %li.group-tab
-        %a.active{title: 'Members', href: '#members'} Members
-      %li.group-tab
-        %a{title: 'Topics', href: '#topics'} Topics
-      %li.group-tab
-        %a{title: 'Resources', href: '#resources'} Learning Resources
+      %ul.group-tabs
+        %li.group-tab
+          %a.active{title: 'Members', href: '#members'} Members
+        %li.group-tab
+          %a{title: 'Topics', href: '#topics'} Topics
+        %li.group-tab
+          %a{title: 'Resources', href: '#resources'} Learning Resources
 
       #members.tab.active
         %h2 Members of #{@group.name}
@@ -109,19 +109,19 @@
                 searching for
                 = searching_for
 
-      #topics.tab
-        %h2 Topics #{@group.name} talks about
-        - if @group.topics.any?
-          %p
-            = link_to 'Topics this group talks about', group_topics_path(@group.id)
-        - else
-          %p Nothing here yet
+        #topics.tab
+          %h2 Topics #{@group.name} talks about
+          - if @group.topics.any?
+            %p
+              = link_to 'Topics this group talks about', group_topics_path(@group.id)
+          - else
+            %p Nothing here yet
 
-      #resources.tab
-        %h2 Resouces #{@group.name} recommends
-        - if @group.learning_resources?
-          %p
-            %strong Suggested learning resources:
-            = markdown(@group.learning_resources)
-        - else
-          %p Nothing here yet
+        #resources.tab
+          %h2 Resouces #{@group.name} recommends
+          - if @group.learning_resources?
+            %p
+              %strong Suggested learning resources:
+              = markdown(@group.learning_resources)
+          - else
+            %p Nothing here yet
