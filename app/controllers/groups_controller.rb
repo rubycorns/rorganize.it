@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   respond_to :html
 
   before_action :set_group, only: [:show, :edit, :update, :destroy, :manage_members]
-  before_action :authenticate_person!, except: [:index, :show, :inactive_groups]
+  before_action :authenticate_person!, only: [:edit, :update, :destroy, :manage_members]
   before_action :ensure_can_destroy, only: [:destroy]
   before_action :ensure_member_powers, only: [:edit, :update]
   before_action :ensure_group_admin_powers, only: [:edit, :update, :manage_members]
