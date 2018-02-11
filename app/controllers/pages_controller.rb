@@ -2,11 +2,7 @@ class PagesController < ApplicationController
 
   def index
     @groups = Group.all
-    @people = Person.all
-    students, coaches = Membership.all.partition { |membership| membership.name == 'Student' }
-    @students_count = students.count
-    @coaches_count = coaches.count
-    @groups_count = @groups.count
+    @membership_count = Membership.all.group(:type).count
   end
 
   def about

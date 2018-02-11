@@ -25,11 +25,11 @@
 .hero
   %h2 Discover and meet
   %p
-    = pluralize(@students_count, 'student')
+    = pluralize(@membership_count.fetch('StudentMembership', 0), 'student')
     and
-    = pluralize(@coaches_count, 'coach')
+    = pluralize(@membership_count.fetch('CoachMembership', 0), 'coach')
     in
-    = pluralize(@groups_count, 'group')
+    = pluralize(@groups.size, 'group')
 
   #map.index-map
 
