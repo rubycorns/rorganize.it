@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 ruby '2.4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.9'
+gem 'rails', '5.0.5'
 
 gem 'devise'
 
-gem 'friendly_id', '~> 5.1.0'
+gem 'friendly_id'
 
 group :development do
   gem 'sqlite3'
@@ -33,11 +33,11 @@ gem 'carrierwave-bombshelter'
 # Use for image crop and resize
 gem "mini_magick", "~> 3.7.0"
 
-gem 'emoji', '~> 1.0.1'
+gem 'emoji'
 
 gem 'country_select', github: 'stefanpenner/country_select'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 # Use Compass to supercharge SCSS
 gem "compass", "~> 0.12.2"
 
@@ -51,7 +51,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 
 # Some Modernizr goodness
 gem "modernizr-rails", "~> 2.6.2.3"
@@ -85,7 +85,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
