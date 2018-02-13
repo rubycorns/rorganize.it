@@ -67,22 +67,22 @@ class GroupsController < ApplicationController
   def manage_members
   end
 
-  def open_groups
+  def open
     @groups = Group.open
     @subnav_active = "open"
   end
 
-  def searching_groups
+  def searching
     @groups = Group.searching
     @subnav_active = "searching"
   end
 
-  def recently_added_groups
+  def recent
     @groups = Group.where(created_at: 6.month.ago..Time.current)
     @subnav_active = "recent"
   end
 
-  def inactive_groups
+  def inactive
     @groups = Group.where(inactive: true).order(:name)
     @subnav_active = "inactive"
   end

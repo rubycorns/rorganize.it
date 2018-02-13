@@ -33,7 +33,7 @@ module GroupsHelper
 
   def group_subnav_active_class(active_match)
     if @subnav_active == active_match
-      return 'active'
+      'active'
     end
   end
 end
