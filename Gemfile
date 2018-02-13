@@ -18,7 +18,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # for advanced features of better_errors (repl)
   gem 'erb2haml'
-  gem 'letter_opener'
 end
 
 group :production do
