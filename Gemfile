@@ -25,6 +25,8 @@ group :production do
   gem 'thin'
 end
 
+gem 'exception_notification'
+
 gem 'carrierwave'
 gem 'carrierwave-bombshelter'
 

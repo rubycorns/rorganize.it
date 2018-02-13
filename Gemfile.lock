@@ -105,6 +105,9 @@ GEM
       html2haml
     erubis (2.7.0)
     eventmachine (1.0.8)
+    exception_notification (4.2.1)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
     execjs (2.6.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -213,11 +216,6 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pry (0.9.12.6-i386-mingw32)
-      coderay (~> 1.0)
-      method_source (~> 0.8)
-      slop (~> 3.4)
-      win32console (~> 1.3)
     pry (0.9.12.6-x86-mingw32)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -365,6 +363,7 @@ DEPENDENCIES
   devise
   emoji (~> 1.0.1)
   erb2haml
+  exception_notification
   factory_girl_rails
   font-awesome-rails
   friendly_id (~> 5.1.0)
