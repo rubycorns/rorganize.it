@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 describe 'markdown helper', :type => :helper do
@@ -11,8 +12,8 @@ describe 'markdown helper', :type => :helper do
 end
 
 describe '#country_names_for_select' do
-  it 'convers the country codes to country name' do
+  it 'converts the country codes to country name' do
     countries = ['DE', 'CA', 'US']
-    expect(helper.country_names_for_select(countries)).to eql [["Germany", "DE"], ["Canada", "CA"], ["United States", "US"]]
+    expect(helper.country_names_for_select(countries)).to eql [["Germany", "DE"], ["Canada", "CA"], ["United States of America", "US"]]
   end
 end

@@ -26,7 +26,7 @@
 #  workshop_coach         :boolean
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence :email do |n|
     "test_#{n}@test.com"
   end

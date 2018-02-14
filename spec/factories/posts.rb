@@ -14,7 +14,7 @@
 #  published_at :datetime
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :post do
     sequence(:title) { |n| "A blogPost #{n}" }
     description 'about stuff'

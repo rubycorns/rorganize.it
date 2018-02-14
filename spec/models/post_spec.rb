@@ -14,6 +14,7 @@
 #  published_at :datetime
 #
 
+
 require 'spec_helper'
 
 describe Post do

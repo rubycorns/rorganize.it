@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 feature 'People List' do

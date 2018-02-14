@@ -9,6 +9,8 @@ gem 'devise'
 
 gem 'friendly_id'
 
+gem "pry"
+
 group :development do
   gem 'sqlite3'
   gem 'guard-rspec', require: false
@@ -85,8 +87,8 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'rspec-rails',  ">= 3.5"
+  gem 'factory_bot_rails'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
   gem 'capybara'
@@ -95,6 +97,7 @@ group :development, :test do
   gem 'minitest'
   gem 'rspec-its', '~> 1.0.1'
   gem 'timecop'
+  gem 'rails-controller-testing'
 end
 
 group :test do

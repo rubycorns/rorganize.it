@@ -10,6 +10,7 @@
 #  type       :string(255)
 #
 
+
 require 'spec_helper'
 
 describe Membership, vcr: {cassette_name: 'create_group'} do

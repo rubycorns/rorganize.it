@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
       :current_password,
     ]
 
-    devise_parameter_sanitizer.for(:sign_up) do |person|
+    devise_parameter_sanitizer.permit(:sign_up) do |person|
       person.permit(editable_fields + [:email, :password, :password_confirmation, :type])
     end
 
-    devise_parameter_sanitizer.for(:account_update) do |person|
+    devise_parameter_sanitizer.permit(:account_update) do |person|
       person.permit(editable_fields)
     end
   end

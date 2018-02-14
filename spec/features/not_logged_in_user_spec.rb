@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 describe 'User is not logged in', :type => :feature do

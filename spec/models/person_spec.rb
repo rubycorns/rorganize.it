@@ -25,11 +25,12 @@
 #  github_handle          :string
 #
 
+
 require 'spec_helper'
 
 describe Person, vcr: {cassette_name: 'create_group'} do
 
-  it { is_expected.to have_many(:groups) }
+  it { is_expected.to have_many(:groups).through(:memberships) }
   it { is_expected.to have_many(:memberships) }
   it { is_expected.to have_many(:topics) }
   it { is_expected.to have_many(:posts) }

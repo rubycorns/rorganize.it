@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-RailsGirlsApp::Application.config.session_store :cookie_store, key: '_RailsGirlsApp_session'
+Rails.application.config.session_store :cookie_store, key: '_rails_girls_app_session'

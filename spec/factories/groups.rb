@@ -25,7 +25,7 @@
 #  street     :string(255)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :group do
     sequence(:name) {|n| "Test Group #{n}"}
     email 'testgroup@email.com'
