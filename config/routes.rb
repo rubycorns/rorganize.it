@@ -19,7 +19,7 @@ RailsGirlsApp::Application.routes.draw do
     end
 
     collection do
-      %i[open searching recent inactive].each { |action| get action }
+      %i[active searching recent inactive].each { |action| get action }
     end
 
     member do

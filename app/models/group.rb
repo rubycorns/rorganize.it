@@ -51,7 +51,7 @@ class Group < ActiveRecord::Base
 
   before_save :capitalize_fields
 
-  scope :open, -> { where(full: false) }
+  scope :active, -> { where(full: false) }
   scope :searching, -> { where('searching_coaches=? OR searching_students=? OR searching_location=?', true, true, true) }
 
   extend FriendlyId

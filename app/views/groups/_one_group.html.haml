@@ -14,6 +14,15 @@
       - if group.allow_male_students?
         %span.tag
           Mixed group
+      - if group.searching_coaches
+        %span.tag
+          Searching for coaches
+      - if group.searching_students
+        %span.tag
+          Searching for students
+      - if group.searching_location
+        %span.tag
+          Searching for location
     %p
       %strong When:
       - if group.time?

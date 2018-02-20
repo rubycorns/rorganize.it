@@ -67,9 +67,9 @@ class GroupsController < ApplicationController
   def manage_members
   end
 
-  def open
-    @groups = Group.open
-    @subnav_active = "open"
+  def active
+    @groups = Group.active
+    @subnav_active = "active"
   end
 
   def searching
