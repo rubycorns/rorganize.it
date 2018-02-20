@@ -2,19 +2,17 @@ class GroupsController < ApplicationController
   respond_to :html
 
   before_action :set_group, only: [:show, :edit, :update, :destroy, :manage_members]
-  before_action :authenticate_person!, except: [:index, :show]
+  before_action :authenticate_person!, only: [:edit, :update, :destroy, :manage_members]
   before_action :ensure_can_destroy, only: [:destroy]
-  before_action :ensure_member_powers, except: [:index, :show, :new, :create]
+  before_action :ensure_member_powers, only: [:edit, :update]
   before_action :ensure_group_admin_powers, only: [:edit, :update, :manage_members]
 
   def index
     ordered_groups = Group.where(inactive: false).order(:name)
-    ordered_inactive_groups = Group.where(inactive: true).order(:name)
-
     @groups = ordered_groups.filtered_by_region(params)
-    @inactive_groups = ordered_inactive_groups.filtered_by_region(params)
     @cities = Group.order(:city).cities
     @countries = Group.order(:country).countries
+    @subnav_active = 'index'
   end
 
   def new
@@ -56,6 +54,8 @@ class GroupsController < ApplicationController
 
     @students = signed_in? ? @group.students : @group.students.public_profile
     @coaches = signed_in? ? @group.coaches : @group.coaches.public_profile
+
+    @subnav_active = 'show'
   end
 
   def destroy
@@ -65,6 +65,26 @@ class GroupsController < ApplicationController
   end
 
   def manage_members
+  end
+
+  def active
+    @groups = Group.active
+    @subnav_active = "active"
+  end
+
+  def searching
+    @groups = Group.searching
+    @subnav_active = "searching"
+  end
+
+  def recent
+    @groups = Group.where(created_at: 6.month.ago..Time.current)
+    @subnav_active = "recent"
+  end
+
+  def inactive
+    @groups = Group.where(inactive: true).order(:name)
+    @subnav_active = "inactive"
   end
 
   private

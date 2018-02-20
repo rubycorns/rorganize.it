@@ -18,6 +18,10 @@ RailsGirlsApp::Application.routes.draw do
       resources :comments, only: [:create]
     end
 
+    collection do
+      %i[active searching recent inactive].each { |action| get action }
+    end
+
     member do
       get :manage_members
     end

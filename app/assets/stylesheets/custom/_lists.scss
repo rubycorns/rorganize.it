@@ -84,7 +84,18 @@
 .alphabetical-list {
   a {
     font-size: 1.3em;
-    padding: 0.5em;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    line-height: 2;
+    text-align: center;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $salmon-pink;
+      color: white;
+    }
   }
   margin: 1em 0 1em 0;
 }
