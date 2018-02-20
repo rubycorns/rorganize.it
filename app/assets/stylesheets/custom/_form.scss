@@ -52,7 +52,7 @@ inout[type=radio] {
   appearance: none;
   border: 2px solid $light-grey;
   border-radius: 4px;
-  background: url(select-arrow-flipped.png) 98% 25% no-repeat, url(select-arrow.png) 98% 75% no-repeat #f1f1f1;
+  background: url(/select-arrow-flipped.png) 98% 25% no-repeat, url(/select-arrow.png) 98% 75% no-repeat #f1f1f1;
   &:focus,
   &:active {
     outline: 2px dotted $teal-light;
