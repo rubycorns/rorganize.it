@@ -79,7 +79,7 @@ RailsGirlsApp::Application.configure do
       email_prefix: "[RORGANIZE ERROR]",
       sender_address: %{"Roar" <ror@schedar.uberspace.de>},
       exception_recipients: %w[roar@rorganize.it]
-    }
+    },
     error_grouping: true
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
