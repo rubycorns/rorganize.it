@@ -2,7 +2,14 @@
 
 .flex-index
   .flex-index-main
-    %h1.page-header Groups overview
+    %h1.page-header
+      Groups
+      - if params['city'] || params['country']
+        in
+        = params['city'] if params['city'].present?
+        = params['country'] if params['country'].present?
+      - else
+        overview
     %ul.list-group
       = render partial: 'one_group', collection: @groups, as: :group
 
