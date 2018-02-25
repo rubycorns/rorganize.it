@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  $('.alert-close').click(function() {
+    $('.alert').addClass('fade-out');
+  })
 
   function removeAlert() {
     $('.alert').addClass('fade-out');
