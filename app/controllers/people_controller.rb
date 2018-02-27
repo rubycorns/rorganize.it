@@ -51,6 +51,7 @@ class PeopleController < ApplicationController
       :willing_to_travel,
       :non_public,
       :searching_group,
-      :github_handle)
+      :github_handle,
+      :remove_picture)
   end
 end

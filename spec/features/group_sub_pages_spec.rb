@@ -22,7 +22,6 @@ feature 'Explore group sub pages', vcr: {cassette_name: 'create_group'} do
     scenario 'Find groups searching for something' do
       visit_group_main_page
       click_link 'Groups searching'
-      save_and_open_page
       expect(find('ul.list-group')).to have_selector('li', count: 1)
       show_groups(["A group searching"])
     end
