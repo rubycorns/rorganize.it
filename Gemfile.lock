@@ -122,7 +122,7 @@ GEM
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
     fssm (0.2.10)
-    geocoder (1.4.5)
+    geocoder (1.4.6)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     guard (2.14.2)
