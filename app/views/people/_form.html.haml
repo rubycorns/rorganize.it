@@ -14,14 +14,23 @@
       = f.text_field :twitter, placeholder: '@twitterhandle', class: 'form-control'
     .form-group
       = f.label(:github_handle, "Your github handle")
-      = f.text_field :github_handle, placeholder: '@github_handle', class: 'form-control'
+      = f.text_field :github_handle, placeholder: 'github_handle', class: 'form-control'
     .form-group
-      = f.label(:website, "Website")
-      = f.text_field :website, placeholder: 'http://example.me', class: 'form-control'
+      = f.label(:website, "Your website")
+      = f.text_field :website, placeholder: 'https://example.me', class: 'form-control'
     .form-group
-      = f.label(:picture, "Add your profile picture")
+      = f.label(:picture, "Your profile picture")
+      - if @person.picture.present?
+        %p
+          = image_tag(@person.picture_url(:person_profile), width: 100, class: 'profile-picture')
       = f.file_field :picture, placeholder: 'picture'
-      %p.help-block Choose your profile picture
+      %p.help-block Choose an image from your computer
+
+      - if action_name != 'new' && @person.picture.present?
+        %label
+          = f.check_box :remove_picture
+          Remove profile picture
+
     .form-group
       = f.label(:working_on, "What are you working on? (you can use markdown!)")
       = f.text_area :working_on, placeholder: 'tutorials? a cool app?', class: 'form-control', rows: 5, id: 'working-on'
