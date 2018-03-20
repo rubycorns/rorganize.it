@@ -11,7 +11,7 @@
 #  covered_at :datetime
 #
 
-class Topic < ActiveRecord::Base
+class Topic < ApplicationRecord
   belongs_to :group
   belongs_to :person
 

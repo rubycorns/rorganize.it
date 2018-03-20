@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 feature 'Remove a person from a group', vcr: {cassette_name: 'create_group'} do

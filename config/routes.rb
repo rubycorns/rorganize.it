@@ -1,5 +1,5 @@
-RailsGirlsApp::Application.routes.draw do
-
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :people, controllers: { registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks" }
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,9 +8,9 @@ RailsGirlsApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
 
-  get 'about' => 'pages#about'
-  get 'welcome' => 'pages#welcome'
-  get 'conduct' => 'pages#conduct'
+  get '/about' => 'pages#about'
+  get '/welcome' => 'pages#welcome'
+  get '/conduct' => 'pages#conduct'
 
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)
   resources :groups do

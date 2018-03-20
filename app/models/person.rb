@@ -24,7 +24,7 @@
 #  workshop_coach         :boolean
 #
 
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   include TwitterHandle
   include LocationFilter
 

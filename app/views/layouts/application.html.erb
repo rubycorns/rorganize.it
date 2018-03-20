@@ -49,7 +49,7 @@
         <ul class="profile-header not-logged-in">
         <li><%= link_to 'Sign in', new_person_session_path, class: 'sign-in' %></li>
         <li><%= link_to 'Sign up', new_person_registration_path, class: 'sign-in' %></li>
-        <li><%= link_to(content_tag(:span, "Sign in with GitHub", class: 'gh-sign-in'), person_omniauth_authorize_path(:github))  %></li>
+        <li><%= link_to(content_tag(:span, "Sign in with GitHub", class: 'gh-sign-in'), person_github_omniauth_authorize_path)  %></li>
       </ul>
       <% end %>
     </nav>

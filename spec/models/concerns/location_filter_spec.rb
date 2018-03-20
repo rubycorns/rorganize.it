@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 RSpec.describe LocationFilter, vcr: {cassette_name: "create_group" } do

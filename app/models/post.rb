@@ -14,7 +14,7 @@
 #  published_at :datetime
 #
 
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
 
   scope :published_descending_order, -> { where(draft: false).order(published_at: :desc) }
   scope :published_ascending_order, -> { where(draft: false).order(published_at: :asc) }

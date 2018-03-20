@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 describe 'deleting a user as a signed in user', :type => :feature do

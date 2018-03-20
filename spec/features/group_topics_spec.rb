@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 feature 'Manage topics of a group', vcr: {cassette_name: 'create_group'} do

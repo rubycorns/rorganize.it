@@ -25,7 +25,7 @@
 #  street     :string(255)
 #
 
-class Group < ActiveRecord::Base
+class Group < ApplicationRecord
   include TwitterHandle
   include LocationFilter
 

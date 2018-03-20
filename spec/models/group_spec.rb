@@ -25,6 +25,7 @@
 #  street     :string(255)
 #
 
+
 require 'spec_helper'
 
 describe Group, vcr: {cassette_name: 'create_group'} do

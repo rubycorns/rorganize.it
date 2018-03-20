@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 describe 'Signing in', :type => :feature do

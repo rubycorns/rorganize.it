@@ -10,7 +10,7 @@
 #  type       :string(255)
 #
 
-class Membership < ActiveRecord::Base
+class Membership < ApplicationRecord
   belongs_to :group
   belongs_to :person
   validates :person_id, presence: true
