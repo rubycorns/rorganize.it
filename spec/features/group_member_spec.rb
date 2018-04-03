@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 feature 'Manage group members', vcr: { cassette_name: 'create_group' } do

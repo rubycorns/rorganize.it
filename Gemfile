@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.5'
+gem 'rails', '5.0.7'
 
 gem 'devise'
 
@@ -23,7 +23,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem "pg", "~> 0.18"
   gem 'thin'
 end
 
@@ -37,7 +37,7 @@ gem "mini_magick", "~> 3.7.0"
 
 gem 'emoji'
 
-gem 'country_select', github: 'stefanpenner/country_select'
+gem 'country_select'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Compass to supercharge SCSS
