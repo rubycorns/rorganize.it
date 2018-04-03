@@ -33,8 +33,8 @@ class Person < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:github]
 
-  has_many :groups, through: :memberships
   has_many :memberships, dependent: :destroy
+  has_many :groups, through: :memberships
   has_many :topics
   has_many :posts
 
