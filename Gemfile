@@ -11,6 +11,8 @@ gem 'friendly_id'
 
 gem "pry"
 
+gem "rubocop"
+
 group :development do
   gem 'sqlite3'
   gem 'guard-rspec', require: false

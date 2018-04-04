@@ -1,0 +1,20 @@
+AllCops:
+  Exclude:
+    - "vendor/**/*"
+    - "db/**/*"
+    - "bin/**/*"
+    - "config/**/*"
+    - "app/assets/**/*"
+    - "Rakefile"
+    - "micro-shared/**/*"
+    - "Gemfile"
+    - "Gemfile.lock"
+  UseCache: false
+  TargetRubyVersion: 2.4
+  TargetRailsVersion: 5.0.7
+Rails/HttpPositionalArguments:
+  Description: 'Use keyword arguments instead of positional arguments in http method calls.'
+  Enabled: true
+  Include:
+    - 'spec/**/*'
+    - 'test/**/*'

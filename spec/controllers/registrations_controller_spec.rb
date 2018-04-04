@@ -18,17 +18,17 @@ describe RegistrationsController do
 
     it "deletes the user's account" do
       expect do
-        delete :destroy, id: person.id
+        delete :destroy, params: { id: person.id }
       end.to change{ Person.count }.by(-1)
     end
 
     it 'redirects to the root page' do
-      delete :destroy, id: person.id
+      delete :destroy, params: { id: person.id }
       expect(response).to redirect_to root_path
     end
 
     it 'displays the correct notice' do
-      delete :destroy, id: person.id
+      delete :destroy, params: { id: person.id }
       expect(flash[:notice]).to match /success/
     end
   end

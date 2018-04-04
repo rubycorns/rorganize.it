@@ -66,6 +66,6 @@ RSpec.configure do |config|
   config.order = "random"
   config.include FactoryBot::Syntax::Methods
   config.include Capybara::DSL
-  config.include Devise::TestHelpers, type: :controller
-  # config.include Devise::Test::ControllerHelpers
+  # config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end

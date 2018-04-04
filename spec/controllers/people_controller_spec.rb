@@ -31,12 +31,12 @@ describe PeopleController do
       end
 
       it 'updates the group' do
-        put :update, params
+        put :update, params: params
         expect(person.reload.first_name).to eq 'Buffy'
       end
 
       it 'displays the correct notice' do
-        put :update, params
+        put :update, params: params
         expect(flash[:notice]).to match /updated/
       end
     end
@@ -52,7 +52,7 @@ describe PeopleController do
       end
 
       it 'redirects to the new path' do
-        put :update, params
+        put :update, params: params
         expect(response).to render_template(:edit)
       end
     end
