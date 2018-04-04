@@ -62,7 +62,7 @@ describe PostsController do
 
         it 'does not create a post' do
           expect do
-            post :create, params
+            post :create, params: params
           end.to_not change{ Post.count}
         end
       end
@@ -76,22 +76,22 @@ describe PostsController do
         context 'publishing the post' do
           it 'is successful' do
             expect do
-              post :create, params
+              post :create, params: params
             end.to change{ Post.count}.by(1)
           end
 
           it 'does not mark the post as a draft' do
-            post :create, params
+            post :create, params: params
             expect(Post.last.draft).to be false
           end
 
           it 'sets the correct published_at date' do
-            post :create, params
+            post :create, params: params
             expect(Post.last.published_at).to eq test_date
           end
 
           it 'redirects to the post' do
-            post :create, params
+            post :create, params: params
             expect(response).to redirect_to post_path(Post.last)
           end
         end
@@ -108,22 +108,22 @@ describe PostsController do
 
           it 'is successful' do
             expect do
-              post :create, params
+              post :create, params: params
             end.to change{ Post.count}.by(1)
           end
 
           it 'marks the post as a draft' do
-            post :create, params
+            post :create, params: params
             expect(Post.last.draft).to be true
           end
 
           it 'sets the correct published_at date' do
-            post :create, params
+            post :create, params: params
             expect(Post.last.published_at).to be_nil
           end
 
           it 'redirects to the post' do
-            post :create, params
+            post :create, params: params
             expect(response).to redirect_to post_path(Post.last)
           end
         end
@@ -158,22 +158,22 @@ describe PostsController do
       context 'updating the post' do
         it 'is successful' do
           expect do
-            put :update, params
+            put :update, params: params
           end.to_not change{ Post.count }
         end
 
         it 'does not mark the post as a draft' do
-          put :update, params
+          put :update, params: params
           expect(post.draft).to be false
         end
 
         it 'keeps the old published_at date' do
-          put :update, params
+          put :update, params: params
           expect(post.published_at).to eq Date.new(2015, 01, 01)
         end
 
         it 'redirects to the post' do
-          put :update, params
+          put :update, params: params
           expect(response).to redirect_to post_path(post)
         end
       end
@@ -186,18 +186,18 @@ describe PostsController do
         let(:post) { create :post, draft: true, published_at: nil }
 
         it 'sets draft to false, b/c it is published' do
-          put :update, params
+          put :update, params: params
           expect(Post.find_by(slug: post.slug).draft).to be false
         end
 
         it 'sets the correct published_at
          date' do
-          put :update, params
+          put :update, params: params
           expect(Post.find_by(slug: post.slug).published_at).to eq test_date
         end
 
         it 'redirects to the post' do
-          put :update, params
+          put :update, params: params
           expect(response).to redirect_to post_path(post)
         end
       end

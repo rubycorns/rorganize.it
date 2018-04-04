@@ -13,12 +13,12 @@ describe AdminsController do
   describe 'create' do
 
     it 'is not allowed for normal users' do
-      post :create, id: person.id
+      post :create, params: { id: person.id }
       expect(person.admin?).to be false
     end
 
     it 'gives admin powers to an admin user' do
-      post :create, id: admin.id
+      post :create, params: { id: admin.id }
       expect(admin.admin?).to be true
     end
   end
@@ -26,7 +26,7 @@ describe AdminsController do
   describe 'destroy' do
 
     it 'removes admin power from a user' do
-      delete :destroy, id: admin.id
+      delete :destroy, params: { id: admin.id }
       expect(admin.reload.admin?).to be false
     end
   end
