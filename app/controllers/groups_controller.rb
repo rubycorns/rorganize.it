@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   respond_to :html
 
   before_action :set_group, only: [:show, :edit, :update, :destroy, :manage_members]
-  before_action :authenticate_person!, only: [:edit, :update, :destroy, :manage_members]
+  before_action :authenticate_person!, only: [:new, :create, :edit, :update, :destroy, :manage_members]
   before_action :ensure_can_destroy, only: [:destroy]
   before_action :ensure_member_powers, only: [:edit, :update]
   before_action :ensure_group_admin_powers, only: [:edit, :update, :manage_members]
@@ -73,7 +73,8 @@ class GroupsController < ApplicationController
   end
 
   def searching
-    @groups = Group.searching
+    @group_coaches = Group.searching_coaches
+    @groups = @group_coaches.or(Group.searching_students).or(Group.searching_location)
     @subnav_active = "searching"
   end
 

@@ -52,7 +52,9 @@ class Group < ApplicationRecord
   before_save :capitalize_fields
 
   scope :active, -> { where(full: false) }
-  scope :searching, -> { where('searching_coaches=? OR searching_students=? OR searching_location=?', true, true, true) }
+  scope :searching_coaches, -> { where('searching_coaches = ?', true) }
+  scope :searching_students, -> { where('searching_students = ?', true) }
+  scope :searching_location, -> { where('searching_location = ?', true) }
 
   extend FriendlyId
   friendly_id :name, use: :slugged
