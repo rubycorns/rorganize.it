@@ -5,7 +5,14 @@
 
 .flex-index
   .flex-index-main
-    %h1.page-header People overview
+    %h1.page-header
+      People
+      - if params['city'] || params['country']
+        in
+        = params['city'] if params['city'].present?
+        = params['country'] if params['country'].present?
+      - else
+        overview
     = render partial: 'shared/alphabetical_list', locals: { alphabetical_list: @alphabetical_list}
     = render partial: 'shared/grouped_people', locals: { grouped_people: @grouped_people }
 
@@ -17,4 +24,3 @@
   if (window.location.hash === '') {
     window.location.hash = "#{@alphabetical_list.first}";
   }
-  
