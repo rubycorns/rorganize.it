@@ -716,4 +716,142 @@ http_interactions:
         }
     http_version: 
   recorded_at: Tue, 03 Apr 2018 19:41:58 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Z%C3%BCrich%20CH&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 17 Apr 2018 16:55:52 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '224'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "error_message" : "You have exceeded your daily request quota for this API. We recommend registering for a key at the Google Developers Console: https://console.developers.google.com/apis/credentials?project=_",
+           "results" : [],
+           "status" : "OVER_QUERY_LIMIT"
+        }
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 16:55:52 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Paris%20FR&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 17 Apr 2018 16:55:52 GMT
+      Expires:
+      - Wed, 18 Apr 2018 16:55:52 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '422'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAicmVzdWx0cyIgOiBbCiAgICAgIHsKICAgICAgICAgImFkZHJlc3NfY29tcG9uZW50cyIgOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAiUGFyaXMiLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiUGFyaXMiLAogICAgICAgICAgICAgICAidHlwZXMiIDogWyAibG9jYWxpdHkiLCAicG9saXRpY2FsIiBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAiUGFyaXMiLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiUGFyaXMiLAogICAgICAgICAgICAgICAidHlwZXMiIDogWyAiYWRtaW5pc3RyYXRpdmVfYXJlYV9sZXZlbF8yIiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIsOObGUtZGUtRnJhbmNlIiwKICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIsOObGUtZGUtRnJhbmNlIiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgImFkbWluaXN0cmF0aXZlX2FyZWFfbGV2ZWxfMSIsICJwb2xpdGljYWwiIF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19uYW1lIiA6ICJGcmFuY2UiLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiRlIiLAogICAgICAgICAgICAgICAidHlwZXMiIDogWyAiY291bnRyeSIsICJwb2xpdGljYWwiIF0KICAgICAgICAgICAgfQogICAgICAgICBdLAogICAgICAgICAiZm9ybWF0dGVkX2FkZHJlc3MiIDogIlBhcmlzLCBGcmFuY2UiLAogICAgICAgICAiZ2VvbWV0cnkiIDogewogICAgICAgICAgICAiYm91bmRzIiA6IHsKICAgICAgICAgICAgICAgIm5vcnRoZWFzdCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDogNDguOTAyMTQ0OSwKICAgICAgICAgICAgICAgICAgImxuZyIgOiAyLjQ2OTkyMDgKICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgInNvdXRod2VzdCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDogNDguODE1NTczLAogICAgICAgICAgICAgICAgICAibG5nIiA6IDIuMjI0MTk5CiAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgImxvY2F0aW9uIiA6IHsKICAgICAgICAgICAgICAgImxhdCIgOiA0OC44NTY2MTQsCiAgICAgICAgICAgICAgICJsbmciIDogMi4zNTIyMjE5CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJsb2NhdGlvbl90eXBlIiA6ICJBUFBST1hJTUFURSIsCiAgICAgICAgICAgICJ2aWV3cG9ydCIgOiB7CiAgICAgICAgICAgICAgICJub3J0aGVhc3QiIDogewogICAgICAgICAgICAgICAgICAibGF0IiA6IDQ4LjkwMjE0NDksCiAgICAgICAgICAgICAgICAgICJsbmciIDogMi40Njk5MjA4CiAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICJzb3V0aHdlc3QiIDogewogICAgICAgICAgICAgICAgICAibGF0IiA6IDQ4LjgxNTU3MywKICAgICAgICAgICAgICAgICAgImxuZyIgOiAyLjIyNDE5OQogICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgfSwKICAgICAgICAgInBsYWNlX2lkIiA6ICJDaElKRDdmaUJoOXU1a2NSWUpTTWFNT0NDd1EiLAogICAgICAgICAidHlwZXMiIDogWyAibG9jYWxpdHkiLCAicG9saXRpY2FsIiBdCiAgICAgIH0KICAgXSwKICAgInN0YXR1cyIgOiAiT0siCn0K
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 16:55:52 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%20%20%20Basel%20CH&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 17 Apr 2018 16:55:52 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '224'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "error_message" : "You have exceeded your daily request quota for this API. We recommend registering for a key at the Google Developers Console: https://console.developers.google.com/apis/credentials?project=_",
+           "results" : [],
+           "status" : "OVER_QUERY_LIMIT"
+        }
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 16:55:52 GMT
 recorded_with: VCR 4.0.0

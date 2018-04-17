@@ -3,10 +3,10 @@ require 'spec_helper'
 
 feature 'filter groups', vcr: {cassette_name: 'create_group'} do
   context 'by location' do
-    let!(:group) { create(:group, name: 'Zürich CH', city: 'Zürich', country: 'CH')}
-    let!(:group) { create(:group, name: 'Paris FR', city: 'Paris', country: 'FR')}
-    let!(:group) { create(:group, name: 'Basel CH', city: 'Basel', country: 'CH')}
-    let!(:group) { create(:group, name: 'Basel FR', city: 'Basel', country: 'FR')}
+    let!(:group_1) { create(:group, name: 'Zürich CH', city: 'Zürich', country: 'CH')}
+    let!(:group_2) { create(:group, name: 'Paris FR', city: 'Paris', country: 'FR')}
+    let!(:group_3) { create(:group, name: 'Basel CH', city: 'Basel', country: 'CH')}
+    let!(:group_4) { create(:group, name: 'Basel FR', city: 'Basel', country: 'FR')}
 
     scenario 'by city' do
       visit_group_main_page
