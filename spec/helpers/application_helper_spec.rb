@@ -25,11 +25,13 @@ describe '#country_name_from_code' do
 end
 
 describe '#overview_filter' do
-  it 'returns the title for a given overview page, depending on filter params' do
-    expect(helper.overview_filter('Groups')).to eq('Groups overview')
-    params['city'] = 'Berlin'
-    expect(helper.overview_filter('Groups')).to eq('Groups in Berlin')
-    params['country'] = 'US'
-    expect(helper.overview_filter('Groups')).to eq('Groups in Berlin, United States of America')
+  context "when only country/only city/both country and city are given as parameters" do
+    it "returns the string with only the country/the city/the country city in it" do
+      expect(helper.overview_filter('Groups')).to eq('Groups overview')
+      params['city'] = 'Berlin'
+      expect(helper.overview_filter('Groups')).to eq('Groups in Berlin')
+      params['country'] = 'US'
+      expect(helper.overview_filter('Groups')).to eq('Groups in Berlin, United States of America')
+    end
   end
 end
