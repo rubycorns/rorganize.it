@@ -51,7 +51,8 @@ class Group < ApplicationRecord
 
   before_save :capitalize_fields
 
-  scope :active, -> { where(full: false) }
+  scope :open_to_new, -> { where(full: false) }
+  scope :active, -> { where(inactive: false) }
   scope :searching_coaches, -> { where('searching_coaches = ?', true) }
   scope :searching_students, -> { where('searching_students = ?', true) }
   scope :searching_location, -> { where('searching_location = ?', true) }
