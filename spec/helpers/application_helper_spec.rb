@@ -19,8 +19,8 @@ end
 
 describe '#country_name_from_code' do
   it 'returns a single country name from a single country code' do
-       country = "FR"
-       expect(helper.country_name_from_code(country)).to eq('France')
+    country = "FR"
+    expect(helper.country_name_from_code(country)).to eq('France')
   end
 end
 
