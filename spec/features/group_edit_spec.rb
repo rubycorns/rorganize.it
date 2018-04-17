@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 feature 'edit a group', vcr: {cassette_name: 'create_group'} do

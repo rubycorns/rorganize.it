@@ -2,7 +2,8 @@
 
 .flex-index
   .flex-index-main
-    %h1.page-header Groups overview
+    %h1.page-header
+      = overview_filter('Groups')
     %ul.list-group
       = render partial: 'one_group', collection: @groups, as: :group
 
