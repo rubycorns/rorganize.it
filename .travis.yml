@@ -1,10 +1,6 @@
 language: ruby
 rvm:
   - 2.5.1
-  - ruby-head
-matrix:
-  allow_failures:
-    - rvm: ruby-head
 cache: bundler
 sudo: false
 before_install:
