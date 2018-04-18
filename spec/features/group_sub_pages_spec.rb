@@ -12,13 +12,6 @@ feature 'Explore group sub pages', vcr: {cassette_name: 'create_group'} do
       show_groups(["A group searching", "A full and old group"])
     end
 
-    scenario 'Find active groups' do
-      visit_group_main_page
-      click_link 'Active groups'
-      expect(find('ul.list-group')).to have_selector('li', count: 2)
-      show_groups(["A group searching", "An inactive group"])
-    end
-
     scenario 'Find groups searching for something' do
       visit_group_main_page
       click_link 'Groups searching'

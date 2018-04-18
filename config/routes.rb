@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
 
     collection do
-      %i[active searching recent inactive].each { |action| get action }
+      %i[searching recent inactive].each { |action| get action }
     end
 
     member do

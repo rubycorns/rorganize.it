@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
   before_action :ensure_group_admin_powers, only: [:edit, :update, :manage_members]
 
   def index
-    ordered_groups = Group.where(inactive: false).order(:name)
+    ordered_groups = Group.active.order(:name)
     @groups = ordered_groups.filtered_by_region(params)
     @cities = Group.order(:city).cities
     @countries = Group.order(:country).countries
@@ -65,11 +65,6 @@ class GroupsController < ApplicationController
   end
 
   def manage_members
-  end
-
-  def active
-    @groups = Group.active
-    @subnav_active = "active"
   end
 
   def searching
