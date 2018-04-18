@@ -13,7 +13,7 @@ You can learn about our [Code of Conduct online ](https://rorganize.it/conduct) 
 
 ### Just some general information:
 
-Ruby version 2.4.x
+Ruby version 2.5.x
 
 Rails version 4.2.x
 
