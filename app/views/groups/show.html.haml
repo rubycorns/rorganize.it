@@ -14,25 +14,25 @@
         = image_tag('/group-avatar.png', size: "100x100")
       .profile-contact-sub
         %p
-          %strong When:
+          %strong 🗓️ When
           - if @group.time?
             = @group.time
           - else
             %span.info-not-given
               not specified
         %p
-          %strong Where:
+          %strong 🏢 Meeting place
           - if @group.address?
             = @group.address
           - else
             %span.info-not-given
               not specified
         %p
-          %strong Address:
+          %strong 🗺️ Address
           = group_location(@group)
         - if @group.contact?
           %p
-            %strong Contact us:
+            %strong 📮 Contact
             = auto_link @group.contact
         - if @group.twitter?
           %p
