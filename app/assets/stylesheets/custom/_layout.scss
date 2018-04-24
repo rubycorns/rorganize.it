@@ -18,6 +18,11 @@ body {
   color: $body-color;
 }
 
+body {
+  display: flex;
+  flex-flow: column;
+}
+
 /*
  * Basic Styles
  */
@@ -73,6 +78,7 @@ ul, ol {
 // Main Container
 .main-container {
   margin-bottom: 3rem;
+  flex-grow: 1;
 }
 
 .about-page,
