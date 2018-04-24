@@ -1,4 +1,4 @@
 - if person.picture?
-  = image_tag(person.picture_url(:person_profile), width: 300)
+  = image_tag(person.picture_url(:person_profile), width: 300, class: "person-avatar")
 - else
-  = image_tag('/avatar.png')
+  = image_tag('/avatar.png', class: "person-avatar")

@@ -32,7 +32,7 @@
         <ul class="profile-header">
           <li class="person-profile">
             <% if current_person.picture.present? %>
-              <%= link_to(image_tag(current_person.picture_url(:thumb), size: "40x40", alt: current_person.full_name, title: current_person.full_name), current_person) %>
+              <%= link_to(image_tag(current_person.picture_url(:thumb), size: "40x40", alt: current_person.full_name, title: current_person.full_name, class: "person-avatar--top"), current_person) %>
             <% else %>
               <%= image_tag('/avatar.png', size: "40x40", alt: current_person.full_name, title: current_person.full_name) %>
             <% end %>

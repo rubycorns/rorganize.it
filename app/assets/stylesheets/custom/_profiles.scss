@@ -25,6 +25,10 @@
   }
 }
 
+.profile-working-on {
+  flex-basis: 30%;
+}
+
 .profile-contact-sub {
   flex-grow: 1;
 }
@@ -42,6 +46,10 @@
   @media (min-width: $mq-large) {
     width: 90%;
   }
+}
+
+.profile-groups-list {
+  flex-basis: 30%;
 }
 
 .group-leave {
@@ -112,9 +120,10 @@
 
 /* On person#show */
 
-.working-on,
+.profile-working-on,
 .profile-groups-list,
-.profile-groups, {
+.profile-groups,
+.profile-contact{
   margin-top: 1rem;
 }
 
