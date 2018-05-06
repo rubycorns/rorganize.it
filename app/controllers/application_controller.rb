@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from NoSuchCountry, with: :bad_request
+
   protected
 
   def configure_permitted_parameters
@@ -39,5 +41,9 @@ class ApplicationController < ActionController::Base
 
   def render_403
     render file: Rails.root.join('public/403.html'), status: 403
+  end
+
+  def bad_request
+    render plain: "400 Bad Request", status: 400
   end
 end

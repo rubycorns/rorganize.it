@@ -1,3 +1,6 @@
+class NoSuchCountry < StandardError
+end
+
 module ApplicationHelper
 
   def flash_class(level)
@@ -26,6 +29,7 @@ module ApplicationHelper
   end
 
   def country_name_from_code(country)
+    raise NoSuchCountry unless ISO3166::Country[country]
     ISO3166::Country[country].name
   end
 
