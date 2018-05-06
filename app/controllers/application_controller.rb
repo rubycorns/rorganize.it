@@ -44,6 +44,6 @@ class ApplicationController < ActionController::Base
   end
 
   def bad_request
-    render plain: "400 Bad Request", status: 400
+    render file: Rails.root.join('public/400.html'), status: 400
   end
 end
