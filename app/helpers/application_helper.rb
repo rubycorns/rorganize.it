@@ -1,8 +1,4 @@
-class NoSuchCountry < StandardError
-end
-
 module ApplicationHelper
-
   def flash_class(level)
     case level
       when :notice then "info"
@@ -25,12 +21,13 @@ module ApplicationHelper
   end
 
   def country_names_for_select(countries)
-    countries.map { |c| [ISO3166::Country[c].name, c] }
+    countries.map { |c| [country_name_from_code(c), c] }
   end
 
   def country_name_from_code(country)
-    raise NoSuchCountry unless ISO3166::Country[country]
-    ISO3166::Country[country].name
+    country = ISO3166::Country[country]
+    raise NoSuchCountry unless country
+    country.name
   end
 
   def current_person
