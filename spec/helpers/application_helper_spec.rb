@@ -22,6 +22,11 @@ describe '#country_name_from_code' do
     country = "FR"
     expect(helper.country_name_from_code(country)).to eq('France')
   end
+
+  it 'raises NoSuchCountry when country is invalid' do
+    country = 'foofoofoo'
+    expect { helper.country_name_from_code(country) }.to raise_error(NoSuchCountry)
+  end
 end
 
 describe '#overview_filter' do
