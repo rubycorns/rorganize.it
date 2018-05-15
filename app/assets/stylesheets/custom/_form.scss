@@ -81,25 +81,27 @@ inout[type=radio] {
     margin: 0;
     width: 25px;
     height: 100%;
-  }  & .checkbox-el {
+  }
+  & .checkbox-el {
     position: absolute;
-    top: 5px;
     left: 135px;
     cursor: pointer;
     width: 25px;
     height: 100%;
     margin-left: 0.5em;
-    border: 1px solid $limestone-grey;
+    border-radius: 4px;
+    border: 2px solid $light-grey;
+    background-color: $lighter-grey;
   }
   & .checkbox-el::after {
     position: absolute;
     opacity: 0;
-    content: '\2714';
+    content: '✔';
     font-size: 1.5em;
-    color: $body-color;
+    color: $teal;
     background: transparent;
-    top: -10px;
-    left: 5px;
+    top: -9px;
+    left: 1px;
   }
    & .checkbox-el:hover::after {
     opacity: 0.3;
