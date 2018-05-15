@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 feature 'workshop coach' do
@@ -18,7 +17,7 @@ feature 'workshop coach' do
   end
 
   def coach_text
-    'I am willing to coach at Rails Girls workshops'
+    'I am willing to coach at'
   end
 
   def see_workshop_coach_text

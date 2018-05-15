@@ -34,7 +34,7 @@
             = render partial: "shared/website", locals: { object: @person }
 
     .profile-working-on
-      .m-b-l
+      .m-b-l.working-on
         - if @person.working_on?
           %h2 Working on
           %p= markdown(@person.working_on)

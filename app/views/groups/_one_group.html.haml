@@ -23,20 +23,5 @@
       - if group.searching_location
         %span.tag
           Searching for location
-    %p
-      %strong When:
-      - if group.time?
-        = group.time
-      - else
-        %span.info-not-given
-          not specified
-    %p
-      %strong Where:
-      - if group.address?
-        = group.address
-      - else
-        %span.info-not-given
-          not specified
-    %p
-      %strong Address:
-      = group_location(group)
+
+    = render 'meeting_info', group: group

@@ -13,23 +13,8 @@
       - else
         = image_tag('/group-avatar.png', size: "100x100")
       .profile-contact-sub
-        %p
-          %strong 🗓️ When
-          - if @group.time?
-            = @group.time
-          - else
-            %span.info-not-given
-              not specified
-        %p
-          %strong 🏢 Meeting place
-          - if @group.address?
-            = @group.address
-          - else
-            %span.info-not-given
-              not specified
-        %p
-          %strong 🗺️ Address
-          = group_location(@group)
+        = render 'meeting_info', group: @group
+
         - if @group.contact?
           %p
             %strong 📮 Contact
