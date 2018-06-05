@@ -28,4 +28,10 @@ module PeopleHelper
       true
     end
   end
+
+  def people_subnav_active_class(active_match)
+    if @subnav_active == active_match
+      'active'
+    end
+  end
 end

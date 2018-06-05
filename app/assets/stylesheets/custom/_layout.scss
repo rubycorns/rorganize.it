@@ -62,6 +62,11 @@ a:focus {
   color: $link-color-hover;
 }
 
+hr {
+  margin: 1em 0;
+  border: 1px solid $light-grey;
+}
+
 h3 a {
   color: $limestone-grey;
   &:hover {

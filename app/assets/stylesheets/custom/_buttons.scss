@@ -10,11 +10,13 @@
 
 // Buttons
 .btn {
-  padding: 0.3em 0.8em 0.4em;
+  display: inline-block;
+  padding: 0.4em 0.8em 0.4em;
   border-width: 2px;
   border-style: solid;
   border-radius: 4px;
   letter-spacing: 0.009em;
+  white-space: nowrap;
   &:hover {
     color: white;
   }

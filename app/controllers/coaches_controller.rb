@@ -12,5 +12,6 @@ class CoachesController < ApplicationController
 
     @grouped_coaches = @coaches.group_by{|person| person.first_name.first.capitalize }
     @alphabetical_list = @grouped_coaches.keys.sort
+    @subnav_active = 'workshop'
   end
 end

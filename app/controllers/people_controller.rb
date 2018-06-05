@@ -13,6 +13,7 @@ class PeopleController < ApplicationController
 
     @grouped_people = @people.group_by{|person| person.first_name.first.capitalize }
     @alphabetical_list = @grouped_people.keys.sort
+    @subnav_active = 'index'
   end
 
   def show
