@@ -11,4 +11,6 @@ class PagesController < ApplicationController
   def welcome
   end
 
+  def gdpr
+  end
 end

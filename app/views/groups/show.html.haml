@@ -50,27 +50,37 @@
           = image_tag('follow_your_dreams.gif')
 
     .profile-main
-      - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
-        .group-join-box
-          = render 'join'
+      .flex-index
+        .group-info.flex-index-main
+          - if @group.not_full? && @group.active? && show_join_group_button?(current_person, @group)
+            .group-join-box
+              = render 'join'
 
-      %p.tags
-        - if @group.full?
-          %span.tag.tag-full
-            Full
-        - if @group.inactive?
-          %span.tag.tag-inactive
-            Inactive
-        - if @group.allow_male_students?
-          %span.tag.tag-mixed
-            Mixed group
-      - if @group.level?
-        %p
-          %strong Level:
-          = @group.level
-      - if @group.activities?
-        %p.group-description
-          = markdown(@group.activities)
+          %p.tags
+            - if @group.full?
+              %span.tag.tag-full
+                Full
+            - if @group.inactive?
+              %span.tag.tag-inactive
+                Inactive
+            - if @group.allow_male_students?
+              %span.tag.tag-mixed
+                Mixed group
+            - if @group.level?
+              %p
+                %strong Level:
+                = @group.level
+          - if @group.activities?
+            %p.group-description
+              = markdown(@group.activities)
+
+        .group-notices.flex-index-sidebar
+          %h3 Latest group upates
+          %ul
+            %li
+              %time 2018-05-21
+              %p we can't meet, meetup time
+
 
       %ul.group-tabs
         %li.group-tab
