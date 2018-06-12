@@ -15,6 +15,6 @@
             = render partial: "shared/groups", locals: { object: person }
             - if logged_in?(person)
               .list-group-item-person
-                It's you
-              - if location_for?(person)
-                %p #{person.city} #{person.country_name}
+                %p
+                  %strong 🙂 It's you️!
+                  = "In #{person.city} #{person.country_name}" if location_for?(person)

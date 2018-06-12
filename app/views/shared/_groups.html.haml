@@ -1,9 +1,7 @@
-.people--groups
-  %p
-    %strong Groups:
-  %ul.people--groups-groups
-    - if object.groups.any?
+- if object.groups.any?
+  .people--groups
+    %p
+      %strong= '💎 Group'.pluralize(object.groups.count)
+    %ul.people--groups-groups
       - object.groups.each do |group|
         %li= link_to group.name, group
-    - else
-      %li.info-not-given not specified
