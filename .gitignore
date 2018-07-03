@@ -19,4 +19,3 @@ pickle-email-*.html
 .project
 .DS_Store
 config/secrets.yml
-.auth
