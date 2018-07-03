@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 describe 'Signing in', :type => :feature do
@@ -87,11 +86,15 @@ describe 'Signing in', :type => :feature do
     it 'successfully merges the users account with github' do
       sign_in person
       visit person_path(person)
+
+      click_link('Edit profile')
       find("#github-button").click
 
       expect(page).to have_content("Successfully authenticated from GitHub account")
+
+      click_link('Edit profile')
       expect(page).to_not have_content("Link account with GitHub")
-      expect(page).to have_content("Account linked with GitHub")
+      expect(page).to have_content("Your account is linked to GitHub ")
     end
   end
 end

@@ -3,7 +3,12 @@
     = link_to(@person) do
       ← Back to #{@person.name}
 
-.no-flex-index
-  %h1.page-header Edit details of #{@person.name}
-  .form-box
-    = render 'form'
+.flex-index
+  .flex-index-main
+    %h1.page-header Edit details of #{@person.name}
+    .form-box
+      = render 'form'
+  .flex-index-sidebar
+    %h2.page-header Link account to GitHub
+    .form-box
+      = render 'provider'

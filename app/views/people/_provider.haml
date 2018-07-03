@@ -1,0 +1,5 @@
+- if logged_in?(@person)
+  - if @person.provider.present?
+    Your account is linked to GitHub
+  - else
+    = link_to "Link account to GitHub",  person_github_omniauth_authorize_path, id: 'github-button', class: 'btn btn-grey-full'
