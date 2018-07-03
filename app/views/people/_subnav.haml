@@ -3,12 +3,6 @@
   %li.sub-nav__spacer= link_to "Workshop coaches", coaches_path, class: people_subnav_active_class('workshop')
 
   - if logged_in?(@person)
-    - if @person.provider.present?
-      %li
-        %span Account linked with GitHub
-    - else
-      %li= link_to "Link account with GitHub",  person_github_omniauth_authorize_path, id: 'github-button'
-
     %li= link_to "Edit profile", edit_person_path(@person)
     %li= link_to "Change password", edit_person_registration_path
     %li= link_to "Delete account", person_registration_path(@person), method: :delete, data: { confirm: "Are you sure you want to delete your account?" }
