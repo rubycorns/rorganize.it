@@ -1,22 +1,41 @@
 =render 'subnav'
 
-.no-flex-index
-  %h1.page-header
-    Member management for
-    = @group.name
+.flex-index
+  .flex-index-main
+    %h1.page-header
+      Member management for
+      = @group.name
 
-  %ul
-    - @group.memberships.each do |m|
-      %li
-        = m.person
-        - if m.person.admin_member_of? @group
-          %small (Group admin)
-
-        = form_for(m, html: { method: :patch }, url: membership_path(m)) do |f|
+    %ul
+      - @group.memberships.each do |m|
+        %li
+          = m.person
           - if m.person.admin_member_of? @group
-            = f.submit "remove admin status", class: "btn btn-small btn-grey"
-          - else
-            = f.submit "make admin", class: "btn btn-small btn-grey"
+            %small (Group admin)
 
-        = form_for(m, html: { method: :delete, data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" } }, url: membership_path(m)) do |f|
-          = f.submit "remove person from group", class: "btn btn-small btn-pink"
+          = form_for(m, html: { method: :patch }, url: membership_path(m)) do |f|
+            - if m.person.admin_member_of? @group
+              = f.submit "remove admin status", class: "btn btn-small btn-grey"
+            - else
+              = f.submit "make admin", class: "btn btn-small btn-grey"
+
+          = form_for(m, html: { method: :delete, data: { confirm: "Are you sure? Keep in mind, destruction is irreversible!" } }, url: membership_path(m)) do |f|
+            = f.submit "remove person from group", class: "btn btn-small btn-pink"
+
+  %aside.flex-index-sidebar.group_invites
+    - if @group.invites.first
+      %h2.page-header 📬 Membership requests
+      %ul
+        - @group.invites.each do |i|
+          %li
+            = link_to i.person.full_name, person_path(i.person)
+            = form_for(i, html: { method: :delete }, url: invites_path(i)) do |f|
+              = f.hidden_field :state, value: true
+              = f.submit "accept request", class: "btn btn-small btn-grey"
+            = form_for(i, html: { method: :delete }, url: invites_path(i)) do |f|
+              = f.hidden_field :state, value: false
+              = f.submit "reject request", class: "btn btn-small btn-pink"
+
+    - else
+      %h2.page-header 📪 Membership requests
+      %p No requests

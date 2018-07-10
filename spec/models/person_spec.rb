@@ -25,7 +25,6 @@
 #  github_handle          :string
 #
 
-
 require 'spec_helper'
 
 describe Person, vcr: {cassette_name: 'create_group'} do
@@ -38,7 +37,7 @@ describe Person, vcr: {cassette_name: 'create_group'} do
 
   let(:person)        { create(:person) }
   let!(:group)        { create(:group) }
-  let!(:second_group) { create(:second_group)}
+  let!(:second_group) { create(:second_group) }
 
   subject { person }
 

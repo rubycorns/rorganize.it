@@ -1,0 +1,18 @@
+%h2 💎 Project Groups
+- if person.has_group?
+  %ul.profile-groups
+    - person.groups.each do |group|
+      %li.list-group-item
+        .list-group-item-pic
+          = render partial: 'shared/group_picture', locals: { group: group}
+        .list-group-item-info
+          .h3= link_to group.name, group_path(group.id)
+          %p
+            since
+            = group.memberships.where(person: person).first.created_at.strftime("%b %d %Y")
+        - if admin?
+          = render partial: 'groups/remove_from_group', locals: { object: person, group: group }
+- else
+  %p
+    = person.first_name
+    is not part of any group.

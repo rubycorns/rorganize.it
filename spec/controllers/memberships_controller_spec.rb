@@ -11,11 +11,10 @@ describe MembershipsController, vcr: {cassette_name: 'create_group'} do
   end
 
   describe 'create' do
-
     it 'creates a membership' do
       expect do
         post :create, params: params
-      end.to change{ Membership.count}.by(1)
+      end.to change{ Membership.count }.by(1)
     end
 
     it 'sends an email to the group' do
@@ -36,7 +35,6 @@ describe MembershipsController, vcr: {cassette_name: 'create_group'} do
   end
 
   describe 'destroy' do
-
     context 'removing yourself from a group' do
       let(:membership) { person.memberships.first}
 

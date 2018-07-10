@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :admins, only: [:create, :destroy]
   end
 
+  resource :invites, only: [:create, :destroy]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

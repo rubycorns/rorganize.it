@@ -36,6 +36,7 @@ class Person < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :groups, through: :memberships
   has_many :posts
+  has_many :invites, dependent: :destroy
 
   mount_uploader :picture, PictureUploader
 

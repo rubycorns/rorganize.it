@@ -44,7 +44,12 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
+  ## If you have mailcatcher installed
+  ## (`gem install mailcatcher`, then `$ mailcatcher`),
+  ## you can use :smtp for amazeing email debugging
   config.action_mailer.delivery_method = :test
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true

@@ -2,650 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:09:56 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645056'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"aadd945a037a40894c5a7204a0740394"'
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 1a483cde6df004748f3e5c80dc46df26.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - hAIE00OOhwxx1pSKaPYhr4YCaODbK0ZVzgVarMsZcH9ELzFaB5JhIw==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJiZXJsaW4iLCJkZSJdLCJmZWF0dXJlcyI6W3siaWQiOiJwbGFjZS4yMjA4MzMiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicmVnaW9uIiwicGxhY2UiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7InNob3J0X2NvZGUiOiJERS1CRSIsIndpa2lkYXRhIjoiUTY0In0sInRleHQiOiJCZXJsaW4iLCJwbGFjZV9uYW1lIjoiQmVybGluLCBHZXJtYW55IiwiYmJveCI6WzEzLjA4ODMzMyw1Mi4zMzgyNDIsMTMuNzYwNDY5LDUyLjY3NDkxN10sImNlbnRlciI6WzEzLjM5MzIzNiw1Mi41MDQwNDNdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzEzLjM5MzIzNiw1Mi41MDQwNDNdfSwiY29udGV4dCI6W3siaWQiOiJjb3VudHJ5LjMxMzUiLCJzaG9ydF9jb2RlIjoiZGUiLCJ3aWtpZGF0YSI6IlExODMiLCJ0ZXh0IjoiR2VybWFueSJ9XX0seyJpZCI6ImFkZHJlc3MuOTY2MTQ3MTgiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsiYWRkcmVzcyJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnt9LCJ0ZXh0IjoiQXYgQmVybGluIERlIChNaWFtaSBQbGF0amEpIiwicGxhY2VfbmFtZSI6IkF2IEJlcmxpbiBEZSAoTWlhbWkgUGxhdGphKSwgNDM4OTIgTW9udC1yb2lnIGRlbCBDYW1wLCBUYXJyYWdvbmEsIFNwYWluIiwiY2VudGVyIjpbMC45MzkxMTgsNDEuMDExNDk3XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlswLjkzOTExOCw0MS4wMTE0OTddfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4yOTA5NTc1ODE4ODQ0MTAwIiwidGV4dCI6IjQzODkyIn0seyJpZCI6InBsYWNlLjI5MDk1MTA2NTQ2NTE0MDAiLCJ3aWtpZGF0YSI6IlE5Mjk3OTQiLCJ0ZXh0IjoiTW9udC1yb2lnIGRlbCBDYW1wIn0seyJpZCI6InJlZ2lvbi4zNTQ4Iiwic2hvcnRfY29kZSI6IkVTLVQiLCJ3aWtpZGF0YSI6IlE5ODM5MiIsInRleHQiOiJUYXJyYWdvbmEifSx7ImlkIjoiY291bnRyeS4zMTEwIiwic2hvcnRfY29kZSI6ImVzIiwid2lraWRhdGEiOiJRMjkiLCJ0ZXh0IjoiU3BhaW4ifV19LHsiaWQiOiJwb2kuMTQ2MDgyMjk2NTE2OTI2NDAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicG9pIl0sInJlbGV2YW5jZSI6MSwicHJvcGVydGllcyI6eyJsYW5kbWFyayI6dHJ1ZSwidGVsIjoiMDIwIDczNzcgMTYxNiIsImNhdGVnb3J5IjoiYmFrZXJ5IiwiYWRkcmVzcyI6IjEyOWEgV2hpdGVjaGFwZWwgSGlnaCBTdCIsIm1ha2kiOiJiYWtlcnkifSwidGV4dCI6IkJlcmxpbiBEZWxpY2lvdXMiLCJwbGFjZV9uYW1lIjoiQmVybGluIERlbGljaW91cywgMTI5YSBXaGl0ZWNoYXBlbCBIaWdoIFN0LCBMb25kb24sIEVuZ2xhbmQgRTEgN1BTLCBVbml0ZWQgS2luZ2RvbSIsImNlbnRlciI6Wy0wLjA3MzA0MSw1MS41MTQ4MjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6Wy0wLjA3MzA0MSw1MS41MTQ4MjZdfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS42NzU0NjQwMzk0ODg3OTcwIiwidGV4dCI6IkUxIDdQUyJ9LHsiaWQiOiJsb2NhbGl0eS45MjIzODU4ODcwNDQ2MTkwIiwid2lraWRhdGEiOiJRMTIzMjE5IiwidGV4dCI6IlNwaXRhbGZpZWxkcyJ9LHsiaWQiOiJwbGFjZS44NTAwMzgzNDcwOTEzMzk3Iiwid2lraWRhdGEiOiJRODQiLCJ0ZXh0IjoiTG9uZG9uIn0seyJpZCI6ImRpc3RyaWN0Ljk2NTU2OTgxMDc5NzY2MjAiLCJ3aWtpZGF0YSI6IlEyMzMwNiIsInRleHQiOiJHcmVhdGVyIExvbmRvbiJ9LHsiaWQiOiJyZWdpb24uMzE4NSIsInNob3J0X2NvZGUiOiJHQi1FTkciLCJ3aWtpZGF0YSI6IlEyMSIsInRleHQiOiJFbmdsYW5kIn0seyJpZCI6ImNvdW50cnkuMzU4Iiwic2hvcnRfY29kZSI6ImdiIiwid2lraWRhdGEiOiJRMTQ1IiwidGV4dCI6IlVuaXRlZCBLaW5nZG9tIn1dfSx7ImlkIjoicGxhY2UuMzgzNjg1NTY0MzgwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC45NSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE0ODkyMzQzIn0sInRleHQiOiJCZXJsaW4iLCJwbGFjZV9uYW1lIjoiQmVybGluLCBFYXN0ZXJuIENhcGUsIFNvdXRoIEFmcmljYSIsIm1hdGNoaW5nX3BsYWNlX25hbWUiOiJCZXJsaW4sIEVhc3Rlcm4gQ2FwZSwgRGUgQWZmcmljYSIsImJib3giOlsyNy41NDAzMDAwMDAwMDAxLC0zMi45MDA3OTk5OTksMjcuNjMwMDIwMDAwMDAwMSwtMzIuODM2ODddLCJjZW50ZXIiOlsyNy41ODEyLC0zMi44ODMxXSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsyNy41ODEyLC0zMi44ODMxXX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjI2MDU3Iiwic2hvcnRfY29kZSI6IlpBLUVDIiwid2lraWRhdGEiOiJRMTMwODQwIiwidGV4dCI6IkVhc3Rlcm4gQ2FwZSJ9LHsiaWQiOiJjb3VudHJ5LjM4NyIsInNob3J0X2NvZGUiOiJ6YSIsIndpa2lkYXRhIjoiUTI1OCIsInRleHQiOiJTb3V0aCBBZnJpY2EifV19LHsiaWQiOiJwbGFjZS4xNTA5NTQxMTYxMzU2NDM4MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwbGFjZSJdLCJyZWxldmFuY2UiOjAuNSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE2MTQxODQifSwidGV4dCI6IkJlcmxpbiIsInBsYWNlX25hbWUiOiJCZXJsaW4sIE1hcnlsYW5kLCBVbml0ZWQgU3RhdGVzIiwiYmJveCI6Wy03NS4zNjQ5OTEwMTY5MTg4LDM4LjE5MTMzNzYwNTczNjMsLTc1LjA5Mjk0NTk4ODE3NjUsMzguNDA5NTA0MDE1NDI1MV0sImNlbnRlciI6Wy03NS4yMTc3LDM4LjMyMjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6Wy03NS4yMTc3LDM4LjMyMjZdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMjExODkxIiwic2hvcnRfY29kZSI6IlVTLU1EIiwid2lraWRhdGEiOiJRMTM5MSIsInRleHQiOiJNYXJ5bGFuZCJ9LHsiaWQiOiJjb3VudHJ5LjMxNDUiLCJzaG9ydF9jb2RlIjoidXMiLCJ3aWtpZGF0YSI6IlEzMCIsInRleHQiOiJVbml0ZWQgU3RhdGVzIn1dfV0sImF0dHJpYnV0aW9uIjoiTk9USUNFOiDCqSAyMDE3IE1hcGJveCBhbmQgaXRzIHN1cHBsaWVycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVXNlIG9mIHRoaXMgZGF0YSBpcyBzdWJqZWN0IHRvIHRoZSBNYXBib3ggVGVybXMgb2YgU2VydmljZSAoaHR0cHM6Ly93d3cubWFwYm94LmNvbS9hYm91dC9tYXBzLykuIFRoaXMgcmVzcG9uc2UgYW5kIHRoZSBpbmZvcm1hdGlvbiBpdCBjb250YWlucyBtYXkgbm90IGJlIHJldGFpbmVkLiJ9
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:09:56 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Z%C3%BCrich+CH.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:09:59 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645058'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"caabdedb204a269c996c357567dd3960"'
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 42eda27a8f21acb511ddb91858ee5d5b.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - lSzbN_b47jZM9lhWOUMLbI8hyvjeqP9FQMy42BqDV1a-tqrICOcoAA==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJ6w7xyaWNoIiwiY2giXSwiZmVhdHVyZXMiOlt7ImlkIjoicGxhY2UuODk2NzA1NDU3ODgwNzcwOCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwbGFjZSJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnsid2lraWRhdGEiOiJRNzIifSwidGV4dCI6IlrDvHJpY2giLCJwbGFjZV9uYW1lIjoiWsO8cmljaCwgWsO8cmljaCwgU3dpdHplcmxhbmQiLCJiYm94IjpbOC40NDc5ODIsNDcuMzIwMjU4LDguNjI1MzM0LDQ3LjQzNDY2Ml0sImNlbnRlciI6WzguNTQsNDcuMzc4NjFdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzguNTQsNDcuMzc4NjFdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMjE2ODQzIiwic2hvcnRfY29kZSI6IkNILVpIIiwid2lraWRhdGEiOiJRMTE5NDMiLCJ0ZXh0IjoiWsO8cmljaCJ9LHsiaWQiOiJjb3VudHJ5LjMxNzMiLCJzaG9ydF9jb2RlIjoiY2giLCJ3aWtpZGF0YSI6IlEzOSIsInRleHQiOiJTd2l0emVybGFuZCJ9XX0seyJpZCI6InJlZ2lvbi4yMTY4NDMiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicmVnaW9uIl0sInJlbGV2YW5jZSI6MSwicHJvcGVydGllcyI6eyJzaG9ydF9jb2RlIjoiQ0gtWkgiLCJ3aWtpZGF0YSI6IlExMTk0MyJ9LCJ0ZXh0IjoiWsO8cmljaCIsInBsYWNlX25hbWUiOiJaw7xyaWNoLCBTd2l0emVybGFuZCIsImJib3giOls4LjM1ODI4Myw0Ny4xNTk0NDMsOC45ODQ5NTEsNDcuNjk0MzUxXSwiY2VudGVyIjpbOC42NTA4MzIsNDcuNDI1NDc0XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOls4LjY1MDgzMiw0Ny40MjU0NzRdfSwiY29udGV4dCI6W3siaWQiOiJjb3VudHJ5LjMxNzMiLCJzaG9ydF9jb2RlIjoiY2giLCJ3aWtpZGF0YSI6IlEzOSIsInRleHQiOiJTd2l0emVybGFuZCJ9XX0seyJpZCI6InBsYWNlLjMzNTM1MTAxNjQzMTAyMDIiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicGxhY2UiXSwicmVsZXZhbmNlIjowLjUsInByb3BlcnRpZXMiOnsid2lraWRhdGEiOiJRNjkyMzUifSwidGV4dCI6IkNoYW0iLCJwbGFjZV9uYW1lIjoiQ2hhbSwgWnVnLCBTd2l0emVybGFuZCIsImJib3giOls4LjQyNTMxNCw0Ny4xNjc0MzIsOC40ODA2NzYsNDcuMjIzMzc3XSwiY2VudGVyIjpbOC40NTk0NCw0Ny4xODAyOF0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbOC40NTk0NCw0Ny4xODAyOF19LCJjb250ZXh0IjpbeyJpZCI6InJlZ2lvbi4yMTEyMDUiLCJzaG9ydF9jb2RlIjoiQ0gtWkciLCJ3aWtpZGF0YSI6IlExMTkzMyIsInRleHQiOiJadWcifSx7ImlkIjoiY291bnRyeS4zMTczIiwic2hvcnRfY29kZSI6ImNoIiwid2lraWRhdGEiOiJRMzkiLCJ0ZXh0IjoiU3dpdHplcmxhbmQifV19LHsiaWQiOiJwbGFjZS45MDU5ODYzMDE3MTE3MTUwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC41LCJwcm9wZXJ0aWVzIjp7Indpa2lkYXRhIjoiUTQ1ODc1MyJ9LCJ0ZXh0IjoiQ2hhbGFtcMOpIiwicGxhY2VfbmFtZSI6IkNoYWxhbXDDqSwgSGF1dC1SaGluLCBGcmFuY2UiLCJiYm94IjpbNy41MjY5MDksNDcuODA5MzU1LDcuNTYzNjg5LDQ3Ljg1MzY2Ml0sImNlbnRlciI6WzcuNTQxMTEsNDcuODIwNTZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzcuNTQxMTEsNDcuODIwNTZdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMjY2MjAiLCJzaG9ydF9jb2RlIjoiRlItNjgiLCJ3aWtpZGF0YSI6IlExMjcyMiIsInRleHQiOiJIYXV0LVJoaW4ifSx7ImlkIjoiY291bnRyeS4zMTQ4Iiwic2hvcnRfY29kZSI6ImZyIiwid2lraWRhdGEiOiJRMTQyIiwidGV4dCI6IkZyYW5jZSJ9XX0seyJpZCI6InBsYWNlLjEwNDExMzc3NzMwNTcxNDkwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC41LCJwcm9wZXJ0aWVzIjp7Indpa2lkYXRhIjoiUTg0MzcwNyJ9LCJ0ZXh0IjoiQ2hhdmFubmVzLWxlcy1HcmFuZHMiLCJwbGFjZV9uYW1lIjoiQ2hhdmFubmVzLWxlcy1HcmFuZHMsIFRlcnJpdG9pcmUgZGUgQmVsZm9ydCwgRnJhbmNlIiwiYmJveCI6WzcuMDE5NjcxLDQ3LjU3Njc3Niw3LjA4NDQ0Miw0Ny42MDA5NTRdLCJjZW50ZXIiOls3LjA0Njk0LDQ3LjU5MTExXSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOls3LjA0Njk0LDQ3LjU5MTExXX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjIyNTg5MiIsInNob3J0X2NvZGUiOiJGUi05MCIsIndpa2lkYXRhIjoiUTEyNzgyIiwidGV4dCI6IlRlcnJpdG9pcmUgZGUgQmVsZm9ydCJ9LHsiaWQiOiJjb3VudHJ5LjMxNDgiLCJzaG9ydF9jb2RlIjoiZnIiLCJ3aWtpZGF0YSI6IlExNDIiLCJ0ZXh0IjoiRnJhbmNlIn1dfV0sImF0dHJpYnV0aW9uIjoiTk9USUNFOiDCqSAyMDE3IE1hcGJveCBhbmQgaXRzIHN1cHBsaWVycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVXNlIG9mIHRoaXMgZGF0YSBpcyBzdWJqZWN0IHRvIHRoZSBNYXBib3ggVGVybXMgb2YgU2VydmljZSAoaHR0cHM6Ly93d3cubWFwYm94LmNvbS9hYm91dC9tYXBzLykuIFRoaXMgcmVzcG9uc2UgYW5kIHRoZSBpbmZvcm1hdGlvbiBpdCBjb250YWlucyBtYXkgbm90IGJlIHJldGFpbmVkLiJ9
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:09:59 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Paris+FR.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:09:59 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645059'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"caabdedb204a269c996c357567dd3960"'
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 0316586b8fd7e325258707448d98d7cd.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - iMIRIHDDYtIppOcXjbiIEB9FCG-tKm262YpM_YcIAkkPFO-fhfrbfg==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJwYXJpcyIsImZyIl0sImZlYXR1cmVzIjpbeyJpZCI6InBsYWNlLjIyODA4MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJyZWdpb24iLCJwbGFjZSJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnsic2hvcnRfY29kZSI6IkZSLTc1Iiwid2lraWRhdGEiOiJROTAifSwidGV4dCI6IlBhcmlzIiwicGxhY2VfbmFtZSI6IlBhcmlzLCBGcmFuY2UiLCJiYm94IjpbMi4yMjQyMTksNDguODE1NzU0LDIuNDY5NzUzLDQ4LjkwMTk3M10sImNlbnRlciI6WzIuMzIwNTgyLDQ4Ljg1OTQ4OV0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbMi4zMjA1ODIsNDguODU5NDg5XX0sImNvbnRleHQiOlt7ImlkIjoiY291bnRyeS4zMTQ4Iiwic2hvcnRfY29kZSI6ImZyIiwid2lraWRhdGEiOiJRMTQyIiwidGV4dCI6IkZyYW5jZSJ9XX0seyJpZCI6InBvaS4xMjEwMzc3MzI3NzI4Mjc3MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwb2kiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7ImxhbmRtYXJrIjp0cnVlLCJ0ZWwiOiIwMSA0MiA3OCAwMCAwNCIsImNhdGVnb3J5IjoiaG90ZWwsIGxvZGdpbmcsIG1vdGVsIiwiYWRkcmVzcyI6IjcyIHJ1ZSBkZSBUdXJiaWdvIn0sInRleHQiOiJQYXJpcyBGcmFuY2UgSMO0dGVsIiwicGxhY2VfbmFtZSI6IlBhcmlzIEZyYW5jZSBIw7R0ZWwsIDcyIHJ1ZSBkZSBUdXJiaWdvLCBQYXJpcywgNzUwMDMsIEZyYW5jZSIsImNlbnRlciI6WzIuMzYwNTE4LDQ4Ljg2NjM5XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsyLjM2MDUxOCw0OC44NjYzOV19LCJjb250ZXh0IjpbeyJpZCI6InBvc3Rjb2RlLjExODcyODI1MTYwMzg5NDAwIiwidGV4dCI6Ijc1MDAzIn0seyJpZCI6InBsYWNlLjIyODA4MCIsInNob3J0X2NvZGUiOiJGUi03NSIsIndpa2lkYXRhIjoiUTkwIiwidGV4dCI6IlBhcmlzIn0seyJpZCI6ImNvdW50cnkuMzE0OCIsInNob3J0X2NvZGUiOiJmciIsIndpa2lkYXRhIjoiUTE0MiIsInRleHQiOiJGcmFuY2UifV19LHsiaWQiOiJwb2kuMTg3MTUzNzk0OTMxOTQ1NjAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicG9pIl0sInJlbGV2YW5jZSI6MSwicHJvcGVydGllcyI6eyJsYW5kbWFyayI6dHJ1ZSwidGVsIjoiMDMgODggNjQgOTEgMTYiLCJjYXRlZ29yeSI6ImJha2VyeSIsImFkZHJlc3MiOiIzIHJ1ZSBkZSBDcmVzc2llciIsIm1ha2kiOiJiYWtlcnkifSwidGV4dCI6IlBhcmlzIEZyYW5rIiwicGxhY2VfbmFtZSI6IlBhcmlzIEZyYW5rLCAzIHJ1ZSBkZSBDcmVzc2llciwgRmVnZXJzaGVpbSwgQmFzLVJoaW4gNjc2NDAsIEZyYW5jZSIsImNlbnRlciI6WzcuNjkzNTc2LDQ4LjQ4OTc0N10sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbNy42OTM1NzYsNDguNDg5NzQ3XX0sImNvbnRleHQiOlt7ImlkIjoicG9zdGNvZGUuNDQxMjY4MTQxMjk3NDgyMCIsInRleHQiOiI2NzY0MCJ9LHsiaWQiOiJwbGFjZS43MzgxNTk3NTI5MTg4MjUwIiwid2lraWRhdGEiOiJRMjI0NzciLCJ0ZXh0IjoiRmVnZXJzaGVpbSJ9LHsiaWQiOiJyZWdpb24uMjIxNzczIiwic2hvcnRfY29kZSI6IkZSLTY3Iiwid2lraWRhdGEiOiJRMTI3MTciLCJ0ZXh0IjoiQmFzLVJoaW4ifSx7ImlkIjoiY291bnRyeS4zMTQ4Iiwic2hvcnRfY29kZSI6ImZyIiwid2lraWRhdGEiOiJRMTQyIiwidGV4dCI6IkZyYW5jZSJ9XX0seyJpZCI6InBvaS43MjA5MTczMjkwNTI4NzYwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBvaSJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnsibGFuZG1hcmsiOnRydWUsImNhdGVnb3J5IjoiY2h1cmNoLCBwbGFjZSBvZiB3b3JzaGlwLCByZWxpZ2lvbiwgcmVsaWdpb3VzIn0sInRleHQiOiJQYXJpcyBGcmFuY2UiLCJwbGFjZV9uYW1lIjoiUGFyaXMgRnJhbmNlLCBQYXJpcywgNzUwMDMsIEZyYW5jZSIsImNlbnRlciI6WzIuMzYwNDUsNDguODY2NDVdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzIuMzYwNDUsNDguODY2NDVdfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4xMTg3MjgyNTE2MDM4OTQwMCIsInRleHQiOiI3NTAwMyJ9LHsiaWQiOiJwbGFjZS4yMjgwODAiLCJzaG9ydF9jb2RlIjoiRlItNzUiLCJ3aWtpZGF0YSI6IlE5MCIsInRleHQiOiJQYXJpcyJ9LHsiaWQiOiJjb3VudHJ5LjMxNDgiLCJzaG9ydF9jb2RlIjoiZnIiLCJ3aWtpZGF0YSI6IlExNDIiLCJ0ZXh0IjoiRnJhbmNlIn1dfSx7ImlkIjoicG9pLjEzNTg4NzY3OTk3OTczMTIwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBvaSJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnsibGFuZG1hcmsiOnRydWUsInRlbCI6IjAxIDQwIDM2IDUyIDcwIiwiY2F0ZWdvcnkiOiJmYXN0IGZvb2QsIHJlc3RhdXJhbnQiLCJhZGRyZXNzIjoiMTQ5IGJvdWxldmFyZCBkZSBsYSBWaWxsZXR0ZSJ9LCJ0ZXh0IjoiUGFyaXMgRnJpZWQgQ2hpY2tlbiBQRkMiLCJwbGFjZV9uYW1lIjoiUGFyaXMgRnJpZWQgQ2hpY2tlbiBQRkMsIDE0OSBib3VsZXZhcmQgZGUgbGEgVmlsbGV0dGUsIFBhcmlzLCA3NTAxMCwgRnJhbmNlIiwiY2VudGVyIjpbMi4zNjc5NDMsNDguODgzOTk5XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsyLjM2Nzk0Myw0OC44ODM5OTldfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4xMjQ4ODc1MjA2NTU3NzkzMCIsInRleHQiOiI3NTAxMCJ9LHsiaWQiOiJwbGFjZS4yMjgwODAiLCJzaG9ydF9jb2RlIjoiRlItNzUiLCJ3aWtpZGF0YSI6IlE5MCIsInRleHQiOiJQYXJpcyJ9LHsiaWQiOiJjb3VudHJ5LjMxNDgiLCJzaG9ydF9jb2RlIjoiZnIiLCJ3aWtpZGF0YSI6IlExNDIiLCJ0ZXh0IjoiRnJhbmNlIn1dfV0sImF0dHJpYnV0aW9uIjoiTk9USUNFOiDCqSAyMDE3IE1hcGJveCBhbmQgaXRzIHN1cHBsaWVycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVXNlIG9mIHRoaXMgZGF0YSBpcyBzdWJqZWN0IHRvIHRoZSBNYXBib3ggVGVybXMgb2YgU2VydmljZSAoaHR0cHM6Ly93d3cubWFwYm94LmNvbS9hYm91dC9tYXBzLykuIFRoaXMgcmVzcG9uc2UgYW5kIHRoZSBpbmZvcm1hdGlvbiBpdCBjb250YWlucyBtYXkgbm90IGJlIHJldGFpbmVkLiJ9
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:09:59 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Basel+CH.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:10:00 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645059'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"93ee7acf0e9a8e7978c79586ccff4100"'
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 f2cdeae9faa9c871a27c20811b04af58.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - _l8TjncVpMk5Za5HiChsjiuUdooUZ7fx9u5tqU8bvhjYlmk9hMTWpA==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJiYXNlbCIsImNoIl0sImZlYXR1cmVzIjpbeyJpZCI6InBsYWNlLjg0NDM2MTMzMDk3MDc2MzkiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicGxhY2UiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7Indpa2lkYXRhIjoiUTc4In0sInRleHQiOiJCYXNlbCIsInBsYWNlX25hbWUiOiJCYXNlbCwgQmFzZWwtU3RhZHQsIFN3aXR6ZXJsYW5kIiwiYmJveCI6WzcuNTU0NjY0LDQ3LjUxOTM0Miw3LjYzNDE0OCw0Ny41ODk5MDJdLCJjZW50ZXIiOls3LjU5MTExLDQ3LjU1MDU2XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOls3LjU5MTExLDQ3LjU1MDU2XX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjIyMTY3NCIsInNob3J0X2NvZGUiOiJDSC1CUyIsIndpa2lkYXRhIjoiUTEyMTcyIiwidGV4dCI6IkJhc2VsLVN0YWR0In0seyJpZCI6ImNvdW50cnkuMzE3MyIsInNob3J0X2NvZGUiOiJjaCIsIndpa2lkYXRhIjoiUTM5IiwidGV4dCI6IlN3aXR6ZXJsYW5kIn1dfSx7ImlkIjoicG9pLjE3NjA3Mjk2NjEwOTczMTMwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBvaSJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnsibGFuZG1hcmsiOnRydWUsInRlbCI6IjA4OS03NzIgOTE0IiwiY2F0ZWdvcnkiOiJjaHVyY2gsIHBsYWNlIG9mIHdvcnNoaXAsIHJlbGlnaW9uLCByZWxpZ2lvdXMiLCJhZGRyZXNzIjoiTm8uIFRCMTQ1LCBKYWxhbiBNYXNqaWQifSwidGV4dCI6IkJhc2VsIENocmlzdGlhbiBDaHVyY2ggT2YgTWFsYXlzaWEiLCJwbGFjZV9uYW1lIjoiQmFzZWwgQ2hyaXN0aWFuIENodXJjaCBPZiBNYWxheXNpYSwgTm8uIFRCMTQ1LCBKYWxhbiBNYXNqaWQsIFRhd2F1LCBTYWJhaCA5MTAwMCwgTWFsYXlzaWEiLCJjZW50ZXIiOlsxMTcuODg4MDM2LDQuMjQ4MzA1XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsxMTcuODg4MDM2LDQuMjQ4MzA1XX0sImNvbnRleHQiOlt7ImlkIjoicG9zdGNvZGUuMTEwODY2NjI4MzY4NDc5NjAiLCJ0ZXh0IjoiOTEwMDAifSx7ImlkIjoicGxhY2UuODQzOTQxODY3Njk0MDgyNSIsIndpa2lkYXRhIjoiUTk5NTE2MyIsInRleHQiOiJUYXdhdSJ9LHsiaWQiOiJyZWdpb24uMjIzMDgwIiwic2hvcnRfY29kZSI6Ik1ZLTEyIiwid2lraWRhdGEiOiJRMTc5MDI5IiwidGV4dCI6IlNhYmFoIn0seyJpZCI6ImNvdW50cnkuMzE1MyIsInNob3J0X2NvZGUiOiJteSIsIndpa2lkYXRhIjoiUTgzMyIsInRleHQiOiJNYWxheXNpYSJ9XX0seyJpZCI6InBvaS4xOTAzNjk1NDkyNDA5NTg0MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwb2kiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7ImxhbmRtYXJrIjp0cnVlLCJ0ZWwiOiIwODgtMjcwIDMzMyIsImNhdGVnb3J5IjoiY2h1cmNoLCBwbGFjZSBvZiB3b3JzaGlwLCByZWxpZ2lvbiwgcmVsaWdpb3VzIiwiYWRkcmVzcyI6IkphbGFuIFR1YXJhbiJ9LCJ0ZXh0IjoiQmFzZWwgQ2hyaXN0aWFuIENodXJjaCBvZiBNYWxheXNpYSAgS290YSBLaW5hYmFsdSIsInBsYWNlX25hbWUiOiJCYXNlbCBDaHJpc3RpYW4gQ2h1cmNoIG9mIE1hbGF5c2lhIEtvdGEgS2luYWJhbHUsIEphbGFuIFR1YXJhbiwgS290YSBLaW5hYmFsdSwgU2FiYWggODg0MDAsIE1hbGF5c2lhIiwiY2VudGVyIjpbMTE2LjA5NTE4NCw1Ljk3NzQ2Ml0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbMTE2LjA5NTE4NCw1Ljk3NzQ2Ml19LCJjb250ZXh0IjpbeyJpZCI6InBvc3Rjb2RlLjk4MDkyODA1OTkwMjkyOTAiLCJ0ZXh0IjoiODg0MDAifSx7ImlkIjoicGxhY2UuNzA4MTk0NzI4ODI2MTAxMyIsIndpa2lkYXRhIjoiUTEzNzI3MSIsInRleHQiOiJLb3RhIEtpbmFiYWx1In0seyJpZCI6InJlZ2lvbi4yMjMwODAiLCJzaG9ydF9jb2RlIjoiTVktMTIiLCJ3aWtpZGF0YSI6IlExNzkwMjkiLCJ0ZXh0IjoiU2FiYWgifSx7ImlkIjoiY291bnRyeS4zMTUzIiwic2hvcnRfY29kZSI6Im15Iiwid2lraWRhdGEiOiJRODMzIiwidGV4dCI6Ik1hbGF5c2lhIn1dfSx7ImlkIjoicG9pLjE4OTA2NjY0MTk4MjQwNjAwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBvaSJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnsibGFuZG1hcmsiOnRydWUsInRlbCI6IjA4OC05NzUgMjE1IiwiY2F0ZWdvcnkiOiJjaHVyY2gsIHBsYWNlIG9mIHdvcnNoaXAsIHJlbGlnaW9uLCByZWxpZ2lvdXMiLCJhZGRyZXNzIjoiS2cuIFBvbXBvZCwgSmFsYW4gSktSIn0sInRleHQiOiJUaGUgQmFzZWwgQ2hyaXN0aWFuIENodXJjaCBvZiBNYWxheXNpYSAgS290YSBCZWx1ZCIsInBsYWNlX25hbWUiOiJUaGUgQmFzZWwgQ2hyaXN0aWFuIENodXJjaCBvZiBNYWxheXNpYSBLb3RhIEJlbHVkLCBLZy4gUG9tcG9kLCBKYWxhbiBKS1IsIEtvdGEgQmVsdWQsIFNhYmFoIDg5MTUwLCBNYWxheXNpYSIsImNlbnRlciI6WzExNi4zOTQ1MzMsNi4zMzIwOTldLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzExNi4zOTQ1MzMsNi4zMzIwOTldfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS41ODgwNjc1ODc5OTIxMTkwIiwidGV4dCI6Ijg5MTUwIn0seyJpZCI6InBsYWNlLjIwNzQwMzI1OTE1MjEwODgiLCJ3aWtpZGF0YSI6IlExNzg1MzU4IiwidGV4dCI6IktvdGEgQmVsdWQifSx7ImlkIjoicmVnaW9uLjIyMzA4MCIsInNob3J0X2NvZGUiOiJNWS0xMiIsIndpa2lkYXRhIjoiUTE3OTAyOSIsInRleHQiOiJTYWJhaCJ9LHsiaWQiOiJjb3VudHJ5LjMxNTMiLCJzaG9ydF9jb2RlIjoibXkiLCJ3aWtpZGF0YSI6IlE4MzMiLCJ0ZXh0IjoiTWFsYXlzaWEifV19LHsiaWQiOiJwb2kuMjE1OTk2ODg5ODMzMDgyMCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwb2kiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7ImxhbmRtYXJrIjp0cnVlLCJjYXRlZ29yeSI6ImNodXJjaCwgcGxhY2Ugb2Ygd29yc2hpcCwgcmVsaWdpb24sIHJlbGlnaW91cyIsImFkZHJlc3MiOiJKYWxhbiBCdWtpdCBUcmlnIn0sInRleHQiOiJCYXNlbCBDaHVyY2ggU2FuZGFrYW4iLCJwbGFjZV9uYW1lIjoiQmFzZWwgQ2h1cmNoIFNhbmRha2FuLCBKYWxhbiBCdWtpdCBUcmlnLCBTYW5kYWthbiwgU2FiYWggOTAwMDAsIE1hbGF5c2lhIiwiY2VudGVyIjpbMTE4LjEwNzk5LDUuODQ0NDldLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzExOC4xMDc5OSw1Ljg0NDQ5XX0sImNvbnRleHQiOlt7ImlkIjoicG9zdGNvZGUuMTAwNDc2NTI5MTM1ODQzODAiLCJ0ZXh0IjoiOTAwMDAifSx7ImlkIjoicGxhY2UuMjE0NjkzMjA5NjU2NTMzMSIsIndpa2lkYXRhIjoiUTEzNzIwMyIsInRleHQiOiJTYW5kYWthbiJ9LHsiaWQiOiJyZWdpb24uMjIzMDgwIiwic2hvcnRfY29kZSI6Ik1ZLTEyIiwid2lraWRhdGEiOiJRMTc5MDI5IiwidGV4dCI6IlNhYmFoIn0seyJpZCI6ImNvdW50cnkuMzE1MyIsInNob3J0X2NvZGUiOiJteSIsIndpa2lkYXRhIjoiUTgzMyIsInRleHQiOiJNYWxheXNpYSJ9XX1dLCJhdHRyaWJ1dGlvbiI6Ik5PVElDRTogwqkgMjAxNyBNYXBib3ggYW5kIGl0cyBzdXBwbGllcnMuIEFsbCByaWdodHMgcmVzZXJ2ZWQuIFVzZSBvZiB0aGlzIGRhdGEgaXMgc3ViamVjdCB0byB0aGUgTWFwYm94IFRlcm1zIG9mIFNlcnZpY2UgKGh0dHBzOi8vd3d3Lm1hcGJveC5jb20vYWJvdXQvbWFwcy8pLiBUaGlzIHJlc3BvbnNlIGFuZCB0aGUgaW5mb3JtYXRpb24gaXQgY29udGFpbnMgbWF5IG5vdCBiZSByZXRhaW5lZC4ifQ==
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:10:00 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Basel+FR.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:10:00 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645060'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"93ee7acf0e9a8e7978c79586ccff4100"'
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 7b88ef0d81161ffd0111d52a2de2bd25.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 5rskEFRAyzWKecpCHUaL1PVeQop2eLykXtw9GFOT5V4dLg7z0gihFQ==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJiYXNlbCIsImZyIl0sImZlYXR1cmVzIjpbeyJpZCI6InBvaS4xNzMwMzcwMDM3NjUwMDUyMCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwb2kiXSwicmVsZXZhbmNlIjowLjk5LCJwcm9wZXJ0aWVzIjp7ImxhbmRtYXJrIjp0cnVlLCJ0ZWwiOiIwNjEgNjkzIDAwIDM5IiwiY2F0ZWdvcnkiOiJyZXN0YXVyYW50IiwiYWRkcmVzcyI6IkMvbyBNaWNoZWwtVHJldWhhbmQgdW5kIEltbW9iaWxpZW4gR21iSCBJbm5lcmUgTWFyZ2FyZXRoZW5zdHJhc3NlIDEyIiwibWFraSI6InJlc3RhdXJhbnQifSwidGV4dCI6IkZyw7ZobGljaCBHYXN0cm9iZXRyaWViZSBHbWJIIiwicGxhY2VfbmFtZSI6IkZyw7ZobGljaCBHYXN0cm9iZXRyaWViZSBHbWJILCBDL28gTWljaGVsLVRyZXVoYW5kIHVuZCBJbW1vYmlsaWVuIEdtYkggSW5uZXJlIE1hcmdhcmV0aGVuc3RyYXNzZSAxMiwgQmFzZWwsIEJhc2VsLVN0YWR0IDQwNTEsIFN3aXR6ZXJsYW5kIiwiY2VudGVyIjpbNy41ODY1MTgsNDcuNTUwMTg4XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOls3LjU4NjUxOCw0Ny41NTAxODhdfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4xNTM1NDYwODM3NDc3MjAwMCIsInRleHQiOiI0MDUxIn0seyJpZCI6InBsYWNlLjg0NDM2MTMzMDk3MDc2MzkiLCJ3aWtpZGF0YSI6IlE3OCIsInRleHQiOiJCYXNlbCJ9LHsiaWQiOiJyZWdpb24uMjIxNjc0Iiwic2hvcnRfY29kZSI6IkNILUJTIiwid2lraWRhdGEiOiJRMTIxNzIiLCJ0ZXh0IjoiQmFzZWwtU3RhZHQifSx7ImlkIjoiY291bnRyeS4zMTczIiwic2hvcnRfY29kZSI6ImNoIiwid2lraWRhdGEiOiJRMzkiLCJ0ZXh0IjoiU3dpdHplcmxhbmQifV19LHsiaWQiOiJwb2kuMTE3NjQ1MDIxMzYxMjY4NzAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicG9pIl0sInJlbGV2YW5jZSI6MC45OSwicHJvcGVydGllcyI6eyJsYW5kbWFyayI6dHJ1ZSwiY2F0ZWdvcnkiOiJlbnRlcnRhaW5tZW50LCB0aWNrZXRzLCB0aWNrZXQgc2FsZXMiLCJhZGRyZXNzIjoiU3RlaW5lbnRvcnN0ciAzOSwgQmFzZWwgNDA1MSwifSwidGV4dCI6IkZydWl0IExvZ2lzdGljYSIsInBsYWNlX25hbWUiOiJGcnVpdCBMb2dpc3RpY2EsIFN0ZWluZW50b3JzdHIgMzksIEJhc2VsIDQwNTEsIEJhc2VsLCBCYXNlbC1TdGFkdCA0MDUxLCBTd2l0emVybGFuZCIsImNlbnRlciI6WzcuNTg4MjIsNDcuNTUxMDY4XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOls3LjU4ODIyLDQ3LjU1MTA2OF19LCJjb250ZXh0IjpbeyJpZCI6InBvc3Rjb2RlLjE1MzU0NjA4Mzc0NzcyMDAwIiwidGV4dCI6IjQwNTEifSx7ImlkIjoicGxhY2UuODQ0MzYxMzMwOTcwNzYzOSIsIndpa2lkYXRhIjoiUTc4IiwidGV4dCI6IkJhc2VsIn0seyJpZCI6InJlZ2lvbi4yMjE2NzQiLCJzaG9ydF9jb2RlIjoiQ0gtQlMiLCJ3aWtpZGF0YSI6IlExMjE3MiIsInRleHQiOiJCYXNlbC1TdGFkdCJ9LHsiaWQiOiJjb3VudHJ5LjMxNzMiLCJzaG9ydF9jb2RlIjoiY2giLCJ3aWtpZGF0YSI6IlEzOSIsInRleHQiOiJTd2l0emVybGFuZCJ9XX0seyJpZCI6InBvaS4xNjMzNDcxNTM3ODczMzI4MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwb2kiXSwicmVsZXZhbmNlIjowLjk5LCJwcm9wZXJ0aWVzIjp7ImxhbmRtYXJrIjp0cnVlLCJ0ZWwiOiIwNjEgMjYxIDExIDA5IiwiY2F0ZWdvcnkiOiJiYWtlcnkiLCJhZGRyZXNzIjoiU3BhbGVudm9yc3RhZHQgNDEiLCJtYWtpIjoiYmFrZXJ5In0sInRleHQiOiJGcmVkeSBSdXRzY2htYW5uIiwicGxhY2VfbmFtZSI6IkZyZWR5IFJ1dHNjaG1hbm4sIFNwYWxlbnZvcnN0YWR0IDQxLCBCYXNlbCwgQmFzZWwtU3RhZHQgNDA1MSwgU3dpdHplcmxhbmQiLCJjZW50ZXIiOls3LjU4MTY3Myw0Ny41NTc2ODldLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzcuNTgxNjczLDQ3LjU1NzY4OV19LCJjb250ZXh0IjpbeyJpZCI6InBvc3Rjb2RlLjE1MzU0NjA4Mzc0NzcyMDAwIiwidGV4dCI6IjQwNTEifSx7ImlkIjoicGxhY2UuODQ0MzYxMzMwOTcwNzYzOSIsIndpa2lkYXRhIjoiUTc4IiwidGV4dCI6IkJhc2VsIn0seyJpZCI6InJlZ2lvbi4yMjE2NzQiLCJzaG9ydF9jb2RlIjoiQ0gtQlMiLCJ3aWtpZGF0YSI6IlExMjE3MiIsInRleHQiOiJCYXNlbC1TdGFkdCJ9LHsiaWQiOiJjb3VudHJ5LjMxNzMiLCJzaG9ydF9jb2RlIjoiY2giLCJ3aWtpZGF0YSI6IlEzOSIsInRleHQiOiJTd2l0emVybGFuZCJ9XX0seyJpZCI6InBsYWNlLjg0NDM2MTMzMDk3MDc2MzkiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicGxhY2UiXSwicmVsZXZhbmNlIjowLjUsInByb3BlcnRpZXMiOnsid2lraWRhdGEiOiJRNzgifSwidGV4dCI6IkJhc2VsIiwicGxhY2VfbmFtZSI6IkJhc2VsLCBCYXNlbC1TdGFkdCwgU3dpdHplcmxhbmQiLCJiYm94IjpbNy41NTQ2NjQsNDcuNTE5MzQyLDcuNjM0MTQ4LDQ3LjU4OTkwMl0sImNlbnRlciI6WzcuNTkxMTEsNDcuNTUwNTZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzcuNTkxMTEsNDcuNTUwNTZdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMjIxNjc0Iiwic2hvcnRfY29kZSI6IkNILUJTIiwid2lraWRhdGEiOiJRMTIxNzIiLCJ0ZXh0IjoiQmFzZWwtU3RhZHQifSx7ImlkIjoiY291bnRyeS4zMTczIiwic2hvcnRfY29kZSI6ImNoIiwid2lraWRhdGEiOiJRMzkiLCJ0ZXh0IjoiU3dpdHplcmxhbmQifV19LHsiaWQiOiJwb2kuNzI5NDQzMzUxMzEyNDM5MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwb2kiXSwicmVsZXZhbmNlIjowLjUsInByb3BlcnRpZXMiOnsibGFuZG1hcmsiOnRydWUsIndpa2lkYXRhIjoiUTE0MTk4NzAiLCJjYXRlZ29yeSI6ImxhbmRtYXJrIiwibWFraSI6Im1vbnVtZW50In0sInRleHQiOiJGcmllZGVuc2tpcmNoZSIsInBsYWNlX25hbWUiOiJGcmllZGVuc2tpcmNoZSwgV2VpbCBhbSBSaGVpbiwgQmFkZW4tV8O8cnR0ZW1iZXJnIDc5NTc2LCBHZXJtYW55IiwiY2VudGVyIjpbNy42MDIzNjQ3Miw0Ny41OTE2NzU3XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOls3LjYwMjM2NDcyLDQ3LjU5MTY3NTddfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4xMzE4NTAxMTIyNjgzNzQ5MCIsInRleHQiOiI3OTU3NiJ9LHsiaWQiOiJwbGFjZS4xMzE4NTAxMTIyNTg0ODk1MCIsIndpa2lkYXRhIjoiUTYxOTA5IiwidGV4dCI6IldlaWwgYW0gUmhlaW4ifSx7ImlkIjoicmVnaW9uLjM0OTUiLCJzaG9ydF9jb2RlIjoiREUtQlciLCJ3aWtpZGF0YSI6IlE5ODUiLCJ0ZXh0IjoiQmFkZW4tV8O8cnR0ZW1iZXJnIn0seyJpZCI6ImNvdW50cnkuMzEzNSIsInNob3J0X2NvZGUiOiJkZSIsIndpa2lkYXRhIjoiUTE4MyIsInRleHQiOiJHZXJtYW55In1dfV0sImF0dHJpYnV0aW9uIjoiTk9USUNFOiDCqSAyMDE3IE1hcGJveCBhbmQgaXRzIHN1cHBsaWVycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVXNlIG9mIHRoaXMgZGF0YSBpcyBzdWJqZWN0IHRvIHRoZSBNYXBib3ggVGVybXMgb2YgU2VydmljZSAoaHR0cHM6Ly93d3cubWFwYm94LmNvbS9hYm91dC9tYXBzLykuIFRoaXMgcmVzcG9uc2UgYW5kIHRoZSBpbmZvcm1hdGlvbiBpdCBjb250YWlucyBtYXkgbm90IGJlIHJldGFpbmVkLiJ9
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:10:00 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:09:56 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645056'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"aadd945a037a40894c5a7204a0740394"'
-      Vary:
-      - Accept-Encoding
-      Age:
-      - '9'
-      X-Cache:
-      - Hit from cloudfront
-      Via:
-      - 1.1 5954578e851092964f39f2f5f0596950.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - AvbTM5pD5jil87dzBEJuif_83pwvdMoVN4odJO7ng4YPOdu-0h41-A==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJiZXJsaW4iLCJkZSJdLCJmZWF0dXJlcyI6W3siaWQiOiJwbGFjZS4yMjA4MzMiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicmVnaW9uIiwicGxhY2UiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7InNob3J0X2NvZGUiOiJERS1CRSIsIndpa2lkYXRhIjoiUTY0In0sInRleHQiOiJCZXJsaW4iLCJwbGFjZV9uYW1lIjoiQmVybGluLCBHZXJtYW55IiwiYmJveCI6WzEzLjA4ODMzMyw1Mi4zMzgyNDIsMTMuNzYwNDY5LDUyLjY3NDkxN10sImNlbnRlciI6WzEzLjM5MzIzNiw1Mi41MDQwNDNdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzEzLjM5MzIzNiw1Mi41MDQwNDNdfSwiY29udGV4dCI6W3siaWQiOiJjb3VudHJ5LjMxMzUiLCJzaG9ydF9jb2RlIjoiZGUiLCJ3aWtpZGF0YSI6IlExODMiLCJ0ZXh0IjoiR2VybWFueSJ9XX0seyJpZCI6ImFkZHJlc3MuOTY2MTQ3MTgiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsiYWRkcmVzcyJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnt9LCJ0ZXh0IjoiQXYgQmVybGluIERlIChNaWFtaSBQbGF0amEpIiwicGxhY2VfbmFtZSI6IkF2IEJlcmxpbiBEZSAoTWlhbWkgUGxhdGphKSwgNDM4OTIgTW9udC1yb2lnIGRlbCBDYW1wLCBUYXJyYWdvbmEsIFNwYWluIiwiY2VudGVyIjpbMC45MzkxMTgsNDEuMDExNDk3XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlswLjkzOTExOCw0MS4wMTE0OTddfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4yOTA5NTc1ODE4ODQ0MTAwIiwidGV4dCI6IjQzODkyIn0seyJpZCI6InBsYWNlLjI5MDk1MTA2NTQ2NTE0MDAiLCJ3aWtpZGF0YSI6IlE5Mjk3OTQiLCJ0ZXh0IjoiTW9udC1yb2lnIGRlbCBDYW1wIn0seyJpZCI6InJlZ2lvbi4zNTQ4Iiwic2hvcnRfY29kZSI6IkVTLVQiLCJ3aWtpZGF0YSI6IlE5ODM5MiIsInRleHQiOiJUYXJyYWdvbmEifSx7ImlkIjoiY291bnRyeS4zMTEwIiwic2hvcnRfY29kZSI6ImVzIiwid2lraWRhdGEiOiJRMjkiLCJ0ZXh0IjoiU3BhaW4ifV19LHsiaWQiOiJwb2kuMTQ2MDgyMjk2NTE2OTI2NDAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicG9pIl0sInJlbGV2YW5jZSI6MSwicHJvcGVydGllcyI6eyJsYW5kbWFyayI6dHJ1ZSwidGVsIjoiMDIwIDczNzcgMTYxNiIsImNhdGVnb3J5IjoiYmFrZXJ5IiwiYWRkcmVzcyI6IjEyOWEgV2hpdGVjaGFwZWwgSGlnaCBTdCIsIm1ha2kiOiJiYWtlcnkifSwidGV4dCI6IkJlcmxpbiBEZWxpY2lvdXMiLCJwbGFjZV9uYW1lIjoiQmVybGluIERlbGljaW91cywgMTI5YSBXaGl0ZWNoYXBlbCBIaWdoIFN0LCBMb25kb24sIEVuZ2xhbmQgRTEgN1BTLCBVbml0ZWQgS2luZ2RvbSIsImNlbnRlciI6Wy0wLjA3MzA0MSw1MS41MTQ4MjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6Wy0wLjA3MzA0MSw1MS41MTQ4MjZdfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS42NzU0NjQwMzk0ODg3OTcwIiwidGV4dCI6IkUxIDdQUyJ9LHsiaWQiOiJsb2NhbGl0eS45MjIzODU4ODcwNDQ2MTkwIiwid2lraWRhdGEiOiJRMTIzMjE5IiwidGV4dCI6IlNwaXRhbGZpZWxkcyJ9LHsiaWQiOiJwbGFjZS44NTAwMzgzNDcwOTEzMzk3Iiwid2lraWRhdGEiOiJRODQiLCJ0ZXh0IjoiTG9uZG9uIn0seyJpZCI6ImRpc3RyaWN0Ljk2NTU2OTgxMDc5NzY2MjAiLCJ3aWtpZGF0YSI6IlEyMzMwNiIsInRleHQiOiJHcmVhdGVyIExvbmRvbiJ9LHsiaWQiOiJyZWdpb24uMzE4NSIsInNob3J0X2NvZGUiOiJHQi1FTkciLCJ3aWtpZGF0YSI6IlEyMSIsInRleHQiOiJFbmdsYW5kIn0seyJpZCI6ImNvdW50cnkuMzU4Iiwic2hvcnRfY29kZSI6ImdiIiwid2lraWRhdGEiOiJRMTQ1IiwidGV4dCI6IlVuaXRlZCBLaW5nZG9tIn1dfSx7ImlkIjoicGxhY2UuMzgzNjg1NTY0MzgwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC45NSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE0ODkyMzQzIn0sInRleHQiOiJCZXJsaW4iLCJwbGFjZV9uYW1lIjoiQmVybGluLCBFYXN0ZXJuIENhcGUsIFNvdXRoIEFmcmljYSIsIm1hdGNoaW5nX3BsYWNlX25hbWUiOiJCZXJsaW4sIEVhc3Rlcm4gQ2FwZSwgRGUgQWZmcmljYSIsImJib3giOlsyNy41NDAzMDAwMDAwMDAxLC0zMi45MDA3OTk5OTksMjcuNjMwMDIwMDAwMDAwMSwtMzIuODM2ODddLCJjZW50ZXIiOlsyNy41ODEyLC0zMi44ODMxXSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsyNy41ODEyLC0zMi44ODMxXX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjI2MDU3Iiwic2hvcnRfY29kZSI6IlpBLUVDIiwid2lraWRhdGEiOiJRMTMwODQwIiwidGV4dCI6IkVhc3Rlcm4gQ2FwZSJ9LHsiaWQiOiJjb3VudHJ5LjM4NyIsInNob3J0X2NvZGUiOiJ6YSIsIndpa2lkYXRhIjoiUTI1OCIsInRleHQiOiJTb3V0aCBBZnJpY2EifV19LHsiaWQiOiJwbGFjZS4xNTA5NTQxMTYxMzU2NDM4MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwbGFjZSJdLCJyZWxldmFuY2UiOjAuNSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE2MTQxODQifSwidGV4dCI6IkJlcmxpbiIsInBsYWNlX25hbWUiOiJCZXJsaW4sIE1hcnlsYW5kLCBVbml0ZWQgU3RhdGVzIiwiYmJveCI6Wy03NS4zNjQ5OTEwMTY5MTg4LDM4LjE5MTMzNzYwNTczNjMsLTc1LjA5Mjk0NTk4ODE3NjUsMzguNDA5NTA0MDE1NDI1MV0sImNlbnRlciI6Wy03NS4yMTc3LDM4LjMyMjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6Wy03NS4yMTc3LDM4LjMyMjZdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMjExODkxIiwic2hvcnRfY29kZSI6IlVTLU1EIiwid2lraWRhdGEiOiJRMTM5MSIsInRleHQiOiJNYXJ5bGFuZCJ9LHsiaWQiOiJjb3VudHJ5LjMxNDUiLCJzaG9ydF9jb2RlIjoidXMiLCJ3aWtpZGF0YSI6IlEzMCIsInRleHQiOiJVbml0ZWQgU3RhdGVzIn1dfV0sImF0dHJpYnV0aW9uIjoiTk9USUNFOiDCqSAyMDE3IE1hcGJveCBhbmQgaXRzIHN1cHBsaWVycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVXNlIG9mIHRoaXMgZGF0YSBpcyBzdWJqZWN0IHRvIHRoZSBNYXBib3ggVGVybXMgb2YgU2VydmljZSAoaHR0cHM6Ly93d3cubWFwYm94LmNvbS9hYm91dC9tYXBzLykuIFRoaXMgcmVzcG9uc2UgYW5kIHRoZSBpbmZvcm1hdGlvbiBpdCBjb250YWlucyBtYXkgbm90IGJlIHJldGFpbmVkLiJ9
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:10:05 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Not+Berlin+FR.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:10:11 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645071'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"9b7612039ddebaf30c4c476d77436127"'
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 c55f09a9188f77960d35c97bad15e1b2.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 3fCjTj6_vxvNAWIPkpLf_9k0aWRVgzWKSzHWas4ok-cFTm6acU7hMg==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJub3QiLCJiZXJsaW4iLCJmciJdLCJmZWF0dXJlcyI6W3siaWQiOiJwb2kuMTA1NTY4NjExMTA3OTQ1MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwb2kiXSwicmVsZXZhbmNlIjowLjY1NjY2NjY2NjY2NjY2NjYsInByb3BlcnRpZXMiOnsibGFuZG1hcmsiOnRydWUsIndpa2lkYXRhIjoiUTY1NjA2MyIsInRlbCI6IjAzMCA0NDMwMzczMCIsImNhdGVnb3J5IjoiYXJlbmEsIGxhbmRtYXJrLCBzdGFkaXVtIiwiYWRkcmVzcyI6IkNhbnRpYW5zdHJhw59lIDI0In0sInRleHQiOiJGcmllZHJpY2gtTHVkd2lnLUphaG4tU3BvcnRwYXJrIiwicGxhY2VfbmFtZSI6IkZyaWVkcmljaC1MdWR3aWctSmFobi1TcG9ydHBhcmssIENhbnRpYW5zdHJhw59lIDI0LCBCZXJsaW4sIDEwNDM3LCBHZXJtYW55IiwiY2VudGVyIjpbMTMuNDA1Mjc4LDUyLjU0MzA1Nl0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbMTMuNDA1Mjc4LDUyLjU0MzA1Nl19LCJjb250ZXh0IjpbeyJpZCI6InBvc3Rjb2RlLjEyNTU4MDkyNjQ0NDkzMDQwIiwidGV4dCI6IjEwNDM3In0seyJpZCI6InBsYWNlLjIyMDgzMyIsInNob3J0X2NvZGUiOiJERS1CRSIsIndpa2lkYXRhIjoiUTY0IiwidGV4dCI6IkJlcmxpbiJ9LHsiaWQiOiJjb3VudHJ5LjMxMzUiLCJzaG9ydF9jb2RlIjoiZGUiLCJ3aWtpZGF0YSI6IlExODMiLCJ0ZXh0IjoiR2VybWFueSJ9XX0seyJpZCI6InBvaS45MDgzNTAzMTY2OTk2NjQwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBvaSJdLCJyZWxldmFuY2UiOjAuNjU2NjY2NjY2NjY2NjY2NiwicHJvcGVydGllcyI6eyJsYW5kbWFyayI6dHJ1ZSwid2lraWRhdGEiOiJRNTY4NTc3IiwiY2F0ZWdvcnkiOiJsYW5kbWFyaywgcGFyayJ9LCJ0ZXh0IjoiRnJhbmtmdXJ0ZXIgVG9yIiwicGxhY2VfbmFtZSI6IkZyYW5rZnVydGVyIFRvciwgQmVybGluLCAxMDI0NywgR2VybWFueSIsImNlbnRlciI6WzEzLjQ1NDE3LDUyLjUxNTgzXSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsxMy40NTQxNyw1Mi41MTU4M119LCJjb250ZXh0IjpbeyJpZCI6ImxvY2FsaXR5LjkwOTY1MDMxMTgwOTY1NjAiLCJ3aWtpZGF0YSI6IlEzMTcwNTYiLCJ0ZXh0IjoiRnJpZWRyaWNoc2hhaW4ifSx7ImlkIjoicG9zdGNvZGUuMTI4MDQ2MzIwMzM4MTk4MDAiLCJ0ZXh0IjoiMTAyNDcifSx7ImlkIjoicGxhY2UuMjIwODMzIiwic2hvcnRfY29kZSI6IkRFLUJFIiwid2lraWRhdGEiOiJRNjQiLCJ0ZXh0IjoiQmVybGluIn0seyJpZCI6ImNvdW50cnkuMzEzNSIsInNob3J0X2NvZGUiOiJkZSIsIndpa2lkYXRhIjoiUTE4MyIsInRleHQiOiJHZXJtYW55In1dfSx7ImlkIjoicG9pLjYxMjk1MDQ3OTA5MjIyODAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicG9pIl0sInJlbGV2YW5jZSI6MC4zMzMzMzMzMzMzMzMzMzMzLCJwcm9wZXJ0aWVzIjp7ImxhbmRtYXJrIjp0cnVlLCJ3aWtpZGF0YSI6IlExMjY5ODg4IiwidGVsIjoiMDMzMSAyMDA4MDE2IiwiY2F0ZWdvcnkiOiJsYW5kbWFyaywgcGFyaywgcGxheWdyb3VuZCJ9LCJ0ZXh0IjoiRnJldW5kc2NoYWZ0c2luc2VsIiwicGxhY2VfbmFtZSI6IkZyZXVuZHNjaGFmdHNpbnNlbCwgUG90c2RhbSwgQnJhbmRlbmJ1cmcgMTQ0NjcsIEdlcm1hbnkiLCJjZW50ZXIiOlsxMy4wNjQ3LDUyLjM5NV0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbMTMuMDY0Nyw1Mi4zOTVdfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4xMzM3OTQzMTc4MTYzNDM0MCIsInRleHQiOiIxNDQ2NyJ9LHsiaWQiOiJwbGFjZS4xNTUyNzQ1NjQ2MDkxNjk3MCIsIndpa2lkYXRhIjoiUTE3MTEiLCJ0ZXh0IjoiUG90c2RhbSJ9LHsiaWQiOiJyZWdpb24uMjIxOTQyIiwic2hvcnRfY29kZSI6IkRFLUJCIiwid2lraWRhdGEiOiJRMTIwOCIsInRleHQiOiJCcmFuZGVuYnVyZyJ9LHsiaWQiOiJjb3VudHJ5LjMxMzUiLCJzaG9ydF9jb2RlIjoiZGUiLCJ3aWtpZGF0YSI6IlExODMiLCJ0ZXh0IjoiR2VybWFueSJ9XX0seyJpZCI6InBsYWNlLjkxMzcwNzYxMTk1ODYxNzAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicGxhY2UiXSwicmVsZXZhbmNlIjowLjMzMzMzMzMzMzMzMzMzMzMsInByb3BlcnRpZXMiOnsid2lraWRhdGEiOiJRMzE0Mjc0In0sInRleHQiOiJGcmllc2FjayIsInBsYWNlX25hbWUiOiJGcmllc2FjaywgQnJhbmRlbmJ1cmcsIEdlcm1hbnkiLCJiYm94IjpbMTIuNTE5MzA2LDUyLjY5NTAzNSwxMi43MjA2Myw1Mi44MTA4NV0sImNlbnRlciI6WzEyLjYsNTIuN10sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbMTIuNiw1Mi43XX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjIyMTk0MiIsInNob3J0X2NvZGUiOiJERS1CQiIsIndpa2lkYXRhIjoiUTEyMDgiLCJ0ZXh0IjoiQnJhbmRlbmJ1cmcifSx7ImlkIjoiY291bnRyeS4zMTM1Iiwic2hvcnRfY29kZSI6ImRlIiwid2lraWRhdGEiOiJRMTgzIiwidGV4dCI6Ikdlcm1hbnkifV19LHsiaWQiOiJwbGFjZS44NjQ4NTM3OTUyNjU2ODEwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC4zMzMzMzMzMzMzMzMzMzMzLCJwcm9wZXJ0aWVzIjp7Indpa2lkYXRhIjoiUTU4MTQ3MCJ9LCJ0ZXh0IjoiRnJlZGVyc2RvcmYtVm9nZWxzZG9yZiIsInBsYWNlX25hbWUiOiJGcmVkZXJzZG9yZi1Wb2dlbHNkb3JmLCBCcmFuZGVuYnVyZywgR2VybWFueSIsImJib3giOlsxMy43MDk3MDUsNTIuNDg2NDg1LDEzLjc3Njc3OSw1Mi41NTE0NjddLCJjZW50ZXIiOlsxMy43MTY2Nyw1Mi41XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsxMy43MTY2Nyw1Mi41XX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjIyMTk0MiIsInNob3J0X2NvZGUiOiJERS1CQiIsIndpa2lkYXRhIjoiUTEyMDgiLCJ0ZXh0IjoiQnJhbmRlbmJ1cmcifSx7ImlkIjoiY291bnRyeS4zMTM1Iiwic2hvcnRfY29kZSI6ImRlIiwid2lraWRhdGEiOiJRMTgzIiwidGV4dCI6Ikdlcm1hbnkifV19XSwiYXR0cmlidXRpb24iOiJOT1RJQ0U6IMKpIDIwMTcgTWFwYm94IGFuZCBpdHMgc3VwcGxpZXJzLiBBbGwgcmlnaHRzIHJlc2VydmVkLiBVc2Ugb2YgdGhpcyBkYXRhIGlzIHN1YmplY3QgdG8gdGhlIE1hcGJveCBUZXJtcyBvZiBTZXJ2aWNlIChodHRwczovL3d3dy5tYXBib3guY29tL2Fib3V0L21hcHMvKS4gVGhpcyByZXNwb25zZSBhbmQgdGhlIGluZm9ybWF0aW9uIGl0IGNvbnRhaW5zIG1heSBub3QgYmUgcmV0YWluZWQuIn0=
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:10:11 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Hamburg+DE.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:10:19 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645079'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"7594a68a54fb4562225551c87f2e66e7"'
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 1a483cde6df004748f3e5c80dc46df26.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - rIQ9ryuUbBTrcTiOjCHyWHfWZZimcM09i7bYI37TahkmJ5j21zEnEQ==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJoYW1idXJnIiwiZGUiXSwiZmVhdHVyZXMiOlt7ImlkIjoicGxhY2UuNjYyNjE1NTEwMzM5ODg2MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwbGFjZSJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnsid2lraWRhdGEiOiJRMTA1NSJ9LCJ0ZXh0IjoiSGFtYnVyZyIsInBsYWNlX25hbWUiOiJIYW1idXJnLCBIYW1idXJnLCBHZXJtYW55IiwiYmJveCI6WzguNDA5MTYsNTMuMzk0OTk3LDEwLjMyNTM0NCw1My45NjAxMDZdLCJjZW50ZXIiOlsxMCw1My41NV0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbMTAsNTMuNTVdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMzgyMSIsInNob3J0X2NvZGUiOiJERS1ISCIsIndpa2lkYXRhIjoiUTEwNTUiLCJ0ZXh0IjoiSGFtYnVyZyJ9LHsiaWQiOiJjb3VudHJ5LjMxMzUiLCJzaG9ydF9jb2RlIjoiZGUiLCJ3aWtpZGF0YSI6IlExODMiLCJ0ZXh0IjoiR2VybWFueSJ9XX0seyJpZCI6InBsYWNlLjM4MjEiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicmVnaW9uIiwicGxhY2UiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7InNob3J0X2NvZGUiOiJERS1ISCIsIndpa2lkYXRhIjoiUTEwNTUifSwidGV4dCI6IkhhbWJ1cmciLCJwbGFjZV9uYW1lIjoiSGFtYnVyZywgR2VybWFueSIsImJib3giOls5LjcyNTMxMyw1My4zOTUzNCwxMC4zMjU5NTksNTMuNzM4NDcyXSwiY2VudGVyIjpbOS45NDI0Myw1My41NjkyNjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzkuOTQyNDMsNTMuNTY5MjY2XX0sImNvbnRleHQiOlt7ImlkIjoiY291bnRyeS4zMTM1Iiwic2hvcnRfY29kZSI6ImRlIiwid2lraWRhdGEiOiJRMTgzIiwidGV4dCI6Ikdlcm1hbnkifV19LHsiaWQiOiJwbGFjZS4xNDAwMDMyMDM1NDM5ODg2MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwbGFjZSJdLCJyZWxldmFuY2UiOjAuOTUsInByb3BlcnRpZXMiOnsid2lraWRhdGEiOiJRMTU3Mjg2NyJ9LCJ0ZXh0IjoiSGFtYnVyZyIsInBsYWNlX25hbWUiOiJIYW1idXJnLCBFYXN0ZXJuIENhcGUsIFNvdXRoIEFmcmljYSIsIm1hdGNoaW5nX3BsYWNlX25hbWUiOiJIYW1idXJnLCBFYXN0ZXJuIENhcGUsIERlIEFmZnJpY2EiLCJiYm94IjpbMjcuNDM3NTgwNDY4MDAwMSwtMzMuMzA5MDIwOTk2LDI3LjQ5MTgzMDgyNjAwMDEsLTMzLjI3MTk5OTM1OF0sImNlbnRlciI6WzI3LjQ3NDcsLTMzLjI5MDRdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzI3LjQ3NDcsLTMzLjI5MDRdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMjYwNTciLCJzaG9ydF9jb2RlIjoiWkEtRUMiLCJ3aWtpZGF0YSI6IlExMzA4NDAiLCJ0ZXh0IjoiRWFzdGVybiBDYXBlIn0seyJpZCI6ImNvdW50cnkuMzg3Iiwic2hvcnRfY29kZSI6InphIiwid2lraWRhdGEiOiJRMjU4IiwidGV4dCI6IlNvdXRoIEFmcmljYSJ9XX0seyJpZCI6InBsYWNlLjE2NjU5MDc2MjgxMzk4ODYwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC44NjAwMDAwMDAwMDAwMDAxLCJwcm9wZXJ0aWVzIjp7Indpa2lkYXRhIjoiUTc0Mjc4NSJ9LCJ0ZXh0IjoiSGFtYnVyZyIsInBsYWNlX25hbWUiOiJIYW1idXJnLCBOZXcgWW9yaywgVW5pdGVkIFN0YXRlcyIsIm1hdGNoaW5nX3BsYWNlX25hbWUiOiJIYW1idXJnLCDDiXRhdCBkZSBOZXcgWW9yaywgVW5pdGVkIFN0YXRlcyIsImJib3giOlstNzguOTE3NjgwOTY4OTcxNyw0Mi42MzA4MDkwMzQ0NDg5LC03OC43NDIwODAwNjc2ODczLDQyLjc3NjgwNzAwMzE3OTJdLCJjZW50ZXIiOlstNzguODI4Nyw0Mi43MTYzXSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlstNzguODI4Nyw0Mi43MTYzXX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjM4NjYiLCJzaG9ydF9jb2RlIjoiVVMtTlkiLCJ3aWtpZGF0YSI6IlExMzg0IiwidGV4dCI6Ik5ldyBZb3JrIn0seyJpZCI6ImNvdW50cnkuMzE0NSIsInNob3J0X2NvZGUiOiJ1cyIsIndpa2lkYXRhIjoiUTMwIiwidGV4dCI6IlVuaXRlZCBTdGF0ZXMifV19LHsiaWQiOiJwbGFjZS41OTUxOTEwMDI2MDU5NjEwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC41LCJwcm9wZXJ0aWVzIjp7Indpa2lkYXRhIjoiUTU3MDgzMSJ9LCJ0ZXh0IjoiRGVsaW5nc2RvcmYiLCJwbGFjZV9uYW1lIjoiRGVsaW5nc2RvcmYsIFNjaGxlc3dpZy1Ib2xzdGVpbiwgR2VybWFueSIsImJib3giOlsxMC4yMjkzMzEsNTMuNjg4NjY5LDEwLjMwMTg3LDUzLjcyMTM1N10sImNlbnRlciI6WzEwLjI1MjUsNTMuNzA2OTRdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzEwLjI1MjUsNTMuNzA2OTRdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMzc5NyIsInNob3J0X2NvZGUiOiJERS1TSCIsIndpa2lkYXRhIjoiUTExOTQiLCJ0ZXh0IjoiU2NobGVzd2lnLUhvbHN0ZWluIn0seyJpZCI6ImNvdW50cnkuMzEzNSIsInNob3J0X2NvZGUiOiJkZSIsIndpa2lkYXRhIjoiUTE4MyIsInRleHQiOiJHZXJtYW55In1dfV0sImF0dHJpYnV0aW9uIjoiTk9USUNFOiDCqSAyMDE3IE1hcGJveCBhbmQgaXRzIHN1cHBsaWVycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVXNlIG9mIHRoaXMgZGF0YSBpcyBzdWJqZWN0IHRvIHRoZSBNYXBib3ggVGVybXMgb2YgU2VydmljZSAoaHR0cHM6Ly93d3cubWFwYm94LmNvbS9hYm91dC9tYXBzLykuIFRoaXMgcmVzcG9uc2UgYW5kIHRoZSBpbmZvcm1hdGlvbiBpdCBjb250YWlucyBtYXkgbm90IGJlIHJldGFpbmVkLiJ9
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:10:19 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:09:56 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645056'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"aadd945a037a40894c5a7204a0740394"'
-      Vary:
-      - Accept-Encoding
-      Age:
-      - '53'
-      X-Cache:
-      - Hit from cloudfront
-      Via:
-      - 1.1 53e3dfdf8efd0c06e5d27cfdbfbe5876.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - nWd0eXvOkTPpx4JHoaAdhM75AUmyhbGEWwOVN8rUM9kW_70zGJTAHQ==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJiZXJsaW4iLCJkZSJdLCJmZWF0dXJlcyI6W3siaWQiOiJwbGFjZS4yMjA4MzMiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicmVnaW9uIiwicGxhY2UiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7InNob3J0X2NvZGUiOiJERS1CRSIsIndpa2lkYXRhIjoiUTY0In0sInRleHQiOiJCZXJsaW4iLCJwbGFjZV9uYW1lIjoiQmVybGluLCBHZXJtYW55IiwiYmJveCI6WzEzLjA4ODMzMyw1Mi4zMzgyNDIsMTMuNzYwNDY5LDUyLjY3NDkxN10sImNlbnRlciI6WzEzLjM5MzIzNiw1Mi41MDQwNDNdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzEzLjM5MzIzNiw1Mi41MDQwNDNdfSwiY29udGV4dCI6W3siaWQiOiJjb3VudHJ5LjMxMzUiLCJzaG9ydF9jb2RlIjoiZGUiLCJ3aWtpZGF0YSI6IlExODMiLCJ0ZXh0IjoiR2VybWFueSJ9XX0seyJpZCI6ImFkZHJlc3MuOTY2MTQ3MTgiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsiYWRkcmVzcyJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnt9LCJ0ZXh0IjoiQXYgQmVybGluIERlIChNaWFtaSBQbGF0amEpIiwicGxhY2VfbmFtZSI6IkF2IEJlcmxpbiBEZSAoTWlhbWkgUGxhdGphKSwgNDM4OTIgTW9udC1yb2lnIGRlbCBDYW1wLCBUYXJyYWdvbmEsIFNwYWluIiwiY2VudGVyIjpbMC45MzkxMTgsNDEuMDExNDk3XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlswLjkzOTExOCw0MS4wMTE0OTddfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4yOTA5NTc1ODE4ODQ0MTAwIiwidGV4dCI6IjQzODkyIn0seyJpZCI6InBsYWNlLjI5MDk1MTA2NTQ2NTE0MDAiLCJ3aWtpZGF0YSI6IlE5Mjk3OTQiLCJ0ZXh0IjoiTW9udC1yb2lnIGRlbCBDYW1wIn0seyJpZCI6InJlZ2lvbi4zNTQ4Iiwic2hvcnRfY29kZSI6IkVTLVQiLCJ3aWtpZGF0YSI6IlE5ODM5MiIsInRleHQiOiJUYXJyYWdvbmEifSx7ImlkIjoiY291bnRyeS4zMTEwIiwic2hvcnRfY29kZSI6ImVzIiwid2lraWRhdGEiOiJRMjkiLCJ0ZXh0IjoiU3BhaW4ifV19LHsiaWQiOiJwb2kuMTQ2MDgyMjk2NTE2OTI2NDAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicG9pIl0sInJlbGV2YW5jZSI6MSwicHJvcGVydGllcyI6eyJsYW5kbWFyayI6dHJ1ZSwidGVsIjoiMDIwIDczNzcgMTYxNiIsImNhdGVnb3J5IjoiYmFrZXJ5IiwiYWRkcmVzcyI6IjEyOWEgV2hpdGVjaGFwZWwgSGlnaCBTdCIsIm1ha2kiOiJiYWtlcnkifSwidGV4dCI6IkJlcmxpbiBEZWxpY2lvdXMiLCJwbGFjZV9uYW1lIjoiQmVybGluIERlbGljaW91cywgMTI5YSBXaGl0ZWNoYXBlbCBIaWdoIFN0LCBMb25kb24sIEVuZ2xhbmQgRTEgN1BTLCBVbml0ZWQgS2luZ2RvbSIsImNlbnRlciI6Wy0wLjA3MzA0MSw1MS41MTQ4MjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6Wy0wLjA3MzA0MSw1MS41MTQ4MjZdfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS42NzU0NjQwMzk0ODg3OTcwIiwidGV4dCI6IkUxIDdQUyJ9LHsiaWQiOiJsb2NhbGl0eS45MjIzODU4ODcwNDQ2MTkwIiwid2lraWRhdGEiOiJRMTIzMjE5IiwidGV4dCI6IlNwaXRhbGZpZWxkcyJ9LHsiaWQiOiJwbGFjZS44NTAwMzgzNDcwOTEzMzk3Iiwid2lraWRhdGEiOiJRODQiLCJ0ZXh0IjoiTG9uZG9uIn0seyJpZCI6ImRpc3RyaWN0Ljk2NTU2OTgxMDc5NzY2MjAiLCJ3aWtpZGF0YSI6IlEyMzMwNiIsInRleHQiOiJHcmVhdGVyIExvbmRvbiJ9LHsiaWQiOiJyZWdpb24uMzE4NSIsInNob3J0X2NvZGUiOiJHQi1FTkciLCJ3aWtpZGF0YSI6IlEyMSIsInRleHQiOiJFbmdsYW5kIn0seyJpZCI6ImNvdW50cnkuMzU4Iiwic2hvcnRfY29kZSI6ImdiIiwid2lraWRhdGEiOiJRMTQ1IiwidGV4dCI6IlVuaXRlZCBLaW5nZG9tIn1dfSx7ImlkIjoicGxhY2UuMzgzNjg1NTY0MzgwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC45NSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE0ODkyMzQzIn0sInRleHQiOiJCZXJsaW4iLCJwbGFjZV9uYW1lIjoiQmVybGluLCBFYXN0ZXJuIENhcGUsIFNvdXRoIEFmcmljYSIsIm1hdGNoaW5nX3BsYWNlX25hbWUiOiJCZXJsaW4sIEVhc3Rlcm4gQ2FwZSwgRGUgQWZmcmljYSIsImJib3giOlsyNy41NDAzMDAwMDAwMDAxLC0zMi45MDA3OTk5OTksMjcuNjMwMDIwMDAwMDAwMSwtMzIuODM2ODddLCJjZW50ZXIiOlsyNy41ODEyLC0zMi44ODMxXSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsyNy41ODEyLC0zMi44ODMxXX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjI2MDU3Iiwic2hvcnRfY29kZSI6IlpBLUVDIiwid2lraWRhdGEiOiJRMTMwODQwIiwidGV4dCI6IkVhc3Rlcm4gQ2FwZSJ9LHsiaWQiOiJjb3VudHJ5LjM4NyIsInNob3J0X2NvZGUiOiJ6YSIsIndpa2lkYXRhIjoiUTI1OCIsInRleHQiOiJTb3V0aCBBZnJpY2EifV19LHsiaWQiOiJwbGFjZS4xNTA5NTQxMTYxMzU2NDM4MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwbGFjZSJdLCJyZWxldmFuY2UiOjAuNSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE2MTQxODQifSwidGV4dCI6IkJlcmxpbiIsInBsYWNlX25hbWUiOiJCZXJsaW4sIE1hcnlsYW5kLCBVbml0ZWQgU3RhdGVzIiwiYmJveCI6Wy03NS4zNjQ5OTEwMTY5MTg4LDM4LjE5MTMzNzYwNTczNjMsLTc1LjA5Mjk0NTk4ODE3NjUsMzguNDA5NTA0MDE1NDI1MV0sImNlbnRlciI6Wy03NS4yMTc3LDM4LjMyMjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6Wy03NS4yMTc3LDM4LjMyMjZdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMjExODkxIiwic2hvcnRfY29kZSI6IlVTLU1EIiwid2lraWRhdGEiOiJRMTM5MSIsInRleHQiOiJNYXJ5bGFuZCJ9LHsiaWQiOiJjb3VudHJ5LjMxNDUiLCJzaG9ydF9jb2RlIjoidXMiLCJ3aWtpZGF0YSI6IlEzMCIsInRleHQiOiJVbml0ZWQgU3RhdGVzIn1dfV0sImF0dHJpYnV0aW9uIjoiTk9USUNFOiDCqSAyMDE3IE1hcGJveCBhbmQgaXRzIHN1cHBsaWVycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVXNlIG9mIHRoaXMgZGF0YSBpcyBzdWJqZWN0IHRvIHRoZSBNYXBib3ggVGVybXMgb2YgU2VydmljZSAoaHR0cHM6Ly93d3cubWFwYm94LmNvbS9hYm91dC9tYXBzLykuIFRoaXMgcmVzcG9uc2UgYW5kIHRoZSBpbmZvcm1hdGlvbiBpdCBjb250YWlucyBtYXkgbm90IGJlIHJldGFpbmVkLiJ9
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:10:49 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:09:56 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645056'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"aadd945a037a40894c5a7204a0740394"'
-      Vary:
-      - Accept-Encoding
-      Age:
-      - '71'
-      X-Cache:
-      - Hit from cloudfront
-      Via:
-      - 1.1 f51b809c33f0bb5b1d5504f4df0c0a3f.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - wdrmRMKZRGsMllLOldoLrDRRGL7Yi02f18vmi-MU0vRd7LgiQlqqPQ==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJiZXJsaW4iLCJkZSJdLCJmZWF0dXJlcyI6W3siaWQiOiJwbGFjZS4yMjA4MzMiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicmVnaW9uIiwicGxhY2UiXSwicmVsZXZhbmNlIjoxLCJwcm9wZXJ0aWVzIjp7InNob3J0X2NvZGUiOiJERS1CRSIsIndpa2lkYXRhIjoiUTY0In0sInRleHQiOiJCZXJsaW4iLCJwbGFjZV9uYW1lIjoiQmVybGluLCBHZXJtYW55IiwiYmJveCI6WzEzLjA4ODMzMyw1Mi4zMzgyNDIsMTMuNzYwNDY5LDUyLjY3NDkxN10sImNlbnRlciI6WzEzLjM5MzIzNiw1Mi41MDQwNDNdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzEzLjM5MzIzNiw1Mi41MDQwNDNdfSwiY29udGV4dCI6W3siaWQiOiJjb3VudHJ5LjMxMzUiLCJzaG9ydF9jb2RlIjoiZGUiLCJ3aWtpZGF0YSI6IlExODMiLCJ0ZXh0IjoiR2VybWFueSJ9XX0seyJpZCI6ImFkZHJlc3MuOTY2MTQ3MTgiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsiYWRkcmVzcyJdLCJyZWxldmFuY2UiOjEsInByb3BlcnRpZXMiOnt9LCJ0ZXh0IjoiQXYgQmVybGluIERlIChNaWFtaSBQbGF0amEpIiwicGxhY2VfbmFtZSI6IkF2IEJlcmxpbiBEZSAoTWlhbWkgUGxhdGphKSwgNDM4OTIgTW9udC1yb2lnIGRlbCBDYW1wLCBUYXJyYWdvbmEsIFNwYWluIiwiY2VudGVyIjpbMC45MzkxMTgsNDEuMDExNDk3XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlswLjkzOTExOCw0MS4wMTE0OTddfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4yOTA5NTc1ODE4ODQ0MTAwIiwidGV4dCI6IjQzODkyIn0seyJpZCI6InBsYWNlLjI5MDk1MTA2NTQ2NTE0MDAiLCJ3aWtpZGF0YSI6IlE5Mjk3OTQiLCJ0ZXh0IjoiTW9udC1yb2lnIGRlbCBDYW1wIn0seyJpZCI6InJlZ2lvbi4zNTQ4Iiwic2hvcnRfY29kZSI6IkVTLVQiLCJ3aWtpZGF0YSI6IlE5ODM5MiIsInRleHQiOiJUYXJyYWdvbmEifSx7ImlkIjoiY291bnRyeS4zMTEwIiwic2hvcnRfY29kZSI6ImVzIiwid2lraWRhdGEiOiJRMjkiLCJ0ZXh0IjoiU3BhaW4ifV19LHsiaWQiOiJwb2kuMTQ2MDgyMjk2NTE2OTI2NDAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicG9pIl0sInJlbGV2YW5jZSI6MSwicHJvcGVydGllcyI6eyJsYW5kbWFyayI6dHJ1ZSwidGVsIjoiMDIwIDczNzcgMTYxNiIsImNhdGVnb3J5IjoiYmFrZXJ5IiwiYWRkcmVzcyI6IjEyOWEgV2hpdGVjaGFwZWwgSGlnaCBTdCIsIm1ha2kiOiJiYWtlcnkifSwidGV4dCI6IkJlcmxpbiBEZWxpY2lvdXMiLCJwbGFjZV9uYW1lIjoiQmVybGluIERlbGljaW91cywgMTI5YSBXaGl0ZWNoYXBlbCBIaWdoIFN0LCBMb25kb24sIEVuZ2xhbmQgRTEgN1BTLCBVbml0ZWQgS2luZ2RvbSIsImNlbnRlciI6Wy0wLjA3MzA0MSw1MS41MTQ4MjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6Wy0wLjA3MzA0MSw1MS41MTQ4MjZdfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS42NzU0NjQwMzk0ODg3OTcwIiwidGV4dCI6IkUxIDdQUyJ9LHsiaWQiOiJsb2NhbGl0eS45MjIzODU4ODcwNDQ2MTkwIiwid2lraWRhdGEiOiJRMTIzMjE5IiwidGV4dCI6IlNwaXRhbGZpZWxkcyJ9LHsiaWQiOiJwbGFjZS44NTAwMzgzNDcwOTEzMzk3Iiwid2lraWRhdGEiOiJRODQiLCJ0ZXh0IjoiTG9uZG9uIn0seyJpZCI6ImRpc3RyaWN0Ljk2NTU2OTgxMDc5NzY2MjAiLCJ3aWtpZGF0YSI6IlEyMzMwNiIsInRleHQiOiJHcmVhdGVyIExvbmRvbiJ9LHsiaWQiOiJyZWdpb24uMzE4NSIsInNob3J0X2NvZGUiOiJHQi1FTkciLCJ3aWtpZGF0YSI6IlEyMSIsInRleHQiOiJFbmdsYW5kIn0seyJpZCI6ImNvdW50cnkuMzU4Iiwic2hvcnRfY29kZSI6ImdiIiwid2lraWRhdGEiOiJRMTQ1IiwidGV4dCI6IlVuaXRlZCBLaW5nZG9tIn1dfSx7ImlkIjoicGxhY2UuMzgzNjg1NTY0MzgwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBsYWNlIl0sInJlbGV2YW5jZSI6MC45NSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE0ODkyMzQzIn0sInRleHQiOiJCZXJsaW4iLCJwbGFjZV9uYW1lIjoiQmVybGluLCBFYXN0ZXJuIENhcGUsIFNvdXRoIEFmcmljYSIsIm1hdGNoaW5nX3BsYWNlX25hbWUiOiJCZXJsaW4sIEVhc3Rlcm4gQ2FwZSwgRGUgQWZmcmljYSIsImJib3giOlsyNy41NDAzMDAwMDAwMDAxLC0zMi45MDA3OTk5OTksMjcuNjMwMDIwMDAwMDAwMSwtMzIuODM2ODddLCJjZW50ZXIiOlsyNy41ODEyLC0zMi44ODMxXSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsyNy41ODEyLC0zMi44ODMxXX0sImNvbnRleHQiOlt7ImlkIjoicmVnaW9uLjI2MDU3Iiwic2hvcnRfY29kZSI6IlpBLUVDIiwid2lraWRhdGEiOiJRMTMwODQwIiwidGV4dCI6IkVhc3Rlcm4gQ2FwZSJ9LHsiaWQiOiJjb3VudHJ5LjM4NyIsInNob3J0X2NvZGUiOiJ6YSIsIndpa2lkYXRhIjoiUTI1OCIsInRleHQiOiJTb3V0aCBBZnJpY2EifV19LHsiaWQiOiJwbGFjZS4xNTA5NTQxMTYxMzU2NDM4MCIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJwbGFjZSJdLCJyZWxldmFuY2UiOjAuNSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE2MTQxODQifSwidGV4dCI6IkJlcmxpbiIsInBsYWNlX25hbWUiOiJCZXJsaW4sIE1hcnlsYW5kLCBVbml0ZWQgU3RhdGVzIiwiYmJveCI6Wy03NS4zNjQ5OTEwMTY5MTg4LDM4LjE5MTMzNzYwNTczNjMsLTc1LjA5Mjk0NTk4ODE3NjUsMzguNDA5NTA0MDE1NDI1MV0sImNlbnRlciI6Wy03NS4yMTc3LDM4LjMyMjZdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6Wy03NS4yMTc3LDM4LjMyMjZdfSwiY29udGV4dCI6W3siaWQiOiJyZWdpb24uMjExODkxIiwic2hvcnRfY29kZSI6IlVTLU1EIiwid2lraWRhdGEiOiJRMTM5MSIsInRleHQiOiJNYXJ5bGFuZCJ9LHsiaWQiOiJjb3VudHJ5LjMxNDUiLCJzaG9ydF9jb2RlIjoidXMiLCJ3aWtpZGF0YSI6IlEzMCIsInRleHQiOiJVbml0ZWQgU3RhdGVzIn1dfV0sImF0dHJpYnV0aW9uIjoiTk9USUNFOiDCqSAyMDE3IE1hcGJveCBhbmQgaXRzIHN1cHBsaWVycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVXNlIG9mIHRoaXMgZGF0YSBpcyBzdWJqZWN0IHRvIHRoZSBNYXBib3ggVGVybXMgb2YgU2VydmljZSAoaHR0cHM6Ly93d3cubWFwYm94LmNvbS9hYm91dC9tYXBzLykuIFRoaXMgcmVzcG9uc2UgYW5kIHRoZSBpbmZvcm1hdGlvbiBpdCBjb250YWlucyBtYXkgbm90IGJlIHJldGFpbmVkLiJ9
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:11:07 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+AU.json?access_token=<mapbox_api_key>
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.geo+json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 03 Jul 2018 19:11:55 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      X-Rate-Limit-Limit:
-      - '600'
-      X-Rate-Limit-Interval:
-      - '60'
-      X-Rate-Limit-Reset:
-      - '1530645175'
-      Last-Modified:
-      - Sat, 30 Jun 2018 17:58:59 GMT
-      Etag:
-      - '"33c886479097e2a08dd1818c5c2e0ab3"'
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 d41256fff4c52560b6f36cf42caee95d.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - mDKuTJxZlC_QniERrhrzo7_dbMSxhHNNBDA-77MqaHYan-60PyJu2A==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0eXBlIjoiRmVhdHVyZUNvbGxlY3Rpb24iLCJxdWVyeSI6WyJiZXJsaW4iLCJhdSJdLCJmZWF0dXJlcyI6W3siaWQiOiJwbGFjZS4zODM2ODU1NjQzODAiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsicGxhY2UiXSwicmVsZXZhbmNlIjowLjk1LCJwcm9wZXJ0aWVzIjp7Indpa2lkYXRhIjoiUTQ4OTIzNDMifSwidGV4dCI6IkJlcmxpbiIsInBsYWNlX25hbWUiOiJCZXJsaW4sIEVhc3Rlcm4gQ2FwZSwgU291dGggQWZyaWNhIiwibWF0Y2hpbmdfcGxhY2VfbmFtZSI6IkJlcmxpbiwgQXVzdHJ1bWvEgXBhLCBTb3V0aCBBZnJpY2EiLCJiYm94IjpbMjcuNTQwMzAwMDAwMDAwMSwtMzIuOTAwNzk5OTk5LDI3LjYzMDAyMDAwMDAwMDEsLTMyLjgzNjg3XSwiY2VudGVyIjpbMjcuNTgxMiwtMzIuODgzMV0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbMjcuNTgxMiwtMzIuODgzMV19LCJjb250ZXh0IjpbeyJpZCI6InJlZ2lvbi4yNjA1NyIsInNob3J0X2NvZGUiOiJaQS1FQyIsIndpa2lkYXRhIjoiUTEzMDg0MCIsInRleHQiOiJFYXN0ZXJuIENhcGUifSx7ImlkIjoiY291bnRyeS4zODciLCJzaG9ydF9jb2RlIjoiemEiLCJ3aWtpZGF0YSI6IlEyNTgiLCJ0ZXh0IjoiU291dGggQWZyaWNhIn1dfSx7ImlkIjoicG9pLjE0NDc5NTM2ODk3Njk4MjMwIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbInBvaSJdLCJyZWxldmFuY2UiOjAuOCwicHJvcGVydGllcyI6eyJsYW5kbWFyayI6dHJ1ZSwidGVsIjoiKDkyMCkgMzYxLTQwNjAiLCJjYXRlZ29yeSI6InBpenphLCByZXN0YXVyYW50IiwiYWRkcmVzcyI6IjcxMyBCcm9hZHdheSIsIm1ha2kiOiJyZXN0YXVyYW50In0sInRleHQiOiJCZXJsaW4gT2lsLUF1dG8gUmVwYWlyLUZ1ZWxzIiwicGxhY2VfbmFtZSI6IkJlcmxpbiBPaWwtQXV0byBSZXBhaXItRnVlbHMsIDcxMyBCcm9hZHdheSwgQmVybGluLCBXaXNjb25zaW4gNTQ5MjMsIFVuaXRlZCBTdGF0ZXMiLCJjZW50ZXIiOlstODguOTcyMzk3LDQzLjk2ODQ0OV0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbLTg4Ljk3MjM5Nyw0My45Njg0NDldfSwiY29udGV4dCI6W3siaWQiOiJwb3N0Y29kZS4xMjEyNjMzNjEyOTM0MzY2MCIsInRleHQiOiI1NDkyMyJ9LHsiaWQiOiJwbGFjZS4yMTg2MjY1MTQyNTY0MzgwIiwid2lraWRhdGEiOiJRMTU2OTg1MCIsInRleHQiOiJCZXJsaW4ifSx7ImlkIjoicmVnaW9uLjIxOTAyNCIsInNob3J0X2NvZGUiOiJVUy1XSSIsIndpa2lkYXRhIjoiUTE1MzciLCJ0ZXh0IjoiV2lzY29uc2luIn0seyJpZCI6ImNvdW50cnkuMzE0NSIsInNob3J0X2NvZGUiOiJ1cyIsIndpa2lkYXRhIjoiUTMwIiwidGV4dCI6IlVuaXRlZCBTdGF0ZXMifV19LHsiaWQiOiJjb3VudHJ5LjMxMDQiLCJ0eXBlIjoiRmVhdHVyZSIsInBsYWNlX3R5cGUiOlsiY291bnRyeSJdLCJyZWxldmFuY2UiOjAuNSwicHJvcGVydGllcyI6eyJ3aWtpZGF0YSI6IlE0MDgiLCJzaG9ydF9jb2RlIjoiYXUifSwidGV4dCI6IkF1c3RyYWxpYSIsInBsYWNlX25hbWUiOiJBdXN0cmFsaWEiLCJiYm94IjpbMTEyLjgyMTMzOSwtNDMuODQwMjg4LDE1OS4yMDkxNjcsLTkuMDQyNzE5XSwiY2VudGVyIjpbMTM0LjQ4OTU2MywtMjUuNzM0OTY4XSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsxMzQuNDg5NTYzLC0yNS43MzQ5NjhdfX0seyJpZCI6ImNvdW50cnkuMzUyIiwidHlwZSI6IkZlYXR1cmUiLCJwbGFjZV90eXBlIjpbImNvdW50cnkiXSwicmVsZXZhbmNlIjowLjUsInByb3BlcnRpZXMiOnsid2lraWRhdGEiOiJRNDAiLCJzaG9ydF9jb2RlIjoiYXQifSwidGV4dCI6IkF1c3RyaWEiLCJwbGFjZV9uYW1lIjoiQXVzdHJpYSIsImJib3giOls5LjUyOTk1OSw0Ni4zNzIyOTksMTcuMTYwNzAzLDQ5LjAyMDMzNl0sImNlbnRlciI6WzE0LjMwMDE0NCw0Ny42MDc3OThdLCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzE0LjMwMDE0NCw0Ny42MDc3OThdfX0seyJpZCI6InBsYWNlLjIyMDgzMyIsInR5cGUiOiJGZWF0dXJlIiwicGxhY2VfdHlwZSI6WyJyZWdpb24iLCJwbGFjZSJdLCJyZWxldmFuY2UiOjAuNSwicHJvcGVydGllcyI6eyJzaG9ydF9jb2RlIjoiREUtQkUiLCJ3aWtpZGF0YSI6IlE2NCJ9LCJ0ZXh0IjoiQmVybGluIiwicGxhY2VfbmFtZSI6IkJlcmxpbiwgR2VybWFueSIsImJib3giOlsxMy4wODgzMzMsNTIuMzM4MjQyLDEzLjc2MDQ2OSw1Mi42NzQ5MTddLCJjZW50ZXIiOlsxMy4zOTMyMzYsNTIuNTA0MDQzXSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOlsxMy4zOTMyMzYsNTIuNTA0MDQzXX0sImNvbnRleHQiOlt7ImlkIjoiY291bnRyeS4zMTM1Iiwic2hvcnRfY29kZSI6ImRlIiwid2lraWRhdGEiOiJRMTgzIiwidGV4dCI6Ikdlcm1hbnkifV19XSwiYXR0cmlidXRpb24iOiJOT1RJQ0U6IMKpIDIwMTcgTWFwYm94IGFuZCBpdHMgc3VwcGxpZXJzLiBBbGwgcmlnaHRzIHJlc2VydmVkLiBVc2Ugb2YgdGhpcyBkYXRhIGlzIHN1YmplY3QgdG8gdGhlIE1hcGJveCBUZXJtcyBvZiBTZXJ2aWNlIChodHRwczovL3d3dy5tYXBib3guY29tL2Fib3V0L21hcHMvKS4gVGhpcyByZXNwb25zZSBhbmQgdGhlIGluZm9ybWF0aW9uIGl0IGNvbnRhaW5zIG1heSBub3QgYmUgcmV0YWluZWQuIn0=
-    http_version: 
-  recorded_at: Tue, 03 Jul 2018 19:11:55 GMT
-- request:
-    method: get
     uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json
     body:
       encoding: US-ASCII
@@ -669,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 19 Oct 2018 10:55:11 GMT
+      - Tue, 23 Oct 2018 17:12:55 GMT
       X-Powered-By:
       - Express
       Access-Control-Allow-Origin:
@@ -685,357 +41,14 @@ http_interactions:
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 9f190c53aa1fad1d6d54f8cc88bdeb16.cloudfront.net (CloudFront)
+      - 1.1 269bfdd288bfea5423a4e9e701777da6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 27TS3OEogB_eNMvjJtnQB5kG-laO4LMvLMKrJ1FL0J5wNSTC3vBm4Q==
+      - 9ZnKvoD-HjhGgg1M_B3Gcn44a0A9H64yzc4OfbgGzzaB3UV7T_BWpg==
     body:
       encoding: ASCII-8BIT
       string: '{"message":"Not Authorized - No Token"}'
     http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:55:11 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 19 Oct 2018 10:55:16 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      Etag:
-      - W/"27-f4bcddab"
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 2db316290386960b489a2a16c0a63643.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Iihw-llw8olfGIE_Q1N7NB834CBI_rr13BFoZ-hoJ1DDKSqs1fmBBw==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Not Authorized - No Token"}'
-    http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:55:16 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Not+Berlin+FR.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 19 Oct 2018 10:55:38 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      Etag:
-      - W/"27-f4bcddab"
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 b7e7cd319ec31b533acb1e9e4b737331.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - aiF4K4khxcvCzC01Nng5HWslCOO-KhkgUBgQD2BZxr4eoVKJ2bI3eA==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Not Authorized - No Token"}'
-    http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:55:38 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Z%C3%BCrich+CH.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 19 Oct 2018 10:55:42 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      Etag:
-      - W/"27-f4bcddab"
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 d79148f01e44f5598c15bdd5ce1c1997.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 35NigLnwkV8sdo7iPI81-3u-xXV5mbqzqFSttpijPAu2HXzZyY6qGQ==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Not Authorized - No Token"}'
-    http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:55:43 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Paris+FR.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 19 Oct 2018 10:55:43 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      Etag:
-      - W/"27-f4bcddab"
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 d12467f4c051603df707c4dfa0fee85d.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 17uzsKxHQBeAi6WFX5kvQ_R8f9KTeYs6xfWNqPcPFtv_DNENI8BSNw==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Not Authorized - No Token"}'
-    http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:55:43 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Basel+CH.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 19 Oct 2018 10:55:44 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      Etag:
-      - W/"27-f4bcddab"
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 23d92aa442d5ae9ed0313643d8764687.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - hmfGHOEcjJHK9Wr_ayFRFmwlFrVG0vINlmgcJvWXaqj82T6xsB-zSQ==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Not Authorized - No Token"}'
-    http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:55:44 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Basel+FR.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 19 Oct 2018 10:55:44 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      Etag:
-      - W/"27-f4bcddab"
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 b541956a3e11a8d6bd72d74e925ca434.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - _EQSOcQ-wrmbVLPkU7DQIglR8HKp2RDqLt4LdIlFg3Ipg6ILZ9BXxg==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Not Authorized - No Token"}'
-    http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:55:44 GMT
-- request:
-    method: get
-    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Hamburg+DE.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 19 Oct 2018 10:55:53 GMT
-      X-Powered-By:
-      - Express
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
-      Cache-Control:
-      - max-age=604800
-      Etag:
-      - W/"27-f4bcddab"
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 1463b274b31e0310acc7c754b8b5a550.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - P2pmvPUBKlvryiQmnRrra7kstwyScI_XsxXKorElrRupB7jB5IGLGQ==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Not Authorized - No Token"}'
-    http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:55:53 GMT
+  recorded_at: Tue, 23 Oct 2018 17:12:54 GMT
 - request:
     method: get
     uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+AU.json
@@ -1061,7 +74,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 19 Oct 2018 10:56:59 GMT
+      - Tue, 23 Oct 2018 17:13:29 GMT
       X-Powered-By:
       - Express
       Access-Control-Allow-Origin:
@@ -1077,14 +90,14 @@ http_interactions:
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 93c5c2940efa6748481c787e7c245f82.cloudfront.net (CloudFront)
+      - 1.1 511c8b6c7e903efca023a504d527516b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - RTnXXA3MiQgSMHkdTb10wx34_lXsgSW8Sk6d_GeZOj9kLlK8qns1GQ==
+      - aGilbQBHjcw0LiXFbB1dKRNMuRLrmwErF2GeBVLI0EwsbjaQsxibNw==
     body:
       encoding: ASCII-8BIT
       string: '{"message":"Not Authorized - No Token"}'
     http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:56:59 GMT
+  recorded_at: Tue, 23 Oct 2018 17:13:29 GMT
 - request:
     method: get
     uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json
@@ -1110,7 +123,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 19 Oct 2018 10:57:02 GMT
+      - Tue, 23 Oct 2018 17:13:38 GMT
       X-Powered-By:
       - Express
       Access-Control-Allow-Origin:
@@ -1126,14 +139,63 @@ http_interactions:
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 1280e48937eca7de58e32cd35415f48a.cloudfront.net (CloudFront)
+      - 1.1 85dc19f43b2a0bd8840fdf8baf07d762.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - mgWSgQzLUqMPfQnK90LGXv_IyKpcv1UUCt0rO3FXyPzYqzD9oDA3ow==
+      - 5a4gLq77HUPkvI8APZ1FTFXPpy5g2WunApvh8iIUiiteSKUEErjZNw==
     body:
       encoding: ASCII-8BIT
       string: '{"message":"Not Authorized - No Token"}'
     http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:57:02 GMT
+  recorded_at: Tue, 23 Oct 2018 17:13:38 GMT
+- request:
+    method: get
+    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Not+Berlin+FR.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 23 Oct 2018 17:13:41 GMT
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
+      Cache-Control:
+      - max-age=604800
+      Etag:
+      - W/"27-f4bcddab"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 c90147ea5199ff7ce77981c8da4247c4.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 1N3N2IPmKNcEL61K968g_bEOF6zDLdwLXafU_efAgTbyZLOlFsSe3w==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Authorized - No Token"}'
+    http_version: 
+  recorded_at: Tue, 23 Oct 2018 17:13:41 GMT
 - request:
     method: get
     uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json
@@ -1159,7 +221,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 19 Oct 2018 10:57:03 GMT
+      - Tue, 23 Oct 2018 17:13:46 GMT
       X-Powered-By:
       - Express
       Access-Control-Allow-Origin:
@@ -1175,12 +237,306 @@ http_interactions:
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 b4b6d30e349cbed36f8141249dcef99f.cloudfront.net (CloudFront)
+      - 1.1 61adf71a363fe0f836dc69dbb43de824.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - oEO8ZiJd5GgoRAMB3z5LAGNxvQ5mbc1QZgprWD2lRTUnzJgSbpe81g==
+      - mc2tLku6ZYbvQVVH0w1KbykJjQ68KpTvCjqO9tsvb8neIlutiRg5VA==
     body:
       encoding: ASCII-8BIT
       string: '{"message":"Not Authorized - No Token"}'
     http_version: 
-  recorded_at: Fri, 19 Oct 2018 10:57:03 GMT
+  recorded_at: Tue, 23 Oct 2018 17:13:46 GMT
+- request:
+    method: get
+    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Berlin+DE.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 23 Oct 2018 17:13:47 GMT
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
+      Cache-Control:
+      - max-age=604800
+      Etag:
+      - W/"27-f4bcddab"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 b073c20359d711b751afd124dda34076.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - nKKr5C8gi66Al455jEod2UAhqOhdreSW3rf5LTfITO-zYS0bol8-Kg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Authorized - No Token"}'
+    http_version: 
+  recorded_at: Tue, 23 Oct 2018 17:13:46 GMT
+- request:
+    method: get
+    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Hamburg+DE.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 23 Oct 2018 17:14:08 GMT
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
+      Cache-Control:
+      - max-age=604800
+      Etag:
+      - W/"27-f4bcddab"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 1f5757b46371746e677236d4fc67d364.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - aL3sNj2JulDqf1FWqZuqIDxAvjmIthQOHa7sEKcnrxAamURh5UFXFQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Authorized - No Token"}'
+    http_version: 
+  recorded_at: Tue, 23 Oct 2018 17:14:08 GMT
+- request:
+    method: get
+    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Z%C3%BCrich+CH.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 23 Oct 2018 17:15:20 GMT
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
+      Cache-Control:
+      - max-age=604800
+      Etag:
+      - W/"27-f4bcddab"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 850ccace60916919bf31313cb9176e01.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - rQqlRlfh59WJsBEdJ7OkABM77XD4yJN-P3UZMkjjZcsxo9gO4TwHOA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Authorized - No Token"}'
+    http_version: 
+  recorded_at: Tue, 23 Oct 2018 17:15:20 GMT
+- request:
+    method: get
+    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Paris+FR.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 23 Oct 2018 17:15:21 GMT
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
+      Cache-Control:
+      - max-age=604800
+      Etag:
+      - W/"27-f4bcddab"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 25ffb5a941b5a46b102cd385a9cdbb50.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - z5KPZdfFnuyxo_raXEK4Fcl7G1orKudFbnMU6RSaw5y0fG_uYFKDuw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Authorized - No Token"}'
+    http_version: 
+  recorded_at: Tue, 23 Oct 2018 17:15:20 GMT
+- request:
+    method: get
+    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Basel+CH.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 23 Oct 2018 17:15:21 GMT
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
+      Cache-Control:
+      - max-age=604800
+      Etag:
+      - W/"27-f4bcddab"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 d7524ff4a82155dd51a24800cf39deec.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - etUV37AXORMugVj_2Hd7aoh8NQCDHsNXzHIxtnZvtWBzu8kd86YMvQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Authorized - No Token"}'
+    http_version: 
+  recorded_at: Tue, 23 Oct 2018 17:15:20 GMT
+- request:
+    method: get
+    uri: https://api.mapbox.com/geocoding/v5/mapbox.places/+++Basel+FR.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 23 Oct 2018 17:15:21 GMT
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-rate-limit-interval,x-rate-limit-limit,x-rate-limit-remaining,x-rate-limit-reset
+      Cache-Control:
+      - max-age=604800
+      Etag:
+      - W/"27-f4bcddab"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 110641d379117242a91443ac729d6def.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - DgWoH5iPKZs8yZrE_pZX_TY8YOwVo5KGEb8L2guZS2XdWQfzdUKXrA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Authorized - No Token"}'
+    http_version: 
+  recorded_at: Tue, 23 Oct 2018 17:15:21 GMT
 recorded_with: VCR 4.0.0

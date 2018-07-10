@@ -17,6 +17,7 @@ class PeopleController < ApplicationController
   end
 
   def show
+    @invites = Invite.where(person_id: @person.id) if current_person == @person
   end
 
   def edit

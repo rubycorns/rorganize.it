@@ -1,17 +1,22 @@
-%h2 #{@group.name} are open for new members
-%p Please make sure to read their individual notes for joining the group!
-
-.sign-in-cta
+.group-join-box__notice
   - if current_person.can_join_group?
-    = form_for(current_person.memberships.build(group_id: @group.id), url: memberships_path) do |f|
-      = f.hidden_field :group_id
-      = f.hidden_field :type, value: 'StudentMembership'
-      = f.submit "Join as a student!", class: 'btn btn-pink-full'
-    %p.divider or
-    = form_for(current_person.memberships.build(group_id: @group.id), url: memberships_path) do |f|
-      = f.hidden_field :group_id
-      = f.hidden_field :type, value: 'CoachMembership'
-      = f.submit "Join as a coach!", class: 'btn btn-pink-full'
+
+    - if @invites.present?
+      %p.group-join-box__invited
+        You requested membership for this group on
+        = @invites.first.created_at.strftime("%b %d %Y")
+
+    - else
+      %h2 #{@group.name} are open for new members
+      %p Please make sure to read their individual notes for joining the group!
+
+      = form_for(:invite, url: invites_path, method: :post) do |f|
+        = f.hidden_field :group_id, value: @group.id
+        = f.hidden_field :person_id, value: current_person.id
+        = f.submit "Request Membership!", class: 'btn btn-pink-full'
+
   - else
-    .sign-in-cta
-      = link_to "Sign up to join!", new_person_registration_path, class: 'btn btn-lrg btn-pink-full', id: 'signup-button'
+    %h2 #{@group.name} are open for new members
+    %p Please make sure to read their individual notes for joining the group!
+
+    = link_to "Sign up to join!", new_person_registration_path, class: 'btn btn-lrg btn-pink-full', id: 'signup-button'

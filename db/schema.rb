@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 20181019100323) do
     t.index ["slug"], name: "index_groups_on_slug", unique: true
   end
 
+  create_table "invites", force: :cascade do |t|
+    t.integer  "group_id",   null: false
+    t.integer  "person_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "memberships", force: :cascade do |t|
     t.integer  "group_id"
     t.integer  "person_id"

@@ -37,6 +37,7 @@ class Group < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :student_memberships
   has_many :coach_memberships
+  has_many :invites, dependent: :destroy
 
   validates :name, presence: true
   validates :email, format: { with: FORMAT }, presence: true
