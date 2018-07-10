@@ -54,10 +54,7 @@ describe PostsController do
         get(:index, params: { page: 'bleepbloop' })
         expect(response.status).to eq 400
       end
-
-
     end
-
   end
 
   describe 'create' do
