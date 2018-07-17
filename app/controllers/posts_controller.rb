@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     page = (params[:page] || 1).to_i
     @published_posts = @published_posts.paginate(page: page, per_page: 5)
   rescue RangeError
-    bad_request
+    render_404
   end
 
   def show
