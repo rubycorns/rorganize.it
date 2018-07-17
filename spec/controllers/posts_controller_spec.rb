@@ -45,14 +45,14 @@ describe PostsController do
         expect(assigns(:published_posts).to_a.size).to eq 1
       end
 
-      it 'returns 400 if page param is negative number' do
+      it 'returns 404 if page param is negative number' do
         get(:index, params: { page: -4097 })
-        expect(response.status).to eq 400
+        expect(response.status).to eq 404
       end
 
-      it 'returns 400 if page param is not an integer' do
+      it 'returns 404 if page param is not an integer' do
         get(:index, params: { page: 'bleepbloop' })
-        expect(response.status).to eq 400
+        expect(response.status).to eq 404
       end
     end
   end
