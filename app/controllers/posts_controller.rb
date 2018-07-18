@@ -10,6 +10,8 @@ class PostsController < ApplicationController
     @published_posts = Post.published_descending_order
     page = (params[:page] || 1).to_i
     @published_posts = @published_posts.paginate(page: page, per_page: 5)
+  rescue RangeError
+    render_404
   end
 
   def show

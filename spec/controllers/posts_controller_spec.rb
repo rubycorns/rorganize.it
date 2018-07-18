@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PostsController do
   describe 'index' do
-    context 'no posts whatsoever' do
+    context 'when there are no posts' do
 
       before :each do
         get :index
@@ -33,14 +33,28 @@ describe PostsController do
     context 'with pagination' do
       before :each do
         6.times { create :post }
-        get :index
       end
 
-      it 'has 5 published posts' do
+      it 'returns the first page when no page param provided' do
+        get :index
         expect(assigns(:published_posts).to_a.size).to eq 5
       end
-    end
 
+      it 'returns a different page when param provided' do
+        get :index, params: { page: 2 }
+        expect(assigns(:published_posts).to_a.size).to eq 1
+      end
+
+      it 'returns 404 if page param is negative number' do
+        get(:index, params: { page: -4097 })
+        expect(response.status).to eq 404
+      end
+
+      it 'returns 404 if page param is not an integer' do
+        get(:index, params: { page: 'bleepbloop' })
+        expect(response.status).to eq 404
+      end
+    end
   end
 
   describe 'create' do
