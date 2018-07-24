@@ -46,12 +46,6 @@ class GroupsController < ApplicationController
   end
 
   def show
-    topics = Topic.where(group_id: @group.id)
-    @covered_topics, @future_topics = topics.partition { |topic| topic.covered? }
-
-    @topic = Topic.new
-    @topic.group = @group
-
     @students = signed_in? ? @group.students : @group.students.public_profile
     @coaches = signed_in? ? @group.coaches : @group.coaches.public_profile
 
