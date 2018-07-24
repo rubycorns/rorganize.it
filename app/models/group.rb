@@ -33,7 +33,6 @@ class Group < ApplicationRecord
 
   has_many :students, through: :student_memberships, source: :person
   has_many :coaches, through: :coach_memberships, source: :person
-  has_many :topics
   has_many :people, through: :memberships
   has_many :memberships, dependent: :destroy
   has_many :student_memberships
