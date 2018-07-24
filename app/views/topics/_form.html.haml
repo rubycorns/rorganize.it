@@ -1,9 +1,0 @@
-= form_for @topic, url: [@topic.group, @topic] do |f|
-  = render 'shared/error_messages', object: f.object
-  .form-group
-    = f.text_area(:body, placeholder: 'Suggest a topic', rows: 4)
-    %p.help-block You can use markdown.
-    = f.hidden_field :group_id
-  .action-buttons
-    = f.submit class: 'btn btn-teal'
-    = link_to "Cancel", group_topics_path, class: 'btn btn-grey'
