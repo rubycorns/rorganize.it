@@ -32,7 +32,6 @@ describe Person, vcr: {cassette_name: 'create_group'} do
 
   it { is_expected.to have_many(:groups).through(:memberships) }
   it { is_expected.to have_many(:memberships) }
-  it { is_expected.to have_many(:topics) }
   it { is_expected.to have_many(:posts) }
 
   it { is_expected.to validate_presence_of(:first_name) }
