@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_action :trim_whitespace, only: [:create]
 
   def destroy
     current_person.destroy
@@ -14,5 +15,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def person_params
     devise_parameter_sanitizer.sanitize(:account_update)
+  end
+
+  def trim_whitespace
+    super(params[:person])
   end
 end

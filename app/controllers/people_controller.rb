@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
   before_action :authenticate_person!, except: [:index]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :trim_whitespace, only: [:update]
 
   def index
     ordered_people = Person.order(:first_name).order(:last_name)
@@ -11,7 +12,7 @@ class PeopleController < ApplicationController
     @cities = Person.order(:city).visible_locations_for(:cities, signed_in?)
     @countries = Person.order(:country).visible_locations_for(:countries, signed_in?)
 
-    @grouped_people = @people.group_by{|person| person.first_name.first.capitalize }
+    @grouped_people = @people.group_by{ |person| person.first_name.first.capitalize }
     @alphabetical_list = @grouped_people.keys.sort
     @subnav_active = 'index'
   end
@@ -20,6 +21,10 @@ class PeopleController < ApplicationController
   end
 
   def edit
+  end
+
+  def create
+    binding.pry
   end
 
   def update
@@ -56,5 +61,9 @@ class PeopleController < ApplicationController
       :remove_picture,
       :mastodon
     )
+  end
+
+  def trim_whitespace
+    super(params[:person])
   end
 end

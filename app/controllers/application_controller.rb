@@ -51,5 +51,8 @@ class ApplicationController < ActionController::Base
     render file: Rails.root.join('public/400.html'), status: 400
   end
 
+  def trim_whitespace(params)
+    params.each_value {|val| val.strip!}
+  end
 
 end

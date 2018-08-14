@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
   before_action :ensure_can_destroy, only: [:destroy]
   before_action :ensure_member_powers, only: [:edit, :update]
   before_action :ensure_group_admin_powers, only: [:edit, :update, :manage_members]
+  before_action :trim_whitespace, only: [:create, :update]
 
   def index
     ordered_groups = Group.active.order(:name)
@@ -114,5 +115,9 @@ class GroupsController < ApplicationController
       :searching_location,
       :mastodon
     )
+  end
+
+  def trim_whitespace
+    super(params[:group])
   end
 end
