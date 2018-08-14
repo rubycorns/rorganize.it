@@ -23,9 +23,6 @@ class PeopleController < ApplicationController
   def edit
   end
 
-  def create
-  end
-
   def update
     if @person.update_attributes person_params
       redirect_to person_path(@person), notice: 'You updated your profile! '\
