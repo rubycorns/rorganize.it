@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   before_action :authenticate_person!, except: [:index]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-  before_action :trim_whitespace, only: [:update]
+  before_action :trim_params, only: [:update]
 
   def index
     ordered_people = Person.order(:first_name).order(:last_name)
@@ -24,7 +24,6 @@ class PeopleController < ApplicationController
   end
 
   def create
-    binding.pry
   end
 
   def update
@@ -63,7 +62,7 @@ class PeopleController < ApplicationController
     )
   end
 
-  def trim_whitespace
+  def trim_params
     super(params[:person])
   end
 end
