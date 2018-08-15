@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
   end
 
   def trim_params(params)
-    params.each_value {|val| val.strip!}
+    params.each { |_, val| val.strip! if val.respond_to?(:strip!) }
   end
 
 end
