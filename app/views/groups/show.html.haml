@@ -23,6 +23,10 @@
           %p
             %strong Our Twitter:
             = render partial: "shared/twitter", locals: { object: @group }
+        - if @group.mastodon?
+          %p
+            %strong 🐘 Our Mastodon:
+            = render partial: "shared/mastodon", locals: { object: @group }
         - if @group.founded_on?
           %p
             %strong Founded:

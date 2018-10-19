@@ -53,6 +53,8 @@ class PeopleController < ApplicationController
       :non_public,
       :searching_group,
       :github_handle,
-      :remove_picture)
+      :remove_picture,
+      :mastodon
+    )
   end
 end

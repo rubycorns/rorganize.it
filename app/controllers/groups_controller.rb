@@ -111,6 +111,8 @@ class GroupsController < ApplicationController
       :allow_male_students,
       :searching_coaches,
       :searching_students,
-      :searching_location)
+      :searching_location,
+      :mastodon
+    )
   end
 end

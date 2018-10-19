@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724204658) do
+ActiveRecord::Schema.define(version: 20181019100323) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180724204658) do
     t.boolean  "searching_coaches",   default: false, null: false
     t.boolean  "searching_students",  default: false, null: false
     t.boolean  "searching_location",  default: false, null: false
+    t.string   "mastodon"
     t.index ["slug"], name: "index_groups_on_slug", unique: true
   end
 
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 20180724204658) do
     t.boolean  "non_public",             default: false, null: false
     t.boolean  "searching_group",        default: false, null: false
     t.string   "github_handle"
+    t.string   "mastodon"
     t.index ["email"], name: "index_people_on_email", unique: true
     t.index ["group_id"], name: "index_people_on_group_id"
     t.index ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
