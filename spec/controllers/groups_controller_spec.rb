@@ -43,7 +43,7 @@ describe GroupsController, vcr: {cassette_name: 'create_group'} do
   describe 'update' do
     let(:group) { create(:group, name: 'Awesome Group') }
     let(:person) { create(:person) }
-    let(:params) { {group: { name: 'Changed group name', mastodon: 'abijawara'},
+    let(:params) { {group: { name: 'Changed group name', mastodon: 'abijawara@mastodon.social'},
                 id: group.id} }
 
     before do
@@ -67,7 +67,7 @@ describe GroupsController, vcr: {cassette_name: 'create_group'} do
         put :update, params: params
         group = Group.find_by(name: 'Changed group name')
         expect(group).to_not be nil
-        expect(group.mastodon).to eq 'abijawara'
+        expect(group.mastodon).to eq 'abijawara@mastodon.social'
       end
 
       it 'redirects to the groups overview' do

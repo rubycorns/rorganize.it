@@ -22,7 +22,7 @@ describe PeopleController do
 
     context 'success' do
       let(:person) { create(:person) }
-      let(:params) { { person: { first_name: 'Buffy', mastodon: 'seunadex' }, id: person.id } }
+      let(:params) { { person: { first_name: 'Buffy', mastodon: 'seunadex@mastodon.social' }, id: person.id } }
 
       before do
         allow(controller).to receive :authenticate_person!
@@ -34,7 +34,7 @@ describe PeopleController do
         put :update, params: params
         person.reload
         expect(person.first_name).to eq 'Buffy'
-        expect(person.mastodon).to eq 'seunadex'
+        expect(person.mastodon).to eq 'seunadex@mastodon.social'
       end
 
       it 'displays the correct notice' do
