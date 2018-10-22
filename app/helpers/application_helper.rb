@@ -46,4 +46,12 @@ module ApplicationHelper
     end
     title_string
   end
+
+  def split_mastodon_handle(handle)
+    splitted_arr = handle.split('@')
+    {
+      username: splitted_arr.first,
+      host: splitted_arr.last
+    }
+  end
 end

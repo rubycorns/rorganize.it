@@ -26,6 +26,10 @@
           %p
             %strong ️🐦 Twitter
             = render partial: "shared/twitter", locals: { object: @person }
+        - if @person.mastodon?
+          %p
+            %strong 🐘 Mastodon
+            = render partial: "shared/mastodon", locals: { object: @person }
         - if @person.website?
           %p
             %strong 💻 Website

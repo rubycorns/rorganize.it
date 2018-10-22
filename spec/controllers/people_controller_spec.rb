@@ -22,7 +22,7 @@ describe PeopleController do
 
     context 'success' do
       let(:person) { create(:person) }
-      let(:params) { { person: { first_name: 'Buffy'}, id: person.id } }
+      let(:params) { { person: { first_name: 'Buffy', mastodon: 'seunadex@mastodon.social' }, id: person.id } }
 
       before do
         allow(controller).to receive :authenticate_person!
@@ -30,9 +30,11 @@ describe PeopleController do
         allow(Person).to receive(:find).and_return(person)
       end
 
-      it 'updates the group' do
+      it 'updates the person' do
         put :update, params: params
-        expect(person.reload.first_name).to eq 'Buffy'
+        person.reload
+        expect(person.first_name).to eq 'Buffy'
+        expect(person.mastodon).to eq 'seunadex@mastodon.social'
       end
 
       it 'displays the correct notice' do

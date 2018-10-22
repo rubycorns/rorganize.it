@@ -39,4 +39,13 @@ describe '#overview_filter' do
       expect(helper.overview_filter('Groups')).to eq('Groups in Berlin, United States of America')
     end
   end
+
+  describe '#split_mastodon_handle' do
+    let(:person) { build_stubbed :person, { mastodon: 'seunadex@mastodon.social' } }
+    it 'splits users mastodon handle and returns a hash' do
+      arr = helper.split_mastodon_handle(person.mastodon)
+      expect(arr[:username]).to eq('seunadex')
+      expect(arr[:host]).to eq('mastodon.social')
+    end
+  end
 end
