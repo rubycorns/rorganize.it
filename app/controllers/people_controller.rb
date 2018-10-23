@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  include ParamsHelper
   before_action :authenticate_person!, except: [:index]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   before_action :trim_params, only: [:update]
@@ -57,9 +58,5 @@ class PeopleController < ApplicationController
       :remove_picture,
       :mastodon
     )
-  end
-
-  def trim_params
-    super(params[:person])
   end
 end

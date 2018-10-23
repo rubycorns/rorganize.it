@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  include ParamsHelper
   before_action :trim_params, only: [:create]
 
   def destroy
@@ -15,9 +16,5 @@ class RegistrationsController < Devise::RegistrationsController
 
   def person_params
     devise_parameter_sanitizer.sanitize(:account_update)
-  end
-
-  def trim_params
-    super(params[:person])
   end
 end

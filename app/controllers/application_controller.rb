@@ -50,9 +50,4 @@ class ApplicationController < ActionController::Base
   def bad_request
     render file: Rails.root.join('public/400.html'), status: 400
   end
-
-  def trim_params(params)
-    params.each { |_, val| val.strip! if val.respond_to?(:strip!) }
-  end
-
 end

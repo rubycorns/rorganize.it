@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  include ParamsHelper
   respond_to :html
 
   before_action :set_group, only: [:show, :edit, :update, :destroy, :manage_members]
@@ -115,9 +116,5 @@ class GroupsController < ApplicationController
       :searching_location,
       :mastodon
     )
-  end
-
-  def trim_params
-    super(params[:group])
   end
 end
