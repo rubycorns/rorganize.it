@@ -2,7 +2,9 @@ class PeopleController < ApplicationController
   include ParamsHelper
   before_action :authenticate_person!, except: [:index]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-  before_action :trim_params, only: [:update]
+  before_action only: [:update] do
+    trim_params(params[:person])
+  end
 
   def index
     ordered_people = Person.order(:first_name).order(:last_name)

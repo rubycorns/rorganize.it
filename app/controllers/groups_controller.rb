@@ -7,7 +7,9 @@ class GroupsController < ApplicationController
   before_action :ensure_can_destroy, only: [:destroy]
   before_action :ensure_member_powers, only: [:edit, :update]
   before_action :ensure_group_admin_powers, only: [:edit, :update, :manage_members]
-  before_action :trim_params, only: [:create, :update]
+  before_action only: [:create, :update] do
+    trim_params(params[:group])
+  end
 
   def index
     ordered_groups = Group.active.order(:name)
