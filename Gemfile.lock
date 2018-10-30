@@ -115,7 +115,7 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     fastimage (2.1.1)
-    ffi (1.9.21)
+    ffi (1.9.25)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
     formatador (0.2.5)
