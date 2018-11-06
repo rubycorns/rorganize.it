@@ -32,40 +32,40 @@ FactoryBot.define do
   end
 
   factory :person do
-    first_name 'Ruby'
-    last_name 'Corn'
-    city 'Berlin'
-    country 'DE'
+    first_name { 'Ruby' }
+    last_name { 'Corn' }
+    city { 'Berlin' }
+    country { 'DE' }
     email
-    password 'testtest'
+    password { 'testtest' }
     picture { File.new("#{Rails.root}/spec/fixtures/images/avatar.png") }
   end
 
   factory :second_person, class: Person do
-    first_name 'Tarn'
-    last_name 'Shoes'
-    city 'Hamburg'
-    country 'DE'
+    first_name { 'Tarn' }
+    last_name { 'Shoes' }
+    city { 'Hamburg' }
+    country { 'DE' }
     email
-    password 'tarntarn'
+    password { 'tarntarn' }
   end
 
   factory :admin, class: Person do
-    first_name 'Super'
-    last_name 'Cake'
+    first_name { 'Super' }
+    last_name { 'Cake' }
     email
-    password 'tarntest'
-    admin true
+    password { 'tarntest' }
+    admin { true }
   end
 
   factory :workshop_coach, class: Person do
-    first_name 'Corny'
-    last_name 'Chocolate-Bar'
-    city 'Köln'
-    country 'DE'
+    first_name { 'Corny' }
+    last_name { 'Chocolate-Bar' }
+    city { 'Köln' }
+    country { 'DE' }
     email
-    password 'testtarn'
-    workshop_coach true
+    password { 'testtarn' }
+    workshop_coach { true }
   end
 
 end

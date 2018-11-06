@@ -17,7 +17,7 @@
 FactoryBot.define do
   factory :post do
     sequence(:title) { |n| "A blogPost #{n}" }
-    description 'about stuff'
+    description { 'about stuff' }
     sequence(:slug) { |n| "a-blogpost-#{n}" }
   end
 end
