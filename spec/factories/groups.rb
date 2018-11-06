@@ -28,17 +28,17 @@
 FactoryBot.define do
   factory :group do
     sequence(:name) {|n| "Test Group #{n}"}
-    email 'testgroup@email.com'
-    contact 'some googlegroup'
-    city 'Berlin'
-    country 'DE'
+    email { 'testgroup@email.com' }
+    contact { 'some googlegroup' }
+    city { 'Berlin' }
+    country { 'DE' }
   end
 
   factory :second_group, class: Group do
     sequence(:name) {|n| "Second Group #{n}"}
-    email 'secondgroup@email.com'
-    contact 'some other googlegroup'
-    city 'Hamburg'
-    country 'DE'
+    email { 'secondgroup@email.com' }
+    contact { 'some other googlegroup' }
+    city { 'Hamburg' }
+    country { 'DE' }
   end
 end
