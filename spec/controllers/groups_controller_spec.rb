@@ -41,7 +41,7 @@ describe GroupsController, vcr: {cassette_name: 'create_group'} do
 
     context 'with params with spaces' do
 
-let(:params) {{ group: { name: 'rubycorns', email: '  test@tehest.com', contact: 'fruitcakes', city: '  Berlin ', country: ' DE' } }}
+      let(:params) {{ group: { name: 'rubycorns', email: '  test@tehest.com', contact: 'fruitcakes', city: '  Berlin ', country: ' DE' } }}
 
       before do
         allow(controller).to receive :authenticate_person!
