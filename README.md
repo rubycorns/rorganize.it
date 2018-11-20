@@ -66,6 +66,9 @@ Run all the tests
 
     bundle exec rspec
 
+#### Catch emails locally
+
+`config/environments/development.rb` contains a few lines on how to setup [MailCatcher](https://mailcatcher.me/) so you can check the emails you sent locally.
 
 ### Git: branches
 *Note*: you will need permission from rubycorns in order to push your branches to this repository.

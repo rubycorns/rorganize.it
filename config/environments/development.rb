@@ -46,7 +46,7 @@ Rails.application.configure do
 
   ## If you have mailcatcher installed
   ## (`gem install mailcatcher`, then `$ mailcatcher`),
-  ## you can use :smtp for amazeing email debugging
+  ## you can use :smtp for amazing email debugging
   config.action_mailer.delivery_method = :test
   #config.action_mailer.delivery_method = :smtp
   #config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }

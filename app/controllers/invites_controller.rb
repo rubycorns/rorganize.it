@@ -19,7 +19,7 @@ class InvitesController < ApplicationController
 
   def reject
     PersonMailer.invitation_rejected(@group, @person).deliver_now if @person.email.present?
-    @message = "Rejection successful, hopefully they'll have cake."
+    @message = "Declined successfully, hopefully they'll have cake."
   end
 
   def destroy

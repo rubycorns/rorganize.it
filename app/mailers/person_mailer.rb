@@ -15,7 +15,7 @@ class PersonMailer < ActionMailer::Base
     @person = person
 
     mail to: @person.email,
-         subject: "Your membership to #{@group.name} has been accepted!"
+         subject: "#{@group.name} accepted your membership request! Yay!"
   end
 
   def invitation_rejected(group, person)
@@ -23,7 +23,7 @@ class PersonMailer < ActionMailer::Base
     @person = person
 
     mail to: @person.email,
-         subject: "Your membership to #{@group.name} has been rejected."
+         subject: "#{@group.name} declined your membership request"
   end
 
   def new_invitation(group, person)
