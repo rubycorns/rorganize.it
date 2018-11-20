@@ -38,6 +38,24 @@ describe GroupsController, vcr: {cassette_name: 'create_group'} do
         expect(response).to render_template(:new)
       end
     end
+
+    context 'with params with spaces' do
+
+let(:params) {{ group: { name: 'rubycorns', email: '  test@tehest.com', contact: 'fruitcakes', city: '  Berlin ', country: ' DE' } }}
+
+      before do
+        allow(controller).to receive :authenticate_person!
+        allow(controller).to receive(:current_person).and_return(person)
+      end
+
+      it 'trims params' do
+        post :create, params: params
+        group = Group.find_by(name: 'rubycorns')
+        expect(group.city).to eq('Berlin')
+        expect(group.email).to eq('test@tehest.com')
+        expect(group.country).to eq('DE')
+      end
+    end
   end
 
   describe 'update' do
