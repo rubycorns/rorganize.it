@@ -1,4 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
+  include ParamsHelper
+  before_action only: [:create] do
+    trim_params(params[:person])
+  end
 
   def destroy
     current_person.destroy

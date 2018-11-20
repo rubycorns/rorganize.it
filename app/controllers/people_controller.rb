@@ -1,6 +1,10 @@
 class PeopleController < ApplicationController
+  include ParamsHelper
   before_action :authenticate_person!, except: [:index]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action only: [:update] do
+    trim_params(params[:person])
+  end
 
   def index
     ordered_people = Person.order(:first_name).order(:last_name)
@@ -11,7 +15,7 @@ class PeopleController < ApplicationController
     @cities = Person.order(:city).visible_locations_for(:cities, signed_in?)
     @countries = Person.order(:country).visible_locations_for(:countries, signed_in?)
 
-    @grouped_people = @people.group_by{|person| person.first_name.first.capitalize }
+    @grouped_people = @people.group_by{ |person| person.first_name.first.capitalize }
     @alphabetical_list = @grouped_people.keys.sort
     @subnav_active = 'index'
   end
