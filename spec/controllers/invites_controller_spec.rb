@@ -89,7 +89,7 @@ RSpec.describe InvitesController, { type: :controller,
 
       it 'renders the flash message' do
         delete :destroy, params: { id: invite.id, invite: { state: 'false' }}
-        expect(flash[:notice]).to have_content('Rejection successful')
+        expect(flash[:notice]).to have_content('Declined successfully')
       end
 
       it 'does not increase membership count' do

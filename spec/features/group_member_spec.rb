@@ -67,7 +67,7 @@ feature 'Manage group members', vcr: { cassette_name: 'create_group' } do
     within '.group_invites' do
       click_on 'reject'
     end
-    expect(page).to have_content('Rejection successful, hopefully they\'ll have cake.')
+    expect(page).to have_content('Declined successfully, hopefully they\'ll have cake.')
   end
 
   def group_has_new_member
