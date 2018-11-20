@@ -1,0 +1,16 @@
+%p
+  Dear #{@group.name}
+%p
+  = @person.full_name
+  has requested to join your group!
+
+%p
+  You can find their profile here:
+  \#{link_to "profile page", person_url(@person)}.
+
+%p
+  You can either accept or decline the request
+  \#{link_to "on your group page", group_url(@group)}
+
+%p Best wishes from Rorganize!
+%p ps - if you like our app, please send cake

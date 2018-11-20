@@ -46,6 +46,11 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @invites = Invite.where(group_id: @group.id).select do |i|
+      return false unless current_person
+      i.person == current_person
+    end
+
     @students = signed_in? ? @group.students : @group.students.public_profile
     @coaches = signed_in? ? @group.coaches : @group.coaches.public_profile
 

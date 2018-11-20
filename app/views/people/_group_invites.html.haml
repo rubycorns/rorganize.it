@@ -1,0 +1,15 @@
+- if invites.present?
+  %hr
+  #group_invites
+    %h2 📭 Pending memberships
+    %p You're waiting for membership confirmation from these groups
+    %ul
+      - invites.each do |i|
+        %li.list-group-item
+          .list-group-item-pic
+            = render partial: 'shared/group_picture', locals: { group: i.group }
+          .list-group-item-info
+            .h3= link_to i.group.name, group_path(i.group)
+            %p
+              requested
+              = i.created_at.strftime("%b %d %Y")

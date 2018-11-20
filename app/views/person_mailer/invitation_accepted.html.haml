@@ -1,0 +1,20 @@
+%p
+  Dear #{@person.first_name}
+%p
+  = @group.name
+  has accepted your request to join them!
+
+- if @group.time.present?
+  %p
+    You will see them at: #{@group.time}
+- if @group.address.present?
+  %p
+    They will meet you here: #{@group.address}
+%p That means it's cake time!
+
+%p
+  You can find the entire group profile here:
+  \#{link_to "project group page", group_url(@group)}.
+
+%p Best wishes from Rorganize!
+%p ps - if you like our app, please send cake
