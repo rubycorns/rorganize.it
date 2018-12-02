@@ -70,6 +70,10 @@ class GroupsController < ApplicationController
   def manage_members
   end
 
+  def my_groups
+    @my_groups = current_person.groups
+  end
+
   def searching
     @group_coaches = Group.searching_coaches
     @groups = @group_coaches.or(Group.searching_students).or(Group.searching_location)

@@ -3,6 +3,8 @@
   %li= link_to "Recently added", recent_groups_path, class: group_subnav_active_class('recent')
   %li= link_to "Groups searching", searching_groups_path, class: group_subnav_active_class('searching')
   %li= link_to "Inactive groups", inactive_groups_path, class: group_subnav_active_class('inactive')
+  %li= link_to "My Groups", my_groups_path, class: group_subnav_active_class('my_groups')
+
 
   - if @group.present?
     - if show_member_buttons?(current_person, @group) || current_person.admin?
