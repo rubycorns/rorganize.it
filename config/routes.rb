@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/conduct' => 'pages#conduct'
 
   #resources routing declare all of the common routes for the certain controller (index, new, edit etc...)
+  get '/my_groups' => 'groups#my_groups'
   resources :groups do
     collection do
       %i[searching recent inactive].each { |action| get action }

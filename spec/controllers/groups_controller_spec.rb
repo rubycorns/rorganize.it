@@ -58,6 +58,26 @@ describe GroupsController, vcr: {cassette_name: 'create_group'} do
     end
   end
 
+  describe 'my_groups' do
+    let(:person) { create(:person) }
+    let(:group) { create(:group, name: 'Group 1')}
+
+    before do
+      allow(controller).to receive :authenticate_person!
+      allow(controller).to receive(:current_person).and_return(person)
+      person.join!(group, {})
+    end
+
+    it 'should return groups i belong to' do
+      get :my_groups
+
+      expect(response).to be_success
+      expect(person.groups.first.name).to eq(group.name)
+      expect(person.groups.count).to eq(1)
+    end
+
+  end
+
   describe 'update' do
     let(:group) { create(:group, name: 'Awesome Group') }
     let(:person) { create(:person) }
