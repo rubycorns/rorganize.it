@@ -12,4 +12,8 @@ class NullPerson
     false
   end
 
+  def admin_member_of?(group)
+    false
+  end
+
 end
