@@ -1,10 +1,12 @@
 $(document).ready(function() {
   $('.alert-close').click(function() {
-    $('.alert').addClass('fade-out');
+    removeAlert();
   })
 
   function removeAlert() {
-    $('.alert').addClass('fade-out');
+    $('.alert').fadeOut(500, function() {
+      $(this).remove();
+    });
   }
   window.setTimeout(removeAlert, 8000);
   
