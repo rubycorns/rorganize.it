@@ -43,6 +43,14 @@ feature 'Manage group members', vcr: { cassette_name: 'create_group' } do
     make_another_member_admin
   end
 
+  scenario 'Be group admin and delete group' do
+    be_group_admin
+    expect(page).to have_content('Delete group')
+    click_on 'Delete group'
+    expect(page).to have_content('Group was successfully deleted. May we suggest drowning your sorrows in some cake?')
+    expect(page).to have_content('Register new group')
+  end
+
   let(:person) { create(:person) }
   let(:group) { create(:group) }
   let(:person2) { create(:second_person) }
