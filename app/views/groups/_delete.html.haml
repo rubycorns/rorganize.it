@@ -1,0 +1,3 @@
+- if current_person && current_person.admin_member_of?(@group)
+  = form_tag group_path(@group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-group' do
+    %button.btn.btn-pink Delete group
