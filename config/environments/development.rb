@@ -18,7 +18,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -42,15 +42,6 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
-
-  ## If you have mailcatcher installed
-  ## (`gem install mailcatcher`, then `$ mailcatcher`),
-  ## you can use :smtp for amazing email debugging
-  config.action_mailer.delivery_method = :test
-  #config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
-
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
@@ -59,5 +50,5 @@ Rails.application.configure do
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
