@@ -14,7 +14,7 @@ gem "pry"
 gem "rubocop"
 
 group :development do
-  gem 'sqlite3'
+  gem 'sqlite3', '1.3.13'
   gem 'guard-rspec', require: false
   gem 'annotate'
   gem 'spring'
