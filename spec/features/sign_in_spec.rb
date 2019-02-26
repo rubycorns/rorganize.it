@@ -94,7 +94,7 @@ describe 'Signing in', :type => :feature do
 
       click_link('Edit profile')
       expect(page).to_not have_content("Link account with GitHub")
-      expect(page).to have_content("Your account is linked to GitHub ")
+      expect(page).to have_content("Your account is linked to GitHub")
     end
   end
 end

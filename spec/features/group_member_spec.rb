@@ -109,7 +109,7 @@ feature 'Manage group members', vcr: { cassette_name: 'create_group' } do
 
   def go_to_manage_members
     go_to_admin_group
-    expect(page).to have_content('Manage members 1')
+    expect(page).to have_content('Manage members 1', normalize_ws: true)
     click_on 'Manage members 1'
   end
 
