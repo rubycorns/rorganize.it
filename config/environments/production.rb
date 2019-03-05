@@ -68,7 +68,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = {
     host: 'rorganize.it',
-    protocol: 'https'}
+    protocol: 'https'
+  }
 
   config.action_mailer.delivery_method = :sendmail
 
@@ -76,11 +77,11 @@ Rails.application.configure do
 
   config.middleware.use ExceptionNotification::Rack,
     email: {
-    email_prefix: "[RORGANIZE ERROR]",
-    sender_address: %{"Roar" <ror@schedar.uberspace.de>},
-    exception_recipients: %w[roar@rorganize.it]
-  },
-  error_grouping: true
+      email_prefix: "[RORGANIZE ERROR]",
+      sender_address: %{"Roar" <ror@schedar.uberspace.de>},
+      exception_recipients: %w[roar@rorganize.it]
+    },
+    error_grouping: true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
