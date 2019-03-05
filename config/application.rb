@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module RailsGirlsApp
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
       "<div class=\"field_with_errors has-error\">#{html_tag}</div>".html_safe
     end

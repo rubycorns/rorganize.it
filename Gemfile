@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.7'
+gem 'rails', '5.1.0'
 
 gem 'devise'
 
@@ -14,7 +14,7 @@ gem "pry"
 gem "rubocop"
 
 group :development do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.13'
   gem 'guard-rspec', require: false
   gem 'annotate'
   gem 'spring'
