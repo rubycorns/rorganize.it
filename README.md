@@ -15,7 +15,7 @@ You can learn about our [Code of Conduct online ](https://rorganize.it/conduct) 
 
 Ruby version 2.5.x
 
-Rails version 4.2.x
+Rails version 5.1.x
 
 Make sure you have ImageMagick installed.
 
