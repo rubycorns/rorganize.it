@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20181019100323) do
     t.string "name"
     t.string "address"
     t.string "time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "picture"
     t.string "twitter"
     t.float "latitude"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20181019100323) do
   create_table "memberships", force: :cascade do |t|
     t.integer "group_id"
     t.integer "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "type"
     t.boolean "admin", default: false, null: false
     t.index ["group_id", "person_id"], name: "index_memberships_on_group_id_and_person_id", unique: true
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20181019100323) do
     t.string "last_name"
     t.string "email", default: "", null: false
     t.integer "group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(version: 20181019100323) do
     t.string "title"
     t.text "description"
     t.string "picture"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "person_id"
     t.boolean "draft", default: false, null: false
     t.string "slug"

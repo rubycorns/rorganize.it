@@ -1,4 +1,4 @@
-class AddAdminToPeople < ActiveRecord::Migration
+class AddAdminToPeople < ActiveRecord::Migration[5.1]
   def up
     add_column :people, :admin, :boolean, default: false, null: false
     

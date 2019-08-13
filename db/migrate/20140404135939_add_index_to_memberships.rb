@@ -1,4 +1,4 @@
-class AddIndexToMemberships < ActiveRecord::Migration
+class AddIndexToMemberships < ActiveRecord::Migration[5.1]
   def change
     add_index :memberships, :group_id
     add_index :memberships, :person_id
