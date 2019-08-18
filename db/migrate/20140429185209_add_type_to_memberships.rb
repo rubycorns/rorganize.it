@@ -4,7 +4,7 @@ end
 class Coach < Person
 end
 
-class AddTypeToMemberships < ActiveRecord::Migration
+class AddTypeToMemberships < ActiveRecord::Migration[5.1]
   def change
     add_column :memberships, :type, :string
     Membership.all.each do |membership|

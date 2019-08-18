@@ -1,4 +1,4 @@
-class RemoveAndAddProviderUid < ActiveRecord::Migration
+class RemoveAndAddProviderUid < ActiveRecord::Migration[5.1]
   def change
     remove_column :people, :provider
     remove_column :people, :uid
