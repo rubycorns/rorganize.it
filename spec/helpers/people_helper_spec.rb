@@ -57,7 +57,7 @@ describe PeopleHelper do
     context "user does not have avatar" do
       let(:no_picture) { build_stubbed :second_person }
       it "returns a default avatar" do
-        expect(helper.person_avatar(no_picture)).to eql "<img src=\"/avatar.png\" alt=\"Avatar\" width=\"40\" height=\"40\" />"
+        expect(helper.person_avatar(no_picture)).to eql "<img alt=\"Avatar\" src=\"/avatar.png\" width=\"40\" height=\"40\" />"
       end
     end
   end
