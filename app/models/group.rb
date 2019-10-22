@@ -47,7 +47,9 @@ class Group < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
   geocoded_by :location
-  after_validation :geocode
+  unless Rails.env.development?
+    after_validation :geocode
+  end
 
   before_save :capitalize_fields
 
