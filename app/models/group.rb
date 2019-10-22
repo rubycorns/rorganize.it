@@ -47,7 +47,12 @@ class Group < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
   geocoded_by :location
+
   unless Rails.env.development?
+    # We don't run the geocode validation in development because
+    # there can be errors saving the group
+    # To avoid any grief for new users seeding the DB, we
+    # have turned this off for dev.
     after_validation :geocode
   end
 
