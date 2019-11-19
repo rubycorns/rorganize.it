@@ -11,7 +11,7 @@ module PeopleHelper
     if person.picture?
       image_tag(person.picture_url(:person_profile), width: 300)
     else
-      image_tag('/avatar.png', size: "40x40")
+      image_tag("/avatar.png", size: "40x40", alt: "Avatar")
     end
   end
 
