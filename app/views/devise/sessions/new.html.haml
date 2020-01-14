@@ -2,7 +2,7 @@
   %h1.page-header Sign in
   .form-box
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      = devise_error_messages!
+      = render partial: 'devise/shared/error_messages', resource: resource
       .form-group
         = f.label :email
         = f.email_field :email, placeholder: 'email@email.com', autofocus: true
