@@ -89,7 +89,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails',  ">= 3.5"
+  gem 'rspec-rails', '>= 3.8.2'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
