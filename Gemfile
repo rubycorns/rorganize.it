@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
 
 gem 'devise'
 
@@ -29,7 +29,7 @@ group :production do
   gem 'thin'
 end
 
-gem 'exception_notification', '~> 4.2.2'
+gem 'exception_notification', '~> 4.4.0'
 
 gem 'carrierwave'
 gem 'carrierwave-bombshelter'
@@ -41,7 +41,7 @@ gem 'emoji'
 
 gem 'country_select'
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '>= 5.0.8'
 # Use Compass to supercharge SCSS
 gem "compass", "~> 0.12.2"
 
@@ -64,7 +64,7 @@ gem "modernizr-rails", "~> 2.6.2.3"
 gem 'geocoder'
 
 # more icons!
-gem "font-awesome-rails"
+gem "font-awesome-rails", ">= 4.7.0.6"
 
 # for markup!
 gem 'redcarpet'
@@ -89,7 +89,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails',  ">= 3.5"
+  gem 'rspec-rails', '>= 3.8.2'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
